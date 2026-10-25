@@ -4,11 +4,7 @@ import { fullName, site } from "@/config/site";
 export function Logo({ tone = "dark" }: { tone?: "dark" | "light" }) {
   const c = tone === "dark" ? "text-cocoa-deep" : "text-vanilla";
   return (
-    <Link
-      href="/"
-      className={`group inline-flex items-center gap-3 ${c}`}
-      aria-label={`${fullName} — início`}
-    >
+    <Link href="/" className={`group inline-flex items-center gap-3 ${c}`}>
       <svg width="30" height="34" viewBox="0 0 30 34" aria-hidden="true" className="shrink-0">
         <path
           d="M2 33V15a13 13 0 0 1 26 0v18"

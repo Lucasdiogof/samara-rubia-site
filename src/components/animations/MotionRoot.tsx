@@ -23,7 +23,13 @@ export function MotionRoot() {
     let dead = false;
     let revert: (() => void) | undefined;
 
-    (async () => {
+    // Adia o GSAP para o navegador ficar ocioso: não disputa com o LCP.
+    const idle = (cb: () => void) =>
+      "requestIdleCallback" in window
+        ? window.requestIdleCallback(cb, { timeout: 1500 })
+        : setTimeout(cb, 300);
+
+    idle(async () => {
       try {
         const [{ gsap }, { ScrollTrigger }] = await Promise.all([
           import("gsap"),
@@ -144,7 +150,7 @@ export function MotionRoot() {
       } catch {
         document.documentElement.classList.add("anim-fail");
       }
-    })();
+    });
 
     return () => {
       dead = true;

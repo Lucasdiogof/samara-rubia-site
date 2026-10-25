@@ -250,7 +250,7 @@ body {
     transform: translateY(112%);
   }
   html.js:not(.anim-fail) .sw {
-    opacity: 0.22;
+    opacity: 0.58;
   }
   html.js:not(.anim-fail) [data-step]:not(.is-active) {
     opacity: 0.4;
@@ -274,8 +274,8 @@ body {
 /* Entrada do hero: só CSS, sem depender de JS (bom para LCP). */
 @media (prefers-reduced-motion: no-preference) {
   [data-intro="lines"] .rwi {
-    animation: rise 1.1s var(--ease-out) both;
-    animation-delay: calc(var(--d, 0s) + var(--i, 0) * 60ms);
+    animation: rise-soft 0.7s var(--ease-out) both;
+    animation-delay: calc(var(--d, 0s) + var(--i, 0) * 30ms);
   }
   [data-intro="fade"] {
     animation: fadeup 1s var(--ease-out) both;
@@ -289,6 +289,10 @@ body {
     animation: zoomout 1.6s var(--ease-out) both;
     animation-delay: var(--d, 0s);
   }
+}
+@keyframes rise-soft {
+  from { transform: translateY(45%); }
+  to { transform: none; }
 }
 @keyframes rise {
   from {

@@ -101,3 +101,11 @@ publique de novo. Não é preciso alterar o código.
 3. `npm run check`; conferir `out/robots.txt` (sem `Disallow: /`) e `out/sitemap.xml`.
 4. Validar dados estruturados (Rich Results Test) e rodar Lighthouse em produção.
 5. Enviar o sitemap ao Google Search Console.
+
+## Verificações executadas (25/10/2026)
+
+- `eslint` e `tsc --noEmit`: sem erros. `next build` estático: 19 rotas geradas. `scripts/check-links.mjs`: 18 páginas, 0 links internos quebrados.
+- Publicado e conferido por HTTP: 8 rotas 200, rota inexistente 404 (página personalizada), `robots.txt` com `Disallow: /`, `<meta robots noindex>` e canonical corretos.
+- Lighthouse mobile (simulado, URL workers.dev, 2–3 execuções): Performance 77–91, Accessibility 96, Best Practices 96, SEO 66. O SEO só perde pontos por `is-crawlable` (noindex proposital); sobe quando a indexação for liberada. LCP 3,1–4,8 s, CLS 0, TBT ≤ 20 ms. **A meta de Performance > 90 e LCP ≤ 2,5 s ainda não é atingida de forma estável**; a variação vem sobretudo do carregamento da fonte do título no throttling simulado.
+- Navegador (390px e 1440px): sem overflow horizontal, menu mobile abre/fecha com Esc, acordeão expande, storytelling da jornada acompanha o scroll.
+- Não executado: testes automatizados com Playwright, auditoria em 320/768/1024/1920 px, teste com leitor de tela.

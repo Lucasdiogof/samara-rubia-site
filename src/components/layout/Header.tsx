@@ -139,7 +139,7 @@ export function Header() {
                       )}
                     >
                       {n.label}
-                      <span className="text-sm font-sans text-taupe" aria-hidden="true">
+                      <span className="text-sm font-sans text-cocoa" aria-hidden="true">
                         0{i + 1}
                       </span>
                     </Link>

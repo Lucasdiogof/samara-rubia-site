@@ -26,7 +26,7 @@ export function AreaRow({
         href={href}
         className="group grid grid-cols-[2.5rem_1fr_auto] items-baseline gap-x-4 py-6 sm:grid-cols-[4rem_1fr_1.1fr_auto] sm:gap-x-8 sm:py-8"
       >
-        <span className="font-display text-xl italic text-taupe" aria-hidden="true">
+        <span className="font-display text-xl italic text-cocoa" aria-hidden="true">
           {String(index + 1).padStart(2, "0")}
         </span>
         <span className="font-display text-[1.6rem] leading-tight text-cocoa-deep sm:text-[2.1rem]">

@@ -11,7 +11,7 @@ import { websiteLd, personLd, businessLd } from "@/lib/structured-data";
 
 const display = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500"],
   style: ["normal", "italic"],
   variable: "--font-cormorant",
   display: "swap",
