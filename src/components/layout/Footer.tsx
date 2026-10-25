@@ -9,7 +9,7 @@ export function Footer() {
   const wa = whatsappUrl();
   const loc = [site.location.city, site.location.region].filter(Boolean).join(" · ");
   return (
-    <footer className="bg-cream">
+    <footer id="rodape" className="bg-cream">
       <div className="wrap grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Logo />

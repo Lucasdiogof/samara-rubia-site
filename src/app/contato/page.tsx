@@ -23,7 +23,11 @@ export default function Contato() {
       <PageHero
         eyebrow="Contato"
         title="Vamos *conversar?*"
-        lead="O agendamento é feito pelo WhatsApp, de forma simples e sem formulários."
+        lead={
+          wa
+            ? "O agendamento é feito pelo WhatsApp, de forma simples e sem formulários."
+            : "Os canais de atendimento ainda estão em preparação. Esta página será atualizada com as informações confirmadas."
+        }
         crumbs={[{ name: "Contato", path: "/contato/" }]}
       />
       <section className="pb-28">

@@ -2,7 +2,7 @@
 export const journey = [
   {
     title: "Primeiro contato",
-    text: "Você envia uma mensagem pelo WhatsApp. Sem formulários e sem precisar contar detalhes clínicos por escrito.",
+    text: "Você envia uma mensagem pelo canal de atendimento (previsto: WhatsApp). Sem formulários e sem precisar contar detalhes clínicos por escrito.",
   },
   {
     title: "Agendamento",

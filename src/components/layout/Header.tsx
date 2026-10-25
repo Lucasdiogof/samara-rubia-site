@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence } from "motion/react";
+import * as m from "motion/react-m";
 import { Menu, X } from "lucide-react";
 import { AnimatedButton } from "@/components/ui/Button";
 import { Logo } from "./Logo";
 import { nav } from "./nav";
-import { bookingHref } from "@/lib/contact";
+import { bookingHref, ctaLabel } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -17,6 +18,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const firstLink = useRef<HTMLAnchorElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -37,7 +39,24 @@ export function Header() {
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     firstLink.current?.focus();
+    // Mantém o foco dentro do cabeçalho/menu enquanto o menu está aberto.
+    const behind = ["pular", "conteudo", "rodape"].map((id) => document.getElementById(id));
+    behind.forEach((el) => el?.setAttribute("inert", ""));
     const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Tab" && headerRef.current) {
+        const items = [
+          ...headerRef.current.querySelectorAll<HTMLElement>("a[href], button"),
+        ].filter((el) => el.offsetParent !== null);
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      }
       if (e.key === "Escape") {
         setOpen(false);
         toggle.current?.focus();
@@ -46,6 +65,7 @@ export function Header() {
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = prev;
+      behind.forEach((el) => el?.removeAttribute("inert"));
       window.removeEventListener("keydown", onKey);
     };
   }, [open]);
@@ -54,6 +74,7 @@ export function Header() {
 
   return (
     <header
+      ref={headerRef}
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,padding] duration-500",
         scrolled || open
@@ -90,7 +111,7 @@ export function Header() {
             className="hidden !min-h-11 !px-5 sm:inline-flex"
             arrow={false}
           >
-            Agendar avaliação
+            {ctaLabel}
           </AnimatedButton>
           <button
             ref={toggle}
@@ -108,7 +129,7 @@ export function Header() {
 
       <AnimatePresence>
         {open && (
-          <motion.div
+          <m.div
             id="menu-mobile"
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -122,7 +143,7 @@ export function Header() {
             >
               <ul>
                 {nav.map((n, i) => (
-                  <motion.li
+                  <m.li
                     key={n.href}
                     initial={{ opacity: 0, y: 18 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -143,14 +164,14 @@ export function Header() {
                         0{i + 1}
                       </span>
                     </Link>
-                  </motion.li>
+                  </m.li>
                 ))}
               </ul>
               <AnimatedButton href={bookingHref} track="menu" className="mt-10 w-full">
-                Agendar avaliação
+                {ctaLabel}
               </AnimatedButton>
             </nav>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </header>

@@ -1,7 +1,7 @@
 import { RevealText, RevealImage, FadeInSection } from "@/components/animations/Reveal";
 import { AnimatedButton } from "@/components/ui/Button";
 import { Blob, Portrait } from "@/components/ui/Portrait";
-import { bookingHref } from "@/lib/contact";
+import { bookingHref, ctaLabel } from "@/lib/contact";
 import { site } from "@/config/site";
 
 export function Hero() {
@@ -27,11 +27,21 @@ export function Hero() {
           </FadeInSection>
           <FadeInSection intro delay={0.65} className="mt-10 flex flex-wrap gap-4">
             <AnimatedButton href={bookingHref} track="hero">
-              Agendar avaliação
+              {ctaLabel}
             </AnimatedButton>
             <AnimatedButton href="/sobre/" variant="ghost" arrow={false}>
               Conheça meu trabalho
             </AnimatedButton>
+          </FadeInSection>
+          <FadeInSection intro delay={0.8}>
+            <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-2 text-sm text-cocoa">
+              {["Etapas explicadas", "Sigilo profissional", "Para homens e mulheres"].map((t) => (
+                <li key={t} className="flex items-center gap-2">
+                  <span aria-hidden="true" className="h-1 w-1 rounded-full bg-cocoa" />
+                  {t}
+                </li>
+              ))}
+            </ul>
           </FadeInSection>
         </div>
 

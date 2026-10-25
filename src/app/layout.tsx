@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { MotionRoot } from "@/components/animations/MotionRoot";
+import { MotionProvider } from "@/components/animations/MotionProvider";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { websiteLd, personLd, businessLd } from "@/lib/structured-data";
 
@@ -50,15 +51,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <a
+          id="pular"
           href="#conteudo"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-cocoa-deep focus:px-5 focus:py-3 focus:text-vanilla"
         >
           Pular para o conteúdo
         </a>
-        <Header />
-        <main id="conteudo">{children}</main>
-        <Footer />
-        <FloatingWhatsApp />
+        <MotionProvider>
+          <Header />
+          <main id="conteudo">{children}</main>
+          <Footer />
+          <FloatingWhatsApp />
+        </MotionProvider>
         <MotionRoot />
         <JsonLd data={websiteLd()} />
         {personLd() && <JsonLd data={personLd()!} />}

@@ -16,6 +16,9 @@ export const instagramUrl = site.contact.instagram
 export const bookingHref = whatsappUrl() ?? "/contato/";
 export const hasWhatsapp = whatsappUrl() !== null;
 
+/** Texto dos CTAs: só promete agendamento quando há canal real. */
+export const ctaLabel = hasWhatsapp ? "Agendar avaliação" : "Canais de contato";
+
 export function trackCta(name: string) {
   // Gancho para mensuração futura: qualquer script pode ouvir "site:cta".
   window.dispatchEvent(new CustomEvent("site:cta", { detail: { name } }));

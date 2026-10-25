@@ -7,6 +7,10 @@ export default defineConfig([
   ...nextTs,
   globalIgnores([
     ".next/**",
+    ".wrangler/**",
+    "_exp/**",
+    "test-results/**",
+    "playwright-report/**",
     "out/**",
     "node_modules/**",
     "docs/templates/**",

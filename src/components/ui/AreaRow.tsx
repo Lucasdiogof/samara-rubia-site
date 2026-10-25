@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 import { ArrowUpRight } from "lucide-react";
 
 /** Linha editorial de área de atuação com hover em Motion. */
@@ -17,7 +17,7 @@ export function AreaRow({
   href: string;
 }) {
   return (
-    <motion.li
+    <m.li
       whileHover={{ x: 8 }}
       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
       className="border-b border-border"
@@ -40,6 +40,6 @@ export function AreaRow({
           className="col-start-3 row-start-1 text-cocoa transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 sm:col-start-4"
         />
       </Link>
-    </motion.li>
+    </m.li>
   );
 }

@@ -6,7 +6,7 @@ import { RevealText, FadeInSection } from "@/components/animations/Reveal";
 import { AnimatedButton } from "@/components/ui/Button";
 import { Blob } from "@/components/ui/Portrait";
 import { breadcrumbLd } from "@/lib/structured-data";
-import { bookingHref } from "@/lib/contact";
+import { bookingHref, ctaLabel, hasWhatsapp } from "@/lib/contact";
 
 export function Breadcrumbs({ items }: { items: { name: string; path: string }[] }) {
   const all = [{ name: "Início", path: "/" }, ...items];
@@ -87,7 +87,13 @@ export function ReviewNotice({ approved, children }: { approved: boolean; childr
 }
 
 /** CTA de fechamento reutilizável para páginas internas. */
-export function CtaBand({ title = "Vamos conversar sobre o seu cuidado?" }: { title?: string }) {
+export function CtaBand({
+  title = hasWhatsapp
+    ? "Vamos conversar sobre o seu cuidado?"
+    : "Os canais de contato estão em preparação.",
+}: {
+  title?: string;
+}) {
   return (
     <section className="on-dark bg-cocoa-deep py-20 text-vanilla">
       <div className="wrap flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
@@ -95,7 +101,7 @@ export function CtaBand({ title = "Vamos conversar sobre o seu cuidado?" }: { ti
           {title}
         </RevealText>
         <AnimatedButton href={bookingHref} variant="light" track="band">
-          Agendar avaliação
+          {ctaLabel}
         </AnimatedButton>
       </div>
     </section>

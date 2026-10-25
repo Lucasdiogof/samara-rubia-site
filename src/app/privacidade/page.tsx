@@ -20,7 +20,7 @@ const blocks: [string, string[]][] = [
   [
     "Contato pelo WhatsApp",
     [
-      "Ao clicar nos botões de agendamento, você é levado ao WhatsApp, serviço de terceiros com política de privacidade própria. A mensagem inicial é padronizada e não contém informações clínicas.",
+      "Quando o contato por WhatsApp estiver disponível, os botões de agendamento levarão você ao WhatsApp, serviço de terceiros com política de privacidade própria. A mensagem inicial é padronizada e não contém informações clínicas.",
       "Recomendamos não enviar detalhes de saúde por mensagem; eles são conversados na avaliação, sob sigilo profissional.",
     ],
   ],

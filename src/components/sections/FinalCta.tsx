@@ -18,17 +18,20 @@ export function FinalCta() {
         fill="var(--cream)"
       />
       <div className="wrap relative max-w-4xl">
-        <p className="eyebrow !text-sand">Próximo passo</p>
+        <p className="eyebrow !text-cream">Próximo passo</p>
         <RevealText as="h2" id="cta-title" className="t-display mt-6">
-          Seu cuidado começa com uma *conversa.*
+          {hasWhatsapp
+            ? "Seu cuidado começa com uma *conversa.*"
+            : "Em breve, o primeiro *contato.*"}
         </RevealText>
         <FadeInSection delay={0.2}>
           <p className="mt-8 max-w-xl text-lg text-cream">
-            Envie uma mensagem para agendar a sua avaliação. Sem compromisso e sem precisar detalhar
-            nada por escrito.
+            {hasWhatsapp
+              ? "Envie uma mensagem para agendar a sua avaliação. Sem compromisso e sem precisar detalhar nada por escrito."
+              : "Os canais de contato e de agendamento ainda estão em preparação e serão divulgados aqui assim que forem confirmados."}
           </p>
           <AnimatedButton href={bookingHref} variant="light" track="final" className="mt-10">
-            {hasWhatsapp ? "Agendar pelo WhatsApp" : "Ver formas de contato"}
+            {hasWhatsapp ? "Agendar pelo WhatsApp" : "Ver página de contato"}
           </AnimatedButton>
         </FadeInSection>
       </div>

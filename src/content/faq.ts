@@ -28,6 +28,14 @@ export const faqGroups: FaqGroup[] = [
         a: "A avaliação começa com uma conversa sobre a sua história e as suas queixas. Os procedimentos de avaliação adequados ao seu caso são explicados antes de qualquer etapa, e nada é realizado sem a sua compreensão e o seu consentimento.",
       },
       {
+        q: "A avaliação causa dor ou constrangimento?",
+        a: "O objetivo é que você se sinta seguro. Cada etapa é explicada antes de acontecer e só é realizada com o seu consentimento. Se algo incomodar, é possível ajustar ou interromper.",
+      },
+      {
+        q: "Preciso de encaminhamento médico?",
+        a: "A necessidade de encaminhamento será confirmada pela profissional. Se for indicada avaliação médica ou exames, isso será orientado durante o atendimento.",
+      },
+      {
         q: "Quantas sessões vou precisar?",
         a: "Depende de cada pessoa e de cada objetivo. O plano é definido após a avaliação, sem promessas de prazo ou de resultado.",
       },
@@ -42,7 +50,11 @@ export const faqGroups: FaqGroup[] = [
     items: [
       {
         q: "Como agendo uma avaliação?",
-        a: "O primeiro contato é feito pelo WhatsApp. Você envia uma mensagem, combina o melhor horário e recebe as orientações para o dia.",
+        a: "O primeiro contato será feito pelo canal de atendimento divulgado neste site (previsto: WhatsApp). Você envia uma mensagem, combina o melhor horário e recebe as orientações para o dia.",
+      },
+      {
+        q: "O atendimento é presencial? E valores e convênios?",
+        a: "Modalidade de atendimento, valores e convênios ainda serão confirmados e divulgados neste site.",
       },
       {
         q: "Minhas informações de saúde ficam em sigilo?",
@@ -52,5 +64,14 @@ export const faqGroups: FaqGroup[] = [
   },
 ];
 
-const all = faqGroups.flatMap((g) => g.items);
-export const homeFaq: FaqItem[] = all.filter((_, i) => [0, 1, 3, 4, 6].includes(i));
+const featured = [
+  "O que é fisioterapia pélvica?",
+  "Homens também podem fazer?",
+  "A avaliação causa dor ou constrangimento?",
+  "Quantas sessões vou precisar?",
+  "Como agendo uma avaliação?",
+  "Minhas informações de saúde ficam em sigilo?",
+];
+export const homeFaq: FaqItem[] = faqGroups
+  .flatMap((g) => g.items)
+  .filter((i) => featured.includes(i.q));

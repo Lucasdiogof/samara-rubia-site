@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 import { Plus } from "lucide-react";
 
 type Item = { q: string; a: string };
@@ -34,17 +34,17 @@ export function Accordion({ items }: { items: Item[] }) {
                 <span className="font-display text-[1.45rem] leading-snug text-cocoa-deep sm:text-[1.7rem]">
                   {it.q}
                 </span>
-                <motion.span
+                <m.span
                   aria-hidden="true"
                   animate={{ rotate: isOpen ? 45 : 0 }}
                   transition={{ duration: 0.3 }}
                   className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-border text-cocoa"
                 >
                   <Plus size={18} />
-                </motion.span>
+                </m.span>
               </button>
             </h3>
-            <motion.div
+            <m.div
               id={panelId}
               role="region"
               aria-labelledby={btnId}
@@ -55,7 +55,7 @@ export function Accordion({ items }: { items: Item[] }) {
               style={{ height: 0, visibility: "hidden" }}
             >
               <p className="max-w-2xl pb-7 text-cocoa">{it.a}</p>
-            </motion.div>
+            </m.div>
           </div>
         );
       })}

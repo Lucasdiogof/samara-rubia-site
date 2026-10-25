@@ -24,7 +24,7 @@
   --focus-ring: var(--cocoa-deep);
 
   /* Espaçamento */
-  --space-section: clamp(5rem, 3rem + 8vw, 10rem);
+  --space-section: clamp(4.5rem, 3rem + 6vw, 8rem);
   --space-gutter: clamp(1.25rem, 0.8rem + 2vw, 3rem);
   --container: 80rem;
 
@@ -246,14 +246,11 @@ body {
   html.js:not(.anim-fail) [data-reveal="image"] > * {
     transform: scale(1.14);
   }
-  html.js:not(.anim-fail) .rwi {
+  html.js:not(.anim-fail) [data-reveal="lines"] .rwi {
     transform: translateY(112%);
   }
   html.js:not(.anim-fail) .sw {
     opacity: 0.58;
-  }
-  html.js:not(.anim-fail) [data-step]:not(.is-active) {
-    opacity: 0.4;
   }
 }
 .rw {
@@ -267,8 +264,17 @@ body {
   display: inline-block;
   will-change: transform;
 }
-[data-step] {
-  transition: opacity var(--dur-base) ease;
+.step-dot {
+  border: 1px solid var(--cocoa);
+  background: var(--vanilla);
+  color: var(--cocoa-deep);
+  transition:
+    background-color var(--dur-base) ease,
+    color var(--dur-base) ease;
+}
+[data-step].is-active .step-dot {
+  background: var(--cocoa);
+  color: var(--vanilla);
 }
 
 /* Entrada do hero: só CSS, sem depender de JS (bom para LCP). */
@@ -291,8 +297,12 @@ body {
   }
 }
 @keyframes rise-soft {
-  from { transform: translateY(45%); }
-  to { transform: none; }
+  from {
+    transform: translateY(45%);
+  }
+  to {
+    transform: none;
+  }
 }
 @keyframes rise {
   from {

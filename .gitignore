@@ -12,3 +12,6 @@ shots
 npm-debug.log*
 .claude
 !.env.production
+_exp
+test-results
+playwright-report

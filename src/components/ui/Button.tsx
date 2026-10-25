@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 import { ArrowUpRight } from "lucide-react";
 import { trackCta } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 
-const MotionLink = motion.create(Link);
+const MotionLink = m.create(Link);
 
 type Props = {
   href: string;
@@ -50,7 +50,7 @@ export function AnimatedButton({
   const onClick = track ? () => trackCta(track) : undefined;
 
   return external ? (
-    <motion.a
+    <m.a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
@@ -59,7 +59,7 @@ export function AnimatedButton({
       {...motionProps}
     >
       {inner}
-    </motion.a>
+    </m.a>
   ) : (
     <MotionLink href={href} className={cls} onClick={onClick} {...motionProps}>
       {inner}

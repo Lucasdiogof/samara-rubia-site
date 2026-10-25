@@ -37,7 +37,7 @@ export function Journey({ compact = false }: { compact?: boolean }) {
           />
           {journey.map((s, i) => (
             <li key={s.title} data-step className="relative pb-14 pl-14 last:pb-0">
-              <span className="absolute left-0 top-1 grid h-9 w-9 place-items-center rounded-full border border-cocoa bg-vanilla font-display text-lg text-cocoa-deep">
+              <span className="absolute left-0 top-1 grid h-9 w-9 place-items-center rounded-full step-dot font-display text-lg">
                 {i + 1}
               </span>
               <h3 className="t-h3">{s.title}</h3>
