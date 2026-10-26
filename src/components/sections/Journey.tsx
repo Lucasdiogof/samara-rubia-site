@@ -31,12 +31,12 @@ export function Journey({ lang, compact = false }: { lang: Lang; compact?: boole
         </div>
         <ol data-story className="relative lg:col-span-7">
           <span
-            className="absolute bottom-3 left-[1.15rem] top-3 w-px bg-border"
+            className="absolute bottom-3 left-[calc(1.125rem-0.5px)] top-3 w-px bg-border"
             aria-hidden="true"
           />
           <span
             data-progress
-            className="absolute bottom-3 left-[1.15rem] top-3 w-px origin-top bg-cocoa"
+            className="absolute bottom-3 left-[calc(1.125rem-0.5px)] top-3 w-px origin-top bg-cocoa"
             aria-hidden="true"
           />
           {t.journey.map((s, i) => (
