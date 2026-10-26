@@ -4,7 +4,7 @@ import type { Dict } from "./pt";
 export const es: Dict = {
   specialty: "Fisioterapia Pélvica",
   siteDescription: (wa) =>
-    `Fisioterapia pélvica para hombres y mujeres: evaluación individual, escucha y acogida.${wa ? " Agenda por WhatsApp." : ""}`,
+    `Fisioterapia pélvica para hombres y mujeres: evaluación individual, escucha y acogida.${wa ? " Reserva por WhatsApp." : ""}`,
 
   a11y: {
     skip: "Saltar al contenido",
@@ -14,8 +14,8 @@ export const es: Dict = {
     navMobile: "Menú móvil",
     navFooter: "Pie de página",
     navBreadcrumb: "Estás en",
-    shortcut: "Acceso directo para agendar",
-    scheduleWa: "Agendar por WhatsApp",
+    shortcut: "Acceso directo para reservar",
+    scheduleWa: "Reservar por WhatsApp",
     themeToDark: "Activar tema oscuro",
     themeToLight: "Activar tema claro",
     language: "Idioma",
@@ -26,7 +26,7 @@ export const es: Dict = {
     about: "Sobre mí",
     treatments: "Tratamientos",
     how: "Cómo funciona",
-    faq: "Dudas",
+    faq: "Preguntas",
     contact: "Contacto",
     content: "Contenidos",
     privacy: "Política de privacidad",
@@ -57,15 +57,15 @@ export const es: Dict = {
     text: "La fisioterapia pélvica cuida la región que sostiene y coordina funciones esenciales del día a día: orinar, evacuar, moverse y vivir la intimidad. Es un cuidado para *hombres y mujeres,* en cualquier etapa de la vida.",
     audiences: [
       [
-        "Quien tiene molestias",
+        "Si tienes molestias",
         "Pérdida de orina, dolor, molestias íntimas o cambios intestinales que alteran la rutina.",
       ],
       [
-        "Quien tiene dudas",
+        "Si tienes dudas",
         "Personas que quieren entender mejor su propio cuerpo y lo que se puede hacer por él.",
       ],
       [
-        "Quien fue derivado",
+        "Si te derivaron",
         "Pacientes enviados por otros profesionales de la salud para una evaluación especializada.",
       ],
     ],
@@ -97,7 +97,7 @@ export const es: Dict = {
       text: "Envías un mensaje por el canal de atención (previsto: WhatsApp). Sin formularios y sin tener que contar detalles clínicos por escrito.",
     },
     {
-      title: "Agendamiento",
+      title: "Reserva de la cita",
       text: "Acordamos el mejor día y horario y recibes las indicaciones para la evaluación.",
     },
     {
@@ -155,10 +155,10 @@ export const es: Dict = {
     titleWa: "Tu cuidado empieza con una *conversación.*",
     titleNoWa: "Pronto, el primer *contacto.*",
     textWa:
-      "Envía un mensaje para agendar tu evaluación. Sin compromiso y sin tener que detallar nada por escrito.",
+      "Envía un mensaje para reservar tu evaluación. Sin compromiso y sin tener que detallar nada por escrito.",
     textNoWa:
-      "Los canales de contacto y de agendamiento aún están en preparación y se publicarán aquí en cuanto se confirmen.",
-    buttonWa: "Agendar por WhatsApp",
+      "Los canales de contacto y de reserva de citas aún están en preparación y se publicarán aquí en cuanto se confirmen.",
+    buttonWa: "Reservar por WhatsApp",
     buttonNoWa: "Entiende cómo funciona",
   },
 
@@ -173,6 +173,7 @@ export const es: Dict = {
     insurance: "Seguros",
     soon: "Próximamente",
     callWa: "Escribir por WhatsApp",
+    hoursText: (open, close) => `De ${open} a ${close} (días por confirmar)`,
     directions: "Cómo llegar",
     venueAt: (venue) => `Atención en ${venue}`,
     and: "y",
@@ -204,7 +205,7 @@ export const es: Dict = {
     care: [
       [
         "Privacidad",
-        "Secreto profesional. Por WhatsApp, envía solo lo necesario para agendar; los detalles clínicos se conversan en la evaluación.",
+        "Secreto profesional. Por WhatsApp, envía solo lo necesario para reservar la cita; los detalles clínicos se conversan en la evaluación.",
       ],
       [
         "Consentimiento",
@@ -218,32 +219,32 @@ export const es: Dict = {
   },
 
   contactPage: {
-    metaTitleWa: "Contacto y agendamiento",
+    metaTitleWa: "Contacto y reserva de cita",
     metaTitleNoWa: "Contacto",
     metaDescWa:
-      "Agenda tu evaluación de fisioterapia pélvica por WhatsApp y conoce los canales de contacto.",
+      "Reserva tu evaluación de fisioterapia pélvica por WhatsApp y conoce los canales de contacto.",
     metaDescNoWa:
       "Canales de contacto de fisioterapia pélvica. La información de atención se publicará aquí en cuanto se confirme.",
     eyebrow: "Contacto",
     title: "¿Hablamos?",
-    leadWa: "El agendamiento se hace por WhatsApp, de forma sencilla y sin formularios.",
+    leadWa: "La cita se reserva por WhatsApp, de forma sencilla y sin formularios.",
     leadSome:
-      "El agendamiento aún no está disponible en este sitio. Mira abajo los canales confirmados.",
+      "La reserva de citas aún no está disponible en este sitio. Mira abajo los canales confirmados.",
     leadNone:
       "Los canales de atención aún están en preparación. Esta página se actualizará con la información confirmada.",
-    schedule: "Agendar evaluación",
+    schedule: "Reservar evaluación",
     scheduleText:
       "Haz clic para abrir una conversación con un mensaje inicial listo. No envíes información clínica detallada por mensaje.",
     callWa: "Escribir por WhatsApp",
     preparing: "Canales en preparación",
     preparingText:
-      "El número de WhatsApp para agendar se publicará aquí en cuanto se confirme. Hasta entonces, no hay canal de agendamiento disponible en este sitio.",
+      "El número de WhatsApp para reservar citas se publicará aquí en cuanto se confirme. Hasta entonces, no hay canal de reserva disponible en este sitio.",
   },
 
   faqPage: {
     metaTitle: "Preguntas frecuentes",
     metaDescription:
-      "Respuestas sobre fisioterapia pélvica, primera consulta, agendamiento y privacidad.",
+      "Respuestas sobre fisioterapia pélvica, primera consulta, reserva de cita y privacidad.",
     eyebrow: "Dudas",
     title: "Preguntas *frecuentes.*",
     leadWa:
@@ -297,10 +298,10 @@ export const es: Dict = {
       ],
     },
     {
-      topic: "Agendamiento y privacidad",
+      topic: "Reserva de cita y privacidad",
       items: [
         {
-          q: "¿Cómo agendo una evaluación?",
+          q: "¿Cómo reservo una evaluación?",
           a: "El primer contacto se hará por el canal de atención publicado en este sitio (previsto: WhatsApp). Envías un mensaje, acuerdas el mejor horario y recibes las indicaciones para el día.",
         },
         {
@@ -309,7 +310,7 @@ export const es: Dict = {
         },
         {
           q: "¿Mi información de salud se mantiene en secreto?",
-          a: "La información de salud se trata con secreto profesional. Por WhatsApp, envía solo lo necesario para agendar; los detalles clínicos se conversan en la evaluación.",
+          a: "La información de salud se trata con secreto profesional. Por WhatsApp, envía solo lo necesario para reservar la cita; los detalles clínicos se conversan en la evaluación.",
         },
       ],
     },
@@ -336,7 +337,7 @@ export const es: Dict = {
       [
         "Contacto por WhatsApp",
         [
-          "Cuando el contacto por WhatsApp esté disponible, los botones de agendamiento te llevarán a WhatsApp, un servicio de terceros con su propia política de privacidad. El mensaje inicial es estándar y no contiene información clínica.",
+          "Cuando el contacto por WhatsApp esté disponible, los botones de reserva te llevarán a WhatsApp, un servicio de terceros con su propia política de privacidad. El mensaje inicial es estándar y no contiene información clínica.",
           "Recomendamos no enviar detalles de salud por mensaje; se conversan en la evaluación, bajo secreto profesional.",
         ],
       ],
@@ -438,7 +439,7 @@ export const es: Dict = {
         "Dolor o molestia en la región pélvica o perineal",
         "Molestias urinarias o intestinales persistentes",
         "Seguimiento relacionado con cirugías de la región pélvica, cuando esté indicado",
-        "Molestias sexuales",
+        "Dificultades sexuales",
       ],
       faq: [
         {
@@ -525,7 +526,7 @@ export const es: Dict = {
     },
     {
       slug: "queixas-sexuais",
-      title: "Molestias sexuales",
+      title: "Dificultades sexuales",
       short: "Un espacio sin juicios para hablar de dolor y molestias íntimas.",
       description:
         "El dolor o la molestia en la vida sexual pueden estar relacionados con el suelo pélvico. La conversación se lleva con respeto, privacidad y a tu ritmo.",

@@ -142,7 +142,7 @@ export const en: Dict = {
 
   location: {
     shortTitle: "Where to find the service",
-    soon: "Address, care format and opening hours will be announced soon.",
+    soon: "Address, appointment format and opening hours will be announced soon.",
     seeContact: "See contact",
     eyebrow: "Location",
     title: (place) =>
@@ -162,17 +162,18 @@ export const en: Dict = {
     buttonNoWa: "See how it works",
   },
 
-  office: { eyebrow: "Practice", title: "A space designed for *your comfort.*" },
+  office: { eyebrow: "Clinic", title: "A space designed for *your comfort.*" },
 
   contactRows: {
     whatsapp: "WhatsApp",
     instagram: "Instagram",
     address: "Address",
-    modality: "Care format",
-    hours: "Hours",
+    modality: "Appointment format",
+    hours: "Opening hours",
     insurance: "Insurance",
     soon: "Coming soon",
     callWa: "Message on WhatsApp",
+    hoursText: (open, close) => `${open} to ${close} (days to be confirmed)`,
     directions: "Get directions",
     venueAt: (venue) => `Appointments at ${venue}`,
     and: "and",
@@ -303,7 +304,7 @@ export const en: Dict = {
         },
         {
           q: "Is care in person? What about fees and insurance?",
-          a: "Care format, fees and insurance are still to be confirmed and will be published on this website.",
+          a: "Appointment format, fees and insurance are still to be confirmed and will be published on this website.",
         },
         {
           q: "Is my health information kept confidential?",
@@ -435,7 +436,7 @@ export const en: Dict = {
         "Pain or discomfort in the pelvic or perineal region",
         "Persistent urinary or bowel symptoms",
         "Follow-up related to pelvic surgery, when advised",
-        "Sexual complaints",
+        "Sexual concerns",
       ],
       faq: [
         {
@@ -449,7 +450,7 @@ export const en: Dict = {
       title: "Urinary incontinence",
       short: "Assessment of involuntary urine leakage.",
       description:
-        "Involuntary urine leakage is a common complaint, but it need not be treated as normal or inevitable. A physiotherapy assessment helps to understand each person's context.",
+        "Involuntary urine leakage is a common concern, but it need not be treated as normal or inevitable. A physiotherapy assessment helps to understand each person's context.",
       indications: [
         "Urine leakage when coughing, sneezing, laughing or exercising",
         "Strong urgency to urinate",
@@ -522,7 +523,7 @@ export const en: Dict = {
     },
     {
       slug: "queixas-sexuais",
-      title: "Sexual complaints",
+      title: "Sexual concerns",
       short: "A judgement-free space to talk about intimate pain and discomfort.",
       description:
         "Pain or discomfort in sexual life can be related to the pelvic floor. The conversation is handled with respect, privacy and at your pace.",
@@ -543,7 +544,7 @@ export const en: Dict = {
       title: "Functional rehabilitation",
       short: "Gradual return to everyday activities with guidance.",
       description:
-        "When a pelvic complaint limits your routine, work or exercise, the assessment helps build a plan for gradually returning to activities.",
+        "When a pelvic problem limits your routine, work or exercise, the assessment helps build a plan for gradually returning to activities.",
       indications: [
         "Activity limitation due to discomfort or urine leakage",
         "Return to exercise with guidance",

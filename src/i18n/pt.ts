@@ -183,6 +183,7 @@ export const pt = {
     insurance: "Convênios",
     soon: "Em breve",
     callWa: "Chamar no WhatsApp",
+    hoursText: (open: string, close: string) => `Das ${open} às ${close} (dias de atendimento a confirmar)`,
     directions: "Como chegar",
     venueAt: (venue: string) => `Atendimento na ${venue}`,
     and: "e",

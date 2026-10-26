@@ -13,12 +13,12 @@ export const langMeta: Record<Lang, { htmlLang: string; ogLocale: string; label:
 export const waMessage: Record<Lang, string> = {
   pt: "Olá, Samara! Gostaria de saber mais sobre o atendimento de fisioterapia pélvica e agendar uma avaliação.",
   en: "Hello, Samara! I'd like to know more about pelvic physiotherapy and book an assessment.",
-  es: "¡Hola, Samara! Me gustaría saber más sobre la fisioterapia pélvica y agendar una evaluación.",
+  es: "¡Hola, Samara! Me gustaría saber más sobre la fisioterapia pélvica y reservar una evaluación.",
 };
 export const ctaLabel: Record<Lang, { schedule: string; instagram: string }> = {
   pt: { schedule: "Agendar avaliação", instagram: "Conhecer no Instagram" },
   en: { schedule: "Book an assessment", instagram: "Visit Instagram" },
-  es: { schedule: "Agendar evaluación", instagram: "Conocer en Instagram" },
+  es: { schedule: "Reservar evaluación", instagram: "Conocer en Instagram" },
 };
 
 export const isLang = (v: string | undefined): v is Lang => !!v && (langs as readonly string[]).includes(v);

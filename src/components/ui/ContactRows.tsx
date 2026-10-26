@@ -63,7 +63,12 @@ function contactRows(lang: Lang): Row[] {
       icon: Laptop,
       value: modalities.length ? modalities.join(" · ") : null,
     },
-    { key: "hours", label: t.hours, icon: Clock, value: hours },
+    {
+      key: "hours",
+      label: t.hours,
+      icon: Clock,
+      value: hours ? t.hoursText(hours.open, hours.close) : null,
+    },
   ];
   if (site.insurance.length)
     rows.push({

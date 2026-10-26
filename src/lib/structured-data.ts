@@ -38,7 +38,6 @@ export function businessLd(lang: Lang) {
       ...(site.location.region ? { addressRegion: site.location.region } : {}),
       addressCountry: "BR",
     },
-    ...(site.location.hours ? { openingHours: site.location.hours } : {}),
   };
 }
 

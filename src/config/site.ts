@@ -22,7 +22,7 @@ export const site = {
   /** Nome provisório até confirmação. */
   displayName: "Samara Rúbia",
   professionalName: null as string | null,
-  crefito: null as string | null,
+  crefito: "3383766-F" as string | null,
 
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   /** Indexação só é liberada com NEXT_PUBLIC_INDEXABLE=true (após aprovação). */
@@ -50,7 +50,8 @@ export const site = {
         | null,
     /** ex.: ["Presencial", "Online"]; vazio = "a confirmar" */
     modalities: [] as string[],
-    hours: null as string | null,
+    /** Faixa confirmada; os dias da semana ainda não foram informados. */
+    hours: { open: "07:30", close: "18:00" } as { open: string; close: string } | null,
   },
 
   /** Convênios aceitos. Vazio = a informação não é exibida. */
