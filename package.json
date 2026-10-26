@@ -12,6 +12,8 @@
     "format": "prettier --write .",
     "test:e2e": "playwright test",
     "images": "node scripts/images.mjs",
+    "brand": "node scripts/brand-assets.mjs",
+    "prelaunch:check": "node scripts/prelaunch-check.mjs",
     "check": "npm run lint && npm run typecheck && npm run build"
   },
   "dependencies": {

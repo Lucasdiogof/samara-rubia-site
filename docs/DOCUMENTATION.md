@@ -119,3 +119,13 @@ Screenshots: `BASE_URL=https://... node scripts/shots.mjs docs/audit`.
 - `NEXT_PUBLIC_SITE_URL=https://samararubia.com` em `.env.production`; `NEXT_PUBLIC_INDEXABLE` segue `false`.
 - **Antes de liberar a indexação:** desativar o workers.dev (`"workers_dev": false` no `wrangler.jsonc` e novo deploy) ou redirecioná-lo para o domínio principal, para não duplicar conteúdo. Hoje ele continua ativo só para a revisão.
 - Preview URLs desativadas (`preview_urls: false`).
+
+## Compartilhamento, ícones e pré-lançamento
+
+- `public/og.png` (1200×630) é usada por todas as páginas via `buildMetadata` em `src/lib/metadata.ts` (Open Graph e Twitter `summary_large_image`, com título/descrição de cada página). Para usar uma versão com fotografia, substitua o arquivo mantendo o nome e as dimensões.
+- Ícones: `src/app/favicon.ico`, `icon.svg`, `apple-icon.png` e `public/icon-192.png`/`icon-512.png` (manifest em `src/app/manifest.ts`). Todos saem da marca do `Logo.tsx` com traço um pouco mais firme para ler em 16 px. `npm run build && npm run brand` regenera tudo (e a og.png, com as fontes do site).
+- `npm run prelaunch:check` lista o que está pronto e o que falta (domínio, indexação, dados, contatos, fotos, aprovações, ícones, OG, canonical × sitemap, links, workers.dev). Só lê; sempre sai com 0 (use `--strict` para falhar). Não bloqueia o deploy de revisão.
+
+## Worker e cota gratuita
+
+`run_worker_first` é seletivo: o Worker (`worker.js`, só o 301 de www) roda para páginas e arquivos de texto, mas **não** para `/_next/*`, `/images/*`, `.png`, `.ico`, `.svg` e `.webmanifest`, que saem direto dos assets (grátis e ilimitados). Os padrões da Cloudflare só casam caminho, não host, então www/_next não redireciona (irrelevante: ninguém acessa assets por www). Preserva 301, caminho e query. Alternativa sem Worker: Redirect Rule no painel (Rules → Redirect Rules → www.samararubia.com → `concat("https://samararubia.com", http.request.uri.path)` com "Preserve query string", 301); exige um registro DNS proxied para www e permissão que o token do Wrangler não tem. Ao fazê-la, remova `main`, `worker.js` e `run_worker_first`.

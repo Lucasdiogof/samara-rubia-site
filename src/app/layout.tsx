@@ -8,6 +8,7 @@ import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { MotionRoot } from "@/components/animations/MotionRoot";
 import { MotionProvider } from "@/components/animations/MotionProvider";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { buildMetadata, siteDescription } from "@/lib/metadata";
 import { websiteLd, personLd, businessLd } from "@/lib/structured-data";
 
 const display = Cormorant_Garamond({
@@ -19,23 +20,13 @@ const display = Cormorant_Garamond({
 });
 const sans = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
 
-const description = `${site.specialty} para homens e mulheres: avaliação individual, escuta e acolhimento. Agende pelo WhatsApp.`;
+const title = `${fullName} | ${site.specialty}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: `${fullName} | ${site.specialty}`, template: "%s" },
-  description,
-  alternates: { canonical: "/" },
+  ...buildMetadata({ title, description: siteDescription, url: new URL("/", site.url).toString() }),
+  title: { default: title, template: "%s" },
   robots: site.indexable ? { index: true, follow: true } : { index: false, follow: false },
-  openGraph: {
-    title: `${fullName} | ${site.specialty}`,
-    description,
-    siteName: fullName,
-    locale: "pt_BR",
-    type: "website",
-    url: site.url,
-  },
-  twitter: { card: "summary", title: `${fullName} | ${site.specialty}`, description },
 };
 
 export const viewport: Viewport = { themeColor: "#FCF8F1", width: "device-width", initialScale: 1 };
