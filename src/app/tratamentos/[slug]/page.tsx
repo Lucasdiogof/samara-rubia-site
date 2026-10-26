@@ -40,6 +40,7 @@ export default async function Tratamento({ params }: Props) {
   return (
     <>
       <PageHero
+        motif="waves"
         eyebrow="Tratamentos"
         title={s.title}
         lead={s.description}

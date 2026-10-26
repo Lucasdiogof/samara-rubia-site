@@ -32,6 +32,7 @@ export default function ComoFunciona() {
         eyebrow="Como funciona"
         title="Um atendimento *claro* em cada etapa."
         lead="Saber o que vai acontecer ajuda a chegar mais tranquilo. Veja a jornada e os cuidados que a acompanham."
+        motif="rings"
         crumbs={[{ name: "Como funciona", path: "/como-funciona/" }]}
       />
       <Journey />
@@ -45,7 +46,7 @@ export default function ComoFunciona() {
           ))}
         </div>
       </section>
-      <CtaBand />
+      <CtaBand here="/como-funciona/" />
     </>
   );
 }

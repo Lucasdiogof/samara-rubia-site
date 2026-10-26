@@ -6,6 +6,7 @@ import { faqGroups } from "@/content/faq";
 import { faqLd } from "@/lib/structured-data";
 import { pageMetadata } from "@/lib/metadata";
 import { site } from "@/config/site";
+import { hasWhatsapp } from "@/lib/contact";
 
 export const metadata = pageMetadata({
   title: "Perguntas frequentes",
@@ -20,7 +21,12 @@ export default function Perguntas() {
       <PageHero
         eyebrow="Dúvidas"
         title="Perguntas *frequentes.*"
-        lead="Respostas educativas, organizadas por assunto. Ficou com alguma dúvida? É só perguntar no contato."
+        lead={
+          hasWhatsapp
+            ? "Respostas educativas, organizadas por assunto. Ficou com alguma dúvida? É só perguntar no contato."
+            : "Respostas educativas, organizadas por assunto."
+        }
+        motif="rings"
         crumbs={[{ name: "Perguntas frequentes", path: "/perguntas-frequentes/" }]}
       >
         <ReviewNotice approved={site.approved.faq}>
@@ -40,7 +46,7 @@ export default function Perguntas() {
         </div>
         <JsonLd data={faqLd(faqGroups.flatMap((g) => g.items))} />
       </section>
-      <CtaBand />
+      <CtaBand here="/perguntas-frequentes/" />
     </>
   );
 }

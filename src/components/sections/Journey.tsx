@@ -5,7 +5,10 @@ import { journey } from "@/content/journey";
 /** Storytelling: a linha de progresso e as etapas acompanham o scroll. */
 export function Journey({ compact = false }: { compact?: boolean }) {
   return (
-    <section className="section" aria-labelledby="jornada-title">
+    <section
+      className={`section ${compact ? "lap bg-background" : ""}`}
+      aria-labelledby="jornada-title"
+    >
       <div className="wrap grid gap-14 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">

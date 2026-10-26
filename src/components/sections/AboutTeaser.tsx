@@ -11,7 +11,7 @@ import { fullName, site } from "@/config/site";
 export function AboutTeaser() {
   return (
     <section
-      className="on-dark relative overflow-hidden bg-cocoa-deep py-[var(--space-section)] text-vanilla"
+      className="on-dark lap relative overflow-hidden bg-cocoa-deep py-[var(--space-section)] text-vanilla"
       aria-labelledby="sobre-title"
     >
       <Blob

@@ -46,6 +46,7 @@ export default function Privacidade() {
         eyebrow="Institucional"
         title="Política de *privacidade.*"
         lead="Transparência sobre os poucos dados envolvidos na navegação deste site."
+        motif="waves"
         crumbs={[{ name: "Política de privacidade", path: "/privacidade/" }]}
       >
         <ReviewNotice approved={site.approved.privacy}>

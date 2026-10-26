@@ -98,3 +98,28 @@ Deliberadamente **não** adotado: números de atendimentos, avaliações, depoim
 e fotos (não há dados reais e inventar seria antiético); âncoras de página única (o site multipágina é melhor
 para SEO por tema); carrossel ou cards extras. Quando a Samara fornecer dados reais, vale incluir: endereço e
 mapa, horários, modalidade, valores/convênios (se aplicável) e, só com autorização escrita, depoimentos.
+
+## 6. Refinamento criativo (25/10/2026)
+
+Capturas antes/depois em `docs/audit/antes-depois/` (`scripts/compare.mjs`).
+
+| Mudança                                                                                                       | Motivo                                                                  | Sobrevive às fotos reais?                               |
+| ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------- |
+| Contorno em arco deslocado atrás do hero                                                                      | dá profundidade e integra a foto ao arco sem cobri-la                   | sim, acompanha qualquer imagem                          |
+| Seções que "sobem" com cantos arredondados (`.lap`)                                                           | transições de fundo suaves em vez de cortes retos; ritmo claro/escuro   | sim, só CSS                                             |
+| Diferenciais em grade com fio fino (2 + 3) e layout horizontal no celular                                     | o arranjo escalonado anterior parecia acidental; menos altura no mobile | sim                                                     |
+| Áreas de atuação: fundo suave no hover, numeral e descrição ganham contraste, seta em círculo que se preenche | hover mais claro e confortável; alvo de toque de 40–44 px               | sim                                                     |
+| Três motivos gráficos (arcos, ondas, anéis) distribuídos pelas páginas internas                               | variar sem perder a linguagem; arcos deixam de se repetir em todas      | sim                                                     |
+| Links com sublinhado que "desenha" no hover                                                                   | microinteração discreta, só CSS                                         | sim                                                     |
+| Localização vira faixa curta enquanto não há dados; contato agrupa o pendente numa linha "Em breve"           | remove 3 a 6 "A confirmar" repetidos                                    | volta ao layout completo sozinha ao preencher `site.ts` |
+| CtaBand sem WhatsApp leva a FAQ/Como funciona (e não repete "canais em preparação")                           | honesto, sem prometer agendamento; com WhatsApp volta ao CTA de agendar | sim                                                     |
+
+Altura total da home: 1440 px de largura 8273 → 7530 px (-9%); 390 px 10568 → 9708 px (-8%). Nenhum conteúdo foi removido.
+
+Descartado por não melhorar: nada foi revertido; a animação de desenho do contorno (traço) foi substituída por
+um fade CSS simples para não aumentar a complexidade.
+
+Verificação: lint, tipos, build, links; 24 testes no site publicado e 30 em build local com WhatsApp fictício;
+Lighthouse mobile (5 execuções, mesmas condições): Performance 98–99 (mediana 99), LCP simulado mediana 1,98 s
+(1,97–2,27). Sem regressão; a variação em relação às medições anteriores está dentro do ruído e não deve ser
+atribuída às mudanças.

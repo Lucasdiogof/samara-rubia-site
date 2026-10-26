@@ -7,7 +7,7 @@ export function Areas() {
   const list = enabledServices();
   if (list.length === 0) return null;
   return (
-    <section className="section bg-cream" aria-labelledby="areas-title">
+    <section className="section lap bg-cream" aria-labelledby="areas-title">
       <div className="wrap grid gap-14 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-32">

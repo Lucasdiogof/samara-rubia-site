@@ -46,6 +46,13 @@ export function Hero() {
         </div>
 
         <div className="relative mx-auto w-full max-w-md lg:col-span-5 lg:max-w-none">
+          <FadeInSection
+            intro
+            delay={0.9}
+            className="pointer-events-none absolute inset-0 translate-x-3 translate-y-3 rounded-t-[999px] rounded-b-[2rem] border border-taupe/70 sm:translate-x-4 sm:translate-y-4"
+          >
+            <span aria-hidden="true" />
+          </FadeInSection>
           <RevealImage
             intro
             className="relative aspect-[4/5] overflow-hidden rounded-t-[999px] rounded-b-[2rem] bg-sand"

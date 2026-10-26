@@ -19,6 +19,7 @@ export default function Tratamentos() {
         eyebrow="Tratamentos"
         title="Áreas da *fisioterapia pélvica.*"
         lead="Temas em que a avaliação costuma ser buscada. O conteúdo é educativo e não substitui a avaliação individual."
+        motif="waves"
         crumbs={[{ name: "Tratamentos", path: "/tratamentos/" }]}
       >
         <ReviewNotice approved={site.approved.services}>
@@ -30,6 +31,7 @@ export default function Tratamentos() {
           <ul className="border-t border-border">
             {list.map((s, i) => (
               <AreaRow
+                tint="onVanilla"
                 key={s.slug}
                 index={i}
                 title={s.title}
