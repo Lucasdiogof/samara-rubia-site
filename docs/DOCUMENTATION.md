@@ -110,3 +110,12 @@ Resultados completos, método e investigação de LCP em [`AUDIT.md`](AUDIT.md).
 (Playwright + axe; 24 testes: WCAG, overflow em 9 larguras, menu, acordeão, navegação, reduced motion, sem JS,
 noindex/robots/sitemap, headings). Contra o site publicado: `BASE_URL=https://... npm run test:e2e`.
 Screenshots: `BASE_URL=https://... node scripts/shots.mjs docs/audit`.
+
+
+## Domínio definitivo (samararubia.com)
+
+- `samararubia.com` e `www.samararubia.com` são Custom Domains do Worker `samara-rubia-site` (`routes` no `wrangler.jsonc`).
+- `worker.js` só faz o 301 de `www` para `https://samararubia.com`; o resto vem dos assets estáticos.
+- `NEXT_PUBLIC_SITE_URL=https://samararubia.com` em `.env.production`; `NEXT_PUBLIC_INDEXABLE` segue `false`.
+- **Antes de liberar a indexação:** desativar o workers.dev (`"workers_dev": false` no `wrangler.jsonc` e novo deploy) ou redirecioná-lo para o domínio principal, para não duplicar conteúdo. Hoje ele continua ativo só para a revisão.
+- Preview URLs desativadas (`preview_urls: false`).
