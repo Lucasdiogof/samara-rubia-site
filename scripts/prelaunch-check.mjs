@@ -5,6 +5,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
 import sharp from "sharp";
+import { ogProblems } from "./og-check.mjs";
 
 const read = (p) => (existsSync(p) ? readFileSync(p, "utf8") : "");
 const site = read("src/config/site.ts");
@@ -84,6 +85,13 @@ if (existsSync("public/og.png")) {
   og = `${m.width}×${m.height}`;
 }
 add("Marca", "public/og.png em 1200×630", og === "1200×630", og);
+const ogBad = existsSync("public/og.png") ? await ogProblems() : ["ausente"];
+add(
+  "Marca",
+  "public/og.png tem a arte esperada (não é um print do site)",
+  ogBad.length === 0,
+  ogBad.join("; "),
+);
 
 // Build: canonical × sitemap × assets × links
 if (!hasOut) {
