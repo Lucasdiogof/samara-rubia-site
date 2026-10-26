@@ -1,7 +1,7 @@
 import { RevealText, FadeInSection } from "@/components/animations/Reveal";
 import { AnimatedButton } from "@/components/ui/Button";
 import { Blob } from "@/components/ui/Portrait";
-import { bookingHref, hasWhatsapp } from "@/lib/contact";
+import { hasWhatsapp, primaryCta } from "@/lib/contact";
 
 export function FinalCta() {
   return (
@@ -30,8 +30,13 @@ export function FinalCta() {
               ? "Envie uma mensagem para agendar a sua avaliação. Sem compromisso e sem precisar detalhar nada por escrito."
               : "Os canais de contato e de agendamento ainda estão em preparação e serão divulgados aqui assim que forem confirmados."}
           </p>
-          <AnimatedButton href={bookingHref} variant="light" track="final" className="mt-10">
-            {hasWhatsapp ? "Agendar pelo WhatsApp" : "Ver página de contato"}
+          <AnimatedButton
+            href={primaryCta?.href ?? "/como-funciona/"}
+            variant="light"
+            track="final"
+            className="mt-10"
+          >
+            {hasWhatsapp ? "Agendar pelo WhatsApp" : (primaryCta?.label ?? "Entenda como funciona")}
           </AnimatedButton>
         </FadeInSection>
       </div>

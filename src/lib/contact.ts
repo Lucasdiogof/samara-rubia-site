@@ -12,12 +12,20 @@ export const instagramUrl = site.contact.instagram
   ? `https://instagram.com/${site.contact.instagram}`
   : null;
 
-/** Destino dos CTAs: WhatsApp quando válido; senão a página de contato. */
-export const bookingHref = whatsappUrl() ?? "/contato/";
 export const hasWhatsapp = whatsappUrl() !== null;
+/** Há ao menos um canal real confirmado (a página de contato tem o que mostrar). */
+export const hasChannel = hasWhatsapp || instagramUrl !== null;
 
-/** Texto dos CTAs: só promete agendamento quando há canal real. */
-export const ctaLabel = hasWhatsapp ? "Agendar avaliação" : "Canais de contato";
+/**
+ * Ação principal de contato, única fonte para header, hero e CTAs.
+ * WhatsApp válido: agendar; só Instagram: seguir (sem prometer agendamento); nenhum: null,
+ * e cada lugar omite o botão em vez de levar a uma página sem ação útil.
+ */
+export const primaryCta: { href: string; label: string } | null = hasWhatsapp
+  ? { href: whatsappUrl()!, label: "Agendar avaliação" }
+  : instagramUrl
+    ? { href: instagramUrl, label: "Conhecer no Instagram" }
+    : null;
 
 export function trackCta(name: string) {
   // Gancho para mensuração futura: qualquer script pode ouvir "site:cta".

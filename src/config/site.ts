@@ -34,7 +34,7 @@ export const site = {
     /** Somente dígitos com DDI, ex.: "5562999999999". */
     whatsapp: (process.env.NEXT_PUBLIC_WHATSAPP ?? null) as string | null,
     /** Usuário sem @, ex.: "samara.fisio". */
-    instagram: null as string | null,
+    instagram: (process.env.NEXT_PUBLIC_INSTAGRAM ?? null) as string | null,
   },
 
   location: {

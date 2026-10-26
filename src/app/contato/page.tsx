@@ -3,13 +3,14 @@ import { AnimatedButton } from "@/components/ui/Button";
 import { ContactRows } from "@/components/ui/ContactRows";
 import { WhatsAppIcon } from "@/components/ui/Icons";
 import { FadeInSection } from "@/components/animations/Reveal";
-import { whatsappUrl } from "@/lib/contact";
+import { hasChannel, hasWhatsapp, whatsappUrl } from "@/lib/contact";
 import { pageMetadata } from "@/lib/metadata";
 
 export const metadata = pageMetadata({
-  title: "Contato e agendamento",
-  description:
-    "Agende sua avaliação de fisioterapia pélvica pelo WhatsApp e conheça os canais de contato.",
+  title: hasWhatsapp ? "Contato e agendamento" : "Contato",
+  description: hasWhatsapp
+    ? "Agende sua avaliação de fisioterapia pélvica pelo WhatsApp e conheça os canais de contato."
+    : "Canais de contato de fisioterapia pélvica. As informações de atendimento serão divulgadas aqui assim que confirmadas.",
   path: "/contato/",
 });
 
@@ -23,7 +24,9 @@ export default function Contato() {
         lead={
           wa
             ? "O agendamento é feito pelo WhatsApp, de forma simples e sem formulários."
-            : "Os canais de atendimento ainda estão em preparação. Esta página será atualizada com as informações confirmadas."
+            : hasChannel
+              ? "O agendamento ainda não está disponível neste site. Veja abaixo os canais confirmados."
+              : "Os canais de atendimento ainda estão em preparação. Esta página será atualizada com as informações confirmadas."
         }
         crumbs={[{ name: "Contato", path: "/contato/" }]}
       />

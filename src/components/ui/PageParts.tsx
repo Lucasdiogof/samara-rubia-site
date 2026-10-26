@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { RevealText, FadeInSection } from "@/components/animations/Reveal";
 import { AnimatedButton } from "@/components/ui/Button";
 import { breadcrumbLd } from "@/lib/structured-data";
-import { bookingHref, ctaLabel, hasWhatsapp } from "@/lib/contact";
+import { primaryCta } from "@/lib/contact";
 
 export function Breadcrumbs({ items }: { items: { name: string; path: string }[] }) {
   const all = [{ name: "Início", path: "/" }, ...items];
@@ -147,9 +147,7 @@ export function CtaBand({ here }: { here?: string }) {
     { title: "Ficou com dúvidas?", label: "Perguntas frequentes", href: "/perguntas-frequentes/" },
     { title: "Quer entender o atendimento?", label: "Como funciona", href: "/como-funciona/" },
   ].find((n) => n.href !== here)!;
-  const cta = hasWhatsapp
-    ? { title: "Vamos conversar sobre o seu cuidado?", label: ctaLabel, href: bookingHref }
-    : next;
+  const cta = primaryCta ? { title: "Vamos conversar sobre o seu cuidado?", ...primaryCta } : next;
   return (
     <section className="on-dark lap bg-cocoa-deep py-20 text-vanilla">
       <div className="wrap flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">

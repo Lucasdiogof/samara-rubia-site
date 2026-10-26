@@ -1,7 +1,7 @@
 import { RevealText, RevealImage, FadeInSection } from "@/components/animations/Reveal";
 import { AnimatedButton } from "@/components/ui/Button";
 import { Blob, Portrait } from "@/components/ui/Portrait";
-import { bookingHref, ctaLabel } from "@/lib/contact";
+import { primaryCta } from "@/lib/contact";
 import { site } from "@/config/site";
 
 export function Hero() {
@@ -26,10 +26,16 @@ export function Hero() {
             </p>
           </FadeInSection>
           <FadeInSection intro delay={0.65} className="mt-10 flex flex-wrap gap-4">
-            <AnimatedButton href={bookingHref} track="hero">
-              {ctaLabel}
-            </AnimatedButton>
-            <AnimatedButton href="/sobre/" variant="ghost" arrow={false}>
+            {primaryCta && (
+              <AnimatedButton href={primaryCta.href} track="hero">
+                {primaryCta.label}
+              </AnimatedButton>
+            )}
+            <AnimatedButton
+              href="/sobre/"
+              variant={primaryCta ? "ghost" : "primary"}
+              arrow={!primaryCta}
+            >
               Conheça meu trabalho
             </AnimatedButton>
           </FadeInSection>

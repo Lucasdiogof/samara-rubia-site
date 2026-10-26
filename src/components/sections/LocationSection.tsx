@@ -2,6 +2,7 @@ import Link from "next/link";
 import { RevealText, FadeInSection } from "@/components/animations/Reveal";
 import { ContactRows, nothingConfirmed } from "@/components/ui/ContactRows";
 import { site } from "@/config/site";
+import { hasChannel } from "@/lib/contact";
 
 const only = ["address", "modality", "hours"] as const;
 
@@ -22,9 +23,11 @@ export function LocationSection() {
           </h2>
           <p className="text-cocoa">
             Endereço, modalidade e horários serão divulgados em breve.{" "}
-            <Link href="/contato/" className="link-u font-semibold text-cocoa-deep">
-              Ver contato
-            </Link>
+            {hasChannel && (
+              <Link href="/contato/" className="link-u font-semibold text-cocoa-deep">
+                Ver contato
+              </Link>
+            )}
           </p>
         </div>
       </section>

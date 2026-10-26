@@ -9,7 +9,7 @@ import { Menu, X } from "lucide-react";
 import { AnimatedButton } from "@/components/ui/Button";
 import { Logo } from "./Logo";
 import { nav } from "./nav";
-import { bookingHref, ctaLabel } from "@/lib/contact";
+import { primaryCta } from "@/lib/contact";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -105,14 +105,16 @@ export function Header() {
           </ul>
         </nav>
         <div className="flex items-center gap-3">
-          <AnimatedButton
-            href={bookingHref}
-            track="header"
-            className="hidden !min-h-11 !px-5 sm:inline-flex"
-            arrow={false}
-          >
-            {ctaLabel}
-          </AnimatedButton>
+          {primaryCta && (
+            <AnimatedButton
+              href={primaryCta.href}
+              track="header"
+              className="hidden !min-h-11 !px-5 sm:inline-flex"
+              arrow={false}
+            >
+              {primaryCta.label}
+            </AnimatedButton>
+          )}
           <button
             ref={toggle}
             type="button"
@@ -167,9 +169,11 @@ export function Header() {
                   </m.li>
                 ))}
               </ul>
-              <AnimatedButton href={bookingHref} track="menu" className="mt-10 w-full">
-                {ctaLabel}
-              </AnimatedButton>
+              {primaryCta && (
+                <AnimatedButton href={primaryCta.href} track="menu" className="mt-10 w-full">
+                  {primaryCta.label}
+                </AnimatedButton>
+              )}
             </nav>
           </m.div>
         )}
