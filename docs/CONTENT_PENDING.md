@@ -69,4 +69,4 @@ Melhoram a apresentação, mas não impedem o lançamento.
 - [ ] Mensuração de cliques nos CTAs (o evento `site:cta` já é emitido; falta escolher a ferramenta, respeitando a LGPD e atualizando a política de privacidade)
 - [ ] Páginas de SEO local por cidade, apenas para cidades onde ela realmente atende
 - [ ] Vídeo curto de apresentação (sem autoplay)
-- [ ] Versões em outros idiomas (a arquitetura já separa conteúdo e configuração)
+- [ ] Samara revisar o inglês (`src/i18n/en.ts`) e o espanhol (`src/i18n/es.ts`): são rascunhos, e o conteúdo é de saúde

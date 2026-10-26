@@ -1,7 +1,7 @@
 // O export estático do Next grava os segmentos RSC em pastas (__next.sobre/__PAGE__.txt),
 // mas o cliente os pede com pontos (__next.sobre.__PAGE__.txt). Em hospedagem de arquivos
 // estáticos isso gera 404 no prefetch; copiamos cada arquivo para o nome com pontos.
-import { cpSync, readdirSync, statSync } from "node:fs";
+import { cpSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 let copied = 0;
@@ -25,3 +25,6 @@ function walk(dir) {
 }
 walk("out");
 console.log(`postbuild: ${copied} arquivos RSC duplicados com nome pontuado`);
+
+// A página 404 estilizada é a rota /nao-encontrada/ (o not-found nativo sai sem layout): vira 404.html.
+if (existsSync("out/nao-encontrada/index.html")) cpSync("out/nao-encontrada/index.html", "out/404.html");

@@ -8,12 +8,25 @@ import * as m from "motion/react-m";
 import { Menu, X } from "lucide-react";
 import { AnimatedButton } from "@/components/ui/Button";
 import { Logo } from "./Logo";
+import { Controls, type ControlLabels } from "./Controls";
 import { nav } from "./nav";
-import { primaryCta } from "@/lib/contact";
+import { href, splitPath, type Lang } from "@/i18n/config";
 import { cn } from "@/lib/utils";
 
-export function Header() {
-  const pathname = usePathname();
+export type HeaderText = {
+  specialty: string;
+  navMain: string;
+  navMobile: string;
+  menuOpen: string;
+  menuClose: string;
+  links: Record<(typeof nav)[number]["key"], string>;
+  controls: ControlLabels;
+  cta: { href: string; label: string } | null;
+};
+
+export function Header({ lang, t }: { lang: Lang; t: HeaderText }) {
+  const pathname = splitPath(usePathname()).path;
+  const primaryCta = t.cta;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const firstLink = useRef<HTMLAnchorElement>(null);
@@ -83,13 +96,13 @@ export function Header() {
       )}
     >
       <div className="wrap flex items-center justify-between gap-6">
-        <Logo />
-        <nav aria-label="Principal" className="hidden xl:block">
+        <Logo lang={lang} specialty={t.specialty} />
+        <nav aria-label={t.navMain} className="hidden xl:block">
           <ul className="flex items-center gap-9">
             {nav.map((n) => (
               <li key={n.href}>
                 <Link
-                  href={n.href}
+                  href={href(lang, n.href)}
                   aria-current={isActive(n.href) ? "page" : undefined}
                   className={cn(
                     "relative whitespace-nowrap py-2 text-[0.95rem] font-medium text-cocoa-deep after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:bg-cocoa-deep after:transition-transform after:duration-300",
@@ -98,13 +111,14 @@ export function Header() {
                       : "after:scale-x-0 hover:after:scale-x-100",
                   )}
                 >
-                  {n.label}
+                  {t.links[n.key]}
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
         <div className="flex items-center gap-3">
+          <Controls labels={t.controls} className="hidden xl:flex" />
           {primaryCta && (
             <AnimatedButton
               href={primaryCta.href}
@@ -121,7 +135,7 @@ export function Header() {
             className="grid h-11 w-11 place-items-center rounded-full border border-border text-cocoa-deep xl:hidden"
             aria-expanded={open}
             aria-controls="menu-mobile"
-            aria-label={open ? "Fechar menu" : "Abrir menu"}
+            aria-label={open ? t.menuClose : t.menuOpen}
             onClick={() => setOpen((v) => !v)}
           >
             {open ? <X size={20} /> : <Menu size={20} />}
@@ -140,7 +154,7 @@ export function Header() {
             className="fixed inset-x-0 top-[4.25rem] bottom-0 overflow-y-auto bg-vanilla xl:hidden"
           >
             <nav
-              aria-label="Menu mobile"
+              aria-label={t.navMobile}
               className="wrap flex min-h-full flex-col justify-between pb-10 pt-8"
             >
               <ul>
@@ -154,14 +168,14 @@ export function Header() {
                   >
                     <Link
                       ref={i === 0 ? firstLink : undefined}
-                      href={n.href}
+                      href={href(lang, n.href)}
                       aria-current={isActive(n.href) ? "page" : undefined}
                       className={cn(
                         "flex items-baseline justify-between py-4 font-display text-[2.1rem] leading-tight",
                         isActive(n.href) ? "italic text-cocoa" : "text-cocoa-deep",
                       )}
                     >
-                      {n.label}
+                      {t.links[n.key]}
                       <span className="text-sm font-sans text-cocoa" aria-hidden="true">
                         0{i + 1}
                       </span>
@@ -169,11 +183,14 @@ export function Header() {
                   </m.li>
                 ))}
               </ul>
-              {primaryCta && (
-                <AnimatedButton href={primaryCta.href} track="menu" className="mt-10 w-full">
-                  {primaryCta.label}
-                </AnimatedButton>
-              )}
+              <div className="mt-10 space-y-6">
+                <Controls labels={t.controls} className="justify-center" />
+                {primaryCta && (
+                  <AnimatedButton href={primaryCta.href} track="menu" className="w-full">
+                    {primaryCta.label}
+                  </AnimatedButton>
+                )}
+              </div>
             </nav>
           </m.div>
         )}

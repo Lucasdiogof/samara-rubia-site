@@ -1,20 +1,15 @@
 import type { MetadataRoute } from "next";
-import { site } from "@/config/site";
-import { enabledServices } from "@/lib/services";
+import { langs } from "@/i18n";
+import { languageAlternates, localizedUrl } from "@/lib/metadata";
+import { routePaths } from "@/views";
 
 export const dynamic = "force-static";
 
-const pages = [
-  "/",
-  "/sobre/",
-  "/tratamentos/",
-  "/como-funciona/",
-  "/perguntas-frequentes/",
-  "/contato/",
-  "/privacidade/",
-];
-
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = [...pages, ...enabledServices().map((s) => `/tratamentos/${s.slug}/`)];
-  return paths.map((p) => ({ url: new URL(p, site.url).toString() }));
+  return routePaths.flatMap((p) =>
+    langs.map((lang) => ({
+      url: localizedUrl(lang, p),
+      alternates: { languages: languageAlternates(p) },
+    })),
+  );
 }

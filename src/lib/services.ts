@@ -1,4 +1,5 @@
 import { site } from "@/config/site";
-import { services } from "@/content/services";
+import { getDict, type Lang } from "@/i18n";
 
-export const enabledServices = () => services.filter((s) => site.enabledServices.includes(s.slug));
+export const enabledServices = (lang: Lang) =>
+  getDict(lang).services.filter((s) => site.enabledServices.includes(s.slug));

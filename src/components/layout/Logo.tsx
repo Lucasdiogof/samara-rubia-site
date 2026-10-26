@@ -1,10 +1,19 @@
 import Link from "next/link";
-import { fullName, site } from "@/config/site";
+import { fullName } from "@/config/site";
+import { href, type Lang } from "@/i18n/config";
 
-export function Logo({ tone = "dark" }: { tone?: "dark" | "light" }) {
+export function Logo({
+  lang,
+  specialty,
+  tone = "dark",
+}: {
+  lang: Lang;
+  specialty: string;
+  tone?: "dark" | "light";
+}) {
   const c = tone === "dark" ? "text-cocoa-deep" : "text-vanilla";
   return (
-    <Link href="/" className={`group inline-flex items-center gap-3 ${c}`}>
+    <Link href={href(lang, "/")} className={`group inline-flex items-center gap-3 ${c}`}>
       <svg width="30" height="34" viewBox="0 0 30 34" aria-hidden="true" className="shrink-0">
         <path
           d="M2 33V15a13 13 0 0 1 26 0v18"
@@ -26,7 +35,7 @@ export function Logo({ tone = "dark" }: { tone?: "dark" | "light" }) {
           {fullName}
         </span>
         <span className="mt-1 block text-[0.62rem] font-semibold uppercase tracking-[0.22em] opacity-70">
-          {site.specialty}
+          {specialty}
         </span>
       </span>
     </Link>

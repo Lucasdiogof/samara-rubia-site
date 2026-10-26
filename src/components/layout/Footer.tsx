@@ -2,41 +2,43 @@ import Link from "next/link";
 import { fullName, site } from "@/config/site";
 import { instagramUrl, whatsappUrl } from "@/lib/contact";
 import { InstagramIcon, WhatsAppIcon } from "@/components/ui/Icons";
+import { getDict, href, type Lang } from "@/i18n";
 import { Logo } from "./Logo";
 import { nav } from "./nav";
 
-export function Footer() {
-  const wa = whatsappUrl();
+export function Footer({ lang }: { lang: Lang }) {
+  const t = getDict(lang);
+  const wa = whatsappUrl(lang);
   const loc = [site.location.city, site.location.region].filter(Boolean).join(" · ");
   return (
     <footer id="rodape" className="bg-cream">
       <div className="wrap grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <Logo />
+          <Logo lang={lang} specialty={t.specialty} />
           <p className="mt-6 max-w-xs text-[0.95rem] text-cocoa">
-            Fisioterapia pélvica com escuta, privacidade e cuidado individualizado, para homens e
-            mulheres.
+            {t.footer.blurb}
           </p>
           {site.crefito && <p className="mt-4 text-sm text-cocoa">CREFITO {site.crefito}</p>}
         </div>
 
-        <nav aria-label="Rodapé">
-          <h2 className="eyebrow">Navegação</h2>
+        <nav aria-label={t.a11y.navFooter}>
+          <h2 className="eyebrow">{t.footer.navigation}</h2>
           <ul className="mt-5 space-y-2.5">
-            {[...nav.slice(1), { href: "/privacidade/", label: "Política de privacidade" }].map(
-              (n) => (
-                <li key={n.href}>
-                  <Link href={n.href} className="link-u text-[0.95rem] text-cocoa-deep">
-                    {n.label}
-                  </Link>
-                </li>
-              ),
-            )}
+            {[
+              ...nav.slice(1).map((n) => ({ href: n.href, label: t.nav[n.key] })),
+              { href: "/privacidade/", label: t.nav.privacy },
+            ].map((n) => (
+              <li key={n.href}>
+                <Link href={href(lang, n.href)} className="link-u text-[0.95rem] text-cocoa-deep">
+                  {n.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
 
         <div>
-          <h2 className="eyebrow">Contato</h2>
+          <h2 className="eyebrow">{t.footer.contact}</h2>
           <ul className="mt-5 space-y-3 text-[0.95rem] text-cocoa-deep">
             {wa ? (
               <li>
@@ -50,7 +52,7 @@ export function Footer() {
                 </a>
               </li>
             ) : (
-              <li className="text-cocoa">WhatsApp em breve</li>
+              <li className="text-cocoa">{t.footer.waSoon}</li>
             )}
             {instagramUrl && (
               <li>
@@ -71,11 +73,10 @@ export function Footer() {
       <div className="border-t border-border">
         <div className="wrap flex flex-col gap-2 py-6 text-[0.82rem] text-cocoa sm:flex-row sm:justify-between">
           <p>
-            © {new Date().getFullYear()} {fullName}. Todos os direitos reservados.
+            © {new Date().getFullYear()} {fullName}. {t.footer.rights}
           </p>
           <p>
-            O conteúdo deste site é educativo e não substitui a avaliação de um profissional de
-            saúde.
+            {t.footer.disclaimer}
           </p>
         </div>
       </div>

@@ -1,7 +1,10 @@
 @import "tailwindcss";
 
-/* ───────── Paleta oficial: Cacau & Baunilha ───────── */
-:root {
+/* ───────── Paleta oficial: Cacau & Baunilha ─────────
+   Os nomes seguem a paleta clara. No tema escuro (html[data-theme="dark"]) os mesmos nomes
+   recebem valores invertidos; seções .on-dark voltam à paleta original e continuam escuras. */
+:root,
+.on-dark {
   --vanilla: #fcf8f1;
   --cream: #eee4d5;
   --sand: #d6c2a7;
@@ -22,7 +25,21 @@
   --text-secondary: var(--cocoa);
   --border: color-mix(in srgb, var(--cocoa) 22%, transparent);
   --focus-ring: var(--cocoa-deep);
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --vanilla: #1b1613;
+  --cream: #261f1b;
+  --sand: #4a3c32;
+  --taupe: #9a8167;
+  --cocoa: #cdb9a2;
+  --cocoa-deep: #f3eadc;
+}
+html[data-theme="dark"] .on-dark {
+  color-scheme: light;
+}
 
+:root {
   /* Espaçamento */
   --space-section: clamp(4rem, 2.5rem + 6vw, 8rem);
   --lap: clamp(1.75rem, 1rem + 3vw, 4.5rem);

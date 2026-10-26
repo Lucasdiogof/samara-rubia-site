@@ -5,13 +5,18 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { RevealText, FadeInSection } from "@/components/animations/Reveal";
 import { AnimatedButton } from "@/components/ui/Button";
 import { breadcrumbLd } from "@/lib/structured-data";
-import { primaryCta } from "@/lib/contact";
+import { primaryCta as getCta } from "@/lib/contact";
+import { getDict, href, type Lang } from "@/i18n";
 
-export function Breadcrumbs({ items }: { items: { name: string; path: string }[] }) {
-  const all = [{ name: "Início", path: "/" }, ...items];
+export function Breadcrumbs({ lang, items }: { lang: Lang; items: { name: string; path: string }[] }) {
+  const t = getDict(lang);
+  const all = [{ name: t.page.breadcrumbHome, path: "/" }, ...items].map((i) => ({
+    ...i,
+    path: href(lang, i.path),
+  }));
   return (
     <>
-      <nav aria-label="Você está em" className="mb-8">
+      <nav aria-label={t.a11y.navBreadcrumb} className="mb-8">
         <ol className="flex flex-wrap items-center gap-1.5 text-sm text-cocoa">
           {all.map((it, i) => (
             <li key={it.path} className="flex items-center gap-1.5">
@@ -89,6 +94,7 @@ function HeroMotif({ motif }: { motif: Motif }) {
 
 /** Abertura das páginas internas. */
 export function PageHero({
+  lang,
   eyebrow,
   title,
   lead,
@@ -96,6 +102,7 @@ export function PageHero({
   motif = "arch",
   children,
 }: {
+  lang: Lang;
   eyebrow: string;
   title: string;
   lead?: string;
@@ -107,7 +114,7 @@ export function PageHero({
     <section className="relative overflow-hidden pb-14 pt-36 sm:pt-44 lg:pb-20">
       <HeroMotif motif={motif} />
       <div className="wrap relative">
-        {crumbs && <Breadcrumbs items={crumbs} />}
+        {crumbs && <Breadcrumbs lang={lang} items={crumbs} />}
         <p className="eyebrow">{eyebrow}</p>
         <RevealText as="h1" className="t-h1 mt-5 max-w-4xl" intro>
           {title}
@@ -124,15 +131,12 @@ export function PageHero({
 }
 
 /** Aviso exibido enquanto o conteúdo clínico não foi aprovado (site.approved.*). */
-export function ReviewNotice({ approved, children }: { approved: boolean; children?: ReactNode }) {
+export function ReviewNotice({ approved, children }: { approved: boolean; children: ReactNode }) {
   if (approved) return null;
   return (
     <aside className="mt-10 flex max-w-2xl gap-3 rounded-2xl bg-cream p-5 text-[0.95rem] text-cocoa-deep">
       <Info size={20} className="mt-0.5 shrink-0 text-cocoa" aria-hidden="true" />
-      <p>
-        {children ??
-          "Versão de revisão: este conteúdo está aguardando validação da profissional antes da publicação."}
-      </p>
+      <p>{children}</p>
     </aside>
   );
 }
@@ -142,12 +146,16 @@ export function ReviewNotice({ approved, children }: { approved: boolean; childr
  * Sem canal, não promete agendamento nem repete o aviso em toda página: leva ao próximo
  * conteúdo útil (`here` evita apontar para a própria página).
  */
-export function CtaBand({ here }: { here?: string }) {
+export function CtaBand({ lang, here }: { lang: Lang; here?: string }) {
+  const t = getDict(lang).page;
+  const primaryCta = getCta(lang);
   const next = [
-    { title: "Ficou com dúvidas?", label: "Perguntas frequentes", href: "/perguntas-frequentes/" },
-    { title: "Quer entender o atendimento?", label: "Como funciona", href: "/como-funciona/" },
-  ].find((n) => n.href !== here)!;
-  const cta = primaryCta ? { title: "Vamos conversar sobre o seu cuidado?", ...primaryCta } : next;
+    { title: t.ctaFaqTitle, label: t.ctaFaqLabel, href: "/perguntas-frequentes/" },
+    { title: t.ctaHowTitle, label: t.ctaHowLabel, href: "/como-funciona/" },
+  ]
+    .map((n) => ({ ...n, path: n.href, href: href(lang, n.href) }))
+    .find((n) => n.path !== here)!;
+  const cta = primaryCta ? { title: t.ctaBandTitle, ...primaryCta } : next;
   return (
     <section className="on-dark lap bg-cocoa-deep py-20 text-vanilla">
       <div className="wrap flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">

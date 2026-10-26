@@ -1,11 +1,12 @@
 import type { MetadataRoute } from "next";
-import { fullName, site } from "@/config/site";
+import { fullName } from "@/config/site";
+import { getDict } from "@/i18n";
 
 export const dynamic = "force-static";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${fullName} | ${site.specialty}`,
+    name: `${fullName} | ${getDict("pt").specialty}`,
     short_name: fullName,
     start_url: "/",
     display: "browser",

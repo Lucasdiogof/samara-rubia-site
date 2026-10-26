@@ -1,9 +1,12 @@
 import { RevealText, FadeInSection } from "@/components/animations/Reveal";
 import { AnimatedButton } from "@/components/ui/Button";
 import { Blob } from "@/components/ui/Portrait";
-import { hasWhatsapp, primaryCta } from "@/lib/contact";
+import { hasWhatsapp, primaryCta as getCta } from "@/lib/contact";
+import { getDict, href, type Lang } from "@/i18n";
 
-export function FinalCta() {
+export function FinalCta({ lang }: { lang: Lang }) {
+  const t = getDict(lang).finalCta;
+  const primaryCta = getCta(lang);
   return (
     <section
       className="on-dark lap relative overflow-hidden bg-cocoa py-[var(--space-section)] text-vanilla"
@@ -18,25 +21,21 @@ export function FinalCta() {
         fill="var(--cream)"
       />
       <div className="wrap relative max-w-4xl">
-        <p className="eyebrow !text-cream">Próximo passo</p>
+        <p className="eyebrow !text-cream">{t.eyebrow}</p>
         <RevealText as="h2" id="cta-title" className="t-display mt-6">
-          {hasWhatsapp
-            ? "Seu cuidado começa com uma *conversa.*"
-            : "Em breve, o primeiro *contato.*"}
+          {hasWhatsapp ? t.titleWa : t.titleNoWa}
         </RevealText>
         <FadeInSection delay={0.2}>
           <p className="mt-8 max-w-xl text-lg text-cream">
-            {hasWhatsapp
-              ? "Envie uma mensagem para agendar a sua avaliação. Sem compromisso e sem precisar detalhar nada por escrito."
-              : "Os canais de contato e de agendamento ainda estão em preparação e serão divulgados aqui assim que forem confirmados."}
+            {hasWhatsapp ? t.textWa : t.textNoWa}
           </p>
           <AnimatedButton
-            href={primaryCta?.href ?? "/como-funciona/"}
+            href={primaryCta?.href ?? href(lang, "/como-funciona/")}
             variant="light"
             track="final"
             className="mt-10"
           >
-            {hasWhatsapp ? "Agendar pelo WhatsApp" : (primaryCta?.label ?? "Entenda como funciona")}
+            {hasWhatsapp ? t.buttonWa : (primaryCta?.label ?? t.buttonNoWa)}
           </AnimatedButton>
         </FadeInSection>
       </div>

@@ -3,6 +3,7 @@ import { Clock, Hourglass, Laptop, MapPin, ShieldCheck } from "lucide-react";
 import { InstagramIcon, WhatsAppIcon } from "@/components/ui/Icons";
 import { site } from "@/config/site";
 import { instagramUrl, whatsappUrl } from "@/lib/contact";
+import { getDict, type Lang } from "@/i18n";
 
 type Key = "whatsapp" | "instagram" | "address" | "modality" | "hours" | "insurance";
 type Row = {
@@ -16,24 +17,25 @@ type Row = {
 const linkCls = "link-u font-semibold";
 
 /** Informações de contato; `value: null` indica dado ainda não confirmado. */
-function contactRows(): Row[] {
+function contactRows(lang: Lang): Row[] {
+  const t = getDict(lang).contactRows;
   const { city, region, address, mapsUrl, hours, modalities } = site.location;
   const place = [address, city, region].filter(Boolean).join(", ");
-  const wa = whatsappUrl();
+  const wa = whatsappUrl(lang);
   const rows: Row[] = [
     {
       key: "whatsapp",
-      label: "WhatsApp",
+      label: t.whatsapp,
       icon: (p) => <WhatsAppIcon {...p} width={20} height={20} />,
       value: wa ? (
         <a href={wa} target="_blank" rel="noopener noreferrer" className={linkCls}>
-          Chamar no WhatsApp
+          {t.callWa}
         </a>
       ) : null,
     },
     {
       key: "instagram",
-      label: "Instagram",
+      label: t.instagram,
       icon: (p) => <InstagramIcon {...p} width={20} height={20} />,
       value: instagramUrl ? (
         <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className={linkCls}>
@@ -43,7 +45,7 @@ function contactRows(): Row[] {
     },
     {
       key: "address",
-      label: "Endereço",
+      label: t.address,
       icon: MapPin,
       value: place ? (
         <>
@@ -55,7 +57,7 @@ function contactRows(): Row[] {
               rel="noopener noreferrer"
               className={`${linkCls} mt-1 block w-fit`}
             >
-              Abrir no Google Maps
+              {t.openMaps}
             </a>
           )}
         </>
@@ -63,43 +65,46 @@ function contactRows(): Row[] {
     },
     {
       key: "modality",
-      label: "Modalidade",
+      label: t.modality,
       icon: Laptop,
       value: modalities.length ? modalities.join(" · ") : null,
     },
-    { key: "hours", label: "Horários", icon: Clock, value: hours },
+    { key: "hours", label: t.hours, icon: Clock, value: hours },
   ];
   if (site.insurance.length)
     rows.push({
       key: "insurance",
-      label: "Convênios",
+      label: t.insurance,
       icon: ShieldCheck,
       value: site.insurance.join(" · "),
     });
   return rows;
 }
 
-const select = (only?: Key[]) => contactRows().filter((r) => !only || only.includes(r.key as Key));
+const select = (lang: Lang, only?: Key[]) =>
+  contactRows(lang).filter((r) => !only || only.includes(r.key as Key));
 
 /** true quando nenhuma das informações pedidas foi confirmada. */
-export const nothingConfirmed = (only?: Key[]) => select(only).every((r) => r.value === null);
+export const nothingConfirmed = (lang: Lang, only?: Key[]) =>
+  select(lang, only).every((r) => r.value === null);
 
-const list = (names: string[]) =>
-  names.length > 1 ? `${names.slice(0, -1).join(", ")} e ${names.at(-1)}` : (names[0] ?? "");
+const list = (names: string[], and: string) =>
+  names.length > 1 ? `${names.slice(0, -1).join(", ")} ${and} ${names.at(-1)}` : (names[0] ?? "");
 
 /**
  * Lista de contato: mostra o que está confirmado e resume o restante em uma única linha
  * "Em breve", em vez de repetir "A confirmar" em cada item.
  */
-export function ContactRows({ only }: { only?: Key[] }) {
-  const rows = select(only);
+export function ContactRows({ lang, only }: { lang: Lang; only?: Key[] }) {
+  const t = getDict(lang).contactRows;
+  const rows = select(lang, only);
   const items: Row[] = rows.filter((r) => r.value !== null);
   const pending = rows.filter((r) => r.value === null);
   if (pending.length) {
-    const text = `${list(pending.map((r) => r.label.toLowerCase()))}: serão divulgados aqui assim que confirmados.`;
+    const text = t.pending(list(pending.map((r) => r.label.toLowerCase()), t.and));
     items.push({
       key: "soon",
-      label: "Em breve",
+      label: t.soon,
       icon: Hourglass,
       value: text.charAt(0).toUpperCase() + text.slice(1),
     });

@@ -1,10 +1,12 @@
 import { RevealText, RevealImage, FadeInSection } from "@/components/animations/Reveal";
 import { AnimatedButton } from "@/components/ui/Button";
 import { Blob, Portrait } from "@/components/ui/Portrait";
-import { primaryCta } from "@/lib/contact";
-import { site } from "@/config/site";
+import { getDict, href, type Lang } from "@/i18n";
+import { primaryCta as getCta } from "@/lib/contact";
 
-export function Hero() {
+export function Hero({ lang }: { lang: Lang }) {
+  const t = getDict(lang).hero;
+  const primaryCta = getCta(lang);
   return (
     <section className="relative overflow-hidden pb-20 pt-32 sm:pt-40 lg:min-h-[100svh] lg:pb-24 lg:pt-44">
       <Blob
@@ -14,15 +16,14 @@ export function Hero() {
       <div className="wrap relative grid items-center gap-14 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <FadeInSection intro>
-            <p className="eyebrow">{site.specialty}</p>
+            <p className="eyebrow">{getDict(lang).specialty}</p>
           </FadeInSection>
           <RevealText as="h1" className="t-display mt-6" delay={0.1} intro>
-            Cuidado que *acolhe,* atenção que *respeita* cada história.
+            {t.title}
           </RevealText>
           <FadeInSection delay={0.5} intro>
             <p className="t-lead mt-8">
-              Fisioterapia pélvica para homens e mulheres, com avaliação individual, escuta atenta e
-              total respeito à sua privacidade.
+              {t.lead}
             </p>
           </FadeInSection>
           <FadeInSection intro delay={0.65} className="mt-10 flex flex-wrap gap-4">
@@ -32,19 +33,19 @@ export function Hero() {
               </AnimatedButton>
             )}
             <AnimatedButton
-              href="/sobre/"
+              href={href(lang, "/sobre/")}
               variant={primaryCta ? "ghost" : "primary"}
               arrow={!primaryCta}
             >
-              Conheça meu trabalho
+              {t.about}
             </AnimatedButton>
           </FadeInSection>
           <FadeInSection intro delay={0.8}>
             <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-2 text-sm text-cocoa">
-              {["Etapas explicadas", "Sigilo profissional", "Para homens e mulheres"].map((t) => (
-                <li key={t} className="flex items-center gap-2">
+              {t.points.map((p) => (
+                <li key={p} className="flex items-center gap-2">
                   <span aria-hidden="true" className="h-1 w-1 rounded-full bg-cocoa" />
-                  {t}
+                  {p}
                 </li>
               ))}
             </ul>
@@ -73,9 +74,9 @@ export function Hero() {
             className="absolute -left-3 bottom-10 max-w-[13rem] rounded-2xl bg-vanilla px-5 py-4 text-sm leading-snug text-cocoa-deep shadow-[var(--shadow-soft)] sm:-left-8"
           >
             <span className="block font-display text-xl italic text-cocoa">
-              Avaliação individual
+              {t.cardTitle}
             </span>
-            Cada etapa explicada, no seu ritmo.
+            {t.cardText}
           </FadeInSection>
         </div>
       </div>

@@ -1,20 +1,21 @@
 import { Ear, HeartHandshake, ListChecks, Lock, Sprout } from "lucide-react";
 import { RevealText, StaggerContainer, StaggerItem } from "@/components/animations/Reveal";
-import { differentials } from "@/content/journey";
+import { getDict, type Lang } from "@/i18n";
 
 const icons = [HeartHandshake, Ear, Lock, ListChecks, Sprout];
 
 /** Cinco diferenciais em grade de 6 colunas: 2 + 3, cada um sob um fio fino. */
-export function Differentials() {
+export function Differentials({ lang }: { lang: Lang }) {
+  const t = getDict(lang);
   return (
     <section className="section lap bg-cream" aria-labelledby="dif-title">
       <div className="wrap">
-        <p className="eyebrow">Diferenciais</p>
+        <p className="eyebrow">{t.differentialsSection.eyebrow}</p>
         <RevealText as="h2" id="dif-title" className="t-h2 mt-5 max-w-3xl">
-          O que você pode esperar do *atendimento.*
+          {t.differentialsSection.title}
         </RevealText>
         <StaggerContainer className="mt-12 grid gap-x-10 gap-y-9 sm:mt-16 sm:grid-cols-2 sm:gap-y-12 lg:grid-cols-6">
-          {differentials.map((d, i) => {
+          {t.differentials.map((d, i) => {
             const Icon = icons[i] ?? Sprout;
             return (
               <StaggerItem

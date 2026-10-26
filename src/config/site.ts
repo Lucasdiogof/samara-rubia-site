@@ -22,13 +22,11 @@ export const site = {
   /** Nome provisório até confirmação. */
   displayName: "Samara Rúbia",
   professionalName: null as string | null,
-  specialty: "Fisioterapia Pélvica",
   crefito: null as string | null,
 
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   /** Indexação só é liberada com NEXT_PUBLIC_INDEXABLE=true (após aprovação). */
   indexable: process.env.NEXT_PUBLIC_INDEXABLE === "true",
-  locale: "pt-BR",
 
   contact: {
     /** Somente dígitos com DDI, ex.: "5562999999999". */
@@ -72,9 +70,6 @@ export const site = {
     /** consultório: recomendado 3:2 horizontal (a primeira é a principal), 1 a 4 fotos */
     office: [] as PhotoConfig[],
   },
-
-  whatsappMessage:
-    "Olá, Samara! Gostaria de saber mais sobre o atendimento de fisioterapia pélvica e agendar uma avaliação.",
 
   /** Marque true somente após revisão da Samara. Controla os avisos "em revisão". */
   approved: {

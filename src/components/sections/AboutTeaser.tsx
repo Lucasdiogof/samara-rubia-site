@@ -7,8 +7,10 @@ import {
 import { AnimatedButton } from "@/components/ui/Button";
 import { Blob, Portrait } from "@/components/ui/Portrait";
 import { fullName, site } from "@/config/site";
+import { getDict, href, type Lang } from "@/i18n";
 
-export function AboutTeaser() {
+export function AboutTeaser({ lang }: { lang: Lang }) {
+  const t = getDict(lang).aboutTeaser;
   return (
     <section
       className="on-dark lap relative overflow-hidden bg-cocoa-deep py-[var(--space-section)] text-vanilla"
@@ -33,19 +35,18 @@ export function AboutTeaser() {
           </RevealImage>
         </div>
         <div className="lg:col-span-7 lg:pl-10">
-          <p className="eyebrow">Sobre mim</p>
+          <p className="eyebrow">{t.eyebrow}</p>
           <RevealText as="h2" id="sobre-title" className="t-h2 mt-5">
-            Um espaço para falar do que é *delicado,* sem pressa.
+            {t.title}
           </RevealText>
           <FadeInSection delay={0.2}>
             <div className="prose-calm !text-cream mt-8">
               <p>
-                {site.bio.summary ??
-                  `Sou ${fullName}, fisioterapeuta pélvica. Acredito num atendimento em que cada pessoa é ouvida com atenção, entende cada etapa e decide junto o caminho do seu cuidado.`}
+                {site.bio.summary ?? t.summary(fullName)}
               </p>
             </div>
-            <AnimatedButton href="/sobre/" variant="light" className="mt-10" arrow>
-              Conhecer minha história
+            <AnimatedButton href={href(lang, "/sobre/")} variant="light" className="mt-10" arrow>
+              {t.button}
             </AnimatedButton>
           </FadeInSection>
         </div>
