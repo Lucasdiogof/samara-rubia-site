@@ -19,8 +19,9 @@ const linkCls = "link-u font-semibold";
 /** Informações de contato; `value: null` indica dado ainda não confirmado. */
 function contactRows(lang: Lang): Row[] {
   const t = getDict(lang).contactRows;
-  const { city, region, address, mapsUrl, hours, modalities } = site.location;
-  const place = [address, city, region].filter(Boolean).join(", ");
+  const { venue, city, region, address, district, hours, modalities } = site.location;
+  const street = [address, district].filter(Boolean).join(", ");
+  const cityLine = [city, region].filter(Boolean).join(" – ");
   const wa = whatsappUrl(lang);
   const rows: Row[] = [
     {
@@ -47,21 +48,14 @@ function contactRows(lang: Lang): Row[] {
       key: "address",
       label: t.address,
       icon: MapPin,
-      value: place ? (
-        <>
-          {place}
-          {mapsUrl && (
-            <a
-              href={mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${linkCls} mt-1 block w-fit`}
-            >
-              {t.openMaps}
-            </a>
-          )}
-        </>
-      ) : null,
+      value:
+        street || cityLine ? (
+          <>
+            {venue && <span className="block font-semibold">{t.venueAt(venue)}</span>}
+            {street && <span className="block">{street}</span>}
+            {cityLine && <span className="block">{cityLine}</span>}
+          </>
+        ) : null,
     },
     {
       key: "modality",

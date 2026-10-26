@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { RevealText, FadeInSection } from "@/components/animations/Reveal";
+import { AnimatedButton } from "@/components/ui/Button";
 import { ContactRows, nothingConfirmed } from "@/components/ui/ContactRows";
 import { site } from "@/config/site";
 import { hasChannel } from "@/lib/contact";
@@ -45,9 +46,14 @@ export function LocationSection({ lang }: { lang: Lang }) {
             {t.title(place)}
           </RevealText>
           <FadeInSection delay={0.2}>
+            {site.location.mapsUrl && (
+              <AnimatedButton href={site.location.mapsUrl} className="mt-8">
+                {getDict(lang).contactRows.directions}
+              </AnimatedButton>
+            )}
             <Link
               href={href(lang, "/contato/")}
-              className="link-u mt-6 inline-block font-semibold text-cocoa-deep"
+              className="link-u mt-6 block w-fit font-semibold text-cocoa-deep"
             >
               {t.allChannels}
             </Link>

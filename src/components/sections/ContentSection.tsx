@@ -1,16 +1,18 @@
 import Link from "next/link";
 import { RevealText, FadeInSection } from "@/components/animations/Reveal";
 import { ArticleGrid } from "@/components/ui/ArticleGrid";
+import { PostGrid } from "@/components/ui/PostGrid";
 import { ReelGrid } from "@/components/ui/ReelGrid";
 import { getDict, href, type Lang } from "@/i18n";
-import { allArticles, allReels } from "@/lib/content";
+import { allArticles, allPosts, allReels } from "@/lib/content";
 
 /** Home: até 3 Reels e 3 artigos. Sem nenhum conteúdo publicado, a seção inteira some. */
 export function ContentSection({ lang }: { lang: Lang }) {
   const t = getDict(lang).content;
   const reels = allReels().slice(0, 3);
+  const posts = allPosts().slice(0, 3);
   const articles = allArticles().slice(0, 3);
-  if (reels.length + articles.length === 0) return null;
+  if (reels.length + posts.length + articles.length === 0) return null;
   return (
     <section className="section" aria-labelledby="conteudos-title">
       <div className="wrap">
@@ -25,6 +27,12 @@ export function ContentSection({ lang }: { lang: Lang }) {
           <div className="mt-14">
             <h3 className="mb-6 font-display text-3xl text-cocoa-deep">{t.videos}</h3>
             <ReelGrid reels={reels} lang={lang} />
+          </div>
+        )}
+        {posts.length > 0 && (
+          <div className="mt-16">
+            <h3 className="mb-6 font-display text-3xl text-cocoa-deep">{t.posts}</h3>
+            <PostGrid posts={posts} lang={lang} />
           </div>
         )}
         {articles.length > 0 && (

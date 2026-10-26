@@ -33,8 +33,9 @@ export function businessLd(lang: Lang) {
     url: site.url,
     address: {
       "@type": "PostalAddress",
-      streetAddress: address,
+      streetAddress: [address, site.location.district].filter(Boolean).join(", "),
       addressLocality: city,
+      ...(site.location.region ? { addressRegion: site.location.region } : {}),
       addressCountry: "BR",
     },
     ...(site.location.hours ? { openingHours: site.location.hours } : {}),

@@ -36,10 +36,18 @@ export const site = {
   },
 
   location: {
-    city: null as string | null,
-    region: null as string | null,
-    address: null as string | null,
-    mapsUrl: null as string | null,
+    /** Samara atende neste consultório (não é a marca dela). */
+    venue: "La Femme Consultórios" as string | null,
+    address: "Rua 1123, nº 359, Quadra 220" as string | null,
+    district: "Setor Marista" as string | null,
+    city: "Goiânia" as string | null,
+    region: "GO" as string | null,
+    /** Rota no Google Maps pelo endereço confirmado (sem número de sala, que não foi informado). */
+    mapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=" +
+      encodeURIComponent("La Femme Consultórios, Rua 1123, 359, Quadra 220, Setor Marista, Goiânia - GO") as
+        | string
+        | null,
     /** ex.: ["Presencial", "Online"]; vazio = "a confirmar" */
     modalities: [] as string[],
     hours: null as string | null,

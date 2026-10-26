@@ -20,6 +20,17 @@ export type Reel = {
   demo?: boolean;
 };
 
+/**
+ * Publicação do Instagram em formato /p/ (imagem, carrossel ou vídeo; o tipo não é assumido).
+ * Sem título, legenda nem data: só o link original e, quando houver, uma capa autorizada.
+ */
+export type Post = {
+  id: string;
+  /** link original, exatamente como a Samara informou (inclusive ?img_index=1) */
+  url: string;
+  cover: PhotoConfig | null;
+};
+
 export type ArticleCategory = "geral" | "gestacao" | "incontinencia" | "dor" | "intimidade";
 
 export type ArticleText = {
@@ -62,6 +73,12 @@ export type Review = {
 };
 
 export const reels: Reel[] = [];
+/** Publicações reais informadas pela Samara (perfil @samara.rubiaa). Ordem = ordem de exibição. */
+export const posts: Post[] = [
+  { id: "ig-DcUbBVSvcX8", url: "https://www.instagram.com/p/DcUbBVSvcX8/", cover: null },
+  { id: "ig-DdKRgA9BfXa", url: "https://www.instagram.com/p/DdKRgA9BfXa/", cover: null },
+  { id: "ig-C-WGsEgRqcv", url: "https://www.instagram.com/p/C-WGsEgRqcv/?img_index=1", cover: null },
+];
 export const articles: Article[] = [];
 export const reviews: Review[] = [];
 

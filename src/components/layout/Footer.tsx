@@ -66,7 +66,15 @@ export function Footer({ lang }: { lang: Lang }) {
                 </a>
               </li>
             )}
-            {loc && <li className="text-cocoa">{loc}</li>}
+            {site.location.venue && (
+              <li className="text-cocoa">
+                {getDict(lang).contactRows.venueAt(site.location.venue)}
+                <br />
+                {[site.location.address, site.location.district].filter(Boolean).join(", ")}
+                <br />
+                {loc}
+              </li>
+            )}
           </ul>
         </div>
       </div>

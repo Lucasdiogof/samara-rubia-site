@@ -1,5 +1,6 @@
 import {
   articles as realArticles,
+  posts as realPosts,
   reels as realReels,
   reviews as realReviews,
   googleProfileUrl,
@@ -21,13 +22,15 @@ export const allReels = (): Reel[] =>
   byDateDesc([...realReels, ...(showDemo ? demoReels : [])]);
 
 /** Só artigos aprovados pela Samara (e os exemplos de desenvolvimento). */
+export const allPosts = () => realPosts;
+
 export const allArticles = (): Article[] =>
   byDateDesc([...realArticles, ...(showDemo ? demoArticles : [])].filter((a) => a.approved));
 
 export const allReviews = (): Review[] =>
   byDateDesc([...realReviews, ...(showDemo ? demoReviews : [])].filter((r) => r.authorized));
 
-export const hasContent = () => allReels().length + allArticles().length > 0;
+export const hasContent = () => allReels().length + allPosts().length + allArticles().length > 0;
 export { googleProfileUrl };
 
 export const categoryLabel = (lang: Lang, c: Article["category"]) =>

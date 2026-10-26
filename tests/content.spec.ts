@@ -5,7 +5,13 @@ async function isDemoBuild(request: import("@playwright/test").APIRequestContext
   return (await request.get("/conteudos/exemplo-um/")).status() === 200;
 }
 
-test("build público: nenhum exemplo, nenhuma avaliação e nenhum dado estruturado falso", async ({ page, request }) => {
+const postUrls = [
+  "https://www.instagram.com/p/DcUbBVSvcX8/",
+  "https://www.instagram.com/p/DdKRgA9BfXa/",
+  "https://www.instagram.com/p/C-WGsEgRqcv/?img_index=1",
+];
+
+test("build público: 3 publicações reais, sem exemplos, avaliações nem dados estruturados falsos", async ({ page, request }) => {
   test.skip(await isDemoBuild(request), "build com exemplos");
   for (const url of ["/", "/en/", "/es/", "/conteudos/"]) {
     await page.goto(url);
@@ -14,14 +20,52 @@ test("build público: nenhum exemplo, nenhuma avaliação e nenhum dado estrutur
     expect(await page.locator("#avaliacoes-title").count()).toBe(0);
     const ld = await page.locator('script[type="application/ld+json"]').allTextContents();
     expect(ld.join("")).not.toMatch(/Review|AggregateRating|"Article"/);
+    // links originais preservados (inclusive ?img_index=1) e nenhum embed carregado de início
+    const hrefs = await page.locator('a[href*="instagram.com/p/"]').evaluateAll((els) => els.map((e) => e.getAttribute("href")));
+    expect(hrefs).toEqual(postUrls);
+    expect(await page.locator("iframe").count()).toBe(0);
   }
+  // ordem na home: diferenciais < conteúdos < FAQ < localização
   await page.goto("/");
-  expect(await page.locator("#conteudos-title").count()).toBe(0);
-  // a página /conteudos/ existe, com estado honesto, mas não aparece no menu
-  await page.goto("/conteudos/");
-  await expect(page.getByText("serão publicados aqui após a revisão")).toBeVisible();
-  expect(await page.getByRole("link", { name: "Conteúdos" }).count()).toBe(0);
+  const order = await page.evaluate(() =>
+    ["dif-title", "conteudos-title", "faq-title", "local-title"].map(
+      (id) => document.getElementById(id)?.getBoundingClientRect().top ?? -1,
+    ),
+  );
+  expect(order.every((n) => n !== -1)).toBe(true);
+  expect(order).toEqual([...order].sort((a, b) => a - b));
   expect((await request.get("/sitemap.xml").then((r) => r.text()))).not.toContain("exemplo-um");
+});
+
+test("publicação: o embed só carrega após o clique, um de cada vez", async ({ page, request }) => {
+  test.skip(await isDemoBuild(request), "build com exemplos");
+  const ig: string[] = [];
+  page.on("request", (r) => r.url().includes("instagram.com") && ig.push(r.url()));
+  await page.goto("/conteudos/");
+  await page.waitForTimeout(1500);
+  expect(ig).toEqual([]);
+  for (let i = 0; i < 3; i++) {
+    await page.getByRole("button", { name: "Ver publicação aqui" }).first().click();
+    await expect(page.locator("iframe")).toHaveCount(i + 1);
+  }
+  const srcs = await page.locator("iframe").evaluateAll((els) => els.map((e) => e.getAttribute("src")));
+  expect(srcs).toEqual([
+    "https://www.instagram.com/p/DcUbBVSvcX8/embed/",
+    "https://www.instagram.com/p/DdKRgA9BfXa/embed/",
+    "https://www.instagram.com/p/C-WGsEgRqcv/embed/",
+  ]);
+});
+
+test("endereço confirmado e botão Como chegar em PT, EN e ES", async ({ page }) => {
+  const maps = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("La Femme Consultórios, Rua 1123, 359, Quadra 220, Setor Marista, Goiânia - GO");
+  for (const [prefix, venue, label] of [["", "Atendimento na La Femme Consultórios", "Como chegar"], ["/en", "Appointments at La Femme Consultórios", "Get directions"], ["/es", "Atención en La Femme Consultórios", "Cómo llegar"]] as const) {
+    for (const route of ["/", "/contato/"]) {
+      await page.goto(prefix + route);
+      await expect(page.getByText(venue).first()).toBeVisible();
+      await expect(page.getByText("Rua 1123, nº 359, Quadra 220, Setor Marista").first()).toBeVisible();
+      await expect(page.getByRole("link", { name: label }).first()).toHaveAttribute("href", maps);
+    }
+  }
 });
 
 test("build com exemplos: seções, avisos visíveis e embed só após o clique", async ({ page, request }) => {

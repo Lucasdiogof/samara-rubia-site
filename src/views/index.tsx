@@ -27,9 +27,10 @@ import { ContentSection } from "@/components/sections/ContentSection";
 import { ReviewsSection } from "@/components/sections/ReviewsSection";
 import { ArticleGrid } from "@/components/ui/ArticleGrid";
 import { ReelGrid } from "@/components/ui/ReelGrid";
+import { PostGrid } from "@/components/ui/PostGrid";
 import { Photo } from "@/components/ui/Photo";
 import type { Article } from "@/config/content";
-import { allArticles, allReels, categoryLabel, formatDate } from "@/lib/content";
+import { allArticles, allPosts, allReels, categoryLabel, formatDate } from "@/lib/content";
 import { LocationSection } from "@/components/sections/LocationSection";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { OfficeGallery } from "@/components/sections/OfficeGallery";
@@ -125,6 +126,11 @@ function Contact({ lang }: { lang: Lang }) {
           </FadeInSection>
           <FadeInSection delay={0.15} className="lg:col-span-6 lg:col-start-7">
             <ContactRows lang={lang} />
+            {site.location.mapsUrl && (
+              <AnimatedButton href={site.location.mapsUrl} variant="ghost" className="mt-8">
+                {getDict(lang).contactRows.directions}
+              </AnimatedButton>
+            )}
           </FadeInSection>
         </div>
       </section>
@@ -422,6 +428,7 @@ function NotFoundView({ lang }: { lang: Lang }) {
 function Conteudos({ lang }: { lang: Lang }) {
   const t = getDict(lang).content;
   const reels = allReels();
+  const posts = allPosts();
   const articles = allArticles();
   return (
     <>
@@ -435,11 +442,17 @@ function Conteudos({ lang }: { lang: Lang }) {
       />
       <section className="pb-24">
         <div className="wrap space-y-16">
-          {reels.length + articles.length === 0 && <p className="prose-calm">{t.empty}</p>}
+          {reels.length + posts.length + articles.length === 0 && <p className="prose-calm">{t.empty}</p>}
           {reels.length > 0 && (
             <div>
               <h2 className="t-h3 mb-8">{t.videos}</h2>
               <ReelGrid reels={reels} lang={lang} />
+            </div>
+          )}
+          {posts.length > 0 && (
+            <div>
+              <h2 className="t-h3 mb-8">{t.posts}</h2>
+              <PostGrid posts={posts} lang={lang} />
             </div>
           )}
           {articles.length > 0 && (

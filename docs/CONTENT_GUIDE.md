@@ -40,3 +40,10 @@ publicidade em saúde: sem promessa de resultado, sem antes/depois.
 ## Fotografia profissional
 Já integrada (componente `Photo`): `hero`, `portrait` e `office` em `site.images`, como em `docs/IMAGES.md`.
 Falta apenas receber as fotos reais da Samara.
+
+## Publicações do Instagram (`/p/`)
+`posts` em `src/config/content.ts` guarda publicações normais (imagem, carrossel ou vídeo; o tipo não é
+assumido). Cada item é só `{ id, url, cover }`: o site NÃO inventa título, legenda ou data, e mostra
+"Publicação 1/2/3" com o link original (mantenha `?img_index=` se existir). Sem capa, o card é neutro.
+O embed (`/p/<código>/embed/`) só carrega após o clique, um card por vez. Para uma capa autorizada:
+`npm run images -- capa.jpg post-1 --alt="..."` e cole o bloco em `cover` (proporção 4:5).

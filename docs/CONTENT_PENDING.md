@@ -12,9 +12,9 @@ Sem estes itens o site não deve ser divulgado como definitivo.
 
 - [ ] Nome profissional completo (`professionalName`)
 - [ ] Número do **CREFITO** (`crefito`), obrigatório em divulgação profissional
-- [ ] **WhatsApp** com DDI, só dígitos (`contact.whatsapp`, ex.: `5562999999999`), que ativa todos os CTAs, o botão flutuante e a mensagem pronta
+- [x] **WhatsApp** 5562982388209 (NEXT_PUBLIC_WHATSAPP em .env.production): CTAs, botão flutuante e mensagem pronta ativos
 - [ ] Cidade e região (`location.city`, `location.region`)
-- [ ] Endereço completo e link do Google Maps (`location.address`, `location.mapsUrl`), se houver atendimento presencial
+- [x] Endereço (La Femme Consultórios, Rua 1123, nº 359, Quadra 220, Setor Marista, Goiânia – GO) e "Como chegar" no Google Maps. Faltam: sala, horários, modalidade, estacionamento, convênios
 - [ ] Modalidades de atendimento (`location.modalities`, ex.: `["Presencial", "Online"]`)
 - [ ] Horários de atendimento (`location.hours`)
 - [ ] Biografia/apresentação (`bio.summary`)
@@ -26,7 +26,7 @@ Sem estes itens o site não deve ser divulgado como definitivo.
 - [ ] **Perguntas frequentes (`approved.faq`)**: validar clinicamente `src/content/faq.ts` (inclui respostas sobre dor/consentimento, encaminhamento e sessões)
 - [ ] **Sobre (`approved.about`)**: história profissional, abordagem e fotos
 - [ ] **Jornada e diferenciais** (`src/content/journey.ts`): confirmar que descrevem a prática real
-- [ ] **Mensagem do WhatsApp** (`whatsappMessage`): confirmar o texto
+- [ ] **Mensagem do WhatsApp** (`waMessage` em `src/i18n/config.ts`, pt/en/es): confirmar os textos
 - [ ] Conferir as normas do COFFITO/CREFITO para divulgação (sem promessa de resultado, sem "antes e depois" sem autorização)
 
 ### Política de privacidade (`approved.privacy`)

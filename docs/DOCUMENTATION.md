@@ -69,7 +69,7 @@ depender de JS (LCP). GSAP anima apenas transform/opacity/clip-path; Motion cuid
 - **Contatos/endereço/horários/CREFITO:** `src/config/site.ts` (validação de WhatsApp em `src/lib/contact.ts`).
 - **Fotos:** `npm run images -- arquivo nome --focal=50,30 --alt="..."` e cole o bloco em `site.images` (hero, portrait, office); ver [`IMAGES.md`](IMAGES.md).
 - **Dados profissionais:** todos os campos (nome, CREFITO, bio, formação, especializações, cursos, abordagem, modalidades, endereço, horários, convênios, WhatsApp, Instagram) estão em `src/config/site.ts`; checklist em [`CONTENT_PENDING.md`](CONTENT_PENDING.md).
-- **Testar o fluxo com WhatsApp (sem publicar):** `NEXT_PUBLIC_WHATSAPP=5511900000000 npm run build && WA_TEST=5511900000000 npx playwright test` (número fictício, só local; refaça o build normal antes de publicar).
+- **Testar o fluxo com WhatsApp (sem publicar):** `npm run build && npx playwright test whatsapp (usa o número real de .env.production; WA_TEST só para outro número)` (número fictício, só local; refaça o build normal antes de publicar).
 - **Artigos:** a área pública está oculta. Para ativar, adicione itens em `src/content/articles.ts` e copie
   `docs/templates/articles/*` para `src/app/conteudos/` (índice e `[slug]` com `generateStaticParams`), depois
   inclua `/conteudos/` no menu e no `sitemap.ts`. Só publique conteúdo revisado.
