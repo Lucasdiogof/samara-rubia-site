@@ -9,8 +9,7 @@ import { Menu, X } from "lucide-react";
 import { AnimatedButton } from "@/components/ui/Button";
 import { Logo } from "./Logo";
 import { Controls, type ControlLabels } from "./Controls";
-import { nav } from "./nav";
-import { href, splitPath, type Lang } from "@/i18n/config";
+import { splitPath, type Lang } from "@/i18n/config";
 import { cn } from "@/lib/utils";
 
 export type HeaderText = {
@@ -19,7 +18,7 @@ export type HeaderText = {
   navMobile: string;
   menuOpen: string;
   menuClose: string;
-  links: Record<(typeof nav)[number]["key"], string>;
+  links: { path: string; href: string; label: string }[];
   controls: ControlLabels;
   cta: { href: string; label: string } | null;
 };
@@ -99,19 +98,19 @@ export function Header({ lang, t }: { lang: Lang; t: HeaderText }) {
         <Logo lang={lang} specialty={t.specialty} />
         <nav aria-label={t.navMain} className="hidden xl:block">
           <ul className="flex items-center gap-9">
-            {nav.map((n) => (
-              <li key={n.href}>
+            {t.links.map((n) => (
+              <li key={n.path}>
                 <Link
-                  href={href(lang, n.href)}
-                  aria-current={isActive(n.href) ? "page" : undefined}
+                  href={n.href}
+                  aria-current={isActive(n.path) ? "page" : undefined}
                   className={cn(
                     "relative whitespace-nowrap py-2 text-[0.95rem] font-medium text-cocoa-deep after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:bg-cocoa-deep after:transition-transform after:duration-300",
-                    isActive(n.href)
+                    isActive(n.path)
                       ? "after:scale-x-100"
                       : "after:scale-x-0 hover:after:scale-x-100",
                   )}
                 >
-                  {t.links[n.key]}
+                  {n.label}
                 </Link>
               </li>
             ))}
@@ -158,9 +157,9 @@ export function Header({ lang, t }: { lang: Lang; t: HeaderText }) {
               className="wrap flex min-h-full flex-col justify-between pb-10 pt-8"
             >
               <ul>
-                {nav.map((n, i) => (
+                {t.links.map((n, i) => (
                   <m.li
-                    key={n.href}
+                    key={n.path}
                     initial={{ opacity: 0, y: 18 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.06 + i * 0.05, duration: 0.45 }}
@@ -168,14 +167,14 @@ export function Header({ lang, t }: { lang: Lang; t: HeaderText }) {
                   >
                     <Link
                       ref={i === 0 ? firstLink : undefined}
-                      href={href(lang, n.href)}
-                      aria-current={isActive(n.href) ? "page" : undefined}
+                      href={n.href}
+                      aria-current={isActive(n.path) ? "page" : undefined}
                       className={cn(
                         "flex items-baseline justify-between py-4 font-display text-[2.1rem] leading-tight",
-                        isActive(n.href) ? "italic text-cocoa" : "text-cocoa-deep",
+                        isActive(n.path) ? "italic text-cocoa" : "text-cocoa-deep",
                       )}
                     >
-                      {t.links[n.key]}
+                      {n.label}
                       <span className="text-sm font-sans text-cocoa" aria-hidden="true">
                         0{i + 1}
                       </span>

@@ -23,15 +23,22 @@ import { AboutTeaser } from "@/components/sections/AboutTeaser";
 import { Journey } from "@/components/sections/Journey";
 import { Differentials } from "@/components/sections/Differentials";
 import { FaqSection } from "@/components/sections/FaqSection";
+import { ContentSection } from "@/components/sections/ContentSection";
+import { ReviewsSection } from "@/components/sections/ReviewsSection";
+import { ArticleGrid } from "@/components/ui/ArticleGrid";
+import { ReelGrid } from "@/components/ui/ReelGrid";
+import { Photo } from "@/components/ui/Photo";
+import type { Article } from "@/config/content";
+import { allArticles, allReels, categoryLabel, formatDate } from "@/lib/content";
 import { LocationSection } from "@/components/sections/LocationSection";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { OfficeGallery } from "@/components/sections/OfficeGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { fullName, site } from "@/config/site";
-import { getDict, href, type Lang } from "@/i18n";
+import { getDict, href, langMeta, type Lang } from "@/i18n";
 import { Blob } from "@/components/ui/Portrait";
 import { hasChannel, hasWhatsapp, whatsappUrl } from "@/lib/contact";
-import { buildMetadata, pageMetadata, siteDescription } from "@/lib/metadata";
+import { buildMetadata, localizedUrl, pageMetadata, siteDescription } from "@/lib/metadata";
 import { enabledServices } from "@/lib/services";
 import { faqLd } from "@/lib/structured-data";
 
@@ -47,7 +54,9 @@ function Home({ lang }: { lang: Lang }) {
       <AboutTeaser lang={lang} />
       <Journey lang={lang} compact />
       <Differentials lang={lang} />
+      <ContentSection lang={lang} />
       <FaqSection lang={lang} />
+      <ReviewsSection lang={lang} />
       <LocationSection lang={lang} />
       <FinalCta lang={lang} />
     </>
@@ -410,6 +419,108 @@ function NotFoundView({ lang }: { lang: Lang }) {
   );
 }
 
+function Conteudos({ lang }: { lang: Lang }) {
+  const t = getDict(lang).content;
+  const reels = allReels();
+  const articles = allArticles();
+  return (
+    <>
+      <PageHero
+        lang={lang}
+        eyebrow={t.pageEyebrow}
+        title={t.pageTitle}
+        lead={t.pageLead}
+        motif="waves"
+        crumbs={[{ name: t.crumb, path: "/conteudos/" }]}
+      />
+      <section className="pb-24">
+        <div className="wrap space-y-16">
+          {reels.length + articles.length === 0 && <p className="prose-calm">{t.empty}</p>}
+          {reels.length > 0 && (
+            <div>
+              <h2 className="t-h3 mb-8">{t.videos}</h2>
+              <ReelGrid reels={reels} lang={lang} />
+            </div>
+          )}
+          {articles.length > 0 && (
+            <div>
+              <h2 className="t-h3 mb-8">{t.articles}</h2>
+              <ArticleGrid articles={articles} lang={lang} />
+            </div>
+          )}
+        </div>
+      </section>
+      <CtaBand lang={lang} />
+    </>
+  );
+}
+
+function ArticlePage({ lang, article }: { lang: Lang; article: Article }) {
+  const t = getDict(lang).content;
+  const a = article.i18n[lang];
+  const base = `/conteudos/${article.slug}/`;
+  return (
+    <>
+      <PageHero
+        lang={lang}
+        eyebrow={categoryLabel(lang, article.category)}
+        title={a.title}
+        lead={a.summary}
+        crumbs={[
+          { name: t.crumb, path: "/conteudos/" },
+          { name: a.title, path: base },
+        ]}
+      >
+        <p className="mt-6 text-sm text-cocoa">
+          <time dateTime={article.date}>{formatDate(lang, article.date)}</time>
+          {article.demo && <span className="ml-3 font-semibold">{t.demo}</span>}
+        </p>
+      </PageHero>
+      <article className="pb-24">
+        <div className="wrap max-w-3xl">
+          {article.cover && (
+            <div className="relative mb-12 aspect-[3/2] overflow-hidden rounded-[1.5rem] bg-cream">
+              <Photo photo={article.cover} sizes="(min-width: 768px) 48rem, 94vw" />
+            </div>
+          )}
+          <div className="prose-calm !max-w-none space-y-0">
+            {a.body.map((b) =>
+              b.startsWith("## ") ? (
+                <h2 key={b} className="t-h3 mb-4 mt-12 !text-cocoa-deep">
+                  {b.slice(3)}
+                </h2>
+              ) : (
+                <p key={b}>{b}</p>
+              ),
+            )}
+          </div>
+          <p className="mt-12 border-t border-border pt-5 text-sm text-cocoa">{t.disclaimer}</p>
+          <Link href={href(lang, "/conteudos/")} className="link-u mt-8 inline-block font-semibold text-cocoa-deep">
+            {t.back}
+          </Link>
+        </div>
+        {!article.demo && (
+          <JsonLd
+            data={{
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: a.title,
+              description: a.summary,
+              datePublished: article.date,
+              inLanguage: langMeta[lang].htmlLang,
+              mainEntityOfPage: localizedUrl(lang, base),
+              ...(site.professionalName
+                ? { author: { "@type": "Person", name: site.professionalName } }
+                : {}),
+            }}
+          />
+        )}
+      </article>
+      <CtaBand lang={lang} />
+    </>
+  );
+}
+
 /** Rotas neutras (sem prefixo de idioma); o prefixo /en/ e /es/ é resolvido em app/[[...slug]]. */
 const routes: Record<string, Route> = {
   "/": {
@@ -504,6 +615,35 @@ for (const s of enabledServices("pt")) {
       return pageMetadata({ title: x.title, description: x.short, path, lang });
     },
     View: ({ lang }) => <Treatment lang={lang} slug={s.slug} />,
+  };
+}
+
+routes["/conteudos/"] = {
+  meta: (lang) => {
+    const t = getDict(lang).content;
+    return pageMetadata({
+      title: t.metaTitle,
+      description: t.metaDescription,
+      path: "/conteudos/",
+      lang,
+    });
+  },
+  View: Conteudos,
+};
+
+for (const article of allArticles()) {
+  const path = `/conteudos/${article.slug}/`;
+  routes[path] = {
+    meta: (lang) => {
+      const a = article.i18n[lang];
+      return pageMetadata({
+        title: a.seoTitle ?? a.title,
+        description: a.seoDescription ?? a.summary,
+        path,
+        lang,
+      });
+    },
+    View: ({ lang }) => <ArticlePage lang={lang} article={article} />,
   };
 }
 

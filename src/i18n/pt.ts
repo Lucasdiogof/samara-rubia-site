@@ -1,3 +1,5 @@
+import type { ArticleCategory } from "@/config/content";
+
 /** Textos em português (idioma-base: en.ts e es.ts seguem exatamente este formato). */
 export type Service = {
   slug: string;
@@ -36,6 +38,7 @@ export const pt = {
     how: "Como funciona",
     faq: "Dúvidas",
     contact: "Contato",
+    content: "Conteúdos",
     privacy: "Política de privacidade",
   },
 
@@ -348,7 +351,7 @@ export const pt = {
       [
         "Links externos e hospedagem",
         [
-          "Links para Instagram e Google Maps levam a serviços de terceiros, regidos por suas próprias políticas.",
+          "Links para Instagram e Google Maps levam a serviços de terceiros, regidos por suas próprias políticas. Os vídeos (Reels) só são carregados do Instagram depois que você clica para assistir.",
           "O site é hospedado na Cloudflare, que pode registrar dados técnicos de acesso (como endereço IP) para segurança e funcionamento da rede. As fontes tipográficas são servidas pelo próprio site. A escolha de tema e de idioma fica salva apenas no seu navegador.",
         ],
       ],
@@ -564,6 +567,50 @@ export const pt = {
       ],
     },
   ] as Service[],
+
+  content: {
+    eyebrow: "Conteúdos educativos",
+    title: "Informação clara para *cuidar* de você.",
+    lead: "Vídeos e artigos informativos. Eles não substituem a avaliação individual.",
+    videos: "Vídeos",
+    articles: "Artigos",
+    seeAll: "Ver todos os conteúdos",
+    metaTitle: "Conteúdos educativos",
+    metaDescription:
+      "Vídeos e artigos informativos sobre fisioterapia pélvica. O conteúdo é educativo e não substitui a avaliação individual.",
+    pageEyebrow: "Conteúdos",
+    pageTitle: "Conteúdos *educativos.*",
+    pageLead:
+      "Vídeos e artigos sobre saúde pélvica. São informativos e não substituem a avaliação de um profissional de saúde.",
+    crumb: "Conteúdos",
+    empty: "Os conteúdos educativos serão publicados aqui após a revisão da profissional.",
+    watch: "Assistir aqui",
+    openIg: "Ver no Instagram",
+    igNote:
+      "O vídeo é carregado do Instagram só depois do clique; o Instagram pode registrar dados do seu acesso.",
+    player: (title: string) => `Reprodutor do Reel: ${title}`,
+    demo: "EXEMPLO DE DESENVOLVIMENTO",
+    read: "Ler artigo",
+    back: "Todos os conteúdos",
+    disclaimer:
+      "Este conteúdo é educativo e não substitui a avaliação de um profissional de saúde. Não há promessa de cura ou de resultado.",
+    categories: {
+      geral: "Saúde pélvica",
+      gestacao: "Gestação e pós-parto",
+      incontinencia: "Incontinência urinária",
+      dor: "Dor pélvica",
+      intimidade: "Saúde íntima",
+    } as Record<ArticleCategory, string>,
+  },
+  reviews: {
+    eyebrow: "Avaliações",
+    title: "O que dizem *sobre* o atendimento.",
+    lead: "Avaliações publicadas no Google, transcritas com autorização de quem as escreveu.",
+    source: "Avaliação no Google",
+    demo: "EXEMPLO FICTÍCIO — não é uma avaliação real",
+    seeAll: "Ver avaliações no Google",
+    stars: (n: number) => `${n} de 5 estrelas`,
+  },
 
   jobTitle: "Fisioterapeuta pélvica",
 };

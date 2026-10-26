@@ -4,7 +4,7 @@ import { instagramUrl, whatsappUrl } from "@/lib/contact";
 import { InstagramIcon, WhatsAppIcon } from "@/components/ui/Icons";
 import { getDict, href, type Lang } from "@/i18n";
 import { Logo } from "./Logo";
-import { nav } from "./nav";
+import { navItems } from "@/lib/nav";
 
 export function Footer({ lang }: { lang: Lang }) {
   const t = getDict(lang);
@@ -25,11 +25,11 @@ export function Footer({ lang }: { lang: Lang }) {
           <h2 className="eyebrow">{t.footer.navigation}</h2>
           <ul className="mt-5 space-y-2.5">
             {[
-              ...nav.slice(1).map((n) => ({ href: n.href, label: t.nav[n.key] })),
-              { href: "/privacidade/", label: t.nav.privacy },
+              ...navItems(lang).slice(1),
+              { path: "/privacidade/", href: href(lang, "/privacidade/"), label: t.nav.privacy },
             ].map((n) => (
-              <li key={n.href}>
-                <Link href={href(lang, n.href)} className="link-u text-[0.95rem] text-cocoa-deep">
+              <li key={n.path}>
+                <Link href={n.href} className="link-u text-[0.95rem] text-cocoa-deep">
                   {n.label}
                 </Link>
               </li>

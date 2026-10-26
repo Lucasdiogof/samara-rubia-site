@@ -28,6 +28,7 @@ export const en: Dict = {
     how: "How it works",
     faq: "FAQ",
     contact: "Contact",
+    content: "Content",
     privacy: "Privacy policy",
   },
 
@@ -339,7 +340,7 @@ export const en: Dict = {
       [
         "External links and hosting",
         [
-          "Links to Instagram and Google Maps lead to third-party services governed by their own policies.",
+          "Links to Instagram and Google Maps lead to third-party services governed by their own policies. Videos (Reels) are only loaded from Instagram after you click to watch.",
           "The site is hosted on Cloudflare, which may record technical access data (such as IP address) for security and network operation. Typefaces are served by the site itself. Your theme and language choice is saved only in your browser.",
         ],
       ],
@@ -555,6 +556,50 @@ export const en: Dict = {
       ],
     },
   ],
+
+  content: {
+    eyebrow: "Educational content",
+    title: "Clear information to *look after* yourself.",
+    lead: "Informative videos and articles. They do not replace an individual assessment.",
+    videos: "Videos",
+    articles: "Articles",
+    seeAll: "See all content",
+    metaTitle: "Educational content",
+    metaDescription:
+      "Informative videos and articles about pelvic physiotherapy. The content is educational and does not replace an individual assessment.",
+    pageEyebrow: "Content",
+    pageTitle: "Educational *content.*",
+    pageLead:
+      "Videos and articles about pelvic health. They are informative and do not replace an assessment by a healthcare professional.",
+    crumb: "Content",
+    empty: "Educational content will be published here once reviewed by the professional.",
+    watch: "Watch here",
+    openIg: "View on Instagram",
+    igNote:
+      "The video is loaded from Instagram only after you click; Instagram may record data about your visit.",
+    player: (title) => `Reel player: ${title}`,
+    demo: "DEVELOPMENT SAMPLE",
+    read: "Read article",
+    back: "All content",
+    disclaimer:
+      "This content is educational and does not replace an assessment by a healthcare professional. There is no promise of cure or outcome.",
+    categories: {
+      geral: "Pelvic health",
+      gestacao: "Pregnancy and postpartum",
+      incontinencia: "Urinary incontinence",
+      dor: "Pelvic pain",
+      intimidade: "Intimate health",
+    },
+  },
+  reviews: {
+    eyebrow: "Reviews",
+    title: "What people say *about* the care.",
+    lead: "Reviews published on Google, transcribed with the permission of the people who wrote them.",
+    source: "Google review",
+    demo: "FICTIONAL SAMPLE — not a real review",
+    seeAll: "See reviews on Google",
+    stars: (n) => `${n} out of 5 stars`,
+  },
 
   jobTitle: "Pelvic physiotherapist",
 };

@@ -8,7 +8,7 @@ import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { MotionRoot } from "@/components/animations/MotionRoot";
 import { MotionProvider } from "@/components/animations/MotionProvider";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { nav } from "@/components/layout/nav";
+import { navItems } from "@/lib/nav";
 import { getDict, langMeta, parseSlug } from "@/i18n";
 import { primaryCta } from "@/lib/contact";
 import { websiteLd, personLd, businessLd } from "@/lib/structured-data";
@@ -75,10 +75,7 @@ export default async function RootLayout({
               navMobile: t.a11y.navMobile,
               menuOpen: t.a11y.menuOpen,
               menuClose: t.a11y.menuClose,
-              links: Object.fromEntries(nav.map((n) => [n.key, t.nav[n.key]])) as Record<
-                (typeof nav)[number]["key"],
-                string
-              >,
+              links: navItems(lang),
               controls: {
                 language: t.a11y.language,
                 toDark: t.a11y.themeToDark,

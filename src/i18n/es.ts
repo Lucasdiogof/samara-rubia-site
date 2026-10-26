@@ -28,6 +28,7 @@ export const es: Dict = {
     how: "Cómo funciona",
     faq: "Dudas",
     contact: "Contacto",
+    content: "Contenidos",
     privacy: "Política de privacidad",
   },
 
@@ -341,7 +342,7 @@ export const es: Dict = {
       [
         "Enlaces externos y alojamiento",
         [
-          "Los enlaces a Instagram y Google Maps llevan a servicios de terceros, regidos por sus propias políticas.",
+          "Los enlaces a Instagram y Google Maps llevan a servicios de terceros, regidos por sus propias políticas. Los videos (Reels) solo se cargan desde Instagram después de que haces clic para verlos.",
           "El sitio está alojado en Cloudflare, que puede registrar datos técnicos de acceso (como la dirección IP) por seguridad y funcionamiento de la red. Las tipografías las sirve el propio sitio. La elección de tema e idioma se guarda solo en tu navegador.",
         ],
       ],
@@ -558,6 +559,50 @@ export const es: Dict = {
       ],
     },
   ],
+
+  content: {
+    eyebrow: "Contenidos educativos",
+    title: "Información clara para *cuidarte.*",
+    lead: "Videos y artículos informativos. No sustituyen la evaluación individual.",
+    videos: "Videos",
+    articles: "Artículos",
+    seeAll: "Ver todos los contenidos",
+    metaTitle: "Contenidos educativos",
+    metaDescription:
+      "Videos y artículos informativos sobre fisioterapia pélvica. El contenido es educativo y no sustituye la evaluación individual.",
+    pageEyebrow: "Contenidos",
+    pageTitle: "Contenidos *educativos.*",
+    pageLead:
+      "Videos y artículos sobre salud pélvica. Son informativos y no sustituyen la evaluación de un profesional de la salud.",
+    crumb: "Contenidos",
+    empty: "Los contenidos educativos se publicarán aquí tras la revisión de la profesional.",
+    watch: "Ver aquí",
+    openIg: "Ver en Instagram",
+    igNote:
+      "El video se carga desde Instagram solo después de hacer clic; Instagram puede registrar datos de tu acceso.",
+    player: (title) => `Reproductor del Reel: ${title}`,
+    demo: "EJEMPLO DE DESARROLLO",
+    read: "Leer artículo",
+    back: "Todos los contenidos",
+    disclaimer:
+      "Este contenido es educativo y no sustituye la evaluación de un profesional de la salud. No hay promesa de cura ni de resultado.",
+    categories: {
+      geral: "Salud pélvica",
+      gestacao: "Embarazo y posparto",
+      incontinencia: "Incontinencia urinaria",
+      dor: "Dolor pélvico",
+      intimidade: "Salud íntima",
+    },
+  },
+  reviews: {
+    eyebrow: "Opiniones",
+    title: "Lo que dicen *sobre* la atención.",
+    lead: "Opiniones publicadas en Google, transcritas con la autorización de quienes las escribieron.",
+    source: "Opinión en Google",
+    demo: "EJEMPLO FICTICIO — no es una opinión real",
+    seeAll: "Ver opiniones en Google",
+    stars: (n) => `${n} de 5 estrellas`,
+  },
 
   jobTitle: "Fisioterapeuta pélvica",
 };
