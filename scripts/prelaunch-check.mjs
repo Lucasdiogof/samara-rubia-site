@@ -37,6 +37,13 @@ add(
   env.NEXT_PUBLIC_INDEXABLE === "true" ? "true" : "false (liberar só após aprovação da Samara)",
 );
 
+add(
+  "Domínio",
+  "Sem avaliações fictícias de teste (NEXT_PUBLIC_REVIEWS_TEST)",
+  env.NEXT_PUBLIC_REVIEWS_TEST !== "true",
+  env.NEXT_PUBLIC_REVIEWS_TEST === "true" ? "ligado: remover antes de liberar o Google" : "",
+);
+
 // Dados profissionais
 add("Dados profissionais", "Nome profissional completo", !nullField("professionalName"));
 add("Dados profissionais", "CREFITO", !nullField("crefito"));

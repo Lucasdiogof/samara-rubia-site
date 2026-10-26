@@ -47,11 +47,17 @@ export const demoArticles: Article[] = (
   },
 }));
 
-export const demoReviews: Review[] = [1, 2, 3].map((n) => ({
-  id: `demo-review-${n}`,
-  author: `Nome de exemplo ${n}`,
-  date: "2026-01-01",
-  text: "Texto de avaliação de exemplo, apenas para teste de layout.",
+const demoReviewTexts = [
+  "Avaliação fictícia de teste: atendimento acolhedor, com cada etapa explicada antes de acontecer. Texto escrito só para validar o layout.",
+  "Avaliação fictícia de teste: ambiente tranquilo e muito respeito à privacidade. Este texto não foi escrito por nenhuma paciente.",
+  "Avaliação fictícia de teste: me senti ouvida do início ao fim. Conteúdo de exemplo para conferir espaçamento e leitura.",
+];
+
+export const demoReviews: Review[] = demoReviewTexts.map((text, i) => ({
+  id: `demo-review-${i + 1}`,
+  author: `Nome de teste ${i + 1}`,
+  date: ["2026-10-20", "2026-10-12", "2026-10-03"][i]!,
+  text,
   lang: "pt",
   authorized: true,
   demo: true,

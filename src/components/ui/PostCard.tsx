@@ -7,8 +7,11 @@ import { Photo } from "@/components/ui/Photo";
 import type { PhotoConfig } from "@/config/site";
 
 export type PostLabels = {
-  title: string;
-  hint: string;
+  /** tipo (Vídeo, Carrossel, Imagem) já traduzido; vazio se desconhecido */
+  kind: string;
+  /** data por extenso já formatada; vazio se desconhecida */
+  date: string;
+  dateIso?: string;
   watch: string;
   openIg: string;
   note: string;
@@ -16,19 +19,28 @@ export type PostLabels = {
 };
 
 /**
- * Card de uma publicação do Instagram (imagem, carrossel ou vídeo; o formato não é assumido).
- * Sem título, legenda ou data inventados: só o rótulo neutro e o link original. O embed do
- * Instagram é carregado apenas depois do clique; o link original fica sempre visível.
+ * Card de uma publicação real do Instagram: capa hospedada no site, legenda original (idioma em que
+ * foi escrita, sem tradução), tipo e data. O embed do Instagram só é carregado depois do clique;
+ * o link para a publicação original fica sempre visível.
  */
 export function PostCard({
   url,
   embedSrc,
   cover,
+  title,
+  excerpt,
+  captionLang,
   labels,
 }: {
   url: string;
   embedSrc: string | null;
   cover: PhotoConfig | null;
+  /** primeiro parágrafo da legenda original */
+  title: string;
+  /** demais parágrafos da legenda original */
+  excerpt: string;
+  /** idioma da legenda (marcado com `lang` quando diferente do da página) */
+  captionLang?: string;
   labels: PostLabels;
 }) {
   const [playing, setPlaying] = useState(false);
@@ -55,6 +67,14 @@ export function PostCard({
               <InstagramIcon width={44} height={44} />
             </div>
           )}
+          {cover && (
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+          )}
+          {labels.kind && (
+            <span className="absolute left-3 top-3 rounded-full bg-vanilla px-3 py-1 text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-cocoa-deep">
+              {labels.kind}
+            </span>
+          )}
           {embedSrc && (
             <button
               type="button"
@@ -66,16 +86,27 @@ export function PostCard({
           )}
         </div>
       )}
-      <h3 className="mt-4 font-display text-[1.35rem] leading-snug text-cocoa-deep">
-        {labels.title}
+      {labels.date && (
+        <p className="mt-4 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-cocoa">
+          <time dateTime={labels.dateIso}>{labels.date}</time>
+        </p>
+      )}
+      <h3
+        lang={captionLang}
+        className="mt-2 font-display text-[1.4rem] leading-snug text-cocoa-deep"
+      >
+        {title}
       </h3>
-      <p className="text-[0.9rem] text-cocoa">{labels.hint}</p>
+      {excerpt && (
+        <p lang={captionLang} className="mt-2 line-clamp-3 text-[0.95rem] text-cocoa">
+          {excerpt}
+        </p>
+      )}
       <a
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`${labels.openIg} (${labels.title})`}
-        className="link-u mt-2 inline-flex w-fit items-center gap-1.5 text-[0.92rem] font-semibold text-cocoa-deep"
+        className="link-u mt-3 inline-flex w-fit items-center gap-1.5 text-[0.92rem] font-semibold text-cocoa-deep"
       >
         {labels.openIg} <ExternalLink size={14} aria-hidden="true" />
       </a>

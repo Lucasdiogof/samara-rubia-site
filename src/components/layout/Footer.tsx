@@ -39,16 +39,19 @@ export function Footer({ lang }: { lang: Lang }) {
 
         <div>
           <h2 className="eyebrow">{t.footer.contact}</h2>
-          <ul className="mt-5 space-y-3 text-[0.95rem] text-cocoa-deep">
+          <ul className="mt-5 space-y-3.5 text-[0.95rem] text-cocoa-deep">
             {wa ? (
               <li>
                 <a
                   href={wa}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="link-u inline-flex items-center gap-2"
+                  className="group inline-flex items-center gap-3"
                 >
-                  <WhatsAppIcon width={18} height={18} /> WhatsApp
+                  <span className="grid h-9 w-9 place-items-center rounded-full border border-border text-cocoa transition-colors group-hover:border-cocoa group-hover:bg-cocoa group-hover:text-vanilla">
+                    <WhatsAppIcon width={18} height={18} />
+                  </span>
+                  <span className="link-u">WhatsApp</span>
                 </a>
               </li>
             ) : (
@@ -60,9 +63,12 @@ export function Footer({ lang }: { lang: Lang }) {
                   href={instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="link-u inline-flex items-center gap-2"
+                  className="group inline-flex items-center gap-3"
                 >
-                  <InstagramIcon width={18} height={18} /> @{site.contact.instagram}
+                  <span className="grid h-9 w-9 place-items-center rounded-full border border-border text-cocoa transition-colors group-hover:border-cocoa group-hover:bg-cocoa group-hover:text-vanilla">
+                    <InstagramIcon width={18} height={18} />
+                  </span>
+                  <span className="link-u">@{site.contact.instagram}</span>
                 </a>
               </li>
             )}

@@ -15,9 +15,9 @@ test("build público: 3 publicações reais, sem exemplos, avaliações nem dado
   test.skip(await isDemoBuild(request), "build com exemplos");
   for (const url of ["/", "/en/", "/es/", "/conteudos/"]) {
     await page.goto(url);
-    expect(await page.locator("[data-demo]").count()).toBe(0);
-    expect(await page.getByText(/exemplo|example|ejemplo/i).count()).toBe(0);
-    expect(await page.locator("#avaliacoes-title").count()).toBe(0);
+    // só as 3 avaliações de teste (com selo) podem ser fictícias; conteúdos e artigos, nunca
+    expect(await page.locator("[data-demo]").count()).toBe(url === "/conteudos/" ? 0 : 3);
+    expect(await page.locator("article[data-demo]").count()).toBe(0);
     const ld = await page.locator('script[type="application/ld+json"]').allTextContents();
     expect(ld.join("")).not.toMatch(/Review|AggregateRating|"Article"/);
     // links originais preservados (inclusive ?img_index=1) e nenhum embed carregado de início
@@ -28,7 +28,7 @@ test("build público: 3 publicações reais, sem exemplos, avaliações nem dado
   // ordem na home: diferenciais < conteúdos < FAQ < localização
   await page.goto("/");
   const order = await page.evaluate(() =>
-    ["dif-title", "conteudos-title", "faq-title", "local-title"].map(
+    ["dif-title", "conteudos-title", "faq-title", "avaliacoes-title", "local-title"].map(
       (id) => document.getElementById(id)?.getBoundingClientRect().top ?? -1,
     ),
   );
@@ -119,5 +119,35 @@ test("build com exemplos: axe em conteúdos e artigo (3 idiomas, claro e escuro)
         expect(r.violations.map((v) => `${prefix}${p} ${theme} ${v.id}`)).toEqual([]);
       }
     }
+  }
+});
+
+test("publicações reais: capa hospedada no site, legenda original e tipo", async ({ page, request }) => {
+  test.skip(await isDemoBuild(request), "build com exemplos");
+  for (const [prefix, kind] of [["", "Vídeo"], ["/en", "Video"], ["/es", "Video"]] as const) {
+    await page.goto(`${prefix}/conteudos/`);
+    const cards = page.locator("article").filter({ has: page.locator('a[href*="instagram.com/p/"]') });
+    await expect(cards).toHaveCount(3);
+    // capas próprias (nenhuma imagem carregada do Instagram)
+    const srcs = await cards.locator("img").evaluateAll((els) => els.map((e) => (e as HTMLImageElement).currentSrc || e.getAttribute("src")));
+    expect(srcs.length).toBe(3);
+    for (const s of srcs) expect(s).toMatch(/\/images\/ig-post-\d-\d+\.(avif|webp|jpg)$/);
+    await expect(cards.first().getByText(kind, { exact: true })).toBeVisible();
+    // legenda original em português, marcada com lang="pt" nos outros idiomas
+    await expect(page.getByText("Nem todo escape de urina acontece por fraqueza do assoalho pélvico.")).toBeVisible();
+    await expect(page.getByText("VOCÊ SABIA QUE…")).toBeVisible();
+  }
+  await page.goto("/en/conteudos/");
+  expect(await page.locator('h3[lang="pt"]').count()).toBe(3);
+});
+
+test("avaliações de teste: só com a flag, sempre com selo visível e sem dados estruturados", async ({ page, request }) => {
+  test.skip(await isDemoBuild(request), "build com exemplos");
+  for (const [prefix, label] of [["", "AVALIAÇÃO DE TESTE"], ["/en", "TEST REVIEW"], ["/es", "OPINIÓN DE PRUEBA"]] as const) {
+    await page.goto(`${prefix}/`);
+    const section = page.locator("#avaliacoes-title").locator("xpath=ancestor::section[1]");
+    await expect(section.locator("li")).toHaveCount(3);
+    await expect(section.getByText(label)).toHaveCount(3);
+    expect(await section.locator('[role="img"]').count()).toBe(0); // sem estrelas
   }
 });

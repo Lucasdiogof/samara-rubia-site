@@ -97,7 +97,7 @@ export function Header({ lang, t }: { lang: Lang; t: HeaderText }) {
       <div className="wrap flex items-center justify-between gap-6">
         <Logo lang={lang} specialty={t.specialty} />
         <nav aria-label={t.navMain} className="hidden xl:block">
-          <ul className="flex items-center gap-9">
+          <ul className="flex items-center gap-6 2xl:gap-9">
             {t.links.map((n) => (
               <li key={n.path}>
                 <Link
@@ -122,7 +122,7 @@ export function Header({ lang, t }: { lang: Lang; t: HeaderText }) {
             <AnimatedButton
               href={primaryCta.href}
               track="header"
-              className="hidden !min-h-11 !px-5 sm:inline-flex"
+              className="hidden !min-h-11 !px-5 !text-[0.92rem] whitespace-nowrap sm:inline-flex"
               arrow={false}
             >
               {primaryCta.label}

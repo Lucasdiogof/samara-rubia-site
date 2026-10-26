@@ -47,3 +47,15 @@ assumido). Cada item é só `{ id, url, cover }`: o site NÃO inventa título, l
 "Publicação 1/2/3" com o link original (mantenha `?img_index=` se existir). Sem capa, o card é neutro.
 O embed (`/p/<código>/embed/`) só carrega após o clique, um card por vez. Para uma capa autorizada:
 `npm run images -- capa.jpg post-1 --alt="..."` e cole o bloco em `cover` (proporção 4:5).
+
+## Avaliações de TESTE (versão de revisão)
+Enquanto não há avaliações reais, `NEXT_PUBLIC_REVIEWS_TEST=true` (em `.env.production`) mostra 3 avaliações
+FICTÍCIAS (`src/content/demo.ts`), cada uma com o selo "AVALIAÇÃO DE TESTE — fictícia", sem estrelas e sem dados
+estruturados. **Antes de liberar o Google, remova a linha** (o `npm run prelaunch:check` aponta se esquecer) e
+cadastre avaliações reais em `src/config/content.ts`.
+
+## Cadastro único das 3 publicações (Apify)
+Os dados (legenda, data, tipo) e as capas das 3 publicações foram extraídos uma vez com o Apify (Instagram
+Scraper, plano gratuito) e gravados em `posts`; as capas ficam em `public/images/ig-post-*`. Não há token nem
+Cron no site. Para um post novo: rode o actor com a URL, baixe a imagem logo (o link expira em dias),
+`npm run images -- arquivo ig-post-4 --alt=""` e acrescente o item em `posts`. Comentários de terceiros não são guardados.

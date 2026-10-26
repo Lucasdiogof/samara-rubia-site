@@ -29,6 +29,12 @@ export type Post = {
   /** link original, exatamente como a Samara informou (inclusive ?img_index=1) */
   url: string;
   cover: PhotoConfig | null;
+  /** tipo da mídia, conforme o próprio Instagram */
+  kind?: "video" | "carousel" | "image";
+  /** data de publicação (AAAA-MM-DD) */
+  date?: string;
+  /** legenda original, no idioma em que foi escrita (pt); não é traduzida nem editada */
+  caption?: string;
 };
 
 export type ArticleCategory = "geral" | "gestacao" | "incontinencia" | "dor" | "intimidade";
@@ -74,10 +80,38 @@ export type Review = {
 
 export const reels: Reel[] = [];
 /** Publicações reais informadas pela Samara (perfil @samara.rubiaa). Ordem = ordem de exibição. */
+/**
+ * Dados extraídos uma única vez da conta da Samara (Apify, 26/10/2026), sem comentários nem dados de
+ * terceiros. As capas foram baixadas e hospedadas no site (as URLs do Instagram expiram).
+ */
 export const posts: Post[] = [
-  { id: "ig-DcUbBVSvcX8", url: "https://www.instagram.com/p/DcUbBVSvcX8/", cover: null },
-  { id: "ig-DdKRgA9BfXa", url: "https://www.instagram.com/p/DdKRgA9BfXa/", cover: null },
-  { id: "ig-C-WGsEgRqcv", url: "https://www.instagram.com/p/C-WGsEgRqcv/?img_index=1", cover: null },
+  {
+    id: "ig-DcUbBVSvcX8",
+    url: "https://www.instagram.com/p/DcUbBVSvcX8/",
+    kind: "video",
+    date: "2026-08-21",
+    cover: { name: "ig-post-1", alt: "", width: 720, height: 1280, widths: [480], focal: { x: 50, y: 30 } },
+    caption:
+      "Nem todo escape de urina acontece por fraqueza do assoalho pélvico.\n\nÀs vezes, o problema pode estar no excesso de tensão ou na falta de coordenação da musculatura.\n\nPor isso, antes de fortalecer, é preciso avaliar. 💕",
+  },
+  {
+    id: "ig-DdKRgA9BfXa",
+    url: "https://www.instagram.com/p/DdKRgA9BfXa/",
+    kind: "video",
+    date: "2026-09-11",
+    cover: { name: "ig-post-2", alt: "", width: 720, height: 1280, widths: [480], focal: { x: 50, y: 30 } },
+    caption:
+      "Você organiza o seu dia pensando em onde vai encontrar um banheiro?\n\nQuando a urgência ou a frequência urinária começa a limitar sua rotina, não é algo que você simplesmente precisa aprender a aceitar.\n\nÉ possível investigar a causa e tratar.",
+  },
+  {
+    id: "ig-C-WGsEgRqcv",
+    url: "https://www.instagram.com/p/C-WGsEgRqcv/?img_index=1",
+    kind: "carousel",
+    date: "2024-08-06",
+    cover: { name: "ig-post-3", alt: "", width: 1440, height: 1800, widths: [480, 768, 1080], focal: { x: 50, y: 50 } },
+    caption:
+      "VOCÊ SABIA QUE…\n\nMuitas pessoas podem se beneficiar da fisioterapia pélvica? 🌸💖\n\nQuer descobrir se você é uma delas? Arraste para o lado e confira! 👉🏽",
+  },
 ];
 export const articles: Article[] = [];
 export const reviews: Review[] = [];
