@@ -3,6 +3,21 @@
  * "não confirmado": o site omite a informação ou desabilita o recurso.
  * Ver docs/CONTENT_PENDING.md para a lista do que falta confirmar.
  */
+/** Foto gerada por `npm run images` (ver docs/IMAGES.md). Os arquivos ficam em public/images. */
+export type PhotoConfig = {
+  /** prefixo dos arquivos: /images/<name>-<largura>.(avif|webp|jpg) */
+  name: string;
+  /** descrição da imagem para leitores de tela (obrigatória, sem "foto de") */
+  alt: string;
+  /** dimensões do arquivo original (reservam o espaço e evitam layout shift) */
+  width: number;
+  height: number;
+  /** larguras geradas (o script imprime esta lista) */
+  widths: number[];
+  /** ponto focal do recorte, em % (50/50 = centro; rosto costuma ficar em y ≈ 25–35) */
+  focal?: { x: number; y: number };
+};
+
 export const site = {
   /** Nome provisório até confirmação. */
   displayName: "Samara Rúbia",
@@ -17,7 +32,7 @@ export const site = {
 
   contact: {
     /** Somente dígitos com DDI, ex.: "5562999999999". */
-    whatsapp: null as string | null,
+    whatsapp: (process.env.NEXT_PUBLIC_WHATSAPP ?? null) as string | null,
     /** Usuário sem @, ex.: "samara.fisio". */
     instagram: null as string | null,
   },
@@ -27,21 +42,35 @@ export const site = {
     region: null as string | null,
     address: null as string | null,
     mapsUrl: null as string | null,
-    modality: null as string | null,
+    /** ex.: ["Presencial", "Online"]; vazio = "a confirmar" */
+    modalities: [] as string[],
     hours: null as string | null,
   },
 
+  /** Convênios aceitos. Vazio = a informação não é exibida. */
+  insurance: [] as string[],
+
+  /** Tudo vazio/nulo = bloco omitido. Só preencha com dados confirmados. */
   bio: {
     summary: null as string | null,
+    /** parágrafos sobre a abordagem profissional (opcional) */
+    approach: [] as string[],
     education: [] as string[],
+    specializations: [] as string[],
+    courses: [] as string[],
   },
 
-  /** Caminhos em /public. Enquanto null, o layout usa composições gráficas. */
+  /**
+   * Fotografias reais (nulo/vazio = composição gráfica atual).
+   * Proporções, resoluções e passo a passo em docs/IMAGES.md.
+   */
   images: {
-    portrait: null as string | null,
-    portraitAlt: "Retrato de Samara Rúbia",
-    office: null as string | null,
-    officeAlt: "Consultório de Samara Rúbia",
+    /** hero: recomendado 4:5 vertical, mínimo 1600 px de largura */
+    hero: null as PhotoConfig | null,
+    /** seção Sobre (home e página): recomendado 3:4 vertical, mínimo 1400 px */
+    portrait: null as PhotoConfig | null,
+    /** consultório: recomendado 3:2 horizontal (a primeira é a principal), 1 a 4 fotos */
+    office: [] as PhotoConfig[],
   },
 
   whatsappMessage:

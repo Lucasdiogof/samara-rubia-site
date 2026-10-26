@@ -8,7 +8,12 @@ const dir = process.argv[2] ?? "docs/audit";
 mkdirSync(dir, { recursive: true });
 
 const widths = [320, 375, 390, 430, 768, 1024, 1280, 1440, 1920];
-const inner = { sobre: "/sobre/", tratamentos: "/tratamentos/", contato: "/contato/", faq: "/perguntas-frequentes/" };
+const inner = {
+  sobre: "/sobre/",
+  tratamentos: "/tratamentos/",
+  contato: "/contato/",
+  faq: "/perguntas-frequentes/",
+};
 
 const browser = await chromium.launch({ channel: "chrome" });
 
@@ -24,7 +29,12 @@ async function shot(path, name, w) {
   await page.waitForTimeout(2200);
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.waitForTimeout(400);
-  await page.screenshot({ path: `${dir}/${name}-${w}.jpg`, fullPage: true, type: "jpeg", quality: 55 });
+  await page.screenshot({
+    path: `${dir}/${name}-${w}.jpg`,
+    fullPage: true,
+    type: "jpeg",
+    quality: 55,
+  });
   await page.close();
 }
 

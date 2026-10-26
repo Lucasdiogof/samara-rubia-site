@@ -24,10 +24,10 @@ export function AboutTeaser() {
             className="absolute -bottom-6 -right-4 h-2/3 w-2/3 rounded-full bg-cocoa"
             aria-hidden="true"
           />
-          <RevealImage className="relative aspect-[3/4] rounded-t-[999px] rounded-b-[1.5rem] bg-cocoa">
+          <RevealImage className="relative aspect-[3/4] overflow-hidden rounded-t-[999px] rounded-b-[1.5rem] bg-cocoa">
             <div className="h-full w-full">
               <ParallaxMedia className="h-full w-full" amount={5}>
-                <Portrait />
+                <Portrait slot="portrait" sizes="(min-width: 1024px) 40vw, 80vw" />
               </ParallaxMedia>
             </div>
           </RevealImage>

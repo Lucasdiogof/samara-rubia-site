@@ -22,7 +22,11 @@ for (let y = 0; y < total; y += h - 100) {
     window.scrollTo(0, yy);
   }, y);
   await page.waitForTimeout(1600);
-  await page.screenshot({ path: `${dir}/${w}-${String(i++).padStart(2, "0")}.jpg`, type: "jpeg", quality: 70 });
+  await page.screenshot({
+    path: `${dir}/${w}-${String(i++).padStart(2, "0")}.jpg`,
+    type: "jpeg",
+    quality: 70,
+  });
 }
 await browser.close();
 console.log(`${i} recortes`);

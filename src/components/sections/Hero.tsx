@@ -51,7 +51,7 @@ export function Hero() {
             className="relative aspect-[4/5] overflow-hidden rounded-t-[999px] rounded-b-[2rem] bg-sand"
           >
             <div className="relative h-full w-full">
-              <Portrait />
+              <Portrait slot="hero" priority sizes="(min-width: 1024px) 40vw, 90vw" />
             </div>
           </RevealImage>
           <FadeInSection

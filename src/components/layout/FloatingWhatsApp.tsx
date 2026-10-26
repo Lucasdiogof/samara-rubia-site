@@ -8,15 +8,17 @@ export function FloatingWhatsApp() {
   const href = whatsappUrl();
   if (!href) return null;
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Agendar pelo WhatsApp"
-      onClick={() => trackCta("floating")}
-      className="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-cocoa text-vanilla shadow-[var(--shadow-soft)] transition-colors hover:bg-cocoa-deep"
-    >
-      <WhatsAppIcon width={26} height={26} />
-    </a>
+    <aside aria-label="Atalho de agendamento" className="fixed bottom-5 right-5 z-40">
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Agendar pelo WhatsApp"
+        onClick={() => trackCta("floating")}
+        className="grid h-14 w-14 place-items-center rounded-full bg-cocoa text-vanilla shadow-[var(--shadow-soft)] transition-colors hover:bg-cocoa-deep"
+      >
+        <WhatsAppIcon width={26} height={26} />
+      </a>
+    </aside>
   );
 }

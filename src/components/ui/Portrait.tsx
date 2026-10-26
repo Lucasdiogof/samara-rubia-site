@@ -1,23 +1,27 @@
-import Image from "next/image";
 import { site } from "@/config/site";
+import { Photo } from "./Photo";
+
+type Props = {
+  /** qual foto da configuração ocupa este espaço */
+  slot?: "hero" | "portrait";
+  sizes?: string;
+  priority?: boolean;
+  className?: string;
+};
 
 /**
- * Retrato principal. Com `site.images.portrait` definido, usa a foto real;
+ * Retrato do espaço indicado. Com a foto configurada em `site.images`, usa a foto real;
  * enquanto isso, mostra uma composição gráfica (decorativa, sem pessoa simulada).
+ * O contêiner pai define a proporção e deve ser `relative`.
  */
-export function Portrait({ className = "" }: { className?: string }) {
-  if (site.images.portrait) {
-    return (
-      <Image
-        src={site.images.portrait}
-        alt={site.images.portraitAlt}
-        fill
-        sizes="(min-width: 1024px) 40vw, 90vw"
-        className={`object-cover ${className}`}
-        priority
-      />
-    );
-  }
+export function Portrait({
+  slot = "portrait",
+  sizes = "(min-width: 1024px) 40vw, 90vw",
+  priority = false,
+  className = "",
+}: Props) {
+  const photo = site.images[slot];
+  if (photo) return <Photo photo={photo} sizes={sizes} priority={priority} className={className} />;
   return (
     <svg
       viewBox="0 0 480 600"
