@@ -1,4 +1,4 @@
-import { ScrubText, StaggerContainer, StaggerItem } from "@/components/animations/Reveal";
+import { ScrubText } from "@/components/animations/Reveal";
 import { getDict, type Lang } from "@/i18n";
 
 export function Intro({ lang }: { lang: Lang }) {
@@ -15,14 +15,6 @@ export function Intro({ lang }: { lang: Lang }) {
         >
           {t.text}
         </ScrubText>
-        <StaggerContainer className="mt-16 grid gap-10 border-t border-border pt-10 md:grid-cols-3 md:gap-12">
-          {t.audiences.map(([t, d]) => (
-            <StaggerItem key={t}>
-              <h3 className="font-display text-2xl text-cocoa-deep">{t}</h3>
-              <p className="mt-3 text-cocoa">{d}</p>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
       </div>
     </section>
   );

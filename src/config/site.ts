@@ -82,10 +82,10 @@ export const site = {
 
   /** Marque true somente após revisão da Samara. Controla os avisos "em revisão". */
   approved: {
-    services: false,
-    faq: false,
-    about: false,
-    privacy: false,
+    services: true,
+    faq: true,
+    about: true,
+    privacy: true,
   },
 
   /** Ative/desative áreas de atuação por slug (ver src/content/services.ts). */

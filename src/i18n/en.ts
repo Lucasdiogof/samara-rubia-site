@@ -55,20 +55,6 @@ export const en: Dict = {
   intro: {
     eyebrow: "What is pelvic physiotherapy",
     text: "Pelvic physiotherapy looks after the region that supports and coordinates essential everyday functions: urinating, bowel movements, moving around and enjoying intimacy. It is care for *men and women,* at any stage of life.",
-    audiences: [
-      [
-        "If you have symptoms",
-        "Urine leakage, pain, intimate discomfort or bowel changes that get in the way of your routine.",
-      ],
-      [
-        "If you have questions",
-        "People who want to better understand their own body and what can be done for it.",
-      ],
-      [
-        "If you were referred",
-        "Patients sent by other healthcare professionals for a specialised assessment.",
-      ],
-    ],
   },
 
   areas: {
