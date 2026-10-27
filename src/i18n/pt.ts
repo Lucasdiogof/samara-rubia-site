@@ -96,7 +96,7 @@ export const pt = {
   journey: [
     {
       title: "Primeiro contato",
-      text: "Você envia uma mensagem pelo canal de atendimento (previsto: WhatsApp). Sem formulários e sem precisar contar detalhes clínicos por escrito.",
+      text: "Você envia uma mensagem pelo WhatsApp profissional. Sem formulários e sem precisar contar detalhes clínicos por escrito.",
     },
     {
       title: "Agendamento",
@@ -302,11 +302,11 @@ export const pt = {
       items: [
         {
           q: "Como agendo uma avaliação?",
-          a: "O primeiro contato será feito pelo canal de atendimento divulgado neste site (previsto: WhatsApp). Você envia uma mensagem, combina o melhor horário e recebe as orientações para o dia.",
+          a: "O agendamento é feito pelo WhatsApp profissional: você envia uma mensagem, combina o melhor horário e recebe as orientações para o dia.",
         },
         {
           q: "O atendimento é presencial? E valores e convênios?",
-          a: "Modalidade de atendimento, valores e convênios ainda serão confirmados e divulgados neste site.",
+          a: "O endereço do consultório está na seção Localização. Modalidades, valores e convênios devem ser confirmados diretamente pelo WhatsApp profissional.",
         },
         {
           q: "Minhas informações de saúde ficam em sigilo?",
@@ -337,7 +337,7 @@ export const pt = {
       [
         "Contato pelo WhatsApp",
         [
-          "Quando o contato por WhatsApp estiver disponível, os botões de agendamento levarão você ao WhatsApp, serviço de terceiros com política de privacidade própria. A mensagem inicial é padronizada e não contém informações clínicas.",
+          "Ao clicar nos botões de agendamento, você será direcionado ao WhatsApp, serviço de terceiros com política de privacidade própria. A mensagem inicial é padronizada e não contém informações clínicas.",
           "Recomendamos não enviar detalhes de saúde por mensagem; eles são conversados na avaliação, sob sigilo profissional.",
         ],
       ],
