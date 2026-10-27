@@ -561,6 +561,9 @@ export const pt = {
     postHint: "Publicação original no Instagram.",
     playerPost: (n: number) => `Publicação do Instagram ${n}`,
     openIg: "Ver no Instagram",
+    postsCarousel: "Publicações do Instagram",
+    prev: "Publicação anterior",
+    next: "Próxima publicação",
     igNote:
       "O conteúdo é carregado do Instagram só depois do clique; o Instagram pode registrar dados do seu acesso.",
     player: (title: string) => `Reprodutor do Reel: ${title}`,

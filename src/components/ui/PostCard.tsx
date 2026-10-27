@@ -38,7 +38,7 @@ export function PostCard({
   labels: PostLabels;
 }) {
   return (
-    <article className="mx-auto flex h-full w-full max-w-[24.5rem] flex-col">
+    <article className="flex h-full w-full flex-col">
       {embedSrc ? (
         // Moldura creme: o embed do Instagram é uma caixa branca fixa e, assim, ganha a cara do site.
         <div className="relative rounded-[1.75rem] border border-border bg-cream p-3 shadow-[var(--shadow-soft)]">

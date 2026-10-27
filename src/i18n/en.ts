@@ -551,6 +551,9 @@ export const en: Dict = {
     postHint: "Original post on Instagram.",
     playerPost: (n) => `Instagram post ${n}`,
     openIg: "View on Instagram",
+    postsCarousel: "Instagram posts",
+    prev: "Previous post",
+    next: "Next post",
     igNote:
       "The content is loaded from Instagram only after you click; Instagram may record data about your visit.",
     player: (title) => `Reel player: ${title}`,
