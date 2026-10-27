@@ -248,7 +248,9 @@ function About({ lang }: { lang: Lang }) {
             <FadeInSection>
               <h2 className="t-h3">{a.history}</h2>
               <div className="prose-calm mt-5">
-                <p>{bio.summary ?? a.historyFallback}</p>
+                {t.bio.map((p) => (
+                  <p key={p}>{p}</p>
+                ))}
               </div>
             </FadeInSection>
             <List title={a.education} items={bio.education} />

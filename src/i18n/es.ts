@@ -78,6 +78,14 @@ export const es: Dict = {
     all: "Ver todos los tratamientos",
   },
 
+  /** Apresentação profissional (texto da Samara), exibida em Sobre mim e na página Sobre. */
+  bio: [
+    "Soy Samara Rúbia, fisioterapeuta egresada de la Pontificia Universidad Católica de Goiás (PUC Goiás), con 5 años de trabajo en Goiânia y formación en Fisioterapia Pélvica.",
+    "Mi trabajo está dirigido al cuidado de mujeres y hombres que presentan alteraciones relacionadas con el suelo pélvico.",
+    "Creo en una atención individualizada, acogedora y basada en evidencia científica. Cada paciente tiene necesidades distintas y, por eso, realizo una evaluación detallada para comprender cada caso y definir un tratamiento personalizado.",
+    "Busco mantenerme en constante actualización para ofrecer un cuidado seguro, individualizado y adecuado a las necesidades de cada paciente, contribuyendo a la mejora de los síntomas, de la función del suelo pélvico y de la calidad de vida.",
+  ] as string[],
+
   aboutTeaser: {
     eyebrow: "Sobre mí",
     title: "Un espacio para hablar de lo *delicado,* sin prisa.",

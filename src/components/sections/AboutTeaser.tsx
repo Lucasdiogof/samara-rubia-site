@@ -1,12 +1,10 @@
 import {
-  RevealText,
   RevealImage,
   FadeInSection,
   ParallaxMedia,
 } from "@/components/animations/Reveal";
 import { AnimatedButton } from "@/components/ui/Button";
 import { Blob, Portrait } from "@/components/ui/Portrait";
-import { fullName, site } from "@/config/site";
 import { getDict, href, type Lang } from "@/i18n";
 
 export function AboutTeaser({ lang }: { lang: Lang }) {
@@ -35,15 +33,14 @@ export function AboutTeaser({ lang }: { lang: Lang }) {
           </RevealImage>
         </div>
         <div className="lg:col-span-7 lg:pl-10">
-          <p className="eyebrow">{t.eyebrow}</p>
-          <RevealText as="h2" id="sobre-title" className="t-h2 mt-5">
-            {t.title}
-          </RevealText>
+          <h2 id="sobre-title" className="eyebrow">
+            {t.eyebrow}
+          </h2>
           <FadeInSection delay={0.2}>
             <div className="prose-calm !text-cream mt-8">
-              <p>
-                {site.bio.summary ?? t.summary(fullName)}
-              </p>
+              {getDict(lang).bio.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
             </div>
             <AnimatedButton href={href(lang, "/sobre/")} variant="light" className="mt-10" arrow>
               {t.button}

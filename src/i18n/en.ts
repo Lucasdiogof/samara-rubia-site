@@ -78,6 +78,14 @@ export const en: Dict = {
     all: "See all treatments",
   },
 
+  /** Apresentação profissional (texto da Samara), exibida em Sobre mim e na página Sobre. */
+  bio: [
+    "I'm Samara Rúbia, a physiotherapist who graduated from the Pontifical Catholic University of Goiás (PUC Goiás), with 5 years of practice in Goiânia and training in Pelvic Physiotherapy.",
+    "My work focuses on the care of women and men who have conditions related to the pelvic floor.",
+    "I believe in individualised, welcoming care grounded in scientific evidence. Every patient has different needs, which is why I carry out a detailed assessment to understand each case and define a personalised treatment.",
+    "I keep up with continuous professional development to offer safe, individualised care suited to each patient's needs, helping to improve symptoms, pelvic floor function and quality of life.",
+  ] as string[],
+
   aboutTeaser: {
     eyebrow: "About me",
     title: "A space to talk about what is *delicate,* without rushing.",

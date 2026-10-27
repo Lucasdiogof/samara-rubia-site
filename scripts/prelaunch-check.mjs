@@ -47,7 +47,7 @@ add(
 // Dados profissionais
 add("Dados profissionais", "Nome profissional completo", !nullField("professionalName"));
 add("Dados profissionais", "CREFITO", !nullField("crefito"));
-add("Dados profissionais", "Biografia", !nullField("summary"));
+add("Dados profissionais", "Biografia (src/i18n/pt.ts: bio)", /\bbio: \[\s*"/.test(read("src/i18n/pt.ts")));
 add("Dados profissionais", "Formação", !emptyList("education"));
 add("Dados profissionais", "Cidade e endereço", !nullField("city") && !nullField("address"));
 add("Dados profissionais", "Modalidades de atendimento", !emptyList("modalities"));
