@@ -371,7 +371,7 @@ export const en: Dict = {
   treatments: {
     metaTitle: "Treatments and areas of practice",
     metaDescription:
-      "Explore the areas of pelvic physiotherapy for which an assessment is commonly sought: incontinence, pelvic pain, pregnancy, men's and women's health.",
+      "Explore the pelvic physiotherapy services: urinary incontinence, overactive bladder, endometriosis, chronic pelvic pain, prolapse, pregnancy and postpartum, and more.",
     eyebrow: "Treatments",
     title: "Areas of *pelvic physiotherapy.*",
     lead: "Topics for which an assessment is commonly sought. The content is educational and does not replace an individual assessment.",
@@ -400,70 +400,30 @@ export const en: Dict = {
 
   services: [
     {
-      slug: "saude-pelvica-feminina",
-      title: "Women's pelvic health",
-      short: "Care for the pelvic floor at different stages of life.",
+      slug: "disfuncoes-sexuais-femininas",
+      title: "Female sexual dysfunction",
+      short: "A judgement-free space to talk about intimate pain and discomfort.",
       description:
-        "Pelvic physiotherapy looks at the muscles and tissues that support and coordinate the pelvic region. In women's health, an assessment can make sense at different stages of life, from youth to menopause.",
+        "Pain or discomfort in sexual life can be related to the pelvic floor. The conversation is handled with respect, privacy and at your pace.",
       indications: [
-        "Involuntary urine leakage",
-        "Pain or discomfort in the pelvic region",
-        "Feeling of heaviness or pressure in the pelvis",
-        "Pain during sexual intercourse",
-        "Questions about how the pelvic floor works",
+        "Pain during penetration or after intercourse",
+        "Involuntary muscle contraction that makes penetration difficult or impossible",
+        "Feeling of tension or difficulty relaxing the pelvic region",
+        "Discomfort that interferes with intimate life",
       ],
       faq: [
         {
-          q: "Do I need to have a symptom to get an assessment?",
-          a: "Not necessarily. People with questions about pelvic health can also seek guidance. The need for follow-up is defined at the assessment.",
-        },
-      ],
-    },
-    {
-      slug: "saude-pelvica-masculina",
-      title: "Men's pelvic health",
-      short: "Attention to the pelvic floor for men too, with discretion and respect.",
-      description:
-        "Men also have a pelvic floor and can also have symptoms in this region. Pelvic physiotherapy offers a respectful, individual assessment in a setting of attentive listening.",
-      indications: [
-        "Involuntary urine leakage",
-        "Pain or discomfort in the pelvic or perineal region",
-        "Persistent urinary or bowel symptoms",
-        "Follow-up related to pelvic surgery, when advised",
-        "Sexual concerns",
-      ],
-      faq: [
-        {
-          q: "Is pelvic physiotherapy only for women?",
-          a: "No. The assessment is for people of any gender who have symptoms or questions about pelvic health.",
-        },
-      ],
-    },
-    {
-      slug: "incontinencia-urinaria",
-      title: "Urinary incontinence",
-      short: "Assessment of involuntary urine leakage.",
-      description:
-        "Involuntary urine leakage is a common concern, but it need not be treated as normal or inevitable. A physiotherapy assessment helps to understand each person's context.",
-      indications: [
-        "Urine leakage when coughing, sneezing, laughing or exercising",
-        "Strong urgency to urinate",
-        "Frequent trips to the bathroom that interfere with your routine",
-        "Fear of leaving home or doing activities because of the problem",
-      ],
-      faq: [
-        {
-          q: "Is urinary incontinence normal with age?",
-          a: "It is common, but that does not mean it should be ignored. It is worth seeking a professional assessment to understand what is going on.",
+          q: "Is it embarrassing to talk about this?",
+          a: "It is common to feel that way. Care is individual and private, and you decide how much and when to share.",
         },
       ],
     },
     {
       slug: "dor-pelvica",
-      title: "Pelvic pain",
-      short: "Listening and assessment for pain in the pelvic area.",
+      title: "Chronic pelvic pain",
+      short: "Listening and assessment for persistent pain in the pelvic area.",
       description:
-        "Pelvic pain can have different origins and affect sleep, work and intimate life. The physiotherapy assessment considers your history and routine to guide the next steps.",
+        "Chronic pelvic pain can have different origins and affect sleep, work and intimate life. The physiotherapy assessment considers your history and routine to guide the next steps.",
       indications: [
         "Persistent pain in the pelvic, lower back or perineal region",
         "Pain when sitting for long periods",
@@ -478,21 +438,135 @@ export const en: Dict = {
       ],
     },
     {
-      slug: "disfuncoes-do-assoalho-pelvico",
-      title: "Pelvic floor dysfunction",
-      short: "Strength, relaxation and coordination of the pelvic muscles.",
+      slug: "endometriose",
+      title: "Endometriosis",
+      short: "Support in managing pain and symptoms, alongside medical follow-up.",
       description:
-        "The pelvic floor muscles need strength, but also the ability to relax and coordinate. Changes in this balance can be linked to different symptoms.",
+        "Endometriosis is a condition in which tissue similar to the lining of the uterus grows outside it and can cause pain and other symptoms. Pelvic physiotherapy can complement medical treatment by addressing the associated muscle tension and pain.",
       indications: [
-        "Feeling of heaviness in the genital area",
-        "Difficulty emptying the bladder or bowel",
-        "Persistent constipation",
-        "Leakage of gas or stool",
+        "Pelvic pain or intense cramps associated with endometriosis",
+        "Pain during sexual intercourse",
+        "Urinary or bowel symptoms that follow the menstrual cycle",
+        "Tension in the pelvic floor muscles and lower back",
       ],
       faq: [
         {
-          q: "What is the pelvic floor?",
-          a: "It is the group of muscles and tissues at the base of the pelvis that supports organs such as the bladder and bowel and takes part in urinary and bowel control and in sexual function.",
+          q: "Does physiotherapy treat endometriosis?",
+          a: "It does not replace medical treatment. Physiotherapy can help manage symptoms such as pain and muscle tension, together with medical follow-up.",
+        },
+      ],
+    },
+    {
+      slug: "incontinencia-urinaria",
+      title: "Urinary incontinence in women and men",
+      short: "Assessment of involuntary urine leakage, in women and men.",
+      description:
+        "Involuntary urine leakage is a common concern, but it need not be treated as normal or inevitable. A physiotherapy assessment helps to understand each person's context, whether a woman or a man.",
+      indications: [
+        "Urine leakage when coughing, sneezing, laughing or exercising",
+        "Strong urgency to urinate",
+        "Urine leakage after pelvic surgery, such as prostate surgery",
+        "Fear of leaving home or doing activities because of the problem",
+      ],
+      faq: [
+        {
+          q: "Is urinary incontinence normal with age?",
+          a: "It is common, but that does not mean it should be ignored. It is worth seeking a professional assessment to understand what is going on.",
+        },
+      ],
+    },
+    {
+      slug: "bexiga-hiperativa",
+      title: "Overactive bladder",
+      short: "Assessment of urinary urgency and frequency that get in the way of your routine.",
+      description:
+        "With an overactive bladder, the urge to urinate comes on suddenly and strongly, sometimes with urine leakage. When this starts to limit your routine, it is possible to investigate the cause and treat it.",
+      indications: [
+        "Sudden, intense urgency to urinate",
+        "Going to the bathroom more often than usual",
+        "Waking up several times at night to urinate",
+        "Urine leakage that comes with the urgency",
+      ],
+      faq: [
+        {
+          q: "Is an overactive bladder something I have to accept?",
+          a: "No. It is common, but it should not be treated as normal. The assessment helps to understand the cause and guide treatment.",
+        },
+      ],
+    },
+    {
+      slug: "retencao-urinaria",
+      title: "Urinary retention",
+      short: "Assessment of difficulty emptying the bladder.",
+      description:
+        "In urinary retention, the bladder does not empty completely or it is hard to start urinating. The assessment helps to understand the role of the pelvic floor and to indicate when it is also important to seek a medical evaluation.",
+      indications: [
+        "Difficulty starting to urinate",
+        "A weak stream, or one that stops and starts",
+        "Feeling that the bladder has not emptied completely",
+        "Needing to strain to urinate",
+      ],
+      faq: [
+        {
+          q: "Do I also need a medical evaluation?",
+          a: "Generally, yes. Urinary retention can have varied causes, and physiotherapy works alongside medical follow-up, which investigates the origin of the problem.",
+        },
+      ],
+    },
+    {
+      slug: "prolapso-de-orgaos-pelvicos",
+      title: "Pelvic organ prolapse",
+      short: "Assessment of heaviness or \"dropping\" of the pelvic organs.",
+      description:
+        "In prolapse, organs such as the bladder, uterus or rectum descend towards the vagina because of reduced support. Pelvic physiotherapy can be part of conservative care, and the assessment indicates when other approaches are needed.",
+      indications: [
+        "Feeling of heaviness or a \"bulge\" in the genital area",
+        "Feeling that something is coming out of the vagina",
+        "Discomfort that gets worse after standing for a long time",
+        "Associated urinary or bowel symptoms",
+      ],
+      faq: [
+        {
+          q: "Does prolapse always need surgery?",
+          a: "Not necessarily. It depends on the degree and the symptoms. The assessment guides the options, and the decision is made together with medical follow-up.",
+        },
+      ],
+    },
+    {
+      slug: "constipacao",
+      title: "Constipation",
+      short: "Assessment of constipation and difficulty having a bowel movement.",
+      description:
+        "Constipation can be linked to the coordination and relaxation of the pelvic floor muscles, as well as habits and other factors. The assessment helps to understand what is contributing in your case.",
+      indications: [
+        "Excessive straining to have a bowel movement",
+        "Hard stools or incomplete emptying",
+        "Feeling of a blockage when trying to go",
+        "Constipation that persists over time",
+      ],
+      faq: [
+        {
+          q: "Is constipation just a matter of diet?",
+          a: "Diet and hydration matter, but pelvic floor function can also play a part. The assessment helps to understand what is contributing.",
+        },
+      ],
+    },
+    {
+      slug: "prostatectomia-radical",
+      title: "Pre- and post-operative care for radical prostatectomy",
+      short: "Preparing and recovering the pelvic floor around prostate surgery.",
+      description:
+        "Radical prostatectomy is surgery to remove the prostate. Pelvic physiotherapy can guide preparation of the pelvic floor before surgery and support recovery afterwards, in line with clearance from the medical team.",
+      indications: [
+        "Preparing the pelvic floor before surgery",
+        "Urine leakage after prostatectomy",
+        "Guidance for recovery, as cleared by your doctor",
+        "Questions about what to expect before and after the operation",
+      ],
+      faq: [
+        {
+          q: "When should physiotherapy start?",
+          a: "Ideally, talk to us before the surgery to receive guidance. Afterwards, the right time to start is defined at the assessment and according to clearance from the medical team.",
         },
       ],
     },
@@ -512,42 +586,6 @@ export const en: Dict = {
         {
           q: "When can I start follow-up after giving birth?",
           a: "The right time depends on each case and on clearance from the professionals looking after you. This is discussed at the assessment.",
-        },
-      ],
-    },
-    {
-      slug: "queixas-sexuais",
-      title: "Sexual concerns",
-      short: "A judgement-free space to talk about intimate pain and discomfort.",
-      description:
-        "Pain or discomfort in sexual life can be related to the pelvic floor. The conversation is handled with respect, privacy and at your pace.",
-      indications: [
-        "Pain during penetration or after intercourse",
-        "Feeling of tension or difficulty relaxing the pelvic region",
-        "Discomfort that interferes with intimate life",
-      ],
-      faq: [
-        {
-          q: "Is it embarrassing to talk about this?",
-          a: "It is common to feel that way. Care is individual and private, and you decide how much and when to share.",
-        },
-      ],
-    },
-    {
-      slug: "reabilitacao-funcional",
-      title: "Functional rehabilitation",
-      short: "Gradual return to everyday activities with guidance.",
-      description:
-        "When a pelvic problem limits your routine, work or exercise, the assessment helps build a plan for gradually returning to activities.",
-      indications: [
-        "Activity limitation due to discomfort or urine leakage",
-        "Return to exercise with guidance",
-        "Recovery after procedures, as cleared by your doctor",
-      ],
-      faq: [
-        {
-          q: "Is the plan the same for everyone?",
-          a: "No. The treatment plan is individual and adjusted throughout follow-up.",
         },
       ],
     },

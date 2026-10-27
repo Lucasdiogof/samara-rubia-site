@@ -90,14 +90,16 @@ export const site = {
 
   /** Ative/desative áreas de atuação por slug (ver src/content/services.ts). */
   enabledServices: [
-    "saude-pelvica-feminina",
-    "saude-pelvica-masculina",
-    "incontinencia-urinaria",
+    "disfuncoes-sexuais-femininas",
     "dor-pelvica",
-    "disfuncoes-do-assoalho-pelvico",
+    "endometriose",
+    "incontinencia-urinaria",
+    "bexiga-hiperativa",
+    "retencao-urinaria",
+    "prolapso-de-orgaos-pelvicos",
+    "constipacao",
+    "prostatectomia-radical",
     "gestacao-e-pos-parto",
-    "queixas-sexuais",
-    "reabilitacao-funcional",
   ] as string[],
 };
 

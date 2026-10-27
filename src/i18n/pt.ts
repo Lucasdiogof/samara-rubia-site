@@ -382,7 +382,7 @@ export const pt = {
   treatments: {
     metaTitle: "Tratamentos e áreas de atuação",
     metaDescription:
-      "Conheça as áreas da fisioterapia pélvica em que a avaliação costuma ser buscada: incontinência, dor pélvica, gestação, saúde masculina e feminina.",
+      "Conheça os atendimentos de fisioterapia pélvica: incontinência urinária, bexiga hiperativa, endometriose, dor pélvica crônica, prolapso, gestação e pós-parto, entre outros.",
     eyebrow: "Tratamentos",
     title: "Áreas da *fisioterapia pélvica.*",
     lead: "Temas em que a avaliação costuma ser buscada. O conteúdo é educativo e não substitui a avaliação individual.",
@@ -411,70 +411,30 @@ export const pt = {
 
   services: [
     {
-      slug: "saude-pelvica-feminina",
-      title: "Saúde pélvica feminina",
-      short: "Cuidado com o assoalho pélvico nas diferentes fases da vida.",
+      slug: "disfuncoes-sexuais-femininas",
+      title: "Disfunções sexuais femininas",
+      short: "Um espaço sem julgamento para falar de dor e desconforto íntimos.",
       description:
-        "A fisioterapia pélvica olha para os músculos e tecidos que sustentam e coordenam a região pélvica. Na saúde feminina, a avaliação pode fazer sentido em diferentes fases da vida, da juventude à menopausa.",
+        "Dor ou desconforto na vida sexual podem estar relacionados ao assoalho pélvico. A conversa é conduzida com respeito, privacidade e no seu ritmo.",
       indications: [
-        "Perda involuntária de urina",
-        "Dor ou desconforto na região pélvica",
-        "Sensação de peso ou pressão na pelve",
-        "Dor durante relações sexuais",
-        "Dúvidas sobre o funcionamento do assoalho pélvico",
+        "Dor durante a penetração ou após a relação",
+        "Contração involuntária que dificulta ou impede a penetração",
+        "Sensação de tensão ou dificuldade de relaxamento da região pélvica",
+        "Desconforto que interfere na vida íntima",
       ],
       faq: [
         {
-          q: "Preciso estar com algum sintoma para fazer uma avaliação?",
-          a: "Não necessariamente. Quem tem dúvidas sobre a saúde pélvica também pode buscar orientação. A necessidade de acompanhamento é definida na avaliação.",
-        },
-      ],
-    },
-    {
-      slug: "saude-pelvica-masculina",
-      title: "Saúde pélvica masculina",
-      short: "Atenção ao assoalho pélvico também para homens, com discrição e respeito.",
-      description:
-        "Homens também têm assoalho pélvico e também podem apresentar queixas nessa região. A fisioterapia pélvica oferece uma avaliação respeitosa e individualizada, em um ambiente de escuta.",
-      indications: [
-        "Perda involuntária de urina",
-        "Dor ou desconforto na região pélvica ou perineal",
-        "Queixas urinárias ou intestinais persistentes",
-        "Acompanhamento relacionado a cirurgias da região pélvica, quando indicado",
-        "Queixas sexuais",
-      ],
-      faq: [
-        {
-          q: "A fisioterapia pélvica é só para mulheres?",
-          a: "Não. A avaliação é voltada a pessoas de qualquer gênero que tenham queixas ou dúvidas sobre a saúde pélvica.",
-        },
-      ],
-    },
-    {
-      slug: "incontinencia-urinaria",
-      title: "Incontinência urinária",
-      short: "Avaliação de queixas de perda involuntária de urina.",
-      description:
-        "A perda involuntária de urina é uma queixa comum, mas não precisa ser tratada como algo normal ou inevitável. A avaliação fisioterapêutica ajuda a entender o contexto de cada pessoa.",
-      indications: [
-        "Perda de urina ao tossir, espirrar, rir ou se exercitar",
-        "Urgência intensa para urinar",
-        "Idas frequentes ao banheiro que interferem na rotina",
-        "Receio de sair de casa ou praticar atividades por causa do problema",
-      ],
-      faq: [
-        {
-          q: "A incontinência urinária é normal com a idade?",
-          a: "Ela é frequente, mas isso não significa que deva ser ignorada. Vale buscar avaliação profissional para entender o que está acontecendo.",
+          q: "É constrangedor falar sobre esse assunto?",
+          a: "É comum sentir isso. O atendimento é individual e reservado, e você decide o quanto e quando compartilhar.",
         },
       ],
     },
     {
       slug: "dor-pelvica",
-      title: "Dor pélvica",
-      short: "Escuta e avaliação para dores na região da pelve.",
+      title: "Dor pélvica crônica",
+      short: "Escuta e avaliação para dores persistentes na região da pelve.",
       description:
-        "A dor pélvica pode ter diferentes origens e impactar o sono, o trabalho e a vida íntima. A avaliação fisioterapêutica considera o seu histórico e a sua rotina para orientar os próximos passos.",
+        "A dor pélvica crônica pode ter diferentes origens e impactar o sono, o trabalho e a vida íntima. A avaliação fisioterapêutica considera o seu histórico e a sua rotina para orientar os próximos passos.",
       indications: [
         "Dor persistente na região pélvica, lombar baixa ou perineal",
         "Dor ao sentar por períodos prolongados",
@@ -489,21 +449,135 @@ export const pt = {
       ],
     },
     {
-      slug: "disfuncoes-do-assoalho-pelvico",
-      title: "Disfunções do assoalho pélvico",
-      short: "Força, relaxamento e coordenação dos músculos da pelve.",
+      slug: "endometriose",
+      title: "Endometriose",
+      short: "Apoio no manejo da dor e dos sintomas, junto com o acompanhamento médico.",
       description:
-        "Os músculos do assoalho pélvico precisam de força, mas também de capacidade de relaxar e coordenar-se. Alterações nesse equilíbrio podem estar relacionadas a diferentes queixas.",
+        "A endometriose é uma condição em que um tecido semelhante ao do útero cresce fora dele e pode causar dor e outros sintomas. A fisioterapia pélvica pode complementar o tratamento médico, cuidando da musculatura e da dor associadas.",
       indications: [
-        "Sensação de peso na região genital",
-        "Dificuldade para esvaziar a bexiga ou o intestino",
-        "Constipação persistente",
-        "Perda de gases ou fezes",
+        "Dor pélvica ou cólica intensa associada à endometriose",
+        "Dor durante as relações sexuais",
+        "Sintomas urinários ou intestinais que acompanham o ciclo menstrual",
+        "Tensão da musculatura do assoalho pélvico e da região lombar",
       ],
       faq: [
         {
-          q: "O que é o assoalho pélvico?",
-          a: "É o conjunto de músculos e tecidos na base da pelve que sustenta órgãos como bexiga e intestino e participa do controle urinário, intestinal e da função sexual.",
+          q: "A fisioterapia trata a endometriose?",
+          a: "Ela não substitui o tratamento médico. A fisioterapia pode ajudar no manejo de sintomas como a dor e a tensão muscular, em conjunto com o acompanhamento médico.",
+        },
+      ],
+    },
+    {
+      slug: "incontinencia-urinaria",
+      title: "Incontinência urinária feminina e masculina",
+      short: "Avaliação de queixas de perda involuntária de urina, em mulheres e homens.",
+      description:
+        "A perda involuntária de urina é uma queixa comum, mas não precisa ser tratada como algo normal ou inevitável. A avaliação fisioterapêutica ajuda a entender o contexto de cada pessoa, seja mulher ou homem.",
+      indications: [
+        "Perda de urina ao tossir, espirrar, rir ou se exercitar",
+        "Urgência intensa para urinar",
+        "Perda de urina após cirurgias da região pélvica, como a da próstata",
+        "Receio de sair de casa ou praticar atividades por causa do problema",
+      ],
+      faq: [
+        {
+          q: "A incontinência urinária é normal com a idade?",
+          a: "Ela é frequente, mas isso não significa que deva ser ignorada. Vale buscar avaliação profissional para entender o que está acontecendo.",
+        },
+      ],
+    },
+    {
+      slug: "bexiga-hiperativa",
+      title: "Bexiga hiperativa",
+      short: "Avaliação da urgência e da frequência urinária que atrapalham a rotina.",
+      description:
+        "Na bexiga hiperativa, a vontade de urinar surge de repente e com intensidade, às vezes com perda de urina. Quando isso passa a limitar a rotina, é possível investigar a causa e tratar.",
+      indications: [
+        "Urgência súbita e intensa para urinar",
+        "Idas ao banheiro com frequência acima do habitual",
+        "Acordar várias vezes à noite para urinar",
+        "Perda de urina que acompanha a urgência",
+      ],
+      faq: [
+        {
+          q: "A bexiga hiperativa é algo que preciso aceitar?",
+          a: "Não. Ela é comum, mas não precisa ser tratada como normal. A avaliação ajuda a entender a causa e a orientar o tratamento.",
+        },
+      ],
+    },
+    {
+      slug: "retencao-urinaria",
+      title: "Retenção urinária",
+      short: "Avaliação de dificuldades para esvaziar a bexiga.",
+      description:
+        "Na retenção urinária, a bexiga não se esvazia por completo ou a pessoa tem dificuldade para iniciar a urina. A avaliação ajuda a entender o papel do assoalho pélvico e a orientar quando buscar também avaliação médica.",
+      indications: [
+        "Dificuldade para começar a urinar",
+        "Jato fraco ou que para e recomeça",
+        "Sensação de que a bexiga não esvaziou por completo",
+        "Necessidade de fazer força para urinar",
+      ],
+      faq: [
+        {
+          q: "Preciso de avaliação médica também?",
+          a: "Em geral, sim. A retenção urinária pode ter causas variadas, e a fisioterapia atua junto com o acompanhamento médico, que investiga a origem do problema.",
+        },
+      ],
+    },
+    {
+      slug: "prolapso-de-orgaos-pelvicos",
+      title: "Prolapso de órgãos pélvicos",
+      short: "Avaliação de queixas de peso ou de \"descida\" dos órgãos da pelve.",
+      description:
+        "No prolapso, órgãos como a bexiga, o útero ou o reto descem em direção à vagina por falta de sustentação. A fisioterapia pélvica pode fazer parte do cuidado conservador, e a avaliação orienta quando outras condutas são necessárias.",
+      indications: [
+        "Sensação de peso ou de \"bola\" na região genital",
+        "Sensação de que algo está saindo pela vagina",
+        "Desconforto que piora ao ficar muito tempo em pé",
+        "Sintomas urinários ou intestinais associados",
+      ],
+      faq: [
+        {
+          q: "O prolapso sempre precisa de cirurgia?",
+          a: "Não necessariamente. Depende do grau e dos sintomas. A avaliação orienta as opções, e a decisão é conduzida junto com o acompanhamento médico.",
+        },
+      ],
+    },
+    {
+      slug: "constipacao",
+      title: "Constipação",
+      short: "Avaliação do intestino preso e da dificuldade para evacuar.",
+      description:
+        "A constipação pode estar ligada à coordenação e ao relaxamento da musculatura do assoalho pélvico, além de hábitos e outros fatores. A avaliação ajuda a entender o que está contribuindo no seu caso.",
+      indications: [
+        "Esforço excessivo para evacuar",
+        "Fezes endurecidas ou evacuação incompleta",
+        "Sensação de bloqueio ao tentar evacuar",
+        "Intestino preso que persiste ao longo do tempo",
+      ],
+      faq: [
+        {
+          q: "A constipação é só questão de alimentação?",
+          a: "Alimentação e hidratação importam, mas a função do assoalho pélvico também pode influenciar. A avaliação ajuda a entender o que está contribuindo.",
+        },
+      ],
+    },
+    {
+      slug: "prostatectomia-radical",
+      title: "Pré e pós-operatório de prostatectomia radical",
+      short: "Preparo e recuperação do assoalho pélvico na cirurgia da próstata.",
+      description:
+        "A prostatectomia radical é a cirurgia de retirada da próstata. A fisioterapia pélvica pode orientar o preparo do assoalho pélvico antes da cirurgia e acompanhar a recuperação depois, respeitando a liberação da equipe médica.",
+      indications: [
+        "Preparo do assoalho pélvico antes da cirurgia",
+        "Perda de urina após a prostatectomia",
+        "Orientações para a recuperação, conforme liberação médica",
+        "Dúvidas sobre o que esperar no pré e no pós-operatório",
+      ],
+      faq: [
+        {
+          q: "Quando começar a fisioterapia?",
+          a: "O ideal é conversar antes da cirurgia, para receber orientações. Depois, o momento de iniciar é definido na avaliação e conforme a liberação da equipe médica.",
         },
       ],
     },
@@ -523,42 +597,6 @@ export const pt = {
         {
           q: "Quando posso começar o acompanhamento após o parto?",
           a: "O momento adequado depende de cada caso e da liberação dos profissionais que acompanham você. Isso é conversado na avaliação.",
-        },
-      ],
-    },
-    {
-      slug: "queixas-sexuais",
-      title: "Queixas sexuais",
-      short: "Um espaço sem julgamento para falar de dor e desconforto íntimos.",
-      description:
-        "Dor ou desconforto na vida sexual podem estar relacionados ao assoalho pélvico. A conversa é conduzida com respeito, privacidade e no seu ritmo.",
-      indications: [
-        "Dor durante a penetração ou após a relação",
-        "Sensação de tensão ou dificuldade de relaxamento da região pélvica",
-        "Desconforto que interfere na vida íntima",
-      ],
-      faq: [
-        {
-          q: "É constrangedor falar sobre esse assunto?",
-          a: "É comum sentir isso. O atendimento é individual e reservado, e você decide o quanto e quando compartilhar.",
-        },
-      ],
-    },
-    {
-      slug: "reabilitacao-funcional",
-      title: "Reabilitação funcional",
-      short: "Retomada gradual de atividades do dia a dia com orientação.",
-      description:
-        "Quando uma queixa pélvica limita a rotina, o trabalho ou a prática de exercícios, a avaliação ajuda a construir um plano de retomada gradual das atividades.",
-      indications: [
-        "Limitação de atividades por desconforto ou perda urinária",
-        "Retorno à prática de exercícios com orientação",
-        "Recuperação após procedimentos, conforme liberação médica",
-      ],
-      faq: [
-        {
-          q: "O plano é igual para todo mundo?",
-          a: "Não. O plano terapêutico é individualizado e ajustado ao longo do acompanhamento.",
         },
       ],
     },

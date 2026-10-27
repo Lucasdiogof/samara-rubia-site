@@ -373,7 +373,7 @@ export const es: Dict = {
   treatments: {
     metaTitle: "Tratamientos y áreas de actuación",
     metaDescription:
-      "Conoce las áreas de la fisioterapia pélvica por las que suele buscarse una evaluación: incontinencia, dolor pélvico, embarazo, salud masculina y femenina.",
+      "Conoce las atenciones de fisioterapia pélvica: incontinencia urinaria, vejiga hiperactiva, endometriosis, dolor pélvico crónico, prolapso, embarazo y posparto, entre otras.",
     eyebrow: "Tratamientos",
     title: "Áreas de la *fisioterapia pélvica.*",
     lead: "Temas por los que suele buscarse una evaluación. El contenido es educativo y no sustituye la evaluación individual.",
@@ -403,70 +403,30 @@ export const es: Dict = {
 
   services: [
     {
-      slug: "saude-pelvica-feminina",
-      title: "Salud pélvica femenina",
-      short: "Cuidado del suelo pélvico en las distintas etapas de la vida.",
+      slug: "disfuncoes-sexuais-femininas",
+      title: "Disfunciones sexuales femeninas",
+      short: "Un espacio sin juicios para hablar de dolor y molestias íntimas.",
       description:
-        "La fisioterapia pélvica observa los músculos y tejidos que sostienen y coordinan la región pélvica. En la salud femenina, la evaluación puede tener sentido en distintas etapas de la vida, de la juventud a la menopausia.",
+        "El dolor o la molestia en la vida sexual pueden estar relacionados con el suelo pélvico. La conversación se lleva con respeto, privacidad y a tu ritmo.",
       indications: [
-        "Pérdida involuntaria de orina",
-        "Dolor o molestia en la región pélvica",
-        "Sensación de peso o presión en la pelvis",
-        "Dolor durante las relaciones sexuales",
-        "Dudas sobre el funcionamiento del suelo pélvico",
+        "Dolor durante la penetración o después de la relación",
+        "Contracción involuntaria que dificulta o impide la penetración",
+        "Sensación de tensión o dificultad para relajar la región pélvica",
+        "Molestia que interfiere en la vida íntima",
       ],
       faq: [
         {
-          q: "¿Necesito tener algún síntoma para hacer una evaluación?",
-          a: "No necesariamente. Quien tiene dudas sobre la salud pélvica también puede buscar orientación. La necesidad de seguimiento se define en la evaluación.",
-        },
-      ],
-    },
-    {
-      slug: "saude-pelvica-masculina",
-      title: "Salud pélvica masculina",
-      short: "Atención al suelo pélvico también para hombres, con discreción y respeto.",
-      description:
-        "Los hombres también tienen suelo pélvico y también pueden presentar molestias en esa región. La fisioterapia pélvica ofrece una evaluación respetuosa e individualizada, en un ambiente de escucha.",
-      indications: [
-        "Pérdida involuntaria de orina",
-        "Dolor o molestia en la región pélvica o perineal",
-        "Molestias urinarias o intestinales persistentes",
-        "Seguimiento relacionado con cirugías de la región pélvica, cuando esté indicado",
-        "Dificultades sexuales",
-      ],
-      faq: [
-        {
-          q: "¿La fisioterapia pélvica es solo para mujeres?",
-          a: "No. La evaluación está dirigida a personas de cualquier género que tengan molestias o dudas sobre la salud pélvica.",
-        },
-      ],
-    },
-    {
-      slug: "incontinencia-urinaria",
-      title: "Incontinencia urinaria",
-      short: "Evaluación de la pérdida involuntaria de orina.",
-      description:
-        "La pérdida involuntaria de orina es una molestia común, pero no tiene por qué tratarse como algo normal o inevitable. La evaluación fisioterapéutica ayuda a entender el contexto de cada persona.",
-      indications: [
-        "Pérdida de orina al toser, estornudar, reír o hacer ejercicio",
-        "Urgencia intensa para orinar",
-        "Idas frecuentes al baño que interfieren en la rutina",
-        "Temor a salir de casa o a practicar actividades por causa del problema",
-      ],
-      faq: [
-        {
-          q: "¿La incontinencia urinaria es normal con la edad?",
-          a: "Es frecuente, pero eso no significa que deba ignorarse. Conviene buscar una evaluación profesional para entender lo que está pasando.",
+          q: "¿Da vergüenza hablar de este tema?",
+          a: "Es común sentirlo. La atención es individual y reservada, y tú decides cuánto y cuándo compartir.",
         },
       ],
     },
     {
       slug: "dor-pelvica",
-      title: "Dolor pélvico",
-      short: "Escucha y evaluación para dolores en la región de la pelvis.",
+      title: "Dolor pélvico crónico",
+      short: "Escucha y evaluación para dolores persistentes en la región de la pelvis.",
       description:
-        "El dolor pélvico puede tener distintos orígenes e impactar el sueño, el trabajo y la vida íntima. La evaluación fisioterapéutica considera tu historial y tu rutina para orientar los próximos pasos.",
+        "El dolor pélvico crónico puede tener distintos orígenes e impactar el sueño, el trabajo y la vida íntima. La evaluación fisioterapéutica considera tu historial y tu rutina para orientar los próximos pasos.",
       indications: [
         "Dolor persistente en la región pélvica, lumbar baja o perineal",
         "Dolor al sentarse por períodos prolongados",
@@ -481,21 +441,135 @@ export const es: Dict = {
       ],
     },
     {
-      slug: "disfuncoes-do-assoalho-pelvico",
-      title: "Disfunciones del suelo pélvico",
-      short: "Fuerza, relajación y coordinación de los músculos de la pelvis.",
+      slug: "endometriose",
+      title: "Endometriosis",
+      short: "Apoyo en el manejo del dolor y de los síntomas, junto con el seguimiento médico.",
       description:
-        "Los músculos del suelo pélvico necesitan fuerza, pero también capacidad de relajarse y coordinarse. Las alteraciones en ese equilibrio pueden estar relacionadas con distintas molestias.",
+        "La endometriosis es una condición en la que un tejido similar al del útero crece fuera de él y puede causar dolor y otros síntomas. La fisioterapia pélvica puede complementar el tratamiento médico, atendiendo la musculatura y el dolor asociados.",
       indications: [
-        "Sensación de peso en la región genital",
-        "Dificultad para vaciar la vejiga o el intestino",
-        "Estreñimiento persistente",
-        "Pérdida de gases o heces",
+        "Dolor pélvico o cólicos intensos asociados a la endometriosis",
+        "Dolor durante las relaciones sexuales",
+        "Síntomas urinarios o intestinales que acompañan el ciclo menstrual",
+        "Tensión de la musculatura del suelo pélvico y de la región lumbar",
       ],
       faq: [
         {
-          q: "¿Qué es el suelo pélvico?",
-          a: "Es el conjunto de músculos y tejidos en la base de la pelvis que sostiene órganos como la vejiga y el intestino y participa en el control urinario e intestinal y en la función sexual.",
+          q: "¿La fisioterapia trata la endometriosis?",
+          a: "No sustituye el tratamiento médico. La fisioterapia puede ayudar en el manejo de síntomas como el dolor y la tensión muscular, junto con el seguimiento médico.",
+        },
+      ],
+    },
+    {
+      slug: "incontinencia-urinaria",
+      title: "Incontinencia urinaria femenina y masculina",
+      short: "Evaluación de la pérdida involuntaria de orina, en mujeres y hombres.",
+      description:
+        "La pérdida involuntaria de orina es una molestia común, pero no tiene por qué tratarse como algo normal o inevitable. La evaluación fisioterapéutica ayuda a entender el contexto de cada persona, sea mujer u hombre.",
+      indications: [
+        "Pérdida de orina al toser, estornudar, reír o hacer ejercicio",
+        "Urgencia intensa para orinar",
+        "Pérdida de orina tras cirugías de la región pélvica, como la de próstata",
+        "Temor a salir de casa o a practicar actividades por causa del problema",
+      ],
+      faq: [
+        {
+          q: "¿La incontinencia urinaria es normal con la edad?",
+          a: "Es frecuente, pero eso no significa que deba ignorarse. Conviene buscar una evaluación profesional para entender lo que está pasando.",
+        },
+      ],
+    },
+    {
+      slug: "bexiga-hiperativa",
+      title: "Vejiga hiperactiva",
+      short: "Evaluación de la urgencia y la frecuencia urinaria que alteran la rutina.",
+      description:
+        "En la vejiga hiperactiva, las ganas de orinar aparecen de repente y con intensidad, a veces con pérdida de orina. Cuando esto empieza a limitar la rutina, es posible investigar la causa y tratar.",
+      indications: [
+        "Urgencia repentina e intensa para orinar",
+        "Idas al baño con una frecuencia mayor de la habitual",
+        "Despertar varias veces por la noche para orinar",
+        "Pérdida de orina que acompaña la urgencia",
+      ],
+      faq: [
+        {
+          q: "¿La vejiga hiperactiva es algo que tengo que aceptar?",
+          a: "No. Es común, pero no debe tratarse como algo normal. La evaluación ayuda a entender la causa y a orientar el tratamiento.",
+        },
+      ],
+    },
+    {
+      slug: "retencao-urinaria",
+      title: "Retención urinaria",
+      short: "Evaluación de dificultades para vaciar la vejiga.",
+      description:
+        "En la retención urinaria, la vejiga no se vacía por completo o cuesta iniciar la micción. La evaluación ayuda a entender el papel del suelo pélvico y a orientar cuándo buscar también una evaluación médica.",
+      indications: [
+        "Dificultad para empezar a orinar",
+        "Chorro débil o que se corta y vuelve a empezar",
+        "Sensación de que la vejiga no se vació por completo",
+        "Necesidad de hacer fuerza para orinar",
+      ],
+      faq: [
+        {
+          q: "¿Necesito también una evaluación médica?",
+          a: "En general, sí. La retención urinaria puede tener causas variadas, y la fisioterapia actúa junto con el seguimiento médico, que investiga el origen del problema.",
+        },
+      ],
+    },
+    {
+      slug: "prolapso-de-orgaos-pelvicos",
+      title: "Prolapso de órganos pélvicos",
+      short: "Evaluación de molestias de peso o de \"descenso\" de los órganos de la pelvis.",
+      description:
+        "En el prolapso, órganos como la vejiga, el útero o el recto descienden hacia la vagina por falta de sostén. La fisioterapia pélvica puede formar parte del cuidado conservador, y la evaluación orienta cuándo se necesitan otras conductas.",
+      indications: [
+        "Sensación de peso o de \"bulto\" en la región genital",
+        "Sensación de que algo sale por la vagina",
+        "Molestia que empeora al permanecer mucho tiempo de pie",
+        "Síntomas urinarios o intestinales asociados",
+      ],
+      faq: [
+        {
+          q: "¿El prolapso siempre necesita cirugía?",
+          a: "No necesariamente. Depende del grado y de los síntomas. La evaluación orienta las opciones, y la decisión se toma junto con el seguimiento médico.",
+        },
+      ],
+    },
+    {
+      slug: "constipacao",
+      title: "Estreñimiento",
+      short: "Evaluación del intestino atascado y de la dificultad para evacuar.",
+      description:
+        "El estreñimiento puede estar relacionado con la coordinación y la relajación de la musculatura del suelo pélvico, además de hábitos y otros factores. La evaluación ayuda a entender qué está contribuyendo en tu caso.",
+      indications: [
+        "Esfuerzo excesivo para evacuar",
+        "Heces duras o evacuación incompleta",
+        "Sensación de bloqueo al intentar evacuar",
+        "Estreñimiento que persiste con el tiempo",
+      ],
+      faq: [
+        {
+          q: "¿El estreñimiento es solo cuestión de alimentación?",
+          a: "La alimentación y la hidratación importan, pero la función del suelo pélvico también puede influir. La evaluación ayuda a entender qué está contribuyendo.",
+        },
+      ],
+    },
+    {
+      slug: "prostatectomia-radical",
+      title: "Pre y postoperatorio de prostatectomía radical",
+      short: "Preparación y recuperación del suelo pélvico en la cirugía de próstata.",
+      description:
+        "La prostatectomía radical es la cirugía de extirpación de la próstata. La fisioterapia pélvica puede orientar la preparación del suelo pélvico antes de la cirugía y acompañar la recuperación después, respetando la autorización del equipo médico.",
+      indications: [
+        "Preparación del suelo pélvico antes de la cirugía",
+        "Pérdida de orina después de la prostatectomía",
+        "Orientaciones para la recuperación, según la autorización médica",
+        "Dudas sobre qué esperar antes y después de la operación",
+      ],
+      faq: [
+        {
+          q: "¿Cuándo empezar la fisioterapia?",
+          a: "Lo ideal es conversar antes de la cirugía, para recibir orientaciones. Después, el momento de empezar se define en la evaluación y según la autorización del equipo médico.",
         },
       ],
     },
@@ -515,42 +589,6 @@ export const es: Dict = {
         {
           q: "¿Cuándo puedo empezar el seguimiento después del parto?",
           a: "El momento adecuado depende de cada caso y de la autorización de los profesionales que te acompañan. Esto se conversa en la evaluación.",
-        },
-      ],
-    },
-    {
-      slug: "queixas-sexuais",
-      title: "Dificultades sexuales",
-      short: "Un espacio sin juicios para hablar de dolor y molestias íntimas.",
-      description:
-        "El dolor o la molestia en la vida sexual pueden estar relacionados con el suelo pélvico. La conversación se lleva con respeto, privacidad y a tu ritmo.",
-      indications: [
-        "Dolor durante la penetración o después de la relación",
-        "Sensación de tensión o dificultad para relajar la región pélvica",
-        "Molestia que interfiere en la vida íntima",
-      ],
-      faq: [
-        {
-          q: "¿Da vergüenza hablar de este tema?",
-          a: "Es común sentirlo. La atención es individual y reservada, y tú decides cuánto y cuándo compartir.",
-        },
-      ],
-    },
-    {
-      slug: "reabilitacao-funcional",
-      title: "Rehabilitación funcional",
-      short: "Retorno gradual a las actividades cotidianas con orientación.",
-      description:
-        "Cuando una molestia pélvica limita la rutina, el trabajo o la práctica de ejercicio, la evaluación ayuda a construir un plan de retorno gradual a las actividades.",
-      indications: [
-        "Limitación de actividades por molestia o pérdida urinaria",
-        "Regreso a la práctica de ejercicio con orientación",
-        "Recuperación tras procedimientos, según la autorización médica",
-      ],
-      faq: [
-        {
-          q: "¿El plan es igual para todos?",
-          a: "No. El plan terapéutico es individualizado y se ajusta a lo largo del seguimiento.",
         },
       ],
     },
