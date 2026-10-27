@@ -76,22 +76,30 @@ export const site = {
   images: {
     /** hero: recomendado 4:5 vertical, mínimo 1600 px de largura */
     hero: {
-      name: "samara-hero",
-      alt: "Samara Rúbia, fisioterapeuta pélvica, sorrindo",
-      width: 825,
-      height: 1150,
+      name: "samara-jaleco",
+      alt: "Samara Rúbia, fisioterapeuta, sorrindo de jaleco branco",
+      width: 856,
+      height: 1280,
       widths: [480, 768],
-      focal: { x: 50, y: 50 },
-      alpha: true,
+      focal: { x: 45, y: 8 },
+    } as PhotoConfig | null,
+    /** página Sobre: Samara sentada, com a mão no cabelo */
+    model: {
+      name: "samara-sentada",
+      alt: "Samara Rúbia, fisioterapeuta pélvica, sorrindo com a mão no cabelo",
+      width: 1071,
+      height: 1460,
+      widths: [480, 768, 1071],
+      focal: { x: 46, y: 24 },
     } as PhotoConfig | null,
     /** seção Sobre (home e página): recomendado 3:4 vertical, mínimo 1400 px */
     portrait: {
-      name: "samara-retrato",
-      alt: "Samara Rúbia, fisioterapeuta pélvica, sentada e sorrindo",
-      width: 768,
-      height: 1332,
-      widths: [480, 768],
-      focal: { x: 50, y: 12 },
+      name: "samara-modelo",
+      alt: "Samara Rúbia sorrindo, segurando um modelo anatômico usado para explicar a região pélvica",
+      width: 889,
+      height: 1450,
+      widths: [480, 768, 889],
+      focal: { x: 58, y: 0 },
     } as PhotoConfig | null,
     /** consultório: recomendado 3:2 horizontal (a primeira é a principal), 1 a 4 fotos */
     office: [] as PhotoConfig[],

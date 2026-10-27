@@ -48,7 +48,7 @@ export function ReviewsSection({ lang }: { lang: Lang }) {
             >
               <div data-demo={r.demo || undefined} className="flex h-full flex-col">
                 {r.demo && (
-                  <p className="mb-4 w-fit rounded-xl bg-cocoa-deep px-3 py-1 text-[0.68rem] font-semibold tracking-[0.08em] text-vanilla">
+                  <p className="mb-4 w-fit rounded-xl bg-cocoa-deep px-3 py-1 text-xs font-semibold tracking-[0.06em] text-vanilla">
                     {t.demo}
                   </p>
                 )}

@@ -197,9 +197,9 @@ section:not(.lap-pad):has(+ .lap) {
   max-width: 38rem;
 }
 .eyebrow {
-  font-size: 0.78rem;
+  font-size: 0.8125rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--cocoa);
   display: inline-flex;

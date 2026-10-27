@@ -43,7 +43,7 @@ export function Controls({ labels, className }: { labels: ControlLabels; classNa
                 title={langMeta[l].name}
                 aria-current={l === lang ? "true" : undefined}
                 className={cn(
-                  "grid h-11 min-w-9 place-items-center rounded-full px-2 text-[0.78rem] font-semibold tracking-[0.12em]",
+                  "grid h-11 min-w-9 place-items-center rounded-full px-2 text-[0.8125rem] font-semibold tracking-[0.1em]",
                   l === lang ? "text-cocoa-deep underline underline-offset-4" : "text-cocoa hover:text-cocoa-deep",
                 )}
               >

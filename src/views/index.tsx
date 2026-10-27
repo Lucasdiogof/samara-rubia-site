@@ -237,7 +237,7 @@ function About({ lang }: { lang: Lang }) {
           <div className="mx-auto w-full max-w-md lg:sticky lg:top-28 lg:col-span-5 lg:max-w-none">
             <RevealImage className="relative aspect-[3/4] overflow-hidden rounded-t-[999px] rounded-b-[2rem] bg-sand">
               <div className="relative h-full w-full">
-                <Portrait slot="portrait" sizes="(min-width: 1024px) 40vw, 90vw" />
+                <Portrait slot="model" sizes="(min-width: 1024px) 40vw, 90vw" />
               </div>
             </RevealImage>
           </div>

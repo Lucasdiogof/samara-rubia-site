@@ -69,7 +69,7 @@ export function ReelCard({
               </button>
             )}
             {demo && (
-              <span className="absolute left-3 top-3 rounded-full bg-cocoa-deep px-3 py-1 text-[0.68rem] font-semibold tracking-[0.08em] text-vanilla">
+              <span className="absolute left-3 top-3 rounded-full bg-cocoa-deep px-3 py-1 text-xs font-semibold tracking-[0.06em] text-vanilla">
                 {labels.demo}
               </span>
             )}

@@ -16,29 +16,65 @@ declare global {
  */
 /** Rota anterior (módulo, não ref: o layout remonta a cada troca de página). */
 let lastPath: string | null = null;
+/** Voltar/avançar do navegador: devolve a rolagem que a página tinha (o Next não restaura sozinho). */
+let historyY: number | null = null;
+const KEY = "scroll:";
+if (typeof window !== "undefined") {
+  let t = 0;
+  window.addEventListener(
+    "scroll",
+    () => {
+      cancelAnimationFrame(t);
+      t = requestAnimationFrame(() => {
+        try {
+          sessionStorage.setItem(KEY + location.pathname, String(Math.round(scrollY)));
+        } catch {}
+      });
+    },
+    { passive: true },
+  );
+  // lido já no popstate: depois dele o navegador ainda pode zerar a rolagem e sobrescrever o valor salvo
+  window.addEventListener("popstate", () => {
+    try {
+      const v = sessionStorage.getItem(KEY + location.pathname);
+      historyY = v === null ? null : Number(v);
+    } catch {
+      historyY = null;
+    }
+  });
+  // um clique em link é navegação nova, mesmo que um popstate anterior (ex.: só #âncora) não tenha trocado de rota
+  window.addEventListener("click", () => (historyY = null), true);
+}
 
 export function MotionRoot() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Troca de rota: volta ao topo ANTES de o GSAP recriar os gatilhos (o refresh do ScrollTrigger
-    // restaura a posição antiga, e o link do fim da home caía no rodapé da página nova).
-    const toTop = lastPath !== null && lastPath !== pathname && !window.location.hash;
+    // Troca de rota: volta ao topo (ou, no "voltar" do navegador, à posição de antes) ANTES de o GSAP recriar os
+    // gatilhos (o refresh do ScrollTrigger restaura a posição antiga, e o link do fim da home caía no rodapé da página nova).
+    const changed = lastPath !== null && lastPath !== pathname && !window.location.hash;
+    const target = changed ? (historyY ?? 0) : null;
+    const toTop = target !== null;
     lastPath = pathname;
+    historyY = null;
     let stopHold: (() => void) | undefined;
-    if (toTop) {
-      window.scrollTo({ top: 0, behavior: "instant" });
-      // Por ~1,5 s mantém o topo: outros refresh (ScrollTrigger, mudança de altura) tentam devolver o
-      // scroll antigo. Qualquer ação do visitante (roda, toque, tecla) encerra a trava na hora.
+    if (target !== null) {
+      window.scrollTo({ top: target, behavior: "instant" });
+      // Por ~1,5 s mantém a posição: a página ainda cresce (imagens, fontes) e outros refresh (ScrollTrigger) tentam
+      // devolver o scroll antigo. Qualquer ação do visitante (roda, toque, tecla) encerra a trava na hora.
       const events = ["wheel", "touchstart", "keydown", "pointerdown"] as const;
-      const hold = () => window.scrollY > 0 && window.scrollTo({ top: 0, behavior: "instant" });
+      let raf = 0;
+      const hold = () => {
+        if (Math.abs(window.scrollY - target) > 2) window.scrollTo({ top: target, behavior: "instant" });
+        raf = requestAnimationFrame(hold);
+      };
       const stop = () => {
-        window.removeEventListener("scroll", hold);
+        cancelAnimationFrame(raf);
         events.forEach((e) => window.removeEventListener(e, stop));
         clearTimeout(timer);
       };
       const timer = setTimeout(stop, 1500);
-      window.addEventListener("scroll", hold, { passive: true });
+      raf = requestAnimationFrame(hold);
       events.forEach((e) => window.addEventListener(e, stop, { passive: true, once: true }));
       stopHold = stop;
     }
@@ -65,7 +101,7 @@ export function MotionRoot() {
         // da página anterior, senão ele devolve o scroll antigo (preso no fim da página nova).
         if (toTop) {
           ScrollTrigger.clearScrollMemory();
-          window.scrollTo({ top: 0, behavior: "instant" });
+          window.scrollTo({ top: target ?? 0, behavior: "instant" });
         }
 
         const ctx = gsap.context(() => {

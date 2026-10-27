@@ -130,7 +130,7 @@ export function ContactRows({
     <dl className={bare ? "" : "overflow-hidden rounded-3xl border border-border bg-cream/50"}>
       {items.map(({ key, label, icon: Icon, value }) => (
         <div key={key} className="relative border-b border-border py-6 pl-[4.75rem] pr-6 last:border-b-0">
-          <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-cocoa">
+          <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-cocoa">
             <span className="absolute left-5 top-6 grid h-12 w-12 place-items-center rounded-full bg-cream text-cocoa">
               <Icon className="h-[1.35rem] w-[1.35rem]" />
             </span>

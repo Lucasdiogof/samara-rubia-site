@@ -21,12 +21,12 @@ export function ArticleCard({ article, lang }: { article: Article; lang: Lang })
           />
         )}
         {article.demo && (
-          <span className="absolute left-3 top-3 rounded-full bg-cocoa-deep px-3 py-1 text-[0.68rem] font-semibold tracking-[0.08em] text-vanilla">
+          <span className="absolute left-3 top-3 rounded-full bg-cocoa-deep px-3 py-1 text-xs font-semibold tracking-[0.06em] text-vanilla">
             {t.demo}
           </span>
         )}
       </div>
-      <p className="mt-5 flex flex-wrap items-center gap-x-3 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-cocoa">
+      <p className="mt-5 flex flex-wrap items-center gap-x-3 text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-cocoa">
         <span>{categoryLabel(lang, article.category)}</span>
         <span aria-hidden="true">·</span>
         <time dateTime={article.date} className="font-normal normal-case tracking-normal">

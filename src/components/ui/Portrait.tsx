@@ -3,7 +3,7 @@ import { Photo } from "./Photo";
 
 type Props = {
   /** qual foto da configuração ocupa este espaço */
-  slot?: "hero" | "portrait";
+  slot?: "hero" | "portrait" | "model";
   sizes?: string;
   priority?: boolean;
   className?: string;

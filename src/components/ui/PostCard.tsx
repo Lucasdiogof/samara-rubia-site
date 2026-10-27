@@ -74,7 +74,7 @@ export function PostCard({
       )}
       <div className="flex flex-1 flex-col px-1">
         {labels.date && (
-          <p className="mt-5 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-cocoa">
+          <p className="mt-5 text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-cocoa">
             <time dateTime={labels.dateIso}>{labels.date}</time>
           </p>
         )}
