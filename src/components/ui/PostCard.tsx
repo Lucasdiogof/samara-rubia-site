@@ -100,16 +100,14 @@ export function PostCard({
             ))}
           </div>
         )}
-        {(
-          <a
+        <a
             href={url}
             target="_blank"
             rel="noopener noreferrer"
             className="link-u mt-auto inline-flex w-fit items-center gap-1.5 pt-4 text-[0.92rem] font-semibold text-cocoa-deep"
           >
             {labels.openIg} <ExternalLink size={14} aria-hidden="true" />
-          </a>
-        )}
+        </a>
       </div>
     </article>
   );
