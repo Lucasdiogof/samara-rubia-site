@@ -50,8 +50,8 @@ export const site = {
       encodeURIComponent("La Femme Consultórios, Rua 1123, 359, Quadra 220, Setor Marista, Goiânia - GO") as
         | string
         | null,
-    /** ex.: ["Presencial", "Online"]; vazio = "a confirmar" */
-    modalities: [] as string[],
+    /** presencial e/ou online; vazio = a confirmar */
+    modalities: ["presencial", "online"] as ("presencial" | "online")[],
     /** Faixa confirmada; os dias da semana ainda não foram informados. */
     hours: { open: "07:30", close: "18:00" } as { open: string; close: string } | null,
   },

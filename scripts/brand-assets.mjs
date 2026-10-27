@@ -19,8 +19,8 @@ const C = {
 
 // Ícones: monograma SR da logo (variante para fundo escuro) sobre cacau profundo.
 const b64 = (f) => readFileSync(f).toString("base64");
-const markDark = b64("design/brand/out/mark-dark.png");
-const markLight = b64("design/brand/out/mark-light.png");
+const markDark = b64("design/brand/v3/mark-dark.png");
+const markLight = b64("design/brand/v3/mark-light.png");
 const cutout = b64("design/brand/hero-cutout.png");
 const iconSvg = (r) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
 <rect width="64" height="64" rx="${r}" fill="${C.deep}"/>
@@ -36,7 +36,8 @@ writeFileSync("public/icon-192.png", await png(iconSvg(14), 192));
 writeFileSync("public/icon-512.png", await png(iconSvg(14), 512));
 // favicon.ico com PNGs embutidos (16, 32, 48)
 const sizes = [16, 32, 48];
-const imgs = await Promise.all(sizes.map((s) => png(iconSvg(14), s)));
+// o .ico usa os favicons otimizados por tamanho (design/brand/v3), não a redução do ícone grande
+const imgs = sizes.map((s) => readFileSync(`design/brand/v3/favicon-${s}.png`));
 const head = Buffer.alloc(6 + 16 * sizes.length);
 head.writeUInt16LE(1, 2);
 head.writeUInt16LE(sizes.length, 4);
@@ -65,8 +66,8 @@ const ogBody = (C) => `
     <path d="M0 510V200a200 200 0 0 1 400 0v310z" fill="url(#g2)"/>
   </svg>
   <img src="data:image/png;base64,${cutout}" style="position:absolute;right:70px;top:60px;width:400px;height:510px;object-fit:contain;object-position:50% 100%;clip-path:inset(0 round 200px 200px 0 0)"/>
-  <svg style="position:absolute;right:50px;top:80px" width="400" height="510" viewBox="0 0 400 510"><path d="M0 510V200a200 200 0 0 1 400 0v310z" fill="none" stroke="${C.taupe}" stroke-width="1.5" transform="translate(-0 0)"/></svg>
-  <img src="data:image/png;base64,${markLight}" style="position:absolute;left:76px;top:56px;width:84px;height:84px"/>
+  <svg style="position:absolute;right:58px;top:48px" width="424" height="534" viewBox="0 0 424 534"><path d="M.75 533.25V212a211.25 211.25 0 0 1 422.5 0v321.25z" fill="none" stroke="${C.taupe}" stroke-width="1.5"/></svg>
+  <img src="data:image/png;base64,${markLight}" style="position:absolute;left:76px;top:56px;width:84px;height:84px;object-fit:contain"/>
   <div style="position:absolute;left:80px;top:178px;width:600px;color:${C.deep}">
     <p style="font-family:var(--font-manrope),sans-serif;font-size:19px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:${C.cocoa}">Fisioterapia Pélvica</p>
     <p style="font-family:var(--font-cormorant),serif;font-weight:500;font-size:112px;line-height:1;letter-spacing:-.01em;margin-top:26px">Samara<br>Rúbia</p>

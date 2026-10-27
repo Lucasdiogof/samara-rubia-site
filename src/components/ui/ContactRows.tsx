@@ -63,7 +63,7 @@ function contactRows(lang: Lang): Row[] {
       key: "modality",
       label: t.modality,
       icon: Laptop,
-      value: modalities.length ? modalities.join(" · ") : null,
+      value: modalities.length ? modalities.map((m) => t.modalities[m]).join(" · ") : null,
     },
     {
       key: "hours",

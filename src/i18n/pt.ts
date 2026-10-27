@@ -174,7 +174,8 @@ export const pt = {
     soon: "Em breve",
     callWa: "Chamar no WhatsApp",
     hoursText: (open: string, close: string) => `Das ${open} às ${close}`,
-    hoursNote: "(dias de atendimento a confirmar)",
+    hoursNote: "Segunda a sexta",
+    modalities: { presencial: "Presencial", online: "Online" },
     directions: "Como chegar",
     venueAt: (venue: string) => `Atendimento na ${venue}`,
     and: "e",
@@ -306,7 +307,7 @@ export const pt = {
         },
         {
           q: "O atendimento é presencial? E valores e convênios?",
-          a: "O endereço do consultório está na seção Localização. Modalidades, valores e convênios devem ser confirmados diretamente pelo WhatsApp profissional.",
+          a: "O atendimento é presencial, em Goiânia (endereço na seção Localização), e também online, de segunda a sexta. Valores e convênios devem ser confirmados diretamente pelo WhatsApp profissional.",
         },
         {
           q: "Minhas informações de saúde ficam em sigilo?",

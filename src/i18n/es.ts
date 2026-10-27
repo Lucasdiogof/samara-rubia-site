@@ -165,7 +165,8 @@ export const es: Dict = {
     soon: "Próximamente",
     callWa: "Escribir por WhatsApp",
     hoursText: (open, close) => `De ${open} a ${close}`,
-    hoursNote: "(días por confirmar)",
+    hoursNote: "De lunes a viernes",
+    modalities: { presencial: "Presencial", online: "En línea" },
     directions: "Cómo llegar",
     venueAt: (venue) => `Atención en ${venue}`,
     and: "y",
@@ -298,7 +299,7 @@ export const es: Dict = {
         },
         {
           q: "¿La atención es presencial? ¿Y los valores y seguros?",
-          a: "La dirección del consultorio está en la sección Ubicación. Confirma las modalidades de atención, los precios y los seguros directamente por WhatsApp.",
+          a: "La atención es presencial, en Goiânia (dirección en la sección Ubicación), y también en línea, de lunes a viernes. Confirma los precios y los seguros directamente por WhatsApp.",
         },
         {
           q: "¿Mi información de salud se mantiene en secreto?",

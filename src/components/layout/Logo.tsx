@@ -49,7 +49,7 @@ export function Logo({
   if (variant === "lockup")
     return (
       <Link href={href(lang, "/")} aria-label={`${fullName} — ${specialty}`} className="inline-block">
-        <Themed name="lockup" width={236} height={180} className="h-auto w-[14.75rem]" />
+        <Themed name="lockup" width={236} height={190} className="h-auto w-[14.75rem]" />
       </Link>
     );
   return (

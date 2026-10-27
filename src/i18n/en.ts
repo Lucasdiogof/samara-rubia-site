@@ -165,7 +165,8 @@ export const en: Dict = {
     soon: "Coming soon",
     callWa: "Message on WhatsApp",
     hoursText: (open, close) => `${open} to ${close}`,
-    hoursNote: "(days to be confirmed)",
+    hoursNote: "Monday to Friday",
+    modalities: { presencial: "In person", online: "Online" },
     directions: "Get directions",
     venueAt: (venue) => `Appointments at ${venue}`,
     and: "and",
@@ -296,7 +297,7 @@ export const en: Dict = {
         },
         {
           q: "Is care in person? What about fees and insurance?",
-          a: "The clinic address is available in the Location section. Please confirm appointment formats, fees and insurance directly via WhatsApp.",
+          a: "Care is offered in person in Goiânia (address in the Location section) and also online, Monday to Friday. Please confirm fees and insurance directly via WhatsApp.",
         },
         {
           q: "Is my health information kept confidential?",
