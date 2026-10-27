@@ -554,6 +554,7 @@ export const en: Dict = {
     postsCarousel: "Instagram posts",
     prev: "Previous post",
     next: "Next post",
+    goTo: (n) => `Go to post ${n}`,
     igNote:
       "The content is loaded from Instagram only after you click; Instagram may record data about your visit.",
     player: (title) => `Reel player: ${title}`,

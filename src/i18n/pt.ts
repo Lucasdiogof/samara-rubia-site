@@ -564,6 +564,7 @@ export const pt = {
     postsCarousel: "Publicações do Instagram",
     prev: "Publicação anterior",
     next: "Próxima publicação",
+    goTo: (n: number) => `Ir para a publicação ${n}`,
     igNote:
       "O conteúdo é carregado do Instagram só depois do clique; o Instagram pode registrar dados do seu acesso.",
     player: (title: string) => `Reprodutor do Reel: ${title}`,

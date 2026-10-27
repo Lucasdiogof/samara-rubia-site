@@ -1,5 +1,5 @@
 import { PostCard } from "@/components/ui/PostCard";
-import { Carousel } from "@/components/ui/Carousel";
+import { LayerCarousel } from "@/components/ui/LayerCarousel";
 import type { Post } from "@/config/content";
 import { getDict, type Lang } from "@/i18n";
 import { formatDate, instagramCode } from "@/lib/content";
@@ -15,29 +15,38 @@ function captionParts(caption: string | undefined, fallback: string) {
 
 export function PostGrid({ posts, lang }: { posts: Post[]; lang: Lang }) {
   const t = getDict(lang).content;
+  const slides = posts.map((p, i) => {
+    const code = instagramCode(p.url);
+    const { title, paragraphs } = captionParts(p.caption, t.postTitle(i + 1));
+    return {
+      key: p.id,
+      label: title,
+      goTo: t.goTo(i + 1),
+      node: (
+        <PostCard
+          url={p.url}
+          embedSrc={code ? `https://www.instagram.com/p/${code}/embed/` : null}
+          cover={p.cover}
+          title={title}
+          paragraphs={paragraphs}
+          captionLang={p.caption && lang !== "pt" ? "pt" : undefined}
+          labels={{
+            date: p.date ? formatDate(lang, p.date) : "",
+            dateIso: p.date,
+            openIg: t.openIg,
+            player: t.playerPost(i + 1),
+          }}
+        />
+      ),
+    };
+  });
   return (
-    <Carousel label={t.postsCarousel} prev={t.prev} next={t.next}>
-      {posts.map((p, i) => {
-        const code = instagramCode(p.url);
-        const { title, paragraphs } = captionParts(p.caption, t.postTitle(i + 1));
-        return (
-          <PostCard
-            key={p.id}
-            url={p.url}
-            embedSrc={code ? `https://www.instagram.com/p/${code}/embed/` : null}
-            cover={p.cover}
-            title={title}
-            paragraphs={paragraphs}
-            captionLang={p.caption && lang !== "pt" ? "pt" : undefined}
-            labels={{
-              date: p.date ? formatDate(lang, p.date) : "",
-              dateIso: p.date,
-              openIg: t.openIg,
-              player: t.playerPost(i + 1),
-            }}
-          />
-        );
-      })}
-    </Carousel>
+    <LayerCarousel
+      slides={slides}
+      label={t.postsCarousel}
+      prev={t.prev}
+      next={t.next}
+      autoplay={7000}
+    />
   );
 }

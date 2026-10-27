@@ -557,6 +557,7 @@ export const es: Dict = {
     postsCarousel: "Publicaciones de Instagram",
     prev: "Publicación anterior",
     next: "Siguiente publicación",
+    goTo: (n) => `Ir a la publicación ${n}`,
     igNote:
       "El contenido se carga desde Instagram solo después de hacer clic; Instagram puede registrar datos de tu acceso.",
     player: (title) => `Reproductor del Reel: ${title}`,
