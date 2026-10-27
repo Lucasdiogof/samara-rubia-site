@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" role="img" aria-label="Samara Rúbia, fisioterapeuta pélvica">
+  <style>@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Montserrat:wght@400;500;600&family=Outfit:wght@300;400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');</style>
+  <rect width="720" height="420" fill="#3a1f2e"/>
+  <defs><linearGradient id="g0D" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f08a7a"/><stop offset="1" stop-color="#ffc2b5"/></linearGradient></defs>
+  <g transform="translate(360 108) scale(1.18)" fill="none" stroke-linecap="round">
+    <path d="M-34 -46C30 -72 66 -20 8 6C-50 32 -22 76 46 50" stroke="url(#g0D)" stroke-width="17"/>
+    <path d="M-20 -58C36 -78 78 -28 26 -4" stroke="#ffc2b5" stroke-width="4.5" opacity=".55"/>
+    <circle cx="54" cy="-58" r="6" fill="#f08a7a" stroke="none"/>
+  </g>
+  <text x="360" y="266" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="50" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="-0.025em">Samara Rúbia</text>
+  <text x="360" y="304" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="13" font-weight="500" fill="#d9b8c4" text-anchor="middle" letter-spacing="0.38em">FISIOTERAPIA PÉLVICA</text>
+</svg>

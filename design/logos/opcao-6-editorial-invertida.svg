@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" role="img" aria-label="Samara Rúbia, fisioterapeuta pélvica">
+  <style>@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Montserrat:wght@400;500;600&family=Outfit:wght@300;400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');</style>
+  <rect width="720" height="420" fill="#2f1022"/>
+  <text x="360" y="212" font-family="Outfit, system-ui, sans-serif" font-size="50" font-weight="300" fill="#ffffff" text-anchor="middle" letter-spacing="0.22em">SAMARA RÚBIA</text>
+  <path d="M190 240H334M386 240H530" stroke="#c2456f" stroke-width="1.6"/>
+  <path d="M360 252C340 238 350 226 360 234C370 226 380 238 360 252Z" fill="#f08aa8"/>
+  <text x="360" y="296" font-family="'DM Serif Display', Georgia, serif" font-size="30" font-style="italic" fill="#f3c4d2" text-anchor="middle">Fisioterapia Pélvica</text>
+</svg>

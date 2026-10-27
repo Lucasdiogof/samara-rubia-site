@@ -1,143 +1,150 @@
-// Gera 6 propostas de logo (SVG claro e escuro) e uma prancha de comparação (PNG).
-// uso: node design/logos/gerar.mjs        (precisa do Chrome instalado para o PNG)
-// Fontes: Cormorant Garamond + Manrope (as mesmas do site, Google Fonts).
-import { mkdirSync, writeFileSync } from "node:fs";
+// 6 propostas de LOGO da Samara Rúbia (marca pessoal, independente do site).
+// Gera SVG (versão principal e versão invertida) e uma prancha PNG de comparação.
+// uso: node design/logos/gerar.mjs   (precisa do Chrome instalado para o PNG)
+import { mkdirSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { chromium } from "@playwright/test";
 
 const out = "design/logos";
 mkdirSync(out, { recursive: true });
+for (const f of readdirSync(out)) if (/^opcao-|^prancha/.test(f)) rmSync(`${out}/${f}`);
 
-const FONTS = `@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Manrope:wght@500;600;700&display=swap');`;
-const light = { ink: "#372c27", accent: "#735c4c", soft: "#b1977c", fill: "#d6c2a7", bg: "#fcf8f1" };
-const dark = { ink: "#fcf8f1", accent: "#d6c2a7", soft: "#b1977c", fill: "#735c4c", bg: "#372c27" };
+const FONT_URL =
+  "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Montserrat:wght@400;500;600&family=Outfit:wght@300;400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap";
+const FONTS = `@import url('${FONT_URL}');`;
+const jakarta = `font-family="'Plus Jakarta Sans', system-ui, sans-serif"`;
+const dm = `font-family="'DM Serif Display', Georgia, serif"`;
+const fraunces = `font-family="Fraunces, Georgia, serif"`;
+const outfit = `font-family="Outfit, system-ui, sans-serif"`;
+const mont = `font-family="Montserrat, system-ui, sans-serif"`;
 
-const serif = `font-family="'Cormorant Garamond', Georgia, serif"`;
-const sans = `font-family="Manrope, system-ui, sans-serif"`;
-const tag = (c, x, y, size = 15, ls = 0.42, anchor = "middle", text = "FISIOTERAPIA PÉLVICA") =>
-  `<text x="${x}" y="${y}" ${sans} font-size="${size}" font-weight="600" letter-spacing="${ls}em" fill="${c.accent}" text-anchor="${anchor}">${text}</text>`;
-
-/** Cada logo devolve o conteúdo SVG (viewBox 0 0 720 420) para uma paleta. */
+/** Cada proposta: paleta principal (fundo claro) e invertida (fundo escuro/colorido). */
 const logos = [
   {
-    slug: "1-monograma-arco",
-    nome: "Monograma em arco",
-    svg: (c) => `
-  <g transform="translate(360 112)" fill="none" stroke="${c.accent}" stroke-linecap="round">
-    <path d="M-52 62V0a52 52 0 0 1 104 0v62" stroke-width="2.6"/>
-    <path d="M-36 62V2a36 36 0 0 1 72 0v60" stroke-width="1.4" opacity=".55"/>
-    <path d="M-70 62H70" stroke-width="1.4" opacity=".55"/>
+    slug: "1-fita-s",
+    nome: "Fita em S",
+    light: { bg: "#ffffff", ink: "#3a2330", a: "#c2456f", b: "#f08a7a", tag: "#8a6f7a" },
+    dark: { bg: "#3a1f2e", ink: "#ffffff", a: "#f08a7a", b: "#ffc2b5", tag: "#d9b8c4" },
+    svg: (c, id) => `
+  <defs><linearGradient id="g${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c.a}"/><stop offset="1" stop-color="${c.b}"/></linearGradient></defs>
+  <g transform="translate(360 108) scale(1.18)" fill="none" stroke-linecap="round">
+    <path d="M-34 -46C30 -72 66 -20 8 6C-50 32 -22 76 46 50" stroke="url(#g${id})" stroke-width="17"/>
+    <path d="M-20 -58C36 -78 78 -28 26 -4" stroke="${c.b}" stroke-width="4.5" opacity=".55"/>
+    <circle cx="54" cy="-58" r="6" fill="${c.a}" stroke="none"/>
   </g>
-  <text x="360" y="158" ${serif} font-size="54" font-style="italic" font-weight="500" fill="${c.ink}" text-anchor="middle" letter-spacing="-0.02em">SR</text>
-  <text x="360" y="268" ${serif} font-size="66" font-weight="500" fill="${c.ink}" text-anchor="middle" letter-spacing="-0.01em">Samara Rúbia</text>
-  ${tag(c, 360, 310)}`,
+  <text x="360" y="266" ${jakarta} font-size="50" font-weight="600" fill="${c.ink}" text-anchor="middle" letter-spacing="-0.025em">Samara Rúbia</text>
+  <text x="360" y="304" ${jakarta} font-size="13" font-weight="500" fill="${c.tag}" text-anchor="middle" letter-spacing="0.38em">FISIOTERAPIA PÉLVICA</text>`,
   },
   {
-    slug: "2-arco-e-sol",
-    nome: "Arco e sol (horizontal)",
-    svg: (c) => `
-  <g transform="translate(150 210)">
-    <circle cx="34" cy="-34" r="26" fill="${c.fill}"/>
-    <path d="M-48 70V-8a62 62 0 0 1 124 0v78" fill="none" stroke="${c.accent}" stroke-width="3"/>
-    <path d="M-24 70V-6a38 38 0 0 1 76 0v76" fill="none" stroke="${c.accent}" stroke-width="1.5" opacity=".5"/>
-  </g>
-  <text x="262" y="206" ${serif} font-size="72" font-weight="500" fill="${c.ink}" letter-spacing="-0.01em">Samara</text>
-  <text x="262" y="270" ${serif} font-size="72" font-style="italic" font-weight="400" fill="${c.accent}" letter-spacing="-0.01em">Rúbia</text>
-  <path d="M266 296H330" stroke="${c.soft}" stroke-width="1.5"/>
-  ${tag(c, 266, 326, 13, 0.34, "start")}`,
-  },
-  {
-    slug: "3-pelve-borboleta",
-    nome: "Pelve em traço único",
+    slug: "2-borboleta-pelvica",
+    nome: "Borboleta pélvica",
+    light: { bg: "#ffffff", ink: "#4a1d33", a: "#e8685a", b: "#a63a5c", tag: "#8b6a76" },
+    dark: { bg: "#4a1d33", ink: "#ffffff", a: "#ff9382", b: "#ffc6ba", tag: "#e1bccb" },
     svg: (c) => {
-      const wing = `<path d="M0 -6C-22 -42 -74 -54 -84 -18C-93 14 -56 42 -24 54C-12 59 -4 64 0 74"/>`;
+      const up = `M-4 -4C-20 -50 -78 -52 -76 -14C-75 10 -40 18 -4 8Z`;
+      const low = `M-4 16C-34 20 -62 36 -52 58C-44 72 -14 62 -4 32Z`;
       return `
-  <g transform="translate(360 112)" fill="none" stroke="${c.accent}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
-    ${wing}
-    <g transform="scale(-1 1)">${wing}</g>
-    <path d="M-15 20a15 15 0 0 1 30 0v12" stroke-width="2.4"/>
-    <path d="M-50 -18C-44 6 -28 22 -10 32M50 -18C44 6 28 22 10 32" stroke-width="1.4" opacity=".5"/>
-    <circle cx="0" cy="-26" r="3.4" fill="${c.accent}" stroke="none"/>
+  <g transform="translate(360 106)">
+    <path d="${up}" fill="${c.a}"/><path d="${up}" fill="${c.b}" transform="scale(-1 1)"/>
+    <path d="${low}" fill="${c.b}" opacity=".9"/><path d="${low}" fill="${c.a}" opacity=".9" transform="scale(-1 1)"/>
+    <rect x="-3" y="-26" width="6" height="68" rx="3" fill="${c.ink}" opacity=".85"/>
   </g>
-  <text x="360" y="262" ${serif} font-size="64" font-weight="500" fill="${c.ink}" text-anchor="middle" letter-spacing="-0.01em">Samara Rúbia</text>
-  ${tag(c, 360, 304)}`;
+  <text x="360" y="266" ${dm} font-size="56" fill="${c.ink}" text-anchor="middle" letter-spacing="-0.01em">Samara Rúbia</text>
+  <text x="360" y="304" ${mont} font-size="12.5" font-weight="500" fill="${c.tag}" text-anchor="middle" letter-spacing="0.46em">FISIOTERAPIA PÉLVICA</text>`;
     },
   },
   {
-    slug: "4-lotus",
-    nome: "Lótus de linha fina",
-    svg: (c) => {
-      const petal = (rot, s, op) =>
-        `<path transform="rotate(${rot} 0 46) scale(${s})" d="M0 46C-24 16 -24 -22 0 -48C24 -22 24 16 0 46Z" opacity="${op}"/>`;
-      return `
-  <g transform="translate(360 108)" fill="none" stroke="${c.accent}" stroke-width="2.4" stroke-linejoin="round">
-    <circle cx="0" cy="12" r="76" stroke-width="1.2" opacity=".45"/>
-    ${petal(-66, 0.82, 0.7)}${petal(66, 0.82, 0.7)}${petal(-33, 0.94, 0.85)}${petal(33, 0.94, 0.85)}${petal(0, 1, 1)}
-    <path d="M-30 58H30" stroke-width="1.4" opacity=".6"/>
+    slug: "3-monograma-sr",
+    nome: "Monograma SR",
+    light: { bg: "#ffffff", ink: "#1d2b4a", a: "#1d2b4a", b: "#c9a24f", tag: "#8a7a52" },
+    dark: { bg: "#16213a", ink: "#ffffff", a: "#ffffff", b: "#d9b96a", tag: "#d9b96a" },
+    svg: (c) => `
+  <g transform="translate(168 210)">
+    <rect x="-62" y="-62" width="124" height="124" rx="34" fill="${c.a}"/>
+    <text x="0" y="22" ${dm} font-size="82" text-anchor="middle" fill="${c.bg}" letter-spacing="-0.06em">S<tspan fill="${c.b}" dx="-8">R</tspan></text>
   </g>
-  <text x="360" y="268" ${serif} font-size="64" font-weight="500" fill="${c.ink}" text-anchor="middle" letter-spacing="-0.01em">Samara Rúbia</text>
-  <path d="M170 292H222M498 292H550" stroke="${c.soft}" stroke-width="1.2"/>
-  ${tag(c, 360, 297, 13, 0.34)}`;
+  <text x="258" y="212" ${dm} font-size="60" fill="${c.ink}" letter-spacing="-0.01em">Samara Rúbia</text>
+  <path d="M262 240H318" stroke="${c.b}" stroke-width="2.4"/>
+  <text x="262" y="276" ${mont} font-size="13" font-weight="500" fill="${c.tag}" letter-spacing="0.34em">FISIOTERAPIA PÉLVICA</text>`,
+  },
+  {
+    slug: "4-folhas",
+    nome: "Folhas que se abraçam",
+    light: { bg: "#ffffff", ink: "#2f3b34", a: "#5f8a71", b: "#a9c7b3", tag: "#6f8478" },
+    dark: { bg: "#24342b", ink: "#ffffff", a: "#a9c7b3", b: "#7fae92", tag: "#c9dccf" },
+    svg: (c) => {
+      const leaf = `M0 60C-60 34-68-22-16-56C-10-26-5 14 0 60Z`;
+      return `
+  <g transform="translate(360 104)">
+    <path d="${leaf}" fill="${c.a}"/>
+    <path d="${leaf}" fill="${c.b}" transform="scale(-1 1)"/>
+    <path d="M0 60C0 30 0 4 0 -22" stroke="${c.bg}" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="360" y="268" ${fraunces} font-size="54" font-weight="600" fill="${c.ink}" text-anchor="middle" letter-spacing="-0.02em">Samara Rúbia</text>
+  <text x="360" y="304" ${outfit} font-size="14" font-weight="400" fill="${c.tag}" text-anchor="middle" letter-spacing="0.4em">FISIOTERAPIA PÉLVICA</text>`;
     },
   },
   {
-    slug: "5-selo-circular",
-    nome: "Selo circular",
+    slug: "5-acolhimento",
+    nome: "Acolhimento (tigela e ponto)",
+    light: { bg: "#ffffff", ink: "#4a3a34", a: "#c2674a", b: "#e6a98e", tag: "#9a8478" },
+    dark: { bg: "#3b2a25", ink: "#ffffff", a: "#eba98d", b: "#c2674a", tag: "#dcc3b6" },
     svg: (c) => `
-  <defs><path id="ring-${c.bg.slice(1)}" d="M360 210m-92 0a92 92 0 1 1 184 0a92 92 0 1 1-184 0"/></defs>
-  <circle cx="360" cy="210" r="140" fill="none" stroke="${c.accent}" stroke-width="2.4"/>
-  <circle cx="360" cy="210" r="128" fill="none" stroke="${c.soft}" stroke-width="1" opacity=".7"/>
-  <circle cx="360" cy="210" r="66" fill="none" stroke="${c.soft}" stroke-width="1" opacity=".7"/>
-  <text ${sans} font-size="14" font-weight="600" fill="${c.accent}" letter-spacing="0.1em">
-    <textPath href="#ring-${c.bg.slice(1)}" textLength="570" lengthAdjust="spacing">SAMARA RÚBIA · FISIOTERAPIA PÉLVICA · GOIÂNIA · </textPath>
-  </text>
-  <path d="M338 236V208a22 22 0 0 1 44 0v28" fill="none" stroke="${c.soft}" stroke-width="1.4" opacity=".7"/>
-  <text x="360" y="232" ${serif} font-size="64" font-style="italic" font-weight="500" fill="${c.ink}" text-anchor="middle" letter-spacing="-0.02em">SR</text>`,
+  <g transform="translate(168 205)" fill="none" stroke-linecap="round">
+    <path d="M-62 -2A62 62 0 0 0 62 -2" stroke="${c.a}" stroke-width="11"/>
+    <path d="M-38 -2A38 38 0 0 0 38 -2" stroke="${c.b}" stroke-width="9"/>
+    <circle cx="0" cy="-40" r="19" fill="${c.a}" stroke="none"/>
+  </g>
+  <text x="262" y="214" ${jakarta} font-size="54" font-weight="600" fill="${c.ink}" letter-spacing="-0.035em">samara rúbia</text>
+  <text x="264" y="256" ${jakarta} font-size="13" font-weight="500" fill="${c.tag}" letter-spacing="0.36em">FISIOTERAPIA PÉLVICA</text>`,
   },
   {
     slug: "6-editorial",
-    nome: "Tipográfico editorial",
+    nome: "Assinatura editorial",
+    light: { bg: "#ffffff", ink: "#5b1f3a", a: "#c2456f", b: "#e8a0b4", tag: "#a8607d" },
+    dark: { bg: "#2f1022", ink: "#ffffff", a: "#f08aa8", b: "#c2456f", tag: "#f3c4d2" },
     svg: (c) => `
-  <path d="M170 118V302" stroke="${c.accent}" stroke-width="2.4"/>
-  <circle cx="170" cy="104" r="5" fill="${c.fill}"/>
-  <text x="206" y="204" ${serif} font-size="104" font-weight="500" fill="${c.ink}" letter-spacing="-0.025em">Samara</text>
-  <text x="206" y="290" ${serif} font-size="104" font-style="italic" font-weight="400" fill="${c.accent}" letter-spacing="-0.025em">Rúbia</text>
-  ${tag(c, 212, 330, 13, 0.4, "start")}`,
+  <text x="360" y="212" ${outfit} font-size="50" font-weight="300" fill="${c.ink}" text-anchor="middle" letter-spacing="0.22em">SAMARA RÚBIA</text>
+  <path d="M190 240H334M386 240H530" stroke="${c.b}" stroke-width="1.6"/>
+  <path d="M360 252C340 238 350 226 360 234C370 226 380 238 360 252Z" fill="${c.a}"/>
+  <text x="360" y="296" ${dm} font-size="30" font-style="italic" fill="${c.tag}" text-anchor="middle">Fisioterapia Pélvica</text>`,
   },
 ];
 
-const wrap = (inner, c, withBg) =>
+const wrap = (inner, c, withFonts = true) =>
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" role="img" aria-label="Samara Rúbia, fisioterapeuta pélvica">
-  <style>${FONTS}</style>
-  ${withBg ? `<rect width="720" height="420" fill="${c.bg}"/>` : ""}${inner}
+  ${withFonts ? `<style>${FONTS}</style>` : ""}
+  <rect width="720" height="420" fill="${c.bg}"/>${inner}
 </svg>`;
 
-for (const l of logos) {
-  writeFileSync(`${out}/opcao-${l.slug}.svg`, wrap(l.svg(light), light, true));
-  writeFileSync(`${out}/opcao-${l.slug}-escuro.svg`, wrap(l.svg(dark), dark, true));
-}
+logos.forEach((l, i) => {
+  writeFileSync(`${out}/opcao-${l.slug}.svg`, wrap(l.svg(l.light, `${i}L`), l.light));
+  writeFileSync(`${out}/opcao-${l.slug}-invertida.svg`, wrap(l.svg(l.dark, `${i}D`), l.dark));
+});
 
-const tile = (l, c) => `<figure><div class="art">${wrap(l.svg(c), c, true).replace("<style>" + FONTS + "</style>", "")}</div></figure>`;
-const board = `<!doctype html><html lang="pt-BR"><meta charset="utf-8"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Manrope:wght@500;600;700&display=swap">
+const tile = (l, key, i) => `<figure>${wrap(l.svg(l[key], `${i}${key[0]}b`), l[key], false)}</figure>`;
+writeFileSync(
+  `${out}/prancha.html`,
+  `<!doctype html><html lang="pt-BR"><meta charset="utf-8"><link rel="stylesheet" href="${FONT_URL}">
 <style>
-body{margin:0;background:#eee4d5;font-family:Manrope,sans-serif;color:#372c27;padding:36px}
-h1{font:500 34px 'Cormorant Garamond',serif;margin:0 0 4px} p.sub{margin:0 0 28px;font-size:14px;color:#735c4c}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 26px}
-.opt h2{font:600 13px Manrope;letter-spacing:.16em;text-transform:uppercase;margin:0 0 8px;color:#735c4c}
+body{margin:0;background:#f3f1f2;font-family:'Plus Jakarta Sans',sans-serif;color:#2a2327;padding:36px}
+h1{font:400 38px 'DM Serif Display',serif;margin:0 0 4px} p.sub{margin:0 0 28px;font-size:14px;color:#6c6066}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 30px}
+.opt h2{font:600 12.5px 'Plus Jakarta Sans';letter-spacing:.16em;text-transform:uppercase;margin:0 0 9px;color:#6c6066}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.art svg{display:block;width:100%;height:auto;border-radius:14px;box-shadow:0 1px 2px rgba(55,44,39,.08),0 14px 30px -18px rgba(55,44,39,.4)}
+svg{display:block;width:100%;height:auto;border-radius:16px;box-shadow:0 1px 2px rgba(40,20,30,.08),0 16px 32px -20px rgba(40,20,30,.45)}
 figure{margin:0}
 </style><h1>Samara Rúbia — 6 propostas de logo</h1>
-<p class="sub">Cada uma no tema claro e no escuro · paleta Cacau &amp; Baunilha · Cormorant Garamond + Manrope</p>
+<p class="sub">Marca pessoal, independente do site · versão principal e invertida</p>
 <div class="grid">${logos
-  .map((l, i) => `<div class="opt"><h2>${i + 1}. ${l.nome}</h2><div class="pair">${tile(l, light)}${tile(l, dark)}</div></div>`)
-  .join("")}</div></html>`;
-writeFileSync(`${out}/prancha.html`, board);
+    .map((l, i) => `<div class="opt"><h2>${i + 1}. ${l.nome}</h2><div class="pair">${tile(l, "light", i)}${tile(l, "dark", i)}</div></div>`)
+    .join("")}</div></html>`,
+);
 
 const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await browser.newPage({ viewport: { width: 1500, height: 900 }, deviceScaleFactor: 1.5 });
 await page.goto(`file:///${process.cwd().replaceAll("\\", "/")}/${out}/prancha.html`);
 await page.evaluate(() => document.fonts.ready);
-await page.waitForTimeout(1200);
+await page.waitForTimeout(1500);
 await page.screenshot({ path: `${out}/prancha.png`, fullPage: true });
 await browser.close();
 console.log("ok");
