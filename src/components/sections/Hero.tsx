@@ -8,12 +8,12 @@ export function Hero({ lang }: { lang: Lang }) {
   const t = getDict(lang).hero;
   const primaryCta = getCta(lang);
   return (
-    <section className="relative overflow-hidden pb-20 pt-32 sm:pt-40 lg:min-h-[100svh] lg:pb-24 lg:pt-44">
+    <section className="relative overflow-hidden pb-12 pt-28 sm:pt-32 lg:pb-16 lg:pt-36">
       <Blob
         className="drift pointer-events-none absolute -left-40 top-1/3 h-[34rem] w-[34rem] opacity-60"
         fill="var(--cream)"
       />
-      <div className="wrap relative grid items-center gap-14 lg:grid-cols-12">
+      <div className="wrap relative grid items-center gap-10 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <FadeInSection intro>
             <p className="eyebrow">{getDict(lang).specialty}</p>

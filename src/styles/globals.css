@@ -48,7 +48,7 @@ html[data-theme="dark"] .on-dark {
 
 :root {
   /* Espaçamento */
-  --space-section: clamp(4rem, 2.5rem + 6vw, 8rem);
+  --space-section: clamp(3rem, 1.9rem + 4.2vw, 5.75rem);
   --lap: clamp(1.75rem, 1rem + 3vw, 4.5rem);
   --space-gutter: clamp(1.25rem, 0.8rem + 2vw, 3rem);
   --container: 80rem;

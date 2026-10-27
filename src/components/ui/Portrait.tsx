@@ -51,9 +51,23 @@ function ArchBackdrop({ letter = false, photo = false }: { letter?: boolean; pho
       <rect width="480" height="600" fill="url(#arch-sky)" />
       {photo ? (
         <>
-          <circle cx="330" cy="206" r="108" fill="#735C4C" />
-          <path d="M-20 600V478c80-40 160-36 240-6s160 30 280-14v142Z" fill="#B1977C" opacity=".85" />
-          <path d="M-20 600V536c90-30 170-22 250 8s150 20 250-12v68Z" fill="#EEE4D5" />
+          <defs>
+            <linearGradient id="arch-studio" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor="#EFE3D2" />
+              <stop offset=".6" stopColor="#E2CDB4" />
+              <stop offset="1" stopColor="#CDAE91" />
+            </linearGradient>
+            <radialGradient id="arch-light" cx=".5" cy=".3" r=".62">
+              <stop offset="0" stopColor="#FFF8EC" stopOpacity=".85" />
+              <stop offset="1" stopColor="#FFF8EC" stopOpacity="0" />
+            </radialGradient>
+            <filter id="arch-soft" x="-20%" y="-200%" width="140%" height="500%">
+              <feGaussianBlur stdDeviation="9" />
+            </filter>
+          </defs>
+          <rect width="480" height="600" fill="url(#arch-studio)" />
+          <rect width="480" height="600" fill="url(#arch-light)" />
+          <ellipse cx="240" cy="588" rx="170" ry="16" fill="#372C27" opacity=".22" filter="url(#arch-soft)" />
         </>
       ) : (
         <>

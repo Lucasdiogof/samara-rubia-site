@@ -14,7 +14,7 @@ export function Differentials({ lang }: { lang: Lang }) {
         <RevealText as="h2" id="dif-title" className="t-h2 mt-5 max-w-3xl">
           {t.differentialsSection.title}
         </RevealText>
-        <StaggerContainer className="mt-12 grid gap-x-10 gap-y-9 sm:mt-16 sm:grid-cols-2 sm:gap-y-12 lg:grid-cols-6">
+        <StaggerContainer className="mt-10 grid gap-x-10 gap-y-8 sm:mt-12 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-6">
           {t.differentials.map((d, i) => {
             const Icon = icons[i] ?? Sprout;
             return (

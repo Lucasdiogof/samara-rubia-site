@@ -77,7 +77,7 @@ function How({ lang }: { lang: Lang }) {
         crumbs={[{ name: t.crumb, path: "/como-funciona/" }]}
       />
       <Journey lang={lang} />
-      <section className="bg-cream py-20">
+      <section className="bg-cream py-12">
         <div className="wrap grid gap-10 md:grid-cols-3">
           {t.care.map(([title, d], i) => (
             <FadeInSection key={title} delay={i * 0.1}>
@@ -104,7 +104,7 @@ function Contact({ lang }: { lang: Lang }) {
         lead={wa ? t.leadWa : hasChannel ? t.leadSome : t.leadNone}
         crumbs={[{ name: t.eyebrow, path: "/contato/" }]}
       />
-      <section className="pb-28">
+      <section className="pb-16">
         <div className="wrap grid gap-12 lg:grid-cols-12">
           <FadeInSection className="lg:col-span-5">
             <div className="rounded-[2rem] bg-cream p-8 sm:p-10">
@@ -153,8 +153,8 @@ function Faq({ lang }: { lang: Lang }) {
       >
         <ReviewNotice approved={site.approved.faq}>{p.review}</ReviewNotice>
       </PageHero>
-      <section className="pb-24">
-        <div className="wrap space-y-16">
+      <section className="pb-14">
+        <div className="wrap space-y-12">
           {t.faqGroups.map((g) => (
             <FadeInSection key={g.topic} className="grid gap-8 lg:grid-cols-12">
               <h2 className="t-h3 lg:col-span-4">{g.topic}</h2>
@@ -185,7 +185,7 @@ function Privacy({ lang }: { lang: Lang }) {
       >
         <ReviewNotice approved={site.approved.privacy}>{t.review}</ReviewNotice>
       </PageHero>
-      <section className="pb-28">
+      <section className="pb-16">
         <div className="wrap max-w-3xl space-y-12">
           {t.blocks(fullName).map(([title, ps]) => (
             <div key={title}>
@@ -235,8 +235,8 @@ function About({ lang }: { lang: Lang }) {
         <ReviewNotice approved={site.approved.about}>{a.review}</ReviewNotice>
       </PageHero>
 
-      <section className="pb-24">
-        <div className="wrap grid items-start gap-14 lg:grid-cols-12">
+      <section className="pb-14">
+        <div className="wrap grid items-start gap-10 lg:grid-cols-12">
           <div className="mx-auto w-full max-w-md lg:sticky lg:top-28 lg:col-span-5 lg:max-w-none">
             <RevealImage className="relative aspect-[3/4] overflow-hidden rounded-t-[999px] rounded-b-[2rem] bg-sand">
               <div className="relative h-full w-full">
@@ -244,7 +244,7 @@ function About({ lang }: { lang: Lang }) {
               </div>
             </RevealImage>
           </div>
-          <div className="space-y-14 lg:col-span-7 lg:pl-8">
+          <div className="space-y-10 lg:col-span-7 lg:pl-8">
             <FadeInSection>
               <h2 className="t-h3">{a.history}</h2>
               <div className="prose-calm mt-5">
@@ -302,7 +302,7 @@ function Treatments({ lang }: { lang: Lang }) {
       >
         <ReviewNotice approved={site.approved.services}>{t.review}</ReviewNotice>
       </PageHero>
-      <section className="pb-24">
+      <section className="pb-14">
         <div className="wrap">
           <ul className="border-t border-border">
             {enabledServices(lang).map((s, i) => (
@@ -345,8 +345,8 @@ function Treatment({ lang, slug }: { lang: Lang; slug: string }) {
         <ReviewNotice approved={site.approved.services}>{t.reviewDetail}</ReviewNotice>
       </PageHero>
 
-      <section className="pb-20">
-        <div className="wrap grid gap-14 lg:grid-cols-12">
+      <section className="pb-12">
+        <div className="wrap grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-6">
             <RevealText as="h2" className="t-h3">
               {t.whenIndicated}
@@ -370,11 +370,8 @@ function Treatment({ lang, slug }: { lang: Lang; slug: string }) {
         </div>
       </section>
 
-      <section className="pb-24">
+      <section className="pb-14">
         <div className="wrap">
-          <h2 className="t-h3 mb-6">{t.questions}</h2>
-          <Accordion items={s.faq} />
-          <JsonLd data={faqLd(s.faq)} />
           <p className="mt-14 text-sm font-semibold uppercase tracking-[0.16em] text-cocoa">
             {getDict(lang).page.otherAreas}
           </p>
@@ -442,8 +439,8 @@ function Conteudos({ lang }: { lang: Lang }) {
         motif="waves"
         crumbs={[{ name: t.crumb, path: "/conteudos/" }]}
       />
-      <section className="pb-24">
-        <div className="wrap space-y-16">
+      <section className="pb-14">
+        <div className="wrap space-y-12">
           {reels.length + posts.length + articles.length === 0 && <p className="prose-calm">{t.empty}</p>}
           {reels.length > 0 && (
             <div>
@@ -491,7 +488,7 @@ function ArticlePage({ lang, article }: { lang: Lang; article: Article }) {
           {article.demo && <span className="ml-3 font-semibold">{t.demo}</span>}
         </p>
       </PageHero>
-      <article className="pb-24">
+      <article className="pb-14">
         <div className="wrap max-w-3xl">
           {article.cover && (
             <div className="relative mb-12 aspect-[3/2] overflow-hidden rounded-[1.5rem] bg-cream">

@@ -21,8 +21,8 @@ test("build público: 3 publicações reais, sem exemplos, avaliações nem dado
     const ld = await page.locator('script[type="application/ld+json"]').allTextContents();
     expect(ld.join("")).not.toMatch(/Review|AggregateRating|"Article"/);
     // links originais preservados (inclusive ?img_index=1) e embeds preguiçosos
-    const hrefs = await page.locator('a[href*="instagram.com/p/"]').evaluateAll((els) => els.map((e) => e.getAttribute("href")));
-    expect(hrefs).toEqual(postUrls);
+    const embeds = await page.locator('iframe[src*="instagram.com/p/"]').evaluateAll((els) => els.map((e) => e.getAttribute("src")));
+    expect(embeds).toEqual(postUrls.map((u) => u.replace(/\/(\?.*)?$/, "/embed/")));
     // os players do Instagram são todos preguiçosos (carregam só ao rolar até perto)
     const eager = await page.locator("iframe:not([loading=lazy])").count();
     expect(eager).toBe(0);
@@ -130,7 +130,7 @@ test("publicações reais: legenda original, link do post e datas", async ({ pag
   test.skip(await isDemoBuild(request), "build com exemplos");
   for (const prefix of ["", "/en", "/es"]) {
     await page.goto(`${prefix}/conteudos/`);
-    const cards = page.locator("article").filter({ has: page.locator('a[href*="instagram.com/p/"]') });
+    const cards = page.locator("article").filter({ has: page.locator('iframe[src*="instagram.com/p/"]') });
     await expect(cards).toHaveCount(3);
     await expect(cards.first().getByText("VOCÊ SABIA QUE…")).toBeVisible();
     await expect(page.getByText("Nem todo escape de urina acontece por fraqueza do assoalho pélvico.")).toBeVisible();

@@ -24,26 +24,26 @@ export function ContentSection({ lang }: { lang: Lang }) {
           <p className="t-lead mt-6">{t.lead}</p>
         </FadeInSection>
         {reels.length > 0 && (
-          <div className="mt-14">
+          <div className="mt-10">
             <h3 className="mb-6 font-display text-3xl text-cocoa-deep">{t.videos}</h3>
             <ReelGrid reels={reels} lang={lang} />
           </div>
         )}
         {posts.length > 0 && (
-          <div className="mt-16">
+          <div className="mt-12">
             <h3 className="mb-6 font-display text-3xl text-cocoa-deep">{t.posts}</h3>
             <PostGrid posts={posts} lang={lang} />
           </div>
         )}
         {articles.length > 0 && (
-          <div className="mt-16">
+          <div className="mt-12">
             <h3 className="mb-6 font-display text-3xl text-cocoa-deep">{t.articles}</h3>
             <ArticleGrid articles={articles} lang={lang} />
           </div>
         )}
         <Link
           href={href(lang, "/conteudos/")}
-          className="link-u mt-12 inline-block font-semibold text-cocoa-deep"
+          className="link-u mt-10 inline-block font-semibold text-cocoa-deep"
         >
           {t.seeAll}
         </Link>

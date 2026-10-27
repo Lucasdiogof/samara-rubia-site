@@ -386,7 +386,6 @@ export const es: Dict = {
       "El seguimiento se define después de la evaluación individual, de acuerdo con tus molestias y objetivos. La frecuencia, la duración y las conductas se acuerdan contigo, sin promesa de plazo ni de resultado.",
     disclaimer:
       "Este contenido es educativo y no sustituye la evaluación de un profesional de la salud. No hay promesa de cura ni de resultado.",
-    questions: "Dudas sobre este tema",
   },
 
   notFound: {
@@ -412,12 +411,6 @@ export const es: Dict = {
         "Sensación de tensión o dificultad para relajar la región pélvica",
         "Molestia que interfiere en la vida íntima",
       ],
-      faq: [
-        {
-          q: "¿Da vergüenza hablar de este tema?",
-          a: "Es común sentirlo. La atención es individual y reservada, y tú decides cuánto y cuándo compartir.",
-        },
-      ],
     },
     {
       slug: "dor-pelvica",
@@ -430,12 +423,6 @@ export const es: Dict = {
         "Dolor al sentarse por períodos prolongados",
         "Dolor asociado a la menstruación, cuando lo oriente la evaluación",
         "Molestia al orinar o evacuar sin causa aún aclarada",
-      ],
-      faq: [
-        {
-          q: "¿La fisioterapia sustituye la consulta médica?",
-          a: "No. La fisioterapia puede actuar junto con otros profesionales de la salud, y la evaluación orienta cuándo es importante buscar también seguimiento médico.",
-        },
       ],
     },
     {
@@ -450,12 +437,6 @@ export const es: Dict = {
         "Síntomas urinarios o intestinales que acompañan el ciclo menstrual",
         "Tensión de la musculatura del suelo pélvico y de la región lumbar",
       ],
-      faq: [
-        {
-          q: "¿La fisioterapia trata la endometriosis?",
-          a: "No sustituye el tratamiento médico. La fisioterapia puede ayudar en el manejo de síntomas como el dolor y la tensión muscular, junto con el seguimiento médico.",
-        },
-      ],
     },
     {
       slug: "incontinencia-urinaria",
@@ -468,12 +449,6 @@ export const es: Dict = {
         "Urgencia intensa para orinar",
         "Pérdida de orina tras cirugías de la región pélvica, como la de próstata",
         "Temor a salir de casa o a practicar actividades por causa del problema",
-      ],
-      faq: [
-        {
-          q: "¿La incontinencia urinaria es normal con la edad?",
-          a: "Es frecuente, pero eso no significa que deba ignorarse. Conviene buscar una evaluación profesional para entender lo que está pasando.",
-        },
       ],
     },
     {
@@ -488,12 +463,6 @@ export const es: Dict = {
         "Despertar varias veces por la noche para orinar",
         "Pérdida de orina que acompaña la urgencia",
       ],
-      faq: [
-        {
-          q: "¿La vejiga hiperactiva es algo que tengo que aceptar?",
-          a: "No. Es común, pero no debe tratarse como algo normal. La evaluación ayuda a entender la causa y a orientar el tratamiento.",
-        },
-      ],
     },
     {
       slug: "retencao-urinaria",
@@ -506,12 +475,6 @@ export const es: Dict = {
         "Chorro débil o que se corta y vuelve a empezar",
         "Sensación de que la vejiga no se vació por completo",
         "Necesidad de hacer fuerza para orinar",
-      ],
-      faq: [
-        {
-          q: "¿Necesito también una evaluación médica?",
-          a: "En general, sí. La retención urinaria puede tener causas variadas, y la fisioterapia actúa junto con el seguimiento médico, que investiga el origen del problema.",
-        },
       ],
     },
     {
@@ -526,12 +489,6 @@ export const es: Dict = {
         "Molestia que empeora al permanecer mucho tiempo de pie",
         "Síntomas urinarios o intestinales asociados",
       ],
-      faq: [
-        {
-          q: "¿El prolapso siempre necesita cirugía?",
-          a: "No necesariamente. Depende del grado y de los síntomas. La evaluación orienta las opciones, y la decisión se toma junto con el seguimiento médico.",
-        },
-      ],
     },
     {
       slug: "constipacao",
@@ -544,12 +501,6 @@ export const es: Dict = {
         "Heces duras o evacuación incompleta",
         "Sensación de bloqueo al intentar evacuar",
         "Estreñimiento que persiste con el tiempo",
-      ],
-      faq: [
-        {
-          q: "¿El estreñimiento es solo cuestión de alimentación?",
-          a: "La alimentación y la hidratación importan, pero la función del suelo pélvico también puede influir. La evaluación ayuda a entender qué está contribuyendo.",
-        },
       ],
     },
     {
@@ -564,12 +515,6 @@ export const es: Dict = {
         "Orientaciones para la recuperación, según la autorización médica",
         "Dudas sobre qué esperar antes y después de la operación",
       ],
-      faq: [
-        {
-          q: "¿Cuándo empezar la fisioterapia?",
-          a: "Lo ideal es conversar antes de la cirugía, para recibir orientaciones. Después, el momento de empezar se define en la evaluación y según la autorización del equipo médico.",
-        },
-      ],
     },
     {
       slug: "gestacao-e-pos-parto",
@@ -582,12 +527,6 @@ export const es: Dict = {
         "Pérdida de orina durante o después del embarazo",
         "Dolor en la región pélvica o lumbar durante el embarazo",
         "Cuidados para la recuperación tras el parto, según la autorización profesional",
-      ],
-      faq: [
-        {
-          q: "¿Cuándo puedo empezar el seguimiento después del parto?",
-          a: "El momento adecuado depende de cada caso y de la autorización de los profesionales que te acompañan. Esto se conversa en la evaluación.",
-        },
       ],
     },
   ],

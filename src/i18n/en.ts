@@ -383,7 +383,6 @@ export const en: Dict = {
       "Follow-up is defined after the individual assessment, according to your symptoms and goals. Frequency, duration and approaches are agreed with you, with no promise of timeframe or outcome.",
     disclaimer:
       "This content is educational and does not replace an assessment by a healthcare professional. There is no promise of cure or outcome.",
-    questions: "Questions about this topic",
   },
 
   notFound: {
@@ -409,12 +408,6 @@ export const en: Dict = {
         "Feeling of tension or difficulty relaxing the pelvic region",
         "Discomfort that interferes with intimate life",
       ],
-      faq: [
-        {
-          q: "Is it embarrassing to talk about this?",
-          a: "It is common to feel that way. Care is individual and private, and you decide how much and when to share.",
-        },
-      ],
     },
     {
       slug: "dor-pelvica",
@@ -427,12 +420,6 @@ export const en: Dict = {
         "Pain when sitting for long periods",
         "Pain associated with menstruation, when guided by an assessment",
         "Discomfort when urinating or having a bowel movement with no cause yet identified",
-      ],
-      faq: [
-        {
-          q: "Does physiotherapy replace a medical appointment?",
-          a: "No. Physiotherapy can work alongside other healthcare professionals, and the assessment indicates when it is also important to seek medical follow-up.",
-        },
       ],
     },
     {
@@ -447,12 +434,6 @@ export const en: Dict = {
         "Urinary or bowel symptoms that follow the menstrual cycle",
         "Tension in the pelvic floor muscles and lower back",
       ],
-      faq: [
-        {
-          q: "Does physiotherapy treat endometriosis?",
-          a: "It does not replace medical treatment. Physiotherapy can help manage symptoms such as pain and muscle tension, together with medical follow-up.",
-        },
-      ],
     },
     {
       slug: "incontinencia-urinaria",
@@ -465,12 +446,6 @@ export const en: Dict = {
         "Strong urgency to urinate",
         "Urine leakage after pelvic surgery, such as prostate surgery",
         "Fear of leaving home or doing activities because of the problem",
-      ],
-      faq: [
-        {
-          q: "Is urinary incontinence normal with age?",
-          a: "It is common, but that does not mean it should be ignored. It is worth seeking a professional assessment to understand what is going on.",
-        },
       ],
     },
     {
@@ -485,12 +460,6 @@ export const en: Dict = {
         "Waking up several times at night to urinate",
         "Urine leakage that comes with the urgency",
       ],
-      faq: [
-        {
-          q: "Is an overactive bladder something I have to accept?",
-          a: "No. It is common, but it should not be treated as normal. The assessment helps to understand the cause and guide treatment.",
-        },
-      ],
     },
     {
       slug: "retencao-urinaria",
@@ -503,12 +472,6 @@ export const en: Dict = {
         "A weak stream, or one that stops and starts",
         "Feeling that the bladder has not emptied completely",
         "Needing to strain to urinate",
-      ],
-      faq: [
-        {
-          q: "Do I also need a medical evaluation?",
-          a: "Generally, yes. Urinary retention can have varied causes, and physiotherapy works alongside medical follow-up, which investigates the origin of the problem.",
-        },
       ],
     },
     {
@@ -523,12 +486,6 @@ export const en: Dict = {
         "Discomfort that gets worse after standing for a long time",
         "Associated urinary or bowel symptoms",
       ],
-      faq: [
-        {
-          q: "Does prolapse always need surgery?",
-          a: "Not necessarily. It depends on the degree and the symptoms. The assessment guides the options, and the decision is made together with medical follow-up.",
-        },
-      ],
     },
     {
       slug: "constipacao",
@@ -541,12 +498,6 @@ export const en: Dict = {
         "Hard stools or incomplete emptying",
         "Feeling of a blockage when trying to go",
         "Constipation that persists over time",
-      ],
-      faq: [
-        {
-          q: "Is constipation just a matter of diet?",
-          a: "Diet and hydration matter, but pelvic floor function can also play a part. The assessment helps to understand what is contributing.",
-        },
       ],
     },
     {
@@ -561,12 +512,6 @@ export const en: Dict = {
         "Guidance for recovery, as cleared by your doctor",
         "Questions about what to expect before and after the operation",
       ],
-      faq: [
-        {
-          q: "When should physiotherapy start?",
-          a: "Ideally, talk to us before the surgery to receive guidance. Afterwards, the right time to start is defined at the assessment and according to clearance from the medical team.",
-        },
-      ],
     },
     {
       slug: "gestacao-e-pos-parto",
@@ -579,12 +524,6 @@ export const en: Dict = {
         "Urine leakage during or after pregnancy",
         "Pelvic or lower back pain during pregnancy",
         "Care for recovery after birth, as cleared by your professionals",
-      ],
-      faq: [
-        {
-          q: "When can I start follow-up after giving birth?",
-          a: "The right time depends on each case and on clearance from the professionals looking after you. This is discussed at the assessment.",
-        },
       ],
     },
   ],

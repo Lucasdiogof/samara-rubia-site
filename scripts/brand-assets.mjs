@@ -57,12 +57,12 @@ const ogBody = (C) => `
 <div style="position:relative;width:1200px;height:630px;overflow:hidden;background:${C.vanilla}">
   <svg style="position:absolute;left:-180px;top:260px" width="620" height="620" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="${C.cream}" opacity=".7"/></svg>
   <svg style="position:absolute;right:70px;top:60px" width="400" height="510" viewBox="0 0 400 510">
-    <path d="M0 510V200a200 200 0 0 1 400 0v310z" fill="${C.sand}"/>
-    <circle cx="272" cy="150" r="62" fill="${C.cocoa}"/>
-    <path d="M0 400c80-60 160-50 240-10s110 20 160-20v140H0z" fill="${C.taupe}"/>
-    <path d="M0 450c90-30 170-10 260 20 60 20 100 10 140-10v50H0z" fill="${C.cream}"/>
-    <path d="M60 510V230a140 140 0 0 1 280 0v280" fill="none" stroke="${C.vanilla}" stroke-width="2"/>
-    <path d="M110 510V240a90 90 0 0 1 180 0v270" fill="none" stroke="${C.cocoa}" stroke-width="1.5" opacity=".6"/>
+    <defs>
+      <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EFE3D2"/><stop offset=".6" stop-color="#E2CDB4"/><stop offset="1" stop-color="#CDAE91"/></linearGradient>
+      <radialGradient id="g2" cx=".5" cy=".3" r=".62"><stop offset="0" stop-color="#FFF8EC" stop-opacity=".85"/><stop offset="1" stop-color="#FFF8EC" stop-opacity="0"/></radialGradient>
+    </defs>
+    <path d="M0 510V200a200 200 0 0 1 400 0v310z" fill="url(#g1)"/>
+    <path d="M0 510V200a200 200 0 0 1 400 0v310z" fill="url(#g2)"/>
   </svg>
   <img src="data:image/png;base64,${cutout}" style="position:absolute;right:70px;top:60px;width:400px;height:510px;object-fit:contain;object-position:50% 100%;clip-path:inset(0 round 200px 200px 0 0)"/>
   <svg style="position:absolute;right:50px;top:80px" width="400" height="510" viewBox="0 0 400 510"><path d="M0 510V200a200 200 0 0 1 400 0v310z" fill="none" stroke="${C.taupe}" stroke-width="1.5" transform="translate(-0 0)"/></svg>

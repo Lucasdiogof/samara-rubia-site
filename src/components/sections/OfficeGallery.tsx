@@ -17,7 +17,7 @@ export function OfficeGallery({ lang }: { lang: Lang }) {
   const photos = site.images.office.slice(0, 4);
   if (photos.length === 0) return null;
   return (
-    <section className="pb-24" aria-labelledby="consultorio-title">
+    <section className="pb-14" aria-labelledby="consultorio-title">
       <div className="wrap">
         <p className="eyebrow">{t.eyebrow}</p>
         <RevealText as="h2" id="consultorio-title" className="t-h2 mt-5 max-w-2xl">

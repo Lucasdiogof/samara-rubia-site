@@ -98,8 +98,9 @@ export function ContactRows({ lang, only }: { lang: Lang; only?: Key[] }) {
   const t = getDict(lang).contactRows;
   const rows = select(lang, only);
   const items: Row[] = rows.filter((r) => r.value !== null);
+  // Sem nenhum dado confirmado, uma única linha avisa que virá; havendo dados, não polui o card.
   const pending = rows.filter((r) => r.value === null);
-  if (pending.length) {
+  if (items.length === 0 && pending.length) {
     const text = t.pending(list(pending.map((r) => r.label.toLowerCase()), t.and));
     items.push({
       key: "soon",
@@ -110,14 +111,16 @@ export function ContactRows({ lang, only }: { lang: Lang; only?: Key[] }) {
   }
 
   return (
-    <dl className="divide-y divide-border border-y border-border">
+    <dl className="overflow-hidden rounded-3xl border border-border bg-cream/50">
       {items.map(({ key, label, icon: Icon, value }) => (
-        <div key={key} className="py-5">
-          <dt className="flex items-center gap-4 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-cocoa">
-            <Icon className="shrink-0" />
+        <div key={key} className="border-b border-border px-5 py-4 last:border-b-0">
+          <dt className="flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-cocoa">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-vanilla">
+              <Icon className="h-5 w-5" />
+            </span>
             {label}
           </dt>
-          <dd className="mt-2 pl-9 text-cocoa-deep">{value}</dd>
+          <dd className="mt-1 pl-[3.25rem] text-cocoa-deep">{value}</dd>
         </div>
       ))}
     </dl>

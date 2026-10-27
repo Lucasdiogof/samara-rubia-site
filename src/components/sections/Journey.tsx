@@ -10,7 +10,7 @@ export function Journey({ lang, compact = false }: { lang: Lang; compact?: boole
       className={`section ${compact ? "lap bg-background" : ""}`}
       aria-labelledby="jornada-title"
     >
-      <div className="wrap grid gap-14 lg:grid-cols-12">
+      <div className="wrap grid gap-10 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">
             <p className="eyebrow">{t.journeySection.eyebrow}</p>
@@ -40,7 +40,7 @@ export function Journey({ lang, compact = false }: { lang: Lang; compact?: boole
             aria-hidden="true"
           />
           {t.journey.map((s, i) => (
-            <li key={s.title} data-step className="relative pb-14 pl-14 last:pb-0">
+            <li key={s.title} data-step className="relative pb-10 pl-14 last:pb-0">
               <span className="absolute left-0 top-1 grid h-9 w-9 place-items-center rounded-full step-dot font-display text-lg">
                 {i + 1}
               </span>

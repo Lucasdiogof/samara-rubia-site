@@ -38,7 +38,7 @@ export function LocationSection({ lang }: { lang: Lang }) {
   }
   const place = [site.location.city, site.location.region].filter(Boolean).join(" · ");
   return (
-    <section className="border-y border-border py-20" aria-labelledby="local-title">
+    <section className="border-y border-border pb-[calc(3rem+var(--lap))] pt-12" aria-labelledby="local-title">
       <div className="wrap grid items-start gap-10 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <p className="eyebrow">{t.eyebrow}</p>

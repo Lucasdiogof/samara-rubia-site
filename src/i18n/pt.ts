@@ -7,7 +7,6 @@ export type Service = {
   short: string;
   description: string;
   indications: string[];
-  faq: { q: string; a: string }[];
 };
 export type FaqGroup = { topic: string; items: { q: string; a: string }[] };
 
@@ -394,7 +393,6 @@ export const pt = {
       "O acompanhamento é definido após a avaliação individual, de acordo com as suas queixas e objetivos. Frequência, duração e condutas são combinadas com você, sem promessa de prazo ou resultado.",
     disclaimer:
       "Este conteúdo é educativo e não substitui a avaliação de um profissional de saúde. Não há promessa de cura ou de resultado.",
-    questions: "Dúvidas sobre este tema",
   },
 
   notFound: {
@@ -420,12 +418,6 @@ export const pt = {
         "Sensação de tensão ou dificuldade de relaxamento da região pélvica",
         "Desconforto que interfere na vida íntima",
       ],
-      faq: [
-        {
-          q: "É constrangedor falar sobre esse assunto?",
-          a: "É comum sentir isso. O atendimento é individual e reservado, e você decide o quanto e quando compartilhar.",
-        },
-      ],
     },
     {
       slug: "dor-pelvica",
@@ -438,12 +430,6 @@ export const pt = {
         "Dor ao sentar por períodos prolongados",
         "Dor associada à menstruação, quando orientada por avaliação",
         "Desconforto ao urinar ou evacuar sem causa já esclarecida",
-      ],
-      faq: [
-        {
-          q: "A fisioterapia substitui a consulta médica?",
-          a: "Não. A fisioterapia pode atuar junto com outros profissionais de saúde, e a avaliação orienta quando é importante buscar também acompanhamento médico.",
-        },
       ],
     },
     {
@@ -458,12 +444,6 @@ export const pt = {
         "Sintomas urinários ou intestinais que acompanham o ciclo menstrual",
         "Tensão da musculatura do assoalho pélvico e da região lombar",
       ],
-      faq: [
-        {
-          q: "A fisioterapia trata a endometriose?",
-          a: "Ela não substitui o tratamento médico. A fisioterapia pode ajudar no manejo de sintomas como a dor e a tensão muscular, em conjunto com o acompanhamento médico.",
-        },
-      ],
     },
     {
       slug: "incontinencia-urinaria",
@@ -476,12 +456,6 @@ export const pt = {
         "Urgência intensa para urinar",
         "Perda de urina após cirurgias da região pélvica, como a da próstata",
         "Receio de sair de casa ou praticar atividades por causa do problema",
-      ],
-      faq: [
-        {
-          q: "A incontinência urinária é normal com a idade?",
-          a: "Ela é frequente, mas isso não significa que deva ser ignorada. Vale buscar avaliação profissional para entender o que está acontecendo.",
-        },
       ],
     },
     {
@@ -496,12 +470,6 @@ export const pt = {
         "Acordar várias vezes à noite para urinar",
         "Perda de urina que acompanha a urgência",
       ],
-      faq: [
-        {
-          q: "A bexiga hiperativa é algo que preciso aceitar?",
-          a: "Não. Ela é comum, mas não precisa ser tratada como normal. A avaliação ajuda a entender a causa e a orientar o tratamento.",
-        },
-      ],
     },
     {
       slug: "retencao-urinaria",
@@ -514,12 +482,6 @@ export const pt = {
         "Jato fraco ou que para e recomeça",
         "Sensação de que a bexiga não esvaziou por completo",
         "Necessidade de fazer força para urinar",
-      ],
-      faq: [
-        {
-          q: "Preciso de avaliação médica também?",
-          a: "Em geral, sim. A retenção urinária pode ter causas variadas, e a fisioterapia atua junto com o acompanhamento médico, que investiga a origem do problema.",
-        },
       ],
     },
     {
@@ -534,12 +496,6 @@ export const pt = {
         "Desconforto que piora ao ficar muito tempo em pé",
         "Sintomas urinários ou intestinais associados",
       ],
-      faq: [
-        {
-          q: "O prolapso sempre precisa de cirurgia?",
-          a: "Não necessariamente. Depende do grau e dos sintomas. A avaliação orienta as opções, e a decisão é conduzida junto com o acompanhamento médico.",
-        },
-      ],
     },
     {
       slug: "constipacao",
@@ -552,12 +508,6 @@ export const pt = {
         "Fezes endurecidas ou evacuação incompleta",
         "Sensação de bloqueio ao tentar evacuar",
         "Intestino preso que persiste ao longo do tempo",
-      ],
-      faq: [
-        {
-          q: "A constipação é só questão de alimentação?",
-          a: "Alimentação e hidratação importam, mas a função do assoalho pélvico também pode influenciar. A avaliação ajuda a entender o que está contribuindo.",
-        },
       ],
     },
     {
@@ -572,12 +522,6 @@ export const pt = {
         "Orientações para a recuperação, conforme liberação médica",
         "Dúvidas sobre o que esperar no pré e no pós-operatório",
       ],
-      faq: [
-        {
-          q: "Quando começar a fisioterapia?",
-          a: "O ideal é conversar antes da cirurgia, para receber orientações. Depois, o momento de iniciar é definido na avaliação e conforme a liberação da equipe médica.",
-        },
-      ],
     },
     {
       slug: "gestacao-e-pos-parto",
@@ -590,12 +534,6 @@ export const pt = {
         "Perda de urina durante ou após a gestação",
         "Dor na região pélvica ou lombar durante a gestação",
         "Cuidados com a recuperação após o parto, conforme liberação profissional",
-      ],
-      faq: [
-        {
-          q: "Quando posso começar o acompanhamento após o parto?",
-          a: "O momento adequado depende de cada caso e da liberação dos profissionais que acompanham você. Isso é conversado na avaliação.",
-        },
       ],
     },
   ] as Service[],
