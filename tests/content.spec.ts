@@ -27,10 +27,10 @@ test("build público: 3 publicações reais, sem exemplos, avaliações nem dado
     expect(originals).toEqual(postUrls);
     await expect(page.locator('iframe[src*="instagram.com/p/"]')).toHaveCount(0);
   }
-  // ordem na home: diferenciais < conteúdos < FAQ < localização
+  // ordem na home: diferenciais < conteúdos < FAQ < localização (sem avaliações de teste)
   await page.goto("/");
   const order = await page.evaluate(() =>
-    ["dif-title", "conteudos-title", "faq-title", "avaliacoes-title", "local-title"].map(
+    ["dif-title", "conteudos-title", "faq-title", "local-title"].map(
       (id) => document.getElementById(id)?.getBoundingClientRect().top ?? -1,
     ),
   );
