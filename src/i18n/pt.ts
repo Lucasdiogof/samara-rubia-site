@@ -81,6 +81,7 @@ export const pt = {
 
   aboutTeaser: {
     eyebrow: "Sobre mim",
+    heading: "Cuidado especializado para a sua *qualidade de vida*",
     title: "Um espaço para falar do que é *delicado,* sem pressa.",
     summary: (name: string) =>
       `Sou ${name}, fisioterapeuta pélvica. Acredito num atendimento em que cada pessoa é ouvida com atenção, entende cada etapa e decide junto o caminho do seu cuidado.`,

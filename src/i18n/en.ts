@@ -72,6 +72,7 @@ export const en: Dict = {
 
   aboutTeaser: {
     eyebrow: "About me",
+    heading: "Specialised care for your *quality of life*",
     title: "A space to talk about what is *delicate,* without rushing.",
     summary: (name) =>
       `I'm ${name}, a pelvic physiotherapist. I believe in care where each person is listened to attentively, understands every step and decides together the path of their care.`,

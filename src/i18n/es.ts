@@ -72,6 +72,7 @@ export const es: Dict = {
 
   aboutTeaser: {
     eyebrow: "Sobre mí",
+    heading: "Atención especializada para tu *calidad de vida*",
     title: "Un espacio para hablar de lo *delicado,* sin prisa.",
     summary: (name) =>
       `Soy ${name}, fisioterapeuta pélvica. Creo en una atención en la que cada persona es escuchada con atención, entiende cada etapa y decide junto conmigo el camino de su cuidado.`,
