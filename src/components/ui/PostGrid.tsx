@@ -46,7 +46,6 @@ export function PostGrid({ posts, lang }: { posts: Post[]; lang: Lang }) {
       label={t.postsCarousel}
       prev={t.prev}
       next={t.next}
-      autoplay={7000}
     />
   );
 }

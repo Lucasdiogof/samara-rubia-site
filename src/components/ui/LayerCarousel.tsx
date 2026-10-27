@@ -229,7 +229,7 @@ export function LayerCarousel({
   };
 
   const btn =
-    "grid h-12 w-12 place-items-center rounded-full border border-border bg-vanilla text-cocoa-deep shadow-[var(--shadow-soft)] transition-colors hover:bg-cream focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cocoa)]";
+    "grid h-14 w-14 place-items-center rounded-full bg-[var(--cocoa)] text-[var(--vanilla)] shadow-[var(--shadow-soft)] transition-[background-color,transform] hover:bg-[var(--cocoa-deep)] active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--cocoa)]";
 
   return (
     <div
@@ -274,7 +274,7 @@ export function LayerCarousel({
       {n > 1 && (
         <div className="flex items-center justify-center gap-5">
           <button type="button" aria-label={prev} onClick={() => go(-1)} className={btn}>
-            <ChevronLeft size={22} aria-hidden="true" />
+            <ChevronLeft size={26} strokeWidth={2.25} aria-hidden="true" />
           </button>
           <div className="flex items-center gap-1" role="group">
             {slides.map((s, i) => (
@@ -287,13 +287,13 @@ export function LayerCarousel({
                 className="grid h-6 w-6 place-items-center"
               >
                 <span
-                  className={`block h-2 rounded-full transition-all duration-300 ${i === active ? "w-6 bg-cocoa-deep" : "w-2 bg-taupe/60"}`}
+                  className={`block h-2.5 rounded-full transition-all duration-300 ${i === active ? "w-7 bg-cocoa-deep" : "w-2.5 bg-taupe"}`}
                 />
               </button>
             ))}
           </div>
           <button type="button" aria-label={next} onClick={() => go(1)} className={btn}>
-            <ChevronRight size={22} aria-hidden="true" />
+            <ChevronRight size={26} strokeWidth={2.25} aria-hidden="true" />
           </button>
         </div>
       )}

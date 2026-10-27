@@ -83,14 +83,14 @@ export const site = {
       widths: [480, 768],
       focal: { x: 45, y: 8 },
     } as PhotoConfig | null,
-    /** página Sobre: Samara sentada, com a mão no cabelo */
+    /** página Sobre ("Prazer, Samara"): Samara à mesa, com o celular e o caderno */
     model: {
-      name: "samara-sentada",
-      alt: "Samara Rúbia, fisioterapeuta pélvica, sorrindo com a mão no cabelo",
-      width: 1071,
-      height: 1460,
-      widths: [480, 768, 1071],
-      focal: { x: 46, y: 24 },
+      name: "samara-mesa",
+      alt: "Samara Rúbia sorrindo, sentada à mesa com o celular e um caderno",
+      width: 853,
+      height: 1280,
+      widths: [480, 768],
+      focal: { x: 42, y: 8 },
     } as PhotoConfig | null,
     /** seção Sobre (home e página): recomendado 3:4 vertical, mínimo 1400 px */
     portrait: {
