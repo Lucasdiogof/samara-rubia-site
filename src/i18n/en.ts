@@ -87,7 +87,7 @@ export const en: Dict = {
   journey: [
     {
       title: "First contact",
-      text: "You send a message through the contact channel (planned: WhatsApp). No forms, and no need to give clinical details in writing.",
+      text: "You send a message to the professional WhatsApp number. No forms, and no need to share clinical details in writing.",
     },
     {
       title: "Scheduling",
@@ -292,11 +292,11 @@ export const en: Dict = {
       items: [
         {
           q: "How do I book an assessment?",
-          a: "First contact will be through the channel published on this website (planned: WhatsApp). You send a message, agree on the best time and receive guidance for the day.",
+          a: "To book an assessment, message the professional WhatsApp number, agree on an appointment time and receive guidance for the day.",
         },
         {
           q: "Is care in person? What about fees and insurance?",
-          a: "Appointment format, fees and insurance are still to be confirmed and will be published on this website.",
+          a: "The clinic address is available in the Location section. Please confirm appointment formats, fees and insurance directly via WhatsApp.",
         },
         {
           q: "Is my health information kept confidential?",
@@ -327,7 +327,7 @@ export const en: Dict = {
       [
         "Contact via WhatsApp",
         [
-          "When WhatsApp contact is available, the booking buttons will take you to WhatsApp, a third-party service with its own privacy policy. The first message is standardised and contains no clinical information.",
+          "When you select a booking button, you are taken to WhatsApp, a third-party service with its own privacy policy. The first message is standardised and contains no clinical information.",
           "We recommend not sending health details by message; they are discussed at the assessment, under professional confidentiality.",
         ],
       ],
