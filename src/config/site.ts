@@ -75,14 +75,7 @@ export const site = {
     /** hero: recomendado 4:5 vertical, mínimo 1600 px de largura */
     hero: null as PhotoConfig | null,
     /** seção Sobre (home e página): recomendado 3:4 vertical, mínimo 1400 px */
-    portrait: {
-      name: "ig-post-2",
-      alt: "Samara Rúbia, fisioterapeuta pélvica, sorrindo",
-      width: 720,
-      height: 1280,
-      widths: [480],
-      focal: { x: 50, y: 38 },
-    } as PhotoConfig | null,
+    portrait: null as PhotoConfig | null,
     /** consultório: recomendado 3:2 horizontal (a primeira é a principal), 1 a 4 fotos */
     office: [] as PhotoConfig[],
   },
