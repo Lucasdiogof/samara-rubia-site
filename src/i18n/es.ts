@@ -579,7 +579,6 @@ export const es: Dict = {
     crumb: "Contenidos",
     empty: "Los contenidos educativos se publicarán aquí tras la revisión de la profesional.",
     watch: "Ver aquí",
-    postsNote: "Las publicaciones las muestra Instagram, que puede registrar datos de tu acceso.",
     posts: "Publicaciones",
     postTitle: (n) => `Publicación ${n}`,
     postHint: "Publicación original en Instagram.",

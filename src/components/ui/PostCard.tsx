@@ -22,7 +22,7 @@ export function PostCard({
   embedSrc,
   cover,
   title,
-  excerpt,
+  paragraphs,
   captionLang,
   labels,
 }: {
@@ -31,8 +31,8 @@ export function PostCard({
   cover: PhotoConfig | null;
   /** primeiro parágrafo da legenda original */
   title: string;
-  /** demais parágrafos da legenda original */
-  excerpt: string;
+  /** demais parágrafos da legenda original (completos, sem cortar) */
+  paragraphs: string[];
   /** idioma da legenda (marcado com `lang` quando diferente do da página) */
   captionLang?: string;
   labels: PostLabels;
@@ -84,10 +84,14 @@ export function PostCard({
         >
           {title}
         </h3>
-        {excerpt && (
-          <p lang={captionLang} className="mt-2 line-clamp-3 text-[0.95rem] text-cocoa">
-            {excerpt}
-          </p>
+        {paragraphs.length > 0 && (
+          <div lang={captionLang} className="mt-2 space-y-3 text-[0.95rem] text-cocoa">
+            {paragraphs.map((p) => (
+              <p key={p} className={p.startsWith("#") ? "break-words text-[0.85rem]" : undefined}>
+                {p}
+              </p>
+            ))}
+          </div>
         )}
         <a
           href={url}

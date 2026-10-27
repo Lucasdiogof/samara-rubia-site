@@ -576,7 +576,6 @@ export const en: Dict = {
     crumb: "Content",
     empty: "Educational content will be published here once reviewed by the professional.",
     watch: "Watch here",
-    postsNote: "Posts are displayed by Instagram, which may record data about your visit.",
     posts: "Posts",
     postTitle: (n) => `Post ${n}`,
     postHint: "Original post on Instagram.",

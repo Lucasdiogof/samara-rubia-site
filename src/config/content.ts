@@ -101,7 +101,7 @@ export const posts: Post[] = [
     date: "2026-08-21",
     cover: { name: "ig-post-1", alt: "", width: 720, height: 1280, widths: [480], focal: { x: 50, y: 30 } },
     caption:
-      "Nem todo escape de urina acontece por fraqueza do assoalho pélvico.\n\nÀs vezes, o problema pode estar no excesso de tensão ou na falta de coordenação da musculatura.\n\nPor isso, antes de fortalecer, é preciso avaliar. 💕",
+      "Nem todo escape de urina acontece por fraqueza do assoalho pélvico.\n\nÀs vezes, o problema pode estar no excesso de tensão ou na falta de coordenação da musculatura.\n\nPor isso, antes de fortalecer, é preciso avaliar. 💕\n\n#fisioterapiapelvica #incontinenciaurinaria #assoalhopelvico #saudedamulher",
   },
   {
     id: "ig-DdKRgA9BfXa",
@@ -110,7 +110,7 @@ export const posts: Post[] = [
     date: "2026-09-11",
     cover: { name: "ig-post-2", alt: "", width: 720, height: 1280, widths: [480], focal: { x: 50, y: 30 } },
     caption:
-      "Você organiza o seu dia pensando em onde vai encontrar um banheiro?\n\nQuando a urgência ou a frequência urinária começa a limitar sua rotina, não é algo que você simplesmente precisa aprender a aceitar.\n\nÉ possível investigar a causa e tratar.",
+      "Você organiza o seu dia pensando em onde vai encontrar um banheiro?\n\nQuando a urgência ou a frequência urinária começa a limitar sua rotina, não é algo que você simplesmente precisa aprender a aceitar.\n\nÉ possível investigar a causa e tratar.\n\n#fisioterapiapelvica #urgenciaurinaria #bexigahiperativa",
   },
 ];
 export const articles: Article[] = [];

@@ -10,7 +10,7 @@ function captionParts(caption: string | undefined, fallback: string) {
     .split("\n\n")
     .map((p) => p.trim())
     .filter(Boolean);
-  return { title: first ?? fallback, excerpt: rest.join(" ") };
+  return { title: first ?? fallback, paragraphs: rest };
 }
 
 export function PostGrid({ posts, lang }: { posts: Post[]; lang: Lang }) {
@@ -20,7 +20,7 @@ export function PostGrid({ posts, lang }: { posts: Post[]; lang: Lang }) {
       <StaggerContainer as="ul" className="grid gap-12 md:grid-cols-2 xl:grid-cols-3 xl:gap-8">
         {posts.map((p, i) => {
           const code = instagramCode(p.url);
-          const { title, excerpt } = captionParts(p.caption, t.postTitle(i + 1));
+          const { title, paragraphs } = captionParts(p.caption, t.postTitle(i + 1));
           return (
             <StaggerItem as="li" key={p.id}>
               <PostCard
@@ -28,7 +28,7 @@ export function PostGrid({ posts, lang }: { posts: Post[]; lang: Lang }) {
                 embedSrc={code ? `https://www.instagram.com/p/${code}/embed/` : null}
                 cover={p.cover}
                 title={title}
-                excerpt={excerpt}
+                paragraphs={paragraphs}
                 captionLang={p.caption && lang !== "pt" ? "pt" : undefined}
                 labels={{
                   date: p.date ? formatDate(lang, p.date) : "",
@@ -41,7 +41,6 @@ export function PostGrid({ posts, lang }: { posts: Post[]; lang: Lang }) {
           );
         })}
       </StaggerContainer>
-      <p className="mt-6 text-[0.82rem] text-cocoa">{t.postsNote}</p>
     </>
   );
 }

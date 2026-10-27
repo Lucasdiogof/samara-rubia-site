@@ -587,7 +587,6 @@ export const pt = {
     crumb: "Conteúdos",
     empty: "Os conteúdos educativos serão publicados aqui após a revisão da profissional.",
     watch: "Assistir aqui",
-    postsNote: "As publicações são exibidas pelo Instagram, que pode registrar dados do seu acesso.",
     posts: "Publicações",
     postTitle: (n: number) => `Publicação ${n}`,
     postHint: "Publicação original no Instagram.",
