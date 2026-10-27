@@ -87,7 +87,7 @@ export const es: Dict = {
   journey: [
     {
       title: "Primer contacto",
-      text: "Envías un mensaje por el canal de atención (previsto: WhatsApp). Sin formularios y sin tener que contar detalles clínicos por escrito.",
+      text: "Envías un mensaje al WhatsApp profesional. Sin formularios y sin tener que contar detalles clínicos por escrito.",
     },
     {
       title: "Reserva de la cita",
@@ -294,11 +294,11 @@ export const es: Dict = {
       items: [
         {
           q: "¿Cómo reservo una evaluación?",
-          a: "El primer contacto se hará por el canal de atención publicado en este sitio (previsto: WhatsApp). Envías un mensaje, acuerdas el mejor horario y recibes las indicaciones para el día.",
+          a: "Para reservar una evaluación, escribe al WhatsApp profesional, acuerda el mejor horario y recibe las indicaciones para ese día.",
         },
         {
           q: "¿La atención es presencial? ¿Y los valores y seguros?",
-          a: "La modalidad de atención, los valores y los seguros aún se confirmarán y se publicarán en este sitio.",
+          a: "La dirección del consultorio está en la sección Ubicación. Confirma las modalidades de atención, los precios y los seguros directamente por WhatsApp.",
         },
         {
           q: "¿Mi información de salud se mantiene en secreto?",
@@ -329,7 +329,7 @@ export const es: Dict = {
       [
         "Contacto por WhatsApp",
         [
-          "Cuando el contacto por WhatsApp esté disponible, los botones de reserva te llevarán a WhatsApp, un servicio de terceros con su propia política de privacidad. El mensaje inicial es estándar y no contiene información clínica.",
+          "Al pulsar los botones de reserva, accederás a WhatsApp, un servicio de terceros con su propia política de privacidad. El mensaje inicial es estándar y no contiene información clínica.",
           "Recomendamos no enviar detalles de salud por mensaje; se conversan en la evaluación, bajo secreto profesional.",
         ],
       ],
