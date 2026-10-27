@@ -51,9 +51,11 @@ function contactRows(lang: Lang): Row[] {
       value:
         street || cityLine ? (
           <>
-            {venue && <span className="block font-semibold">{t.venueAt(venue)}</span>}
-            {street && <span className="block">{street}</span>}
-            {cityLine && <span className="block">{cityLine}</span>}
+            {venue && (
+              <span className="block font-display text-[1.55rem] leading-snug text-cocoa-deep">{t.venueAt(venue)}</span>
+            )}
+            {street && <span className="block text-cocoa">{street}</span>}
+            {cityLine && <span className="block text-cocoa">{cityLine}</span>}
           </>
         ) : null,
     },
@@ -67,7 +69,12 @@ function contactRows(lang: Lang): Row[] {
       key: "hours",
       label: t.hours,
       icon: Clock,
-      value: hours ? t.hoursText(hours.open, hours.close) : null,
+      value: hours ? (
+        <>
+          <span className="block text-[1.1rem]">{t.hoursText(hours.open, hours.close)}</span>
+          <span className="block text-[0.95rem] text-cocoa">{t.hoursNote}</span>
+        </>
+      ) : null,
     },
   ];
   if (site.insurance.length)
@@ -94,7 +101,16 @@ const list = (names: string[], and: string) =>
  * Lista de contato: mostra o que está confirmado e resume o restante em uma única linha
  * "Em breve", em vez de repetir "A confirmar" em cada item.
  */
-export function ContactRows({ lang, only }: { lang: Lang; only?: Key[] }) {
+export function ContactRows({
+  lang,
+  only,
+  bare = false,
+}: {
+  lang: Lang;
+  only?: Key[];
+  /** sem moldura própria (usado dentro de um cartão maior) */
+  bare?: boolean;
+}) {
   const t = getDict(lang).contactRows;
   const rows = select(lang, only);
   const items: Row[] = rows.filter((r) => r.value !== null);
@@ -111,16 +127,16 @@ export function ContactRows({ lang, only }: { lang: Lang; only?: Key[] }) {
   }
 
   return (
-    <dl className="overflow-hidden rounded-3xl border border-border bg-cream/50">
+    <dl className={bare ? "" : "overflow-hidden rounded-3xl border border-border bg-cream/50"}>
       {items.map(({ key, label, icon: Icon, value }) => (
-        <div key={key} className="border-b border-border px-5 py-4 last:border-b-0">
-          <dt className="flex items-center gap-3 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-cocoa">
-            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-vanilla">
-              <Icon className="h-5 w-5" />
+        <div key={key} className="relative border-b border-border py-6 pl-[4.75rem] pr-6 last:border-b-0">
+          <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-cocoa">
+            <span className="absolute left-5 top-6 grid h-12 w-12 place-items-center rounded-full bg-cream text-cocoa">
+              <Icon className="h-[1.35rem] w-[1.35rem]" />
             </span>
             {label}
           </dt>
-          <dd className="mt-1 pl-[3.25rem] text-cocoa-deep">{value}</dd>
+          <dd className="mt-2 text-cocoa-deep">{value}</dd>
         </div>
       ))}
     </dl>

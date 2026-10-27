@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ChevronRight, MapPin } from "lucide-react";
 import { FadeInSection } from "@/components/animations/Reveal";
 import { AnimatedButton } from "@/components/ui/Button";
 import { ContactRows, nothingConfirmed } from "@/components/ui/ContactRows";
@@ -45,24 +46,30 @@ export function LocationSection({ lang }: { lang: Lang }) {
         <h2 id="local-title" className="eyebrow">
           {t.eyebrow}
         </h2>
-        <div className="mt-6 grid items-start gap-6 lg:grid-cols-12">
-          <FadeInSection className="lg:col-span-7">
-            <ContactRows lang={lang} only={[...only]} />
-          </FadeInSection>
-          <FadeInSection delay={0.1} className="flex flex-col items-start gap-5 lg:col-span-5 lg:pl-6">
-            {site.location.mapsUrl && (
-              <AnimatedButton href={site.location.mapsUrl}>
-                {getDict(lang).contactRows.directions}
-              </AnimatedButton>
-            )}
-            <Link
-              href={href(lang, "/contato/")}
-              className="link-u font-semibold text-cocoa-deep"
-            >
-              {t.allChannels}
-            </Link>
-          </FadeInSection>
-        </div>
+        <FadeInSection className="mt-6">
+          <div className="relative overflow-hidden rounded-3xl border border-border bg-[linear-gradient(135deg,var(--vanilla),var(--cream))] shadow-[var(--shadow-soft)] lg:grid lg:grid-cols-[1fr_22rem]">
+            <ContactRows lang={lang} only={[...only]} bare />
+            <div className="relative flex flex-col items-start justify-center gap-5 border-t border-border p-8 lg:border-l lg:border-t-0">
+              <MapPin
+                aria-hidden="true"
+                strokeWidth={1}
+                className="pointer-events-none absolute -bottom-3 right-4 h-28 w-28 text-cocoa opacity-[0.09]"
+              />
+              {site.location.mapsUrl && (
+                <AnimatedButton href={site.location.mapsUrl} className="relative w-full sm:w-auto">
+                  {getDict(lang).contactRows.directions}
+                </AnimatedButton>
+              )}
+              <Link
+                href={href(lang, "/contato/")}
+                className="link-u relative inline-flex items-center gap-2 font-semibold text-cocoa-deep"
+              >
+                {t.allChannels}
+                <ChevronRight size={16} aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </FadeInSection>
       </div>
     </section>
   );
