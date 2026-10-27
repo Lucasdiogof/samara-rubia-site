@@ -18,7 +18,7 @@ export function LocationSection({ lang }: { lang: Lang }) {
   if (nothingConfirmed(lang, [...only])) {
     return (
       <section
-        className="lap-pad border-y border-border pb-[calc(2.5rem+var(--lap))] pt-10"
+        className="lap-pad border-y border-border pb-[calc(2.5rem+var(--lap))] pt-[var(--space-top)]"
         aria-labelledby="local-title"
       >
         <div className="wrap flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">
@@ -39,7 +39,7 @@ export function LocationSection({ lang }: { lang: Lang }) {
   }
   return (
     <section
-      className="lap-pad border-y border-border pb-[calc(2.5rem+var(--lap))] pt-10"
+      className="lap-pad border-y border-border pb-[calc(2.5rem+var(--lap))] pt-[var(--space-top)]"
       aria-labelledby="local-title"
     >
       <div className="wrap">

@@ -4,7 +4,7 @@ import { getDict, type Lang } from "@/i18n";
 export function Intro({ lang }: { lang: Lang }) {
   const t = getDict(lang).intro;
   return (
-    <section className="section" aria-labelledby="intro-title">
+    <section className="section !pt-3 md:!pt-8" aria-labelledby="intro-title">
       <div className="wrap">
         <h2 className="eyebrow" id="intro-title">
           {t.eyebrow}
