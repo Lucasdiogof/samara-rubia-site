@@ -15,9 +15,9 @@ const subscribe = (cb: () => void) => {
   return () => mo.disconnect();
 };
 
-export type ControlLabels = { language: string; toDark: string; toLight: string };
+export type ControlLabels = { language: string; toDark: string; toLight: string; paths: string[] };
 
-/** Seletor de idioma (mesma página nos outros idiomas) e alternador de tema claro/escuro. */
+/** Seletor de idioma (mesma página nos outros idiomas; em página inexistente, como o 404, vai para a home) e alternador de tema claro/escuro. */
 export function Controls({ labels, className }: { labels: ControlLabels; className?: string }) {
   const { lang, path } = splitPath(usePathname());
   const dark = useSyncExternalStore(subscribe, () => root().dataset.theme === "dark", () => false);
@@ -37,7 +37,7 @@ export function Controls({ labels, className }: { labels: ControlLabels; classNa
           {langs.map((l) => (
             <li key={l}>
               <Link
-                href={href(l, path)}
+                href={href(l, labels.paths.includes(path) ? path : "/")}
                 lang={langMeta[l].htmlLang}
                 hrefLang={langMeta[l].htmlLang}
                 title={langMeta[l].name}

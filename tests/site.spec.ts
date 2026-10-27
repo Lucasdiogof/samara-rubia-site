@@ -50,6 +50,8 @@ test.describe("menu mobile", () => {
     await page.waitForLoadState("networkidle");
     await page.getByRole("button", { name: "Abrir menu" }).click();
     await expect(page.locator("#menu-mobile")).toBeVisible();
+    // o painel ocupa a tela abaixo do cabeçalho (já chegou a ter 2 px de altura)
+    expect((await page.locator("#menu-mobile").boundingBox())!.height).toBeGreaterThan(300);
     await expect(page.locator("#menu-mobile a").first()).toBeFocused();
     await expect(page.locator("#conteudo")).toHaveAttribute("inert", "");
     // Tab percorre apenas cabeçalho/menu, nunca o conteúdo atrás

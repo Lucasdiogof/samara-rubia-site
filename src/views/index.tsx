@@ -157,7 +157,7 @@ function Faq({ lang }: { lang: Lang }) {
         <div className="wrap space-y-12">
           {t.faqGroups.map((g) => (
             <FadeInSection key={g.topic} className="grid gap-8 lg:grid-cols-12">
-              <h2 className="t-h3 lg:col-span-4">{g.topic}</h2>
+              <h2 className="t-h3 lg:col-span-4 lg:pt-5">{g.topic}</h2>
               <div className="lg:col-span-8">
                 <Accordion items={g.items} />
               </div>

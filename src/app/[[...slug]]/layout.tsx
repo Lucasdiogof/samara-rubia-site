@@ -9,6 +9,7 @@ import { MotionRoot } from "@/components/animations/MotionRoot";
 import { MotionProvider } from "@/components/animations/MotionProvider";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { navItems } from "@/lib/nav";
+import { routePaths } from "@/views";
 import { getDict, langMeta, parseSlug } from "@/i18n";
 import { primaryCta } from "@/lib/contact";
 import { websiteLd, personLd, businessLd } from "@/lib/structured-data";
@@ -80,6 +81,7 @@ export default async function RootLayout({
                 language: t.a11y.language,
                 toDark: t.a11y.themeToDark,
                 toLight: t.a11y.themeToLight,
+                paths: routePaths,
               },
               cta: primaryCta(lang),
             }}

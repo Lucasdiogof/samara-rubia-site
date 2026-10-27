@@ -89,9 +89,12 @@ export function Header({ lang, t }: { lang: Lang; t: HeaderText }) {
       ref={headerRef}
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,padding] duration-500",
-        scrolled || open
-          ? "bg-vanilla/90 py-3 shadow-[0_1px_0_var(--border)] backdrop-blur-md"
-          : "bg-transparent py-5",
+        // Menu aberto: sem backdrop-filter, que viraria o bloco de contenção do painel `fixed` (altura ~0).
+        open
+          ? "bg-vanilla py-3 shadow-[0_1px_0_var(--border)]"
+          : scrolled
+            ? "bg-vanilla/90 py-3 shadow-[0_1px_0_var(--border)] backdrop-blur-md"
+            : "bg-transparent py-5",
       )}
     >
       <div className="wrap flex items-center justify-between gap-6">

@@ -63,6 +63,12 @@ test("404.html estilizado em português", async ({ page }) => {
   const r = await page.goto("/rota-que-nao-existe/");
   expect(r?.status()).toBe(404);
   await expect(page.getByRole("heading", { level: 1 })).toContainText("não existe");
+  // o seletor de idioma não pode levar a páginas inexistentes: vai para a home de cada idioma
+  for (const l of ["en", "es"]) {
+    const hrefs = await page.locator(`a[hreflang="${l}"]`).evaluateAll((as) => as.map((a) => a.getAttribute("href")));
+    expect(hrefs.length).toBeGreaterThan(0);
+    for (const h of hrefs) expect(h).toBe(`/${l}/`);
+  }
 });
 
 test("sitemap lista os 3 idiomas e não expõe a rota interna do 404", async ({ request }) => {
