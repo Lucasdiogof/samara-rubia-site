@@ -148,6 +148,12 @@ html[data-theme="dark"] .logo-dark {
   border-radius: var(--lap) var(--lap) 0 0;
 }
 
+/* A seção seguinte sobe `--lap` sobre esta: devolve esse espaço ao rodapé para o conteúdo não encostar. */
+.section:has(+ .lap),
+.lap:has(+ .lap) {
+  padding-bottom: calc(var(--space-section) + var(--lap));
+}
+
 /* Tipografia editorial */
 .t-display,
 .t-h1,

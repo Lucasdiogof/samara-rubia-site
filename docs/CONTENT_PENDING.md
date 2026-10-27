@@ -11,13 +11,13 @@ Sem estes itens o site não deve ser divulgado como definitivo.
 ### Informações da Samara
 
 - [ ] Nome profissional completo (`professionalName`)
-- [ ] Número do **CREFITO** (`crefito`), obrigatório em divulgação profissional
+- [x] **CREFITO** 3383766-F (confirmado pelo dono em 27/10; a arte antiga dizia 338376-F, sem número na logo nova)
 - [x] **WhatsApp** 5562982388209 (NEXT_PUBLIC_WHATSAPP em .env.production): CTAs, botão flutuante e mensagem pronta ativos
-- [ ] Cidade e região (`location.city`, `location.region`)
-- [x] Endereço (La Femme Consultórios, Rua 1123, nº 359, Quadra 220, Setor Marista, Goiânia – GO) e "Como chegar" no Google Maps. Faltam: sala, horários, modalidade, estacionamento, convênios
-- [ ] Modalidades de atendimento (`location.modalities`, ex.: `["Presencial", "Online"]`)
-- [ ] Horários de atendimento (`location.hours`)
-- [ ] Biografia/apresentação (`bio.summary`)
+- [x] Cidade e região (Goiânia, GO)
+- [x] Endereço (La Femme Consultórios, Rua 1123, nº 359, Quadra 220, Setor Marista, Goiânia – GO) e "Como chegar" no Google Maps. Faltam: sala, estacionamento, convênios
+- [x] Modalidades: presencial e online (`location.modalities`)
+- [x] Horários: 07:30–18:00, segunda a sexta (`location.hours` + texto `hoursNote`)
+- [x] Biografia/apresentação (texto dela, 4 parágrafos)
 - [ ] Formação (`bio.education`), com instituição e ano, apenas o que for verificável
 
 ### Conteúdo clínico: aprovação profissional (marque em `site.approved` ao aprovar)
@@ -53,7 +53,7 @@ Sem estes itens o site não deve ser divulgado como definitivo.
 
 Melhoram a apresentação, mas não impedem o lançamento.
 
-- [ ] Instagram (`contact.instagram`, usuário sem @)
+- [x] Instagram @samara.rubiaa
 - [ ] Fotos do consultório, de 1 a 4, 3:2 (`images.office`), que ativam a galeria na página Sobre
 - [ ] Especializações (`bio.specializations`), cursos e qualificações (`bio.courses`)
 - [ ] Parágrafos sobre a abordagem profissional (`bio.approach`)
