@@ -149,8 +149,7 @@ html[data-theme="dark"] .logo-dark {
 }
 
 /* A seção seguinte sobe `--lap` sobre esta: devolve esse espaço ao rodapé para o conteúdo não encostar. */
-.section:has(+ .lap),
-.lap:has(+ .lap) {
+section:not(.lap-pad):has(+ .lap) {
   padding-bottom: calc(var(--space-section) + var(--lap));
 }
 

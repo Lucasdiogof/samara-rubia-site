@@ -39,59 +39,6 @@ export function Breadcrumbs({ lang, items }: { lang: Lang; items: { name: string
   );
 }
 
-type Motif = "arch" | "waves" | "rings";
-
-const motifBox =
-  "pointer-events-none absolute right-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] top-28 hidden h-[24rem] text-taupe lg:block";
-const line = { stroke: "currentColor", strokeWidth: 1.2 } as const;
-
-/**
- * Motivos em traço fino no canto da abertura das páginas internas. Três variações da mesma
- * linguagem (arcos, ondas, anéis), escolhidas por página para evitar repetição.
- */
-function HeroMotif({ motif }: { motif: Motif }) {
-  if (motif === "waves")
-    return (
-      <svg
-        viewBox="0 0 400 300"
-        aria-hidden="true"
-        fill="none"
-        className={`${motifBox} !top-auto bottom-10 !h-[12rem]`}
-        style={{
-          maskImage: "linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent)",
-        }}
-      >
-        <circle cx="300" cy="80" r="26" fill="var(--sand)" opacity=".7" />
-        {[0, 1, 2, 3, 4].map((i) => (
-          <path
-            key={i}
-            d={`M0 ${130 + i * 30}C70 ${80 + i * 30} 130 ${80 + i * 30} 200 ${120 + i * 30}S330 ${170 + i * 30} 400 ${110 + i * 30}`}
-            {...line}
-            opacity={0.65 - i * 0.11}
-          />
-        ))}
-      </svg>
-    );
-  if (motif === "rings")
-    return (
-      <svg viewBox="0 0 360 360" aria-hidden="true" fill="none" className={motifBox}>
-        <circle cx="290" cy="90" r="24" fill="var(--sand)" opacity=".7" />
-        {[170, 125, 80, 38].map((r, i) => (
-          <circle key={r} cx="180" cy="190" r={r} {...line} opacity={0.6 - i * 0.12} />
-        ))}
-      </svg>
-    );
-  return (
-    <svg viewBox="0 0 360 440" aria-hidden="true" fill="none" className={motifBox}>
-      <path d="M0 440H360" {...line} opacity=".6" />
-      <circle cx="262" cy="150" r="30" fill="var(--sand)" opacity=".7" />
-      <path d="M20 440V190a160 160 0 0 1 320 0v250" {...line} opacity=".6" />
-      <path d="M70 440V200a110 110 0 0 1 220 0v240" {...line} opacity=".45" />
-      <path d="M120 440V210a60 60 0 0 1 120 0v230" {...line} opacity=".3" />
-    </svg>
-  );
-}
-
 /** Abertura das páginas internas. */
 export function PageHero({
   lang,
@@ -99,7 +46,6 @@ export function PageHero({
   title,
   lead,
   crumbs,
-  motif = "arch",
   children,
 }: {
   lang: Lang;
@@ -107,12 +53,10 @@ export function PageHero({
   title: string;
   lead?: string;
   crumbs?: { name: string; path: string }[];
-  motif?: Motif;
   children?: ReactNode;
 }) {
   return (
     <section className="relative overflow-hidden pb-8 pt-28 sm:pt-32 lg:pb-10">
-      <HeroMotif motif={motif} />
       <div className="wrap relative">
         {crumbs && <Breadcrumbs lang={lang} items={crumbs} />}
         <p className="eyebrow">{eyebrow}</p>

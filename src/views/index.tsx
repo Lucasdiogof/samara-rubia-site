@@ -73,7 +73,6 @@ function How({ lang }: { lang: Lang }) {
         eyebrow={t.eyebrow}
         title={t.title}
         lead={t.lead}
-        motif="rings"
         crumbs={[{ name: t.crumb, path: "/como-funciona/" }]}
       />
       <Journey lang={lang} />
@@ -148,7 +147,6 @@ function Faq({ lang }: { lang: Lang }) {
         eyebrow={p.eyebrow}
         title={p.title}
         lead={hasWhatsapp ? p.leadWa : p.leadNoWa}
-        motif="rings"
         crumbs={[{ name: p.crumb, path: "/perguntas-frequentes/" }]}
       >
         <ReviewNotice approved={site.approved.faq}>{p.review}</ReviewNotice>
@@ -180,7 +178,6 @@ function Privacy({ lang }: { lang: Lang }) {
         eyebrow={t.eyebrow}
         title={t.title}
         lead={t.lead}
-        motif="waves"
         crumbs={[{ name: t.crumb, path: "/privacidade/" }]}
       >
         <ReviewNotice approved={site.approved.privacy}>{t.review}</ReviewNotice>
@@ -297,7 +294,6 @@ function Treatments({ lang }: { lang: Lang }) {
         eyebrow={t.eyebrow}
         title={t.title}
         lead={t.lead}
-        motif="waves"
         crumbs={[{ name: t.crumb, path: "/tratamentos/" }]}
       >
         <ReviewNotice approved={site.approved.services}>{t.review}</ReviewNotice>
@@ -333,7 +329,6 @@ function Treatment({ lang, slug }: { lang: Lang; slug: string }) {
     <>
       <PageHero
         lang={lang}
-        motif="waves"
         eyebrow={t.eyebrow}
         title={s.title}
         lead={s.description}
@@ -436,7 +431,6 @@ function Conteudos({ lang }: { lang: Lang }) {
         eyebrow={t.pageEyebrow}
         title={t.pageTitle}
         lead={t.pageLead}
-        motif="waves"
         crumbs={[{ name: t.crumb, path: "/conteudos/" }]}
       />
       <section className="pb-14">
