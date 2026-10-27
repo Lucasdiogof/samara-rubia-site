@@ -87,9 +87,7 @@ export function PostCard({
         {paragraphs.length > 0 && (
           <div lang={captionLang} className="mt-2 space-y-3 text-[0.95rem] text-cocoa">
             {paragraphs.map((p) => (
-              <p key={p} className={p.startsWith("#") ? "break-words text-[0.85rem]" : undefined}>
-                {p}
-              </p>
+              <p key={p}>{p}</p>
             ))}
           </div>
         )}
