@@ -173,3 +173,14 @@ test("headings: um h1 por página e sem saltos de nível", async ({ page }) => {
     });
   }
 });
+
+test("trocar de página sempre abre no topo (link do fim da home -> Como funciona)", async ({ page }) => {
+  await page.goto("/");
+  await page.waitForTimeout(1200);
+  const link = page.getByRole("link", { name: "Ver detalhes do atendimento" });
+  await link.scrollIntoViewIfNeeded();
+  expect(await page.evaluate(() => scrollY)).toBeGreaterThan(1500);
+  await link.click();
+  await expect(page).toHaveURL(/\/como-funciona\/$/);
+  await expect.poll(() => page.evaluate(() => scrollY)).toBeLessThan(5);
+});

@@ -157,7 +157,7 @@ export function CtaBand({ lang, here }: { lang: Lang; here?: string }) {
     .find((n) => n.path !== here)!;
   const cta = primaryCta ? { title: t.ctaBandTitle, ...primaryCta } : next;
   return (
-    <section className="on-dark lap bg-cocoa-deep py-20 text-vanilla">
+    <section className="on-dark grain lap bg-cocoa-deep py-20 text-vanilla">
       <div className="wrap flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
         <RevealText as="h2" className="t-h2 max-w-2xl">
           {cta.title}

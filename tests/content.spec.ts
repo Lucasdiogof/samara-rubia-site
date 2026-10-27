@@ -6,9 +6,9 @@ async function isDemoBuild(request: import("@playwright/test").APIRequestContext
 }
 
 const postUrls = [
+  "https://www.instagram.com/p/C-WGsEgRqcv/?img_index=1",
   "https://www.instagram.com/p/DcUbBVSvcX8/",
   "https://www.instagram.com/p/DdKRgA9BfXa/",
-  "https://www.instagram.com/p/C-WGsEgRqcv/?img_index=1",
 ];
 
 test("build público: 3 publicações reais, sem exemplos, avaliações nem dados estruturados falsos", async ({ page, request }) => {
@@ -20,10 +20,12 @@ test("build público: 3 publicações reais, sem exemplos, avaliações nem dado
     expect(await page.locator("article[data-demo]").count()).toBe(0);
     const ld = await page.locator('script[type="application/ld+json"]').allTextContents();
     expect(ld.join("")).not.toMatch(/Review|AggregateRating|"Article"/);
-    // links originais preservados (inclusive ?img_index=1) e nenhum embed carregado de início
+    // links originais preservados (inclusive ?img_index=1) e embeds preguiçosos
     const hrefs = await page.locator('a[href*="instagram.com/p/"]').evaluateAll((els) => els.map((e) => e.getAttribute("href")));
     expect(hrefs).toEqual(postUrls);
-    expect(await page.locator("iframe").count()).toBe(0);
+    // os players do Instagram são todos preguiçosos (carregam só ao rolar até perto)
+    const eager = await page.locator("iframe:not([loading=lazy])").count();
+    expect(eager).toBe(0);
   }
   // ordem na home: diferenciais < conteúdos < FAQ < localização
   await page.goto("/");
@@ -37,23 +39,25 @@ test("build público: 3 publicações reais, sem exemplos, avaliações nem dado
   expect((await request.get("/sitemap.xml").then((r) => r.text()))).not.toContain("exemplo-um");
 });
 
-test("publicação: o embed só carrega após o clique, um de cada vez", async ({ page, request }) => {
+test("publicações: embeds preguiçosos (só ao rolar), na ordem pedida e sem botões ou rótulos de tipo", async ({ page, request }) => {
   test.skip(await isDemoBuild(request), "build com exemplos");
   const ig: string[] = [];
   page.on("request", (r) => r.url().includes("instagram.com") && ig.push(r.url()));
-  await page.goto("/conteudos/");
+  await page.goto("/");
   await page.waitForTimeout(1500);
-  expect(ig).toEqual([]);
-  for (let i = 0; i < 3; i++) {
-    await page.getByRole("button", { name: "Ver publicação aqui" }).first().click();
-    await expect(page.locator("iframe")).toHaveCount(i + 1);
-  }
-  const srcs = await page.locator("iframe").evaluateAll((els) => els.map((e) => e.getAttribute("src")));
-  expect(srcs).toEqual([
+  expect(ig).toEqual([]); // nada do Instagram na abertura da home
+  const frames = page.locator('iframe[src*="instagram.com"]');
+  await expect(frames).toHaveCount(3);
+  expect(await frames.evaluateAll((els) => els.map((e) => e.getAttribute("loading")))).toEqual(["lazy", "lazy", "lazy"]);
+  expect(await frames.evaluateAll((els) => els.map((e) => e.getAttribute("src")))).toEqual([
+    "https://www.instagram.com/p/C-WGsEgRqcv/embed/", // carrossel primeiro
     "https://www.instagram.com/p/DcUbBVSvcX8/embed/",
     "https://www.instagram.com/p/DdKRgA9BfXa/embed/",
-    "https://www.instagram.com/p/C-WGsEgRqcv/embed/",
   ]);
+  await expect(page.getByText("Ver publicação aqui")).toHaveCount(0);
+  await expect(page.getByText(/^(Vídeo|Carrossel)$/)).toHaveCount(0);
+  await frames.first().scrollIntoViewIfNeeded();
+  await expect.poll(() => ig.length).toBeGreaterThan(0); // carrega ao chegar perto
 });
 
 test("endereço confirmado e botão Como chegar em PT, EN e ES", async ({ page }) => {
@@ -122,23 +126,17 @@ test("build com exemplos: axe em conteúdos e artigo (3 idiomas, claro e escuro)
   }
 });
 
-test("publicações reais: capa hospedada no site, legenda original e tipo", async ({ page, request }) => {
+test("publicações reais: legenda original, link do post e datas", async ({ page, request }) => {
   test.skip(await isDemoBuild(request), "build com exemplos");
-  for (const [prefix, kind] of [["", "Vídeo"], ["/en", "Video"], ["/es", "Video"]] as const) {
+  for (const prefix of ["", "/en", "/es"]) {
     await page.goto(`${prefix}/conteudos/`);
     const cards = page.locator("article").filter({ has: page.locator('a[href*="instagram.com/p/"]') });
     await expect(cards).toHaveCount(3);
-    // capas próprias (nenhuma imagem carregada do Instagram)
-    const srcs = await cards.locator("img").evaluateAll((els) => els.map((e) => (e as HTMLImageElement).currentSrc || e.getAttribute("src")));
-    expect(srcs.length).toBe(3);
-    for (const s of srcs) expect(s).toMatch(/\/images\/ig-post-\d-\d+\.(avif|webp|jpg)$/);
-    await expect(cards.first().getByText(kind, { exact: true })).toBeVisible();
-    // legenda original em português, marcada com lang="pt" nos outros idiomas
+    await expect(cards.first().getByText("VOCÊ SABIA QUE…")).toBeVisible();
     await expect(page.getByText("Nem todo escape de urina acontece por fraqueza do assoalho pélvico.")).toBeVisible();
-    await expect(page.getByText("VOCÊ SABIA QUE…")).toBeVisible();
   }
   await page.goto("/en/conteudos/");
-  expect(await page.locator('h3[lang="pt"]').count()).toBe(3);
+  expect(await page.locator('h3[lang="pt"]').count()).toBe(3); // legenda original marcada como pt
 });
 
 test("avaliações de teste: só com a flag, sempre com selo visível e sem dados estruturados", async ({ page, request }) => {

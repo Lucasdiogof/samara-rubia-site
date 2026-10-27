@@ -9,7 +9,7 @@ export function FinalCta({ lang }: { lang: Lang }) {
   const primaryCta = getCta(lang);
   return (
     <section
-      className="on-dark lap relative overflow-hidden bg-cocoa py-[var(--space-section)] text-vanilla"
+      className="on-dark grain lap relative overflow-hidden bg-cocoa py-[var(--space-section)] text-vanilla"
       aria-labelledby="cta-title"
     >
       <Blob

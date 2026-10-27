@@ -344,7 +344,7 @@ export const es: Dict = {
       [
         "Enlaces externos y alojamiento",
         [
-          "Los enlaces a Instagram y Google Maps llevan a servicios de terceros, regidos por sus propias políticas. Los videos (Reels) solo se cargan desde Instagram después de que haces clic para verlos.",
+          "Los enlaces a Instagram y Google Maps llevan a servicios de terceros, regidos por sus propias políticas. Los videos (Reels) solo se cargan desde Instagram después de que haces clic para verlos. Las publicaciones de Instagram se cargan directamente desde Instagram cuando llegas a esa parte de la página.",
           "El sitio está alojado en Cloudflare, que puede registrar datos técnicos de acceso (como la dirección IP) por seguridad y funcionamiento de la red. Las tipografías las sirve el propio sitio. La elección de tema e idioma se guarda solo en tu navegador.",
         ],
       ],
@@ -579,11 +579,10 @@ export const es: Dict = {
     crumb: "Contenidos",
     empty: "Los contenidos educativos se publicarán aquí tras la revisión de la profesional.",
     watch: "Ver aquí",
-    kinds: { video: "Video", carousel: "Carrusel", image: "Imagen" },
+    postsNote: "Las publicaciones las muestra Instagram, que puede registrar datos de tu acceso.",
     posts: "Publicaciones",
     postTitle: (n) => `Publicación ${n}`,
     postHint: "Publicación original en Instagram.",
-    watchPost: "Ver publicación aquí",
     playerPost: (n) => `Publicación de Instagram ${n}`,
     openIg: "Ver en Instagram",
     igNote:

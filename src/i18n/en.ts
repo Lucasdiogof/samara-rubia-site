@@ -342,7 +342,7 @@ export const en: Dict = {
       [
         "External links and hosting",
         [
-          "Links to Instagram and Google Maps lead to third-party services governed by their own policies. Videos (Reels) are only loaded from Instagram after you click to watch.",
+          "Links to Instagram and Google Maps lead to third-party services governed by their own policies. Videos (Reels) are only loaded from Instagram after you click to watch. Instagram posts are loaded directly from Instagram when you scroll to that part of the page.",
           "The site is hosted on Cloudflare, which may record technical access data (such as IP address) for security and network operation. Typefaces are served by the site itself. Your theme and language choice is saved only in your browser.",
         ],
       ],
@@ -576,11 +576,10 @@ export const en: Dict = {
     crumb: "Content",
     empty: "Educational content will be published here once reviewed by the professional.",
     watch: "Watch here",
-    kinds: { video: "Video", carousel: "Carousel", image: "Image" },
+    postsNote: "Posts are displayed by Instagram, which may record data about your visit.",
     posts: "Posts",
     postTitle: (n) => `Post ${n}`,
     postHint: "Original post on Instagram.",
-    watchPost: "View post here",
     playerPost: (n) => `Instagram post ${n}`,
     openIg: "View on Instagram",
     igNote:

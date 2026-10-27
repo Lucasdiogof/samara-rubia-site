@@ -353,7 +353,7 @@ export const pt = {
       [
         "Links externos e hospedagem",
         [
-          "Links para Instagram e Google Maps levam a serviços de terceiros, regidos por suas próprias políticas. Os vídeos (Reels) só são carregados do Instagram depois que você clica para assistir.",
+          "Links para Instagram e Google Maps levam a serviços de terceiros, regidos por suas próprias políticas. Os vídeos (Reels) só são carregados do Instagram depois que você clica para assistir. As publicações do Instagram são carregadas direto do Instagram quando você chega a essa parte da página.",
           "O site é hospedado na Cloudflare, que pode registrar dados técnicos de acesso (como endereço IP) para segurança e funcionamento da rede. As fontes tipográficas são servidas pelo próprio site. A escolha de tema e de idioma fica salva apenas no seu navegador.",
         ],
       ],
@@ -587,11 +587,10 @@ export const pt = {
     crumb: "Conteúdos",
     empty: "Os conteúdos educativos serão publicados aqui após a revisão da profissional.",
     watch: "Assistir aqui",
-    kinds: { video: "Vídeo", carousel: "Carrossel", image: "Imagem" },
+    postsNote: "As publicações são exibidas pelo Instagram, que pode registrar dados do seu acesso.",
     posts: "Publicações",
     postTitle: (n: number) => `Publicação ${n}`,
     postHint: "Publicação original no Instagram.",
-    watchPost: "Ver publicação aqui",
     playerPost: (n: number) => `Publicação do Instagram ${n}`,
     openIg: "Ver no Instagram",
     igNote:

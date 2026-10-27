@@ -13,7 +13,7 @@ export function AboutTeaser({ lang }: { lang: Lang }) {
   const t = getDict(lang).aboutTeaser;
   return (
     <section
-      className="on-dark lap relative overflow-hidden bg-cocoa-deep py-[var(--space-section)] text-vanilla"
+      className="on-dark grain lap relative overflow-hidden bg-cocoa-deep py-[var(--space-section)] text-vanilla"
       aria-labelledby="sobre-title"
     >
       <Blob

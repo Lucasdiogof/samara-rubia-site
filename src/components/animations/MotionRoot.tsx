@@ -14,10 +14,34 @@ declare global {
  * GSAP é carregado sob demanda (import dinâmico) e só aqui.
  * Para criar um novo efeito: emita um `data-*` em Reveal.tsx e trate-o abaixo.
  */
+/** Rota anterior (módulo, não ref: o layout remonta a cada troca de página). */
+let lastPath: string | null = null;
+
 export function MotionRoot() {
   const pathname = usePathname();
 
   useEffect(() => {
+    // Troca de rota: volta ao topo ANTES de o GSAP recriar os gatilhos (o refresh do ScrollTrigger
+    // restaura a posição antiga, e o link do fim da home caía no rodapé da página nova).
+    const toTop = lastPath !== null && lastPath !== pathname && !window.location.hash;
+    lastPath = pathname;
+    let stopHold: (() => void) | undefined;
+    if (toTop) {
+      window.scrollTo({ top: 0, behavior: "instant" });
+      // Por ~1,5 s mantém o topo: outros refresh (ScrollTrigger, mudança de altura) tentam devolver o
+      // scroll antigo. Qualquer ação do visitante (roda, toque, tecla) encerra a trava na hora.
+      const events = ["wheel", "touchstart", "keydown", "pointerdown"] as const;
+      const hold = () => window.scrollY > 0 && window.scrollTo({ top: 0, behavior: "instant" });
+      const stop = () => {
+        window.removeEventListener("scroll", hold);
+        events.forEach((e) => window.removeEventListener(e, stop));
+        clearTimeout(timer);
+      };
+      const timer = setTimeout(stop, 1500);
+      window.addEventListener("scroll", hold, { passive: true });
+      events.forEach((e) => window.addEventListener(e, stop, { passive: true, once: true }));
+      stopHold = stop;
+    }
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     let dead = false;
@@ -37,6 +61,12 @@ export function MotionRoot() {
         ]);
         if (dead) return;
         gsap.registerPlugin(ScrollTrigger);
+        // O ScrollTrigger grava a última posição de scroll e a restaura a cada refresh: limpa a memória
+        // da página anterior, senão ele devolve o scroll antigo (preso no fim da página nova).
+        if (toTop) {
+          ScrollTrigger.clearScrollMemory();
+          window.scrollTo({ top: 0, behavior: "instant" });
+        }
 
         const ctx = gsap.context(() => {
           const all = <T extends Element>(sel: string) => gsap.utils.toArray<T>(sel);
@@ -154,6 +184,7 @@ export function MotionRoot() {
 
     return () => {
       dead = true;
+      stopHold?.();
       revert?.();
     };
   }, [pathname]);

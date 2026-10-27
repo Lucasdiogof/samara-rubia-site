@@ -1,27 +1,21 @@
-"use client";
-
-import { useState } from "react";
 import { ExternalLink } from "lucide-react";
 import { InstagramIcon } from "@/components/ui/Icons";
 import { Photo } from "@/components/ui/Photo";
 import type { PhotoConfig } from "@/config/site";
 
 export type PostLabels = {
-  /** tipo (Vídeo, Carrossel, Imagem) já traduzido; vazio se desconhecido */
-  kind: string;
   /** data por extenso já formatada; vazio se desconhecida */
   date: string;
   dateIso?: string;
-  watch: string;
   openIg: string;
-  note: string;
   player: string;
 };
 
 /**
- * Card de uma publicação real do Instagram: capa hospedada no site, legenda original (idioma em que
- * foi escrita, sem tradução), tipo e data. O embed do Instagram só é carregado depois do clique;
- * o link para a publicação original fica sempre visível.
+ * Card de uma publicação real do Instagram: o player oficial (embed) já aparece no card, com o botão
+ * de play do próprio Instagram, e só é carregado quando o visitante rola até perto dele (`lazy`).
+ * Abaixo, a legenda original (idioma em que foi escrita, sem tradução) e o link para o post.
+ * Sem embed possível, mostra a capa (ou um card neutro) com o link original.
  */
 export function PostCard({
   url,
@@ -43,17 +37,16 @@ export function PostCard({
   captionLang?: string;
   labels: PostLabels;
 }) {
-  const [playing, setPlaying] = useState(false);
   return (
     <article className="flex h-full flex-col">
-      {playing && embedSrc ? (
+      {embedSrc ? (
         <iframe
           src={embedSrc}
           title={labels.player}
           loading="lazy"
           allow="encrypted-media; fullscreen"
           referrerPolicy="strict-origin-when-cross-origin"
-          className="h-[38rem] w-full rounded-[1.5rem] border border-border bg-vanilla"
+          className="h-[41rem] w-full rounded-[1.5rem] border border-border bg-vanilla"
         />
       ) : (
         <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-cream">
@@ -66,23 +59,6 @@ export function PostCard({
             >
               <InstagramIcon width={44} height={44} />
             </div>
-          )}
-          {cover && (
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-          )}
-          {labels.kind && (
-            <span className="absolute left-3 top-3 rounded-full bg-vanilla px-3 py-1 text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-cocoa-deep">
-              {labels.kind}
-            </span>
-          )}
-          {embedSrc && (
-            <button
-              type="button"
-              onClick={() => setPlaying(true)}
-              className="absolute inset-x-4 bottom-4 inline-flex min-h-12 items-center justify-center rounded-full bg-vanilla px-5 text-[0.95rem] font-semibold text-cocoa-deep shadow-[var(--shadow-soft)]"
-            >
-              {labels.watch}
-            </button>
           )}
         </div>
       )}
@@ -110,7 +86,6 @@ export function PostCard({
       >
         {labels.openIg} <ExternalLink size={14} aria-hidden="true" />
       </a>
-      {playing && <p className="mt-2 text-[0.8rem] text-cocoa">{labels.note}</p>}
     </article>
   );
 }
