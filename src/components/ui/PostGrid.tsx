@@ -34,6 +34,8 @@ export function PostGrid({ posts, lang }: { posts: Post[]; lang: Lang }) {
                   date: p.date ? formatDate(lang, p.date) : "",
                   dateIso: p.date,
                   openIg: t.openIg,
+                  load: t.viewPost,
+                  note: t.igNote,
                   player: t.playerPost(i + 1),
                 }}
               />
