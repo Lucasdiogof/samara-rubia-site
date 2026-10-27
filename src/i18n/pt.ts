@@ -146,8 +146,6 @@ export const pt = {
     soon: "Endereço, modalidade e horários serão divulgados em breve.",
     seeContact: "Ver contato",
     eyebrow: "Localização",
-    title: (place: string) =>
-      place ? `${place}: onde *encontrar* o atendimento.` : "Onde *encontrar* o atendimento.",
     allChannels: "Todos os canais de contato",
   },
 

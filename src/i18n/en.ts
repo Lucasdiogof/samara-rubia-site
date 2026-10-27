@@ -137,8 +137,6 @@ export const en: Dict = {
     soon: "Address, appointment format and opening hours will be announced soon.",
     seeContact: "See contact",
     eyebrow: "Location",
-    title: (place) =>
-      place ? `${place}: where to *find* the service.` : "Where to *find* the service.",
     allChannels: "All contact channels",
   },
 

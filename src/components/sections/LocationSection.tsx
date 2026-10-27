@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { RevealText, FadeInSection } from "@/components/animations/Reveal";
+import { FadeInSection } from "@/components/animations/Reveal";
 import { AnimatedButton } from "@/components/ui/Button";
 import { ContactRows, nothingConfirmed } from "@/components/ui/ContactRows";
 import { site } from "@/config/site";
@@ -36,32 +36,33 @@ export function LocationSection({ lang }: { lang: Lang }) {
       </section>
     );
   }
-  const place = [site.location.city, site.location.region].filter(Boolean).join(" · ");
   return (
-    <section className="border-y border-border pb-[calc(3rem+var(--lap))] pt-12" aria-labelledby="local-title">
-      <div className="wrap grid items-start gap-10 lg:grid-cols-12">
-        <div className="lg:col-span-5">
-          <p className="eyebrow">{t.eyebrow}</p>
-          <RevealText as="h2" id="local-title" className="t-h2 mt-5">
-            {t.title(place)}
-          </RevealText>
-          <FadeInSection delay={0.2}>
+    <section
+      className="border-y border-border pb-[calc(2.5rem+var(--lap))] pt-10"
+      aria-labelledby="local-title"
+    >
+      <div className="wrap">
+        <h2 id="local-title" className="eyebrow">
+          {t.eyebrow}
+        </h2>
+        <div className="mt-6 grid items-start gap-6 lg:grid-cols-12">
+          <FadeInSection className="lg:col-span-7">
+            <ContactRows lang={lang} only={[...only]} />
+          </FadeInSection>
+          <FadeInSection delay={0.1} className="flex flex-col items-start gap-5 lg:col-span-5 lg:pl-6">
             {site.location.mapsUrl && (
-              <AnimatedButton href={site.location.mapsUrl} className="mt-8">
+              <AnimatedButton href={site.location.mapsUrl}>
                 {getDict(lang).contactRows.directions}
               </AnimatedButton>
             )}
             <Link
               href={href(lang, "/contato/")}
-              className="link-u mt-6 block w-fit font-semibold text-cocoa-deep"
+              className="link-u font-semibold text-cocoa-deep"
             >
               {t.allChannels}
             </Link>
           </FadeInSection>
         </div>
-        <FadeInSection className="lg:col-span-6 lg:col-start-7">
-          <ContactRows lang={lang} only={[...only]} />
-        </FadeInSection>
       </div>
     </section>
   );

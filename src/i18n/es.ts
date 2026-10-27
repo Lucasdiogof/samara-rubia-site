@@ -137,8 +137,6 @@ export const es: Dict = {
     soon: "La dirección, la modalidad y los horarios se darán a conocer pronto.",
     seeContact: "Ver contacto",
     eyebrow: "Ubicación",
-    title: (place) =>
-      place ? `${place}: dónde *encontrar* la atención.` : "Dónde *encontrar* la atención.",
     allChannels: "Todos los canales de contacto",
   },
 
