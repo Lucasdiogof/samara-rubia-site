@@ -1,4 +1,7 @@
-import { ExternalLink } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { ExternalLink, Play } from "lucide-react";
 import { InstagramIcon } from "@/components/ui/Icons";
 import { Photo } from "@/components/ui/Photo";
 import type { PhotoConfig } from "@/config/site";
@@ -8,12 +11,14 @@ export type PostLabels = {
   date: string;
   dateIso?: string;
   openIg: string;
+  load: string;
+  note: string;
   player: string;
 };
 
 /**
- * Card de uma publicação real do Instagram: o player oficial (embed) já aparece no card, com o botão
- * de play do próprio Instagram, e só é carregado quando o visitante rola até perto dele (`lazy`).
+ * Card de uma publicação real do Instagram: o embed só é montado após clique explícito,
+ * evitando requisições e cookies de terceiros antes da interação.
  * Abaixo, a legenda original (idioma em que foi escrita, sem tradução) e o link para o post.
  * Sem embed possível, mostra a capa (ou um card neutro) com o link original.
  */
@@ -37,41 +42,45 @@ export function PostCard({
   captionLang?: string;
   labels: PostLabels;
 }) {
+  const [playing, setPlaying] = useState(false);
   return (
     <article className="mx-auto flex h-full w-full max-w-[24.5rem] flex-col">
-      {embedSrc ? (
-        // Moldura creme: o embed do Instagram é uma caixa branca fixa e, assim, ganha a cara do site.
-        <div className="relative rounded-[1.75rem] border border-border bg-cream p-3 shadow-[var(--shadow-soft)]">
-          <div
-            aria-hidden="true"
-            className="absolute inset-3 grid place-items-center rounded-[1.25rem] bg-[linear-gradient(150deg,var(--cream),var(--sand))] text-cocoa"
-          >
-            <InstagramIcon width={40} height={40} />
-          </div>
+      <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] border border-border bg-cream shadow-[var(--shadow-soft)]">
+        {playing && embedSrc ? (
           <iframe
             src={embedSrc}
             title={labels.player}
             loading="lazy"
-            scrolling="no"
             allow="encrypted-media; fullscreen"
             referrerPolicy="strict-origin-when-cross-origin"
-            className="relative block h-[42rem] w-full rounded-[1.25rem] border-0 bg-transparent"
+            className="absolute inset-0 h-full w-full border-0 bg-vanilla"
           />
-        </div>
-      ) : (
-        <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-cream">
-          {cover ? (
-            <Photo photo={cover} sizes="(min-width: 1024px) 30vw, 90vw" />
-          ) : (
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 grid place-items-center bg-[linear-gradient(150deg,var(--cream),var(--sand))] text-cocoa"
-            >
-              <InstagramIcon width={44} height={44} />
-            </div>
-          )}
-        </div>
-      )}
+        ) : (
+          <>
+            {cover ? (
+              <Photo photo={cover} sizes="(min-width: 1024px) 30vw, 90vw" />
+            ) : (
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 grid place-items-center bg-[linear-gradient(150deg,var(--cream),var(--sand))] text-cocoa"
+              >
+                <InstagramIcon width={44} height={44} />
+              </div>
+            )}
+            {embedSrc && (
+              <button
+                type="button"
+                onClick={() => setPlaying(true)}
+                className="absolute inset-x-4 bottom-4 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-vanilla px-5 py-3 text-[0.92rem] font-semibold text-cocoa-deep shadow-[var(--shadow-soft)]"
+              >
+                <Play size={16} aria-hidden="true" />
+                {labels.load}
+              </button>
+            )}
+          </>
+        )}
+      </div>
+      {embedSrc && !playing && <p className="mt-3 text-[0.82rem] text-cocoa">{labels.note}</p>}
       <div className="flex flex-1 flex-col px-1">
         {labels.date && (
           <p className="mt-5 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-cocoa">
@@ -91,7 +100,7 @@ export function PostCard({
             ))}
           </div>
         )}
-        {!embedSrc && (
+        {(
           <a
             href={url}
             target="_blank"
