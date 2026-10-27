@@ -549,6 +549,7 @@ export const es: Dict = {
     empty: "Los contenidos educativos se publicarán aquí tras la revisión de la profesional.",
     watch: "Ver aquí",
     posts: "Publicaciones",
+    viewPost: "Ver publicación aquí",
     postTitle: (n) => `Publicación ${n}`,
     postHint: "Publicación original en Instagram.",
     playerPost: (n) => `Publicación de Instagram ${n}`,
