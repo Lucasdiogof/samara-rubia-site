@@ -88,10 +88,10 @@ export const site = {
     portrait: {
       name: "samara-retrato",
       alt: "Samara Rúbia, fisioterapeuta pélvica, sentada e sorrindo",
-      width: 825,
-      height: 1280,
+      width: 768,
+      height: 1332,
       widths: [480, 768],
-      focal: { x: 50, y: 26 },
+      focal: { x: 50, y: 12 },
     } as PhotoConfig | null,
     /** consultório: recomendado 3:2 horizontal (a primeira é a principal), 1 a 4 fotos */
     office: [] as PhotoConfig[],
