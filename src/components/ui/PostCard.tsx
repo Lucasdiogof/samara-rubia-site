@@ -38,16 +38,26 @@ export function PostCard({
   labels: PostLabels;
 }) {
   return (
-    <article className="flex h-full flex-col">
+    <article className="mx-auto flex h-full w-full max-w-[24.5rem] flex-col">
       {embedSrc ? (
-        <iframe
-          src={embedSrc}
-          title={labels.player}
-          loading="lazy"
-          allow="encrypted-media; fullscreen"
-          referrerPolicy="strict-origin-when-cross-origin"
-          className="h-[41rem] w-full rounded-[1.5rem] border border-border bg-vanilla"
-        />
+        // Moldura creme: o embed do Instagram é uma caixa branca fixa e, assim, ganha a cara do site.
+        <div className="relative rounded-[1.75rem] border border-border bg-cream p-3 shadow-[var(--shadow-soft)]">
+          <div
+            aria-hidden="true"
+            className="absolute inset-3 grid place-items-center rounded-[1.25rem] bg-[linear-gradient(150deg,var(--cream),var(--sand))] text-cocoa"
+          >
+            <InstagramIcon width={40} height={40} />
+          </div>
+          <iframe
+            src={embedSrc}
+            title={labels.player}
+            loading="lazy"
+            scrolling="no"
+            allow="encrypted-media; fullscreen"
+            referrerPolicy="strict-origin-when-cross-origin"
+            className="relative block h-[42rem] w-full rounded-[1.25rem] border-0 bg-transparent"
+          />
+        </div>
       ) : (
         <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-cream">
           {cover ? (
@@ -62,30 +72,32 @@ export function PostCard({
           )}
         </div>
       )}
-      {labels.date && (
-        <p className="mt-4 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-cocoa">
-          <time dateTime={labels.dateIso}>{labels.date}</time>
-        </p>
-      )}
-      <h3
-        lang={captionLang}
-        className="mt-2 font-display text-[1.4rem] leading-snug text-cocoa-deep"
-      >
-        {title}
-      </h3>
-      {excerpt && (
-        <p lang={captionLang} className="mt-2 line-clamp-3 text-[0.95rem] text-cocoa">
-          {excerpt}
-        </p>
-      )}
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="link-u mt-3 inline-flex w-fit items-center gap-1.5 text-[0.92rem] font-semibold text-cocoa-deep"
-      >
-        {labels.openIg} <ExternalLink size={14} aria-hidden="true" />
-      </a>
+      <div className="flex flex-1 flex-col px-1">
+        {labels.date && (
+          <p className="mt-5 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-cocoa">
+            <time dateTime={labels.dateIso}>{labels.date}</time>
+          </p>
+        )}
+        <h3
+          lang={captionLang}
+          className="mt-2 font-display text-[1.4rem] leading-snug text-cocoa-deep"
+        >
+          {title}
+        </h3>
+        {excerpt && (
+          <p lang={captionLang} className="mt-2 line-clamp-3 text-[0.95rem] text-cocoa">
+            {excerpt}
+          </p>
+        )}
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="link-u mt-auto inline-flex w-fit items-center gap-1.5 pt-4 text-[0.92rem] font-semibold text-cocoa-deep"
+        >
+          {labels.openIg} <ExternalLink size={14} aria-hidden="true" />
+        </a>
+      </div>
     </article>
   );
 }

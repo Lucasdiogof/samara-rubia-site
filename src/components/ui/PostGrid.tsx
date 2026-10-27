@@ -17,7 +17,7 @@ export function PostGrid({ posts, lang }: { posts: Post[]; lang: Lang }) {
   const t = getDict(lang).content;
   return (
     <>
-      <StaggerContainer as="ul" className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+      <StaggerContainer as="ul" className="grid gap-12 md:grid-cols-2 xl:grid-cols-3 xl:gap-8">
         {posts.map((p, i) => {
           const code = instagramCode(p.url);
           const { title, excerpt } = captionParts(p.caption, t.postTitle(i + 1));
