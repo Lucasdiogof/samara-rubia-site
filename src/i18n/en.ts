@@ -48,8 +48,6 @@ export const en: Dict = {
     lead: "Pelvic physiotherapy for men and women, with individual assessment, attentive listening and full respect for your privacy.",
     about: "See my work",
     points: ["Every step explained", "Professional confidentiality", "For men and women"],
-    cardTitle: "Individual assessment",
-    cardText: "Every step explained, at your pace.",
   },
 
   intro: {

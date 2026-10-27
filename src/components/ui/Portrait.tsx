@@ -25,7 +25,7 @@ export function Portrait({
   if (photo?.alpha)
     return (
       <>
-        <ArchBackdrop />
+        <ArchBackdrop photo />
         <Photo photo={photo} sizes={sizes} priority={priority} className={className} />
       </>
     );
@@ -34,7 +34,7 @@ export function Portrait({
 }
 
 /** Cenário em arco (areia, sol cacau, ondas e fios): fundo da foto recortada e placeholder sem foto. */
-function ArchBackdrop({ letter = false }: { letter?: boolean }) {
+function ArchBackdrop({ letter = false, photo = false }: { letter?: boolean; photo?: boolean }) {
   return (
     <svg
       viewBox="0 0 480 600"
@@ -49,23 +49,21 @@ function ArchBackdrop({ letter = false }: { letter?: boolean }) {
         </linearGradient>
       </defs>
       <rect width="480" height="600" fill="url(#arch-sky)" />
-      <circle cx="352" cy="176" r="96" fill="#735C4C" />
-      <path d="M-20 600V420c70-60 150-70 230-30s170 40 270-20v230Z" fill="#B1977C" />
-      <path d="M-20 600V500c90-40 170-30 250 10s150 30 250-10v100Z" fill="#EEE4D5" />
-      <path
-        d="M70 600V300a170 170 0 0 1 340 0v300"
-        fill="none"
-        stroke="#FCF8F1"
-        strokeWidth="1.5"
-        opacity=".85"
-      />
-      <path
-        d="M110 600V310a130 130 0 0 1 260 0v290"
-        fill="none"
-        stroke="#372C27"
-        strokeWidth="1"
-        opacity=".35"
-      />
+      {photo ? (
+        <>
+          <circle cx="330" cy="206" r="108" fill="#735C4C" />
+          <path d="M-20 600V478c80-40 160-36 240-6s160 30 280-14v142Z" fill="#B1977C" opacity=".85" />
+          <path d="M-20 600V536c90-30 170-22 250 8s150 20 250-12v68Z" fill="#EEE4D5" />
+        </>
+      ) : (
+        <>
+          <circle cx="352" cy="176" r="96" fill="#735C4C" />
+          <path d="M-20 600V420c70-60 150-70 230-30s170 40 270-20v230Z" fill="#B1977C" />
+          <path d="M-20 600V500c90-40 170-30 250 10s150 30 250-10v100Z" fill="#EEE4D5" />
+          <path d="M70 600V300a170 170 0 0 1 340 0v300" fill="none" stroke="#FCF8F1" strokeWidth="1.5" opacity=".85" />
+          <path d="M110 600V310a130 130 0 0 1 260 0v290" fill="none" stroke="#372C27" strokeWidth="1" opacity=".35" />
+        </>
+      )}
       {letter && (
         <text
           x="240"

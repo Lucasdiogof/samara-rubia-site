@@ -34,7 +34,7 @@ export function Photo({ photo, sizes, priority = false, className = "" }: Props)
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : "auto"}
         decoding={priority ? "sync" : "async"}
-        className={`absolute inset-0 h-full w-full ${photo.alpha ? "object-contain" : "object-cover"} ${className}`}
+        className={`absolute w-full ${photo.alpha ? "inset-x-0 bottom-0 h-[92%] object-contain" : "inset-0 h-full object-cover"} ${className}`}
         style={{ objectPosition: photo.alpha ? "50% 100%" : `${x}% ${y}%` }}
       />
     </picture>

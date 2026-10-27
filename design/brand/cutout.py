@@ -14,7 +14,7 @@ dist = np.linalg.norm(src.astype(np.float32) - bg.astype(np.float32), axis=2)
 mask = np.full((h, w), cv2.GC_PR_BGD, np.uint8)
 mask[dist > 38] = cv2.GC_PR_FGD
 mask[dist > 85] = cv2.GC_FGD
-mask[:30, :] = cv2.GC_BGD
+mask[:4, :] = cv2.GC_BGD  # só a linha de borda: o topo do cabelo fica quase colado ao topo da foto
 mask[:, :12] = cv2.GC_BGD
 mask[:, -12:] = cv2.GC_BGD
 bgd, fgd = np.zeros((1, 65)), np.zeros((1, 65))

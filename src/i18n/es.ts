@@ -48,8 +48,6 @@ export const es: Dict = {
     lead: "Fisioterapia pélvica para hombres y mujeres, con evaluación individual, escucha atenta y total respeto por tu privacidad.",
     about: "Conoce mi trabajo",
     points: ["Etapas explicadas", "Secreto profesional", "Para hombres y mujeres"],
-    cardTitle: "Evaluación individual",
-    cardText: "Cada etapa explicada, a tu ritmo.",
   },
 
   intro: {

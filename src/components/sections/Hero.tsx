@@ -68,16 +68,6 @@ export function Hero({ lang }: { lang: Lang }) {
               <Portrait slot="hero" priority sizes="(min-width: 1024px) 40vw, 90vw" />
             </div>
           </RevealImage>
-          <FadeInSection
-            intro
-            delay={1}
-            className="absolute -left-3 bottom-10 max-w-[13rem] rounded-2xl bg-vanilla px-5 py-4 text-sm leading-snug text-cocoa-deep shadow-[var(--shadow-soft)] sm:-left-8"
-          >
-            <span className="block font-display text-xl italic text-cocoa">
-              {t.cardTitle}
-            </span>
-            {t.cardText}
-          </FadeInSection>
         </div>
       </div>
     </section>

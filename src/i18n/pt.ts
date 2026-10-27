@@ -58,8 +58,6 @@ export const pt = {
     lead: "Fisioterapia pélvica para homens e mulheres, com avaliação individual, escuta atenta e total respeito à sua privacidade.",
     about: "Conheça meu trabalho",
     points: ["Etapas explicadas", "Sigilo profissional", "Para homens e mulheres"],
-    cardTitle: "Avaliação individual",
-    cardText: "Cada etapa explicada, no seu ritmo.",
   },
 
   intro: {
