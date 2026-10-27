@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" role="img" aria-label="Samara Rúbia, fisioterapeuta pélvica">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Manrope:wght@500;600;700&display=swap');</style>
+  <rect width="720" height="420" fill="#372c27"/>
+  <path d="M170 118V302" stroke="#d6c2a7" stroke-width="2.4"/>
+  <circle cx="170" cy="104" r="5" fill="#735c4c"/>
+  <text x="206" y="204" font-family="'Cormorant Garamond', Georgia, serif" font-size="104" font-weight="500" fill="#fcf8f1" letter-spacing="-0.025em">Samara</text>
+  <text x="206" y="290" font-family="'Cormorant Garamond', Georgia, serif" font-size="104" font-style="italic" font-weight="400" fill="#d6c2a7" letter-spacing="-0.025em">Rúbia</text>
+  <text x="212" y="330" font-family="Manrope, system-ui, sans-serif" font-size="13" font-weight="600" letter-spacing="0.4em" fill="#d6c2a7" text-anchor="start">FISIOTERAPIA PÉLVICA</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" role="img" aria-label="Samara Rúbia, fisioterapeuta pélvica">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Manrope:wght@500;600;700&display=swap');</style>
+  <rect width="720" height="420" fill="#fcf8f1"/>
+  <g transform="translate(150 210)">
+    <circle cx="34" cy="-34" r="26" fill="#d6c2a7"/>
+    <path d="M-48 70V-8a62 62 0 0 1 124 0v78" fill="none" stroke="#735c4c" stroke-width="3"/>
+    <path d="M-24 70V-6a38 38 0 0 1 76 0v76" fill="none" stroke="#735c4c" stroke-width="1.5" opacity=".5"/>
+  </g>
+  <text x="262" y="206" font-family="'Cormorant Garamond', Georgia, serif" font-size="72" font-weight="500" fill="#372c27" letter-spacing="-0.01em">Samara</text>
+  <text x="262" y="270" font-family="'Cormorant Garamond', Georgia, serif" font-size="72" font-style="italic" font-weight="400" fill="#735c4c" letter-spacing="-0.01em">Rúbia</text>
+  <path d="M266 296H330" stroke="#b1977c" stroke-width="1.5"/>
+  <text x="266" y="326" font-family="Manrope, system-ui, sans-serif" font-size="13" font-weight="600" letter-spacing="0.34em" fill="#735c4c" text-anchor="start">FISIOTERAPIA PÉLVICA</text>
+</svg>
