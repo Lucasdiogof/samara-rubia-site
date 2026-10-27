@@ -54,7 +54,7 @@ export function AboutTeaser({ lang }: { lang: Lang }) {
           </RevealText>
           <FadeInSection delay={0.2}>
             <div className="prose-calm !text-cream mt-7">
-              {getDict(lang).bio.filter((_, index) => index === 0 || index === 2).map((p) => (
+              {getDict(lang).bio.map((p) => (
                 <p key={p}>{p}</p>
               ))}
             </div>

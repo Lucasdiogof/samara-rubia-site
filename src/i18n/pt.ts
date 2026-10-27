@@ -556,7 +556,6 @@ export const pt = {
     empty: "Os conteúdos educativos serão publicados aqui após a revisão da profissional.",
     watch: "Assistir aqui",
     posts: "Publicações",
-    viewPost: "Ver publicação aqui",
     postTitle: (n: number) => `Publicação ${n}`,
     postHint: "Publicação original no Instagram.",
     playerPost: (n: number) => `Publicação do Instagram ${n}`,

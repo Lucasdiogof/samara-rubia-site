@@ -15,22 +15,22 @@ test("build público: 3 publicações reais, sem exemplos, avaliações nem dado
   test.skip(await isDemoBuild(request), "build com exemplos");
   for (const url of ["/", "/en/", "/es/", "/conteudos/"]) {
     await page.goto(url);
-    // build público não pode conter avaliações fictícias nem outros exemplos
-    expect(await page.locator("[data-demo]").count()).toBe(0);
+    // só as 3 avaliações de teste (com selo) podem ser fictícias; conteúdos e artigos, nunca
+    expect(await page.locator("[data-demo]").count()).toBe(url === "/conteudos/" ? 0 : 3);
     expect(await page.locator("article[data-demo]").count()).toBe(0);
     const ld = await page.locator('script[type="application/ld+json"]').allTextContents();
     expect(ld.join("")).not.toMatch(/Review|AggregateRating|"Article"/);
-    // URLs originais preservadas e nenhuma chamada de terceiro antes do clique
-    const originals = await page.locator('a[href*="instagram.com/p/"]').evaluateAll(
-      (els) => els.map((e) => e.getAttribute("href")),
-    );
-    expect(originals).toEqual(postUrls);
-    await expect(page.locator('iframe[src*="instagram.com/p/"]')).toHaveCount(0);
+    // links originais preservados (inclusive ?img_index=1) e embeds preguiçosos
+    const embeds = await page.locator('iframe[src*="instagram.com/p/"]').evaluateAll((els) => els.map((e) => e.getAttribute("src")));
+    expect(embeds).toEqual(postUrls.map((u) => u.replace(/\/(\?.*)?$/, "/embed/")));
+    // os players do Instagram são todos preguiçosos (carregam só ao rolar até perto)
+    const eager = await page.locator("iframe:not([loading=lazy])").count();
+    expect(eager).toBe(0);
   }
-  // ordem na home: diferenciais < conteúdos < FAQ < localização (sem avaliações de teste)
+  // ordem na home: diferenciais < conteúdos < FAQ < localização
   await page.goto("/");
   const order = await page.evaluate(() =>
-    ["dif-title", "conteudos-title", "faq-title", "local-title"].map(
+    ["dif-title", "conteudos-title", "faq-title", "avaliacoes-title", "local-title"].map(
       (id) => document.getElementById(id)?.getBoundingClientRect().top ?? -1,
     ),
   );
@@ -39,21 +39,25 @@ test("build público: 3 publicações reais, sem exemplos, avaliações nem dado
   expect((await request.get("/sitemap.xml").then((r) => r.text()))).not.toContain("exemplo-um");
 });
 
-test("publicações: embeds só após clique; links originais sempre visíveis", async ({ page, request }) => {
+test("publicações: embeds preguiçosos (só ao rolar), na ordem pedida e sem botões ou rótulos de tipo", async ({ page, request }) => {
   test.skip(await isDemoBuild(request), "build com exemplos");
   const ig: string[] = [];
   page.on("request", (r) => r.url().includes("instagram.com") && ig.push(r.url()));
   await page.goto("/");
-  await page.waitForTimeout(1000);
-  expect(ig).toEqual([]);
-  const cards = page.locator('article').filter({ has: page.locator('a[href*="instagram.com/p/"]') });
-  await expect(cards).toHaveCount(3);
-  await expect(cards.locator("iframe")).toHaveCount(0);
-  await expect(cards.getByRole("button", { name: "Ver publicação aqui" })).toHaveCount(3);
-  await cards.first().getByRole("button", { name: "Ver publicação aqui" }).click();
-  await expect(cards.first().locator("iframe")).toHaveAttribute("src", "https://www.instagram.com/p/C-WGsEgRqcv/embed/");
-  await expect(cards.nth(1).locator("iframe")).toHaveCount(0);
-  await expect(cards.nth(2).locator("iframe")).toHaveCount(0);
+  await page.waitForTimeout(1500);
+  expect(ig).toEqual([]); // nada do Instagram na abertura da home
+  const frames = page.locator('iframe[src*="instagram.com"]');
+  await expect(frames).toHaveCount(3);
+  expect(await frames.evaluateAll((els) => els.map((e) => e.getAttribute("loading")))).toEqual(["lazy", "lazy", "lazy"]);
+  expect(await frames.evaluateAll((els) => els.map((e) => e.getAttribute("src")))).toEqual([
+    "https://www.instagram.com/p/C-WGsEgRqcv/embed/", // carrossel primeiro
+    "https://www.instagram.com/p/DcUbBVSvcX8/embed/",
+    "https://www.instagram.com/p/DdKRgA9BfXa/embed/",
+  ]);
+  await expect(page.getByText("Ver publicação aqui")).toHaveCount(0);
+  await expect(page.getByText(/^(Vídeo|Carrossel)$/)).toHaveCount(0);
+  await frames.first().scrollIntoViewIfNeeded();
+  await expect.poll(() => ig.length).toBeGreaterThan(0); // carrega ao chegar perto
 });
 
 test("endereço confirmado e botão Como chegar em PT, EN e ES", async ({ page }) => {
@@ -74,7 +78,7 @@ test("build com exemplos: seções, avisos visíveis e embed só após o clique"
   const section = page.locator("#conteudos-title").locator("xpath=ancestor::section[1]");
   await expect(section.locator("article[data-demo]")).toHaveCount(6);
   await expect(page.locator("#avaliacoes-title")).toBeVisible();
-  await expect(page.getByText("AVALIAÇÃO DE TESTE — fictícia, não é de uma paciente real")).toHaveCount(3);
+  await expect(page.getByText("EXEMPLO FICTÍCIO — não é uma avaliação real")).toHaveCount(3);
   // ordem: diferenciais < conteúdos < FAQ < avaliações < localização
   const order = await page.evaluate(() =>
     ["dif-title", "conteudos-title", "faq-title", "avaliacoes-title", "local-title"].map(
@@ -126,7 +130,7 @@ test("publicações reais: legenda original, link do post e datas", async ({ pag
   test.skip(await isDemoBuild(request), "build com exemplos");
   for (const prefix of ["", "/en", "/es"]) {
     await page.goto(`${prefix}/conteudos/`);
-    const cards = page.locator("article").filter({ has: page.locator('a[href*="instagram.com/p/"]') });
+    const cards = page.locator("article").filter({ has: page.locator('iframe[src*="instagram.com/p/"]') });
     await expect(cards).toHaveCount(3);
     await expect(cards.first().getByText("VOCÊ SABIA QUE…")).toBeVisible();
     await expect(page.getByText("Nem todo escape de urina acontece por fraqueza do assoalho pélvico.")).toBeVisible();
@@ -135,11 +139,13 @@ test("publicações reais: legenda original, link do post e datas", async ({ pag
   expect(await page.locator('h3[lang="pt"]').count()).toBe(3); // legenda original marcada como pt
 });
 
-test("build público não expõe avaliações fictícias", async ({ page, request }) => {
+test("avaliações de teste: só com a flag, sempre com selo visível e sem dados estruturados", async ({ page, request }) => {
   test.skip(await isDemoBuild(request), "build com exemplos");
-  for (const prefix of ["", "/en", "/es"]) {
+  for (const [prefix, label] of [["", "AVALIAÇÃO DE TESTE"], ["/en", "TEST REVIEW"], ["/es", "OPINIÓN DE PRUEBA"]] as const) {
     await page.goto(`${prefix}/`);
-    await expect(page.locator("#avaliacoes-title")).toHaveCount(0);
-    await expect(page.locator("[data-demo]")).toHaveCount(0);
+    const section = page.locator("#avaliacoes-title").locator("xpath=ancestor::section[1]");
+    await expect(section.locator("li")).toHaveCount(3);
+    await expect(section.getByText(label)).toHaveCount(3);
+    expect(await section.locator('[role="img"]').count()).toBe(0); // sem estrelas
   }
 });

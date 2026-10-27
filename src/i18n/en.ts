@@ -546,7 +546,6 @@ export const en: Dict = {
     empty: "Educational content will be published here once reviewed by the professional.",
     watch: "Watch here",
     posts: "Posts",
-    viewPost: "View post here",
     postTitle: (n) => `Post ${n}`,
     postHint: "Original post on Instagram.",
     playerPost: (n) => `Instagram post ${n}`,
