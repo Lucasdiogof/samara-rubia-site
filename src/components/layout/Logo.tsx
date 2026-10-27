@@ -2,39 +2,64 @@ import Link from "next/link";
 import { fullName } from "@/config/site";
 import { href, type Lang } from "@/i18n/config";
 
+/** Uma imagem por tema: `.logo-light` (cores originais) e `.logo-dark` (marrom vira creme), ver globals.css. */
+function Themed({
+  name,
+  width,
+  height,
+  className = "",
+  priority = false,
+}: {
+  name: "mark" | "lockup";
+  width: number;
+  height: number;
+  className?: string;
+  priority?: boolean;
+}) {
+  const common = {
+    width,
+    height,
+    "aria-hidden": true as const,
+    decoding: "async" as const,
+    loading: priority ? ("eager" as const) : ("lazy" as const),
+  };
+  /* eslint-disable @next/next/no-img-element -- export estático: a logo já vem em WebP no tamanho certo */
+  return (
+    <>
+      <img alt="" src={`/brand/${name}-light.webp`} className={`logo-light ${className}`} {...common} />
+      <img alt="" src={`/brand/${name}-dark.webp`} className={`logo-dark ${className}`} {...common} />
+    </>
+  );
+  /* eslint-enable @next/next/no-img-element */
+}
+
+/**
+ * Logo da Samara. `header`: monograma SR + nome em texto (cabeçalho compacto).
+ * `lockup`: logo completa (monograma, nome e "Fisioterapeuta pélvica"), usada no rodapé.
+ */
 export function Logo({
   lang,
   specialty,
-  tone = "dark",
+  variant = "header",
 }: {
   lang: Lang;
   specialty: string;
-  tone?: "dark" | "light";
+  variant?: "header" | "lockup";
 }) {
-  const c = tone === "dark" ? "text-cocoa-deep" : "text-vanilla";
+  if (variant === "lockup")
+    return (
+      <Link href={href(lang, "/")} aria-label={`${fullName} — ${specialty}`} className="inline-block">
+        <Themed name="lockup" width={236} height={180} className="h-auto w-[14.75rem]" />
+      </Link>
+    );
   return (
-    <Link href={href(lang, "/")} className={`group inline-flex items-center gap-3 ${c}`}>
-      <svg width="30" height="34" viewBox="0 0 30 34" aria-hidden="true" className="shrink-0">
-        <path
-          d="M2 33V15a13 13 0 0 1 26 0v18"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.4"
-        />
-        <path
-          d="M8 33V16a7 7 0 0 1 14 0v17"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.4"
-          opacity=".55"
-        />
-        <circle cx="15" cy="16" r="2" fill="currentColor" />
-      </svg>
+    <Link href={href(lang, "/")} className="group inline-flex items-center gap-3 text-cocoa-deep">
+      <Themed name="mark" width={46} height={46} className="h-[2.9rem] w-[2.9rem] shrink-0" priority />
       <span className="leading-none">
         <span className="block font-display text-[1.45rem] font-medium tracking-tight">
           {fullName}
         </span>
-        <span className="mt-1 block text-[0.62rem] font-semibold uppercase tracking-[0.22em] opacity-70">
+        <span className="mt-1 block whitespace-nowrap text-[0.62rem] font-semibold uppercase tracking-[0.22em] opacity-70">
           {specialty}
         </span>
       </span>

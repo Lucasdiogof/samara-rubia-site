@@ -16,6 +16,8 @@ export type PhotoConfig = {
   widths: number[];
   /** ponto focal do recorte, em % (50/50 = centro; rosto costuma ficar em y ≈ 25–35) */
   focal?: { x: number; y: number };
+  /** foto recortada com transparência: o fallback é PNG (não JPG) e a imagem se alinha à base */
+  alpha?: boolean;
 };
 
 export const site = {
@@ -73,9 +75,24 @@ export const site = {
    */
   images: {
     /** hero: recomendado 4:5 vertical, mínimo 1600 px de largura */
-    hero: null as PhotoConfig | null,
+    hero: {
+      name: "samara-hero",
+      alt: "Samara Rúbia, fisioterapeuta pélvica, sorrindo",
+      width: 825,
+      height: 1150,
+      widths: [480, 768],
+      focal: { x: 50, y: 50 },
+      alpha: true,
+    } as PhotoConfig | null,
     /** seção Sobre (home e página): recomendado 3:4 vertical, mínimo 1400 px */
-    portrait: null as PhotoConfig | null,
+    portrait: {
+      name: "samara-retrato",
+      alt: "Samara Rúbia, fisioterapeuta pélvica, sentada e sorrindo",
+      width: 825,
+      height: 1280,
+      widths: [480, 768],
+      focal: { x: 50, y: 26 },
+    } as PhotoConfig | null,
     /** consultório: recomendado 3:2 horizontal (a primeira é a principal), 1 a 4 fotos */
     office: [] as PhotoConfig[],
   },

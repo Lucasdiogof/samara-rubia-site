@@ -21,16 +21,35 @@ export function Portrait({
   className = "",
 }: Props) {
   const photo = site.images[slot];
+  // Foto recortada (transparente): entra sobre o cenário em arco, como se saísse dele.
+  if (photo?.alpha)
+    return (
+      <>
+        <ArchBackdrop />
+        <Photo photo={photo} sizes={sizes} priority={priority} className={className} />
+      </>
+    );
   if (photo) return <Photo photo={photo} sizes={sizes} priority={priority} className={className} />;
+  return <ArchBackdrop letter />;
+}
+
+/** Cenário em arco (areia, sol cacau, ondas e fios): fundo da foto recortada e placeholder sem foto. */
+function ArchBackdrop({ letter = false }: { letter?: boolean }) {
   return (
     <svg
       viewBox="0 0 480 600"
       preserveAspectRatio="xMidYMid slice"
       aria-hidden="true"
-      className={`h-full w-full ${className}`}
+      className="h-full w-full"
     >
-      <rect width="480" height="600" fill="#D6C2A7" />
-      <circle cx="350" cy="190" r="92" fill="#735C4C" />
+      <defs>
+        <linearGradient id="arch-sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#E3D3BC" />
+          <stop offset="1" stopColor="#D6C2A7" />
+        </linearGradient>
+      </defs>
+      <rect width="480" height="600" fill="url(#arch-sky)" />
+      <circle cx="352" cy="176" r="96" fill="#735C4C" />
       <path d="M-20 600V420c70-60 150-70 230-30s170 40 270-20v230Z" fill="#B1977C" />
       <path d="M-20 600V500c90-40 170-30 250 10s150 30 250-10v100Z" fill="#EEE4D5" />
       <path
@@ -47,17 +66,19 @@ export function Portrait({
         strokeWidth="1"
         opacity=".35"
       />
-      <text
-        x="240"
-        y="360"
-        textAnchor="middle"
-        fontFamily="var(--font-cormorant), Georgia, serif"
-        fontStyle="italic"
-        fontSize="190"
-        fill="#FCF8F1"
-      >
-        S
-      </text>
+      {letter && (
+        <text
+          x="240"
+          y="360"
+          textAnchor="middle"
+          fontFamily="var(--font-cormorant), Georgia, serif"
+          fontStyle="italic"
+          fontSize="190"
+          fill="#FCF8F1"
+        >
+          S
+        </text>
+      )}
     </svg>
   );
 }

@@ -25,8 +25,8 @@ export function Photo({ photo, sizes, priority = false, className = "" }: Props)
       <source type="image/avif" srcSet={srcSet(photo, "avif")} sizes={sizes} />
       <source type="image/webp" srcSet={srcSet(photo, "webp")} sizes={sizes} />
       <img
-        src={`/images/${photo.name}-${fallback}.jpg`}
-        srcSet={srcSet(photo, "jpg")}
+        src={`/images/${photo.name}-${fallback}.${photo.alpha ? "png" : "jpg"}`}
+        srcSet={srcSet(photo, photo.alpha ? "png" : "jpg")}
         sizes={sizes}
         alt={photo.alt}
         width={photo.width}
@@ -34,8 +34,8 @@ export function Photo({ photo, sizes, priority = false, className = "" }: Props)
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : "auto"}
         decoding={priority ? "sync" : "async"}
-        className={`absolute inset-0 h-full w-full object-cover ${className}`}
-        style={{ objectPosition: `${x}% ${y}%` }}
+        className={`absolute inset-0 h-full w-full ${photo.alpha ? "object-contain" : "object-cover"} ${className}`}
+        style={{ objectPosition: photo.alpha ? "50% 100%" : `${x}% ${y}%` }}
       />
     </picture>
   );

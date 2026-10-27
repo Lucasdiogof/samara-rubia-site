@@ -4,7 +4,7 @@
 import sharp from "sharp";
 import { chromium } from "@playwright/test";
 import { spawn } from "node:child_process";
-import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { ogProblems } from "./og-check.mjs";
 
@@ -17,24 +17,26 @@ const C = {
   deep: "#372C27",
 };
 
-// Marca do Logo.tsx (mesmos arcos e ponto), traço mais firme para ler em 16–32 px.
-const mark = (stroke, bg) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-<rect width="64" height="64" rx="${bg.r}" fill="${bg.fill}"/>
-<g transform="translate(14.4 11.5) scale(1.17)" fill="none" stroke="${C.vanilla}" stroke-width="${stroke}" stroke-linecap="round">
-<path d="M2 33V15a13 13 0 0 1 26 0v18"/><path d="M8 33V16a7 7 0 0 1 14 0v17" opacity=".7"/>
-<circle cx="15" cy="16" r="2.2" fill="${C.vanilla}" stroke="none"/></g></svg>`;
+// Ícones: monograma SR da logo (variante para fundo escuro) sobre cacau profundo.
+const b64 = (f) => readFileSync(f).toString("base64");
+const markDark = b64("design/brand/out/mark-dark.png");
+const markLight = b64("design/brand/out/mark-light.png");
+const cutout = b64("design/brand/hero-cutout.png");
+const iconSvg = (r) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<rect width="64" height="64" rx="${r}" fill="${C.deep}"/>
+<image href="data:image/png;base64,${markDark}" x="10" y="10" width="44" height="44"/></svg>`;
 
 mkdirSync("public", { recursive: true });
-const svgIcon = mark(2.6, { r: 14, fill: C.cocoa });
-writeFileSync("src/app/icon.svg", svgIcon);
 const png = (svg, s) =>
   sharp(Buffer.from(svg), { density: 384 }).resize(s, s).png({ compressionLevel: 9 }).toBuffer();
-writeFileSync("src/app/apple-icon.png", await png(mark(2.4, { r: 0, fill: C.cocoa }), 180));
-writeFileSync("public/icon-192.png", await png(svgIcon, 192));
-writeFileSync("public/icon-512.png", await png(svgIcon, 512));
+rmSync("src/app/icon.svg", { force: true });
+writeFileSync("src/app/icon.png", await png(iconSvg(14), 512));
+writeFileSync("src/app/apple-icon.png", await png(iconSvg(0), 180));
+writeFileSync("public/icon-192.png", await png(iconSvg(14), 192));
+writeFileSync("public/icon-512.png", await png(iconSvg(14), 512));
 // favicon.ico com PNGs embutidos (16, 32, 48)
 const sizes = [16, 32, 48];
-const imgs = await Promise.all(sizes.map((s) => png(svgIcon, s)));
+const imgs = await Promise.all(sizes.map((s) => png(iconSvg(14), s)));
 const head = Buffer.alloc(6 + 16 * sizes.length);
 head.writeUInt16LE(1, 2);
 head.writeUInt16LE(sizes.length, 4);
@@ -62,16 +64,15 @@ const ogBody = (C) => `
     <path d="M60 510V230a140 140 0 0 1 280 0v280" fill="none" stroke="${C.vanilla}" stroke-width="2"/>
     <path d="M110 510V240a90 90 0 0 1 180 0v270" fill="none" stroke="${C.cocoa}" stroke-width="1.5" opacity=".6"/>
   </svg>
+  <img src="data:image/png;base64,${cutout}" style="position:absolute;right:70px;top:60px;width:400px;height:510px;object-fit:contain;object-position:50% 100%;clip-path:inset(0 round 200px 200px 0 0)"/>
   <svg style="position:absolute;right:50px;top:80px" width="400" height="510" viewBox="0 0 400 510"><path d="M0 510V200a200 200 0 0 1 400 0v310z" fill="none" stroke="${C.taupe}" stroke-width="1.5" transform="translate(-0 0)"/></svg>
-  <div style="position:absolute;left:80px;top:80px;display:flex;align-items:center;gap:16px;color:${C.deep}">
-    <svg width="38" height="43" viewBox="0 0 30 34"><path d="M2 33V15a13 13 0 0 1 26 0v18" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 33V16a7 7 0 0 1 14 0v17" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".55"/><circle cx="15" cy="16" r="2" fill="currentColor"/></svg>
-  </div>
+  <img src="data:image/png;base64,${markLight}" style="position:absolute;left:76px;top:56px;width:84px;height:84px"/>
   <div style="position:absolute;left:80px;top:178px;width:600px;color:${C.deep}">
     <p style="font-family:var(--font-manrope),sans-serif;font-size:19px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:${C.cocoa}">Fisioterapia Pélvica</p>
     <p style="font-family:var(--font-cormorant),serif;font-weight:500;font-size:112px;line-height:1;letter-spacing:-.01em;margin-top:26px">Samara<br>Rúbia</p>
     <p style="font-family:var(--font-cormorant),serif;font-style:italic;font-size:36px;color:${C.cocoa};margin-top:30px">Cuidado que acolhe.</p>
   </div>
-  <p style="position:absolute;left:140px;top:91px;font-family:var(--font-manrope),sans-serif;font-size:19px;letter-spacing:.06em;color:${C.cocoa}">samararubia.com</p>
+  <p style="position:absolute;left:176px;top:86px;font-family:var(--font-manrope),sans-serif;font-size:19px;letter-spacing:.06em;color:${C.cocoa}">samararubia.com</p>
 </div>`;
 const srv = spawn("node", ["scripts/serve-out.mjs"], {
   env: { ...process.env, PORT: "4179" },

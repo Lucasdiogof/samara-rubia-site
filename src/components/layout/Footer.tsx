@@ -14,7 +14,7 @@ export function Footer({ lang }: { lang: Lang }) {
     <footer id="rodape" className="bg-cream">
       <div className="wrap grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <Logo lang={lang} specialty={t.specialty} />
+          <Logo lang={lang} specialty={t.specialty} variant="lockup" />
           <p className="mt-6 max-w-xs text-[0.95rem] text-cocoa">
             {t.footer.blurb}
           </p>

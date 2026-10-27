@@ -11,6 +11,8 @@
   --taupe: #b1977c;
   --cocoa: #735c4c;
   --cocoa-deep: #372c27;
+  /* Terracota da logo: destaque quente (itálicos dos títulos) */
+  --warm: #b5603f;
 
   /* Tokens semânticos */
   --background: var(--vanilla);
@@ -34,6 +36,11 @@ html[data-theme="dark"] {
   --taupe: #9a8167;
   --cocoa: #cdb9a2;
   --cocoa-deep: #f3eadc;
+  --warm: #e3a487;
+}
+/* seções escuras (qualquer tema): terracota clara para contrastar com o marrom */
+.on-dark {
+  --warm: #e3a487;
 }
 html[data-theme="dark"] .on-dark {
   color-scheme: light;
@@ -114,6 +121,17 @@ body {
   outline-color: var(--vanilla);
 }
 
+/* Logo: uma imagem por tema (a escura troca o marrom por creme) */
+.logo-dark {
+  display: none;
+}
+html[data-theme="dark"] .logo-light {
+  display: none;
+}
+html[data-theme="dark"] .logo-dark {
+  display: inline-block;
+}
+
 .wrap {
   width: 100%;
   max-width: var(--container);
@@ -161,11 +179,7 @@ body {
 .t-h3 em {
   font-style: italic;
   font-weight: 400;
-  color: var(--cocoa);
-}
-.on-dark .t-display em,
-.on-dark .t-h2 em {
-  color: var(--sand);
+  color: var(--warm);
 }
 .t-lead {
   font-size: var(--fs-lead);
