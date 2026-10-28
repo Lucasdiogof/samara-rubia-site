@@ -1,12 +1,27 @@
-// Redireciona www para o domínio principal (301); todo o resto vem dos assets estáticos.
+// Redireciona www para o domínio principal (301); todo o resto vem dos assets estáticos, com cabeçalhos de segurança.
+const APEX = "samararubia.com";
+
+// Sem CSP de propósito: o export do Next usa scripts inline que exigiriam hashes a cada build.
+const SECURITY_HEADERS = {
+  "X-Content-Type-Options": "nosniff",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "X-Frame-Options": "DENY",
+  "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+};
+
 const worker = {
-  fetch(request, env) {
+  async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.hostname === "www.samararubia.com") {
-      url.hostname = "samararubia.com";
+    if (url.hostname === `www.${APEX}`) {
+      url.hostname = APEX;
       return Response.redirect(url.toString(), 301);
     }
-    return env.ASSETS.fetch(request);
+    const res = await env.ASSETS.fetch(request);
+    const headers = new Headers(res.headers);
+    for (const [k, v] of Object.entries(SECURITY_HEADERS)) headers.set(k, v);
+    // A cópia em *.workers.dev nunca deve ser indexada, mesmo depois que o domínio principal for liberado.
+    if (url.hostname !== APEX) headers.set("X-Robots-Tag", "noindex, nofollow");
+    return new Response(res.body, { status: res.status, statusText: res.statusText, headers });
   },
 };
 

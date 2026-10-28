@@ -9,9 +9,13 @@ export function whatsappUrl(lang: Lang = "pt"): string | null {
   return `https://wa.me/${n}?text=${encodeURIComponent(waMessage[lang])}`;
 }
 
-export const instagramUrl = site.contact.instagram
-  ? `https://instagram.com/${site.contact.instagram}`
-  : null;
+// O @ vem de variável de build: só caracteres de um usuário do Instagram entram no caminho da URL.
+const INSTAGRAM_RE = /^[A-Za-z0-9._]{1,30}$/;
+
+export const instagramUrl =
+  site.contact.instagram && INSTAGRAM_RE.test(site.contact.instagram)
+    ? `https://instagram.com/${site.contact.instagram}`
+    : null;
 
 export const hasWhatsapp = whatsappUrl() !== null;
 /** Há ao menos um canal real confirmado (a página de contato tem o que mostrar). */
