@@ -53,8 +53,7 @@ export const pt = {
   },
 
   hero: {
-    title: "Cuidado que *acolhe,* atenção que *respeita* cada história.",
-    lead: "Fisioterapia pélvica para homens e mulheres, com avaliação individual, escuta atenta e total respeito à sua privacidade.",
+    eyebrow: "Fisioterapia Pélvica em Goiânia",
     about: "Conheça meu trabalho",
     points: ["Etapas explicadas", "Sigilo profissional", "Para homens e mulheres"],
   },
@@ -364,6 +363,7 @@ export const pt = {
       `Conheça ${name}, fisioterapeuta pélvica: abordagem de atendimento, formação e valores.`,
     eyebrow: "Sobre",
     title: (first: string) => `Prazer, *${first}.*`,
+    pageTitle: "Minha *história.*",
     lead: "Fisioterapeuta pélvica, com um atendimento pensado para que cada pessoa se sinta ouvida e segura.",
     review:
       "Versão de revisão: história profissional, formação e fotografias serão inseridas após confirmação.",
