@@ -11,7 +11,7 @@ export function Intro({ lang }: { lang: Lang }) {
         </h2>
         <ScrubText
           as="p"
-          className="mt-8 max-w-5xl font-display text-[clamp(1.9rem,1.2rem+3vw,3.6rem)] leading-[1.12] text-cocoa-deep"
+          className="mt-8 max-w-4xl font-display text-[clamp(1.5rem,1.1rem+1.6vw,2.25rem)] leading-[1.3] text-cocoa-deep"
         >
           {t.text}
         </ScrubText>

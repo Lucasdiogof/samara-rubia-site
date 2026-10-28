@@ -51,13 +51,12 @@ export const en: Dict = {
 
   intro: {
     eyebrow: "What is pelvic physiotherapy",
-    text: "Pelvic physiotherapy looks after the region that supports and coordinates essential everyday functions: urinating, bowel movements, moving around and enjoying intimacy. It is care for *men and women,* at any stage of life.",
+    text: "Many symptoms related to the intimate region may be associated with changes in how the pelvic floor muscles work, which take part in urinary and bowel control, sexual function and the support of the pelvic organs. Pelvic physiotherapy assesses these changes and directs treatment individually for *men and women* at any stage of life.",
   },
 
   areas: {
     eyebrow: "Areas of practice",
-    title: "Where pelvic physiotherapy *can* help.",
-    text: "Topics for which an assessment is commonly sought. Every case is unique, and the plan comes from your individual assessment.",
+    title: "What Pelvic Physiotherapy *treats.*",
     all: "See all treatments",
   },
 

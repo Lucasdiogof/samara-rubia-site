@@ -18,9 +18,6 @@ export function Areas({ lang }: { lang: Lang }) {
               {t.title}
             </RevealText>
             <FadeInSection delay={0.2}>
-              <p className="mt-6 text-cocoa">
-                {t.text}
-              </p>
               <Link
                 href={href(lang, "/tratamentos/")}
                 className="link-u mt-6 inline-block font-semibold text-cocoa-deep"

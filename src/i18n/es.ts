@@ -51,13 +51,12 @@ export const es: Dict = {
 
   intro: {
     eyebrow: "Qué es la fisioterapia pélvica",
-    text: "La fisioterapia pélvica cuida la región que sostiene y coordina funciones esenciales del día a día: orinar, evacuar, moverse y vivir la intimidad. Es un cuidado para *hombres y mujeres,* en cualquier etapa de la vida.",
+    text: "Muchos síntomas relacionados con la región íntima pueden estar asociados a alteraciones en el funcionamiento de los músculos del suelo pélvico, que participan en el control urinario e intestinal, en la función sexual y en el sostén de los órganos pélvicos. La Fisioterapia Pélvica evalúa estas alteraciones y orienta el tratamiento de forma individualizada para *hombres y mujeres* en cualquier etapa de la vida.",
   },
 
   areas: {
     eyebrow: "Áreas de actuación",
-    title: "Dónde la fisioterapia pélvica *puede* ayudar.",
-    text: "Temas por los que suele buscarse una evaluación. Cada caso es único y el plan nace de tu evaluación individual.",
+    title: "Qué *trata* la Fisioterapia Pélvica.",
     all: "Ver todos los tratamientos",
   },
 
