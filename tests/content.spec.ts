@@ -15,8 +15,8 @@ test("build público: 3 publicações reais, sem exemplos, avaliações nem dado
   test.skip(await isDemoBuild(request), "build com exemplos");
   for (const url of ["/", "/en/", "/es/", "/conteudos/"]) {
     await page.goto(url);
-    // só as 3 avaliações de teste (com selo) podem ser fictícias; conteúdos e artigos, nunca
-    expect(await page.locator("[data-demo]").count()).toBe(url === "/conteudos/" ? 0 : 3);
+    // nada fictício na página (as avaliações de teste estão ocultas)
+    expect(await page.locator("[data-demo]").count()).toBe(0);
     expect(await page.locator("article[data-demo]").count()).toBe(0);
     const ld = await page.locator('script[type="application/ld+json"]').allTextContents();
     expect(ld.join("")).not.toMatch(/Review|AggregateRating|"Article"/);
@@ -27,10 +27,10 @@ test("build público: 3 publicações reais, sem exemplos, avaliações nem dado
     const eager = await page.locator("iframe:not([loading=lazy])").count();
     expect(eager).toBe(0);
   }
-  // ordem na home: diferenciais < conteúdos < FAQ < localização
+  // ordem na home: diferenciais < conteúdos < FAQ < localização (avaliações ocultas por ora)
   await page.goto("/");
   const order = await page.evaluate(() =>
-    ["dif-title", "conteudos-title", "faq-title", "avaliacoes-title", "local-title"].map(
+    ["dif-title", "conteudos-title", "faq-title", "local-title"].map(
       (id) => document.getElementById(id)?.getBoundingClientRect().top ?? -1,
     ),
   );
@@ -77,11 +77,9 @@ test("build com exemplos: seções, avisos visíveis e embed só após o clique"
   await page.goto("/");
   const section = page.locator("#conteudos-title").locator("xpath=ancestor::section[1]");
   await expect(section.locator("article[data-demo]")).toHaveCount(6);
-  await expect(page.locator("#avaliacoes-title")).toBeVisible();
-  await expect(page.getByText("EXEMPLO FICTÍCIO — não é uma avaliação real")).toHaveCount(3);
-  // ordem: diferenciais < conteúdos < FAQ < avaliações < localização
+  // ordem: diferenciais < conteúdos < FAQ < localização
   const order = await page.evaluate(() =>
-    ["dif-title", "conteudos-title", "faq-title", "avaliacoes-title", "local-title"].map(
+    ["dif-title", "conteudos-title", "faq-title", "local-title"].map(
       (id) => document.getElementById(id)?.getBoundingClientRect().top ?? -1,
     ),
   );
@@ -139,13 +137,11 @@ test("publicações reais: legenda original, link do post e datas", async ({ pag
   expect(await page.locator('h3[lang="pt"]').count()).toBe(3); // legenda original marcada como pt
 });
 
-test("avaliações de teste: só com a flag, sempre com selo visível e sem dados estruturados", async ({ page, request }) => {
-  test.skip(await isDemoBuild(request), "build com exemplos");
-  for (const [prefix, label] of [["", "AVALIAÇÃO DE TESTE"], ["/en", "TEST REVIEW"], ["/es", "OPINIÓN DE PRUEBA"]] as const) {
+// Avaliações ocultas até haver casos reais e autorizados (ver <ReviewsSection> comentado em src/views/index.tsx).
+test("avaliações: seção oculta na home, sem avaliações nem dados estruturados", async ({ page }) => {
+  for (const prefix of ["", "/en", "/es"]) {
     await page.goto(`${prefix}/`);
-    const section = page.locator("#avaliacoes-title").locator("xpath=ancestor::section[1]");
-    await expect(section.locator("li")).toHaveCount(3);
-    await expect(section.getByText(label)).toHaveCount(3);
-    expect(await section.locator('[role="img"]').count()).toBe(0); // sem estrelas
+    await expect(page.locator("#avaliacoes-title")).toHaveCount(0);
+    expect(await page.locator('script[type="application/ld+json"]').allTextContents().then((t) => t.join(""))).not.toContain("Review");
   }
 });
