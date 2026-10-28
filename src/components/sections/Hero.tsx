@@ -2,10 +2,12 @@ import { RevealText, RevealImage, FadeInSection } from "@/components/animations/
 import { AnimatedButton } from "@/components/ui/Button";
 import { Blob, Portrait } from "@/components/ui/Portrait";
 import { getDict, href, type Lang } from "@/i18n";
+import { fullName } from "@/config/site";
 import { primaryCta as getCta } from "@/lib/contact";
 
 export function Hero({ lang }: { lang: Lang }) {
   const t = getDict(lang).hero;
+  const about = getDict(lang).about;
   const primaryCta = getCta(lang);
   return (
     <section className="relative overflow-hidden pb-12 pt-28 sm:pt-32 lg:pb-16 lg:pt-36">
@@ -16,14 +18,14 @@ export function Hero({ lang }: { lang: Lang }) {
       <div className="wrap relative grid items-center gap-10 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <FadeInSection intro>
-            <p className="eyebrow">{getDict(lang).specialty}</p>
+            <p className="eyebrow">{t.eyebrow}</p>
           </FadeInSection>
           <RevealText as="h1" className="t-display mt-6" delay={0.1} intro>
-            {t.title}
+            {about.title(fullName.split(" ")[0]!)}
           </RevealText>
           <FadeInSection delay={0.5} intro>
             <p className="t-lead mt-8">
-              {t.lead}
+              {about.lead}
             </p>
           </FadeInSection>
           <FadeInSection intro delay={0.65} className="mt-10 flex flex-wrap gap-4">

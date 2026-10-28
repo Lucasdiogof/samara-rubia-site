@@ -44,8 +44,7 @@ export const es: Dict = {
   },
 
   hero: {
-    title: "Un cuidado que *acoge,* una atención que *respeta* cada historia.",
-    lead: "Fisioterapia pélvica para hombres y mujeres, con evaluación individual, escucha atenta y total respeto por tu privacidad.",
+    eyebrow: "Fisioterapia Pélvica en Goiânia",
     about: "Conoce mi trabajo",
     points: ["Etapas explicadas", "Secreto profesional", "Para hombres y mujeres"],
   },
@@ -356,6 +355,7 @@ export const es: Dict = {
       `Conoce a ${name}, fisioterapeuta pélvica: enfoque de atención, formación y valores.`,
     eyebrow: "Sobre mí",
     title: (first) => `Mucho gusto, *${first}.*`,
+    pageTitle: "Mi *historia.*",
     lead: "Fisioterapeuta pélvica, con una atención pensada para que cada persona se sienta escuchada y segura.",
     review:
       "Versión de revisión: la historia profesional, la formación y las fotografías se incluirán tras su confirmación.",

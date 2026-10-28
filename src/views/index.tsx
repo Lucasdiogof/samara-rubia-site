@@ -225,7 +225,7 @@ function About({ lang }: { lang: Lang }) {
       <PageHero
         lang={lang}
         eyebrow={a.eyebrow}
-        title={a.title(fullName.split(" ")[0]!)}
+        title={a.pageTitle}
         lead={a.lead}
         crumbs={[{ name: a.crumb, path: "/sobre/" }]}
       >

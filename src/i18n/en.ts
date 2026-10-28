@@ -44,8 +44,7 @@ export const en: Dict = {
   },
 
   hero: {
-    title: "Care that *welcomes,* attention that *respects* every story.",
-    lead: "Pelvic physiotherapy for men and women, with individual assessment, attentive listening and full respect for your privacy.",
+    eyebrow: "Pelvic Physiotherapy in Goiânia",
     about: "See my work",
     points: ["Every step explained", "Professional confidentiality", "For men and women"],
   },
@@ -354,6 +353,7 @@ export const en: Dict = {
       `Meet ${name}, pelvic physiotherapist: approach to care, training and values.`,
     eyebrow: "About",
     title: (first) => `Nice to meet you, *${first}.*`,
+    pageTitle: "My *story.*",
     lead: "A pelvic physiotherapist, with care designed so that each person feels heard and safe.",
     review:
       "Review version: professional background, training and photographs will be added once confirmed.",
