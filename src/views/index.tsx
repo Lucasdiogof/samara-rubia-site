@@ -1,7 +1,9 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Check } from "lucide-react";
+import { BookOpenCheck, Check, ClipboardList, Ear, TrendingUp } from "lucide-react";
+
+const approachIcons = [ClipboardList, Ear, BookOpenCheck, TrendingUp];
 import { PageHero, ReviewNotice, CtaBand } from "@/components/ui/PageParts";
 import { AnimatedButton } from "@/components/ui/Button";
 import { Accordion } from "@/components/ui/Accordion";
@@ -232,8 +234,8 @@ function About({ lang }: { lang: Lang }) {
         <ReviewNotice approved={site.approved.about}>{a.review}</ReviewNotice>
       </PageHero>
 
-      <section className="pb-14">
-        <div className="wrap grid items-start gap-10 lg:grid-cols-12">
+      <section className="pb-10">
+        <div className="wrap grid items-start gap-8 lg:grid-cols-12">
           <div className="mx-auto w-full max-w-md lg:sticky lg:top-28 lg:col-span-5 lg:max-w-none">
             <RevealImage className="relative aspect-[3/4] overflow-hidden rounded-t-[999px] rounded-b-[2rem] bg-sand">
               <div className="relative h-full w-full">
@@ -241,12 +243,14 @@ function About({ lang }: { lang: Lang }) {
               </div>
             </RevealImage>
           </div>
-          <div className="space-y-10 lg:col-span-7 lg:pl-8">
+          <div className="space-y-8 lg:col-span-7 lg:pl-8">
             <FadeInSection>
               <h2 className="t-h3">{a.history}</h2>
-              <div className="prose-calm mt-5">
-                {t.bio.map((p) => (
-                  <p key={p}>{p}</p>
+              <div className="prose-calm mt-4">
+                {a.story.map((p, i) => (
+                  <p key={p} className={i === 0 ? "text-[1.15rem] leading-[1.7] text-cocoa-deep" : undefined}>
+                    {p}
+                  </p>
                 ))}
               </div>
             </FadeInSection>
@@ -264,16 +268,25 @@ function About({ lang }: { lang: Lang }) {
                   ))}
                 </div>
               )}
-              <StaggerContainer
-                as="ul"
-                className="mt-6 divide-y divide-border border-y border-border"
-              >
-                {t.differentials.map((d) => (
-                  <StaggerItem as="li" key={d.title} className="py-4">
-                    <span className="font-display text-xl text-cocoa-deep">{d.title}</span>
-                    <span className="mt-1 block text-cocoa">{d.text}</span>
-                  </StaggerItem>
-                ))}
+              <StaggerContainer as="ul" className="mt-5 grid gap-3">
+                {a.approachItems.map((d, i) => {
+                  const Icon = approachIcons[i] ?? ClipboardList;
+                  return (
+                    <StaggerItem
+                      as="li"
+                      key={d.title}
+                      className="flex gap-4 rounded-2xl border border-border bg-cream/60 p-4 sm:p-5"
+                    >
+                      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-cream text-[var(--warm)]">
+                        <Icon size={22} strokeWidth={1.5} aria-hidden="true" />
+                      </span>
+                      <div>
+                        <h3 className="font-display text-[1.35rem] leading-tight text-cocoa-deep">{d.title}</h3>
+                        <p className="mt-1 text-[0.97rem] text-cocoa">{d.text}</p>
+                      </div>
+                    </StaggerItem>
+                  );
+                })}
               </StaggerContainer>
             </div>
           </div>

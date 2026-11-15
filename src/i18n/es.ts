@@ -57,14 +57,6 @@ export const es: Dict = {
     all: "Conoce todos los tratamientos",
   },
 
-  /** Apresentação profissional (texto da Samara), exibida em Sobre mim e na página Sobre. */
-  bio: [
-    "Soy Samara Rúbia, fisioterapeuta egresada de la Pontificia Universidad Católica de Goiás (PUC Goiás), con 5 años de trabajo en Goiânia y formación en Fisioterapia Pélvica.",
-    "Mi trabajo está dirigido al cuidado de mujeres y hombres que presentan alteraciones relacionadas con el suelo pélvico.",
-    "Creo en una atención individualizada, acogedora y basada en evidencia científica. Cada paciente tiene necesidades distintas y, por eso, realizo una evaluación detallada para comprender cada caso y definir un tratamiento personalizado.",
-    "Busco mantenerme en constante actualización para ofrecer un cuidado seguro, individualizado y adecuado a las necesidades de cada paciente, contribuyendo a la mejora de los síntomas, de la función del suelo pélvico y de la calidad de vida.",
-  ] as string[],
-
   aboutTeaser: {
     eyebrow: "Sobre mí",
     heading: "Atención especializada para tu *suelo pélvico*",
@@ -385,18 +377,29 @@ export const es: Dict = {
       `Conoce a ${name}, fisioterapeuta pélvica: enfoque de atención, formación y valores.`,
     eyebrow: "Sobre mí",
     title: (first) => `Mucho gusto, *${first}.*`,
-    pageTitle: "Mi *historia.*",
-    lead: "Fisioterapeuta pélvica, con una atención pensada para que cada persona se sienta escuchada y segura.",
+    pageTitle: "Mi trayectoria *profesional.*",
+    lead: "Conoce mi formación, mi experiencia y mi forma de trabajar en la fisioterapia pélvica.",
     review:
       "Versión de revisión: la historia profesional, la formación y las fotografías se incluirán tras su confirmación.",
-    history: "Historia profesional",
+    history: "Trayectoria profesional",
     historyFallback:
       "La presentación completa de la trayectoria profesional se publicará una vez que la propia Samara confirme la información.",
     education: "Formación",
     specializations: "Especializaciones",
     courses: "Cursos y calificaciones",
-    approach: "Enfoque de atención",
+    approach: "Cómo conduzco mis consultas",
     crumb: "Sobre mí",
+    story: [
+      "Graduada en Fisioterapia por la Pontificia Universidad Católica de Goiás (PUC Goiás), ejerzo desde hace cinco años en Goiânia, con formación en Fisioterapia Pélvica.",
+      "Mi práctica clínica está dedicada a la salud pélvica de mujeres y hombres, con foco en la prevención y el tratamiento de disfunciones urinarias, intestinales y sexuales.",
+      "Busco perfeccionar constantemente mis conocimientos para ofrecer tratamientos basados en evidencia científica y adecuados a las necesidades de cada paciente.",
+    ] as string[],
+    approachItems: [
+      { title: "Evaluación detallada", text: "Investigación de los síntomas, del historial clínico y de los hábitos de vida." },
+      { title: "Escucha y respeto", text: "Libertad para hablar de temas íntimos, sin vergüenza ni juicios." },
+      { title: "Práctica basada en evidencia", text: "Conductas terapéuticas fundamentadas en el conocimiento científico." },
+      { title: "Seguimiento de la evolución", text: "Reevaluación y adaptación del tratamiento según la evolución clínica." },
+    ],
   },
 
   treatments: {

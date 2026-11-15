@@ -57,14 +57,6 @@ export const en: Dict = {
     all: "Explore all treatments",
   },
 
-  /** Apresentação profissional (texto da Samara), exibida em Sobre mim e na página Sobre. */
-  bio: [
-    "I'm Samara Rúbia, a physiotherapist who graduated from the Pontifical Catholic University of Goiás (PUC Goiás), with 5 years of practice in Goiânia and training in Pelvic Physiotherapy.",
-    "My work focuses on the care of women and men who have conditions related to the pelvic floor.",
-    "I believe in individualised, welcoming care grounded in scientific evidence. Every patient has different needs, which is why I carry out a detailed assessment to understand each case and define a personalised treatment.",
-    "I keep up with continuous professional development to offer safe, individualised care suited to each patient's needs, helping to improve symptoms, pelvic floor function and quality of life.",
-  ] as string[],
-
   aboutTeaser: {
     eyebrow: "About me",
     heading: "Specialised care for your *pelvic floor*",
@@ -381,10 +373,10 @@ export const en: Dict = {
     metaTitle: "About",
     metaDescription: (name) =>
       `Meet ${name}, pelvic physiotherapist: approach to care, training and values.`,
-    eyebrow: "About",
+    eyebrow: "About me",
     title: (first) => `Nice to meet you, *${first}.*`,
-    pageTitle: "My *story.*",
-    lead: "A pelvic physiotherapist, with care designed so that each person feels heard and safe.",
+    pageTitle: "My professional *journey.*",
+    lead: "Learn about my training, experience and the way I work in pelvic physiotherapy.",
     review:
       "Review version: professional background, training and photographs will be added once confirmed.",
     history: "Professional background",
@@ -393,8 +385,19 @@ export const en: Dict = {
     education: "Education",
     specializations: "Specialisations",
     courses: "Courses and qualifications",
-    approach: "Approach to care",
+    approach: "How I conduct my appointments",
     crumb: "About",
+    story: [
+      "I graduated in Physiotherapy from the Pontifical Catholic University of Goiás (PUC Goiás) and have worked in Goiânia for five years, with specialised training in Pelvic Physiotherapy.",
+      "My clinical practice is dedicated to the pelvic health of women and men, focusing on the prevention and treatment of urinary, bowel and sexual dysfunctions.",
+      "I constantly work to improve my knowledge so that I can offer treatments grounded in scientific evidence and suited to each patient's needs.",
+    ] as string[],
+    approachItems: [
+      { title: "Detailed assessment", text: "Investigation of symptoms, clinical history and lifestyle habits." },
+      { title: "Listening and respect", text: "Freedom to talk about intimate matters, without embarrassment or judgement." },
+      { title: "Evidence-based practice", text: "Therapeutic approaches grounded in scientific knowledge." },
+      { title: "Monitoring progress", text: "Reassessment and adjustment of treatment as the clinical picture evolves." },
+    ],
   },
 
   treatments: {

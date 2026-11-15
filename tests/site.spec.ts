@@ -88,7 +88,7 @@ test("navegação entre páginas mantém animações funcionando", async ({ page
   await page.waitForLoadState("networkidle");
   await page.getByRole("link", { name: "Sobre", exact: true }).first().click();
   await expect(page).toHaveURL(/\/sobre\/$/);
-  await expect(page.locator("h1")).toContainText("Minha história");
+  await expect(page.locator("h1")).toContainText("Minha trajetória");
   await page.waitForTimeout(2500);
   expect(await page.evaluate(() => (window as unknown as { __animOk?: boolean }).__animOk)).toBe(
     true,
