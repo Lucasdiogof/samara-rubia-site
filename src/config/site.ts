@@ -24,7 +24,7 @@ export const site = {
   /** Nome provisório até confirmação. */
   displayName: "Samara Rúbia",
   professionalName: "Samara Rúbia Pires de Aquino" as string | null,
-  crefito: "3383766-F" as string | null,
+  crefito: "338376-F" as string | null,
 
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   /** Indexação só é liberada com NEXT_PUBLIC_INDEXABLE=true (após aprovação). */

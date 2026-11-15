@@ -11,7 +11,7 @@ Sem estes itens o site não deve ser divulgado como definitivo.
 ### Informações da Samara
 
 - [ ] Nome profissional completo (`professionalName`)
-- [x] **CREFITO** 3383766-F (confirmado pelo dono em 27/10; a arte antiga dizia 338376-F, sem número na logo nova)
+- [x] **CREFITO** 338376-F (confirmado pelo dono em 15/11, corrigindo o 3383766-F de 27/10)
 - [x] **WhatsApp** 5562982388209 (NEXT_PUBLIC_WHATSAPP em .env.production): CTAs, botão flutuante e mensagem pronta ativos
 - [x] Cidade e região (Goiânia, GO)
 - [x] Endereço (La Femme Consultórios, Rua 1123, nº 359, Quadra 220, Setor Marista, Goiânia – GO) e "Como chegar" no Google Maps. Faltam: sala, estacionamento, convênios
