@@ -1,5 +1,4 @@
 import { Star } from "lucide-react";
-import { RevealText } from "@/components/animations/Reveal";
 import { getDict, type Lang } from "@/i18n";
 import { ReviewsCarousel } from "@/components/ui/ReviewsCarousel";
 import { googleRating } from "@/config/content";
@@ -47,12 +46,9 @@ export function ReviewsSection({ lang }: { lang: Lang }) {
   return (
     <section className="section lap bg-cream" aria-labelledby="avaliacoes-title">
       <div className="wrap">
-        <p className="eyebrow">{t.eyebrow}</p>
-        <RevealText as="h2" id="avaliacoes-title" className="t-h2 mt-5 max-w-3xl">
-          {t.title}
-        </RevealText>
-        <p className="t-lead mt-6">{t.lead}</p>
-        <div className="mt-4">{rating}</div>
+        <h2 id="avaliacoes-title" className="sr-only">
+          {t.eyebrow}
+        </h2>
         <ReviewsCarousel label={t.carousel} prev={t.prev} next={t.next} goTo={list.map((_, i) => t.goTo(i + 1))}>
           {list.map((r) => (
             <figure key={r.id} className="flex w-full flex-col rounded-[1.5rem] bg-vanilla p-7 shadow-[var(--shadow-soft)]">

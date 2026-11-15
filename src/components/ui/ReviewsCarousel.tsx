@@ -22,13 +22,19 @@ export function ReviewsCarousel({
   const [page, setPage] = useState(0);
   const [pages, setPages] = useState(1);
 
+  const step = () => {
+    const el = track.current;
+    const li = el?.firstElementChild as HTMLElement | undefined;
+    return li ? li.offsetWidth + 24 : 1; // largura do card + gap (1.5rem)
+  };
+
   const measure = useCallback(() => {
     const el = track.current;
     if (!el) return;
-    const total = Math.max(1, Math.ceil((el.scrollWidth - 4) / el.clientWidth));
-    setPages(total);
+    const st = step();
     const max = el.scrollWidth - el.clientWidth;
-    setPage(max <= 0 ? 0 : el.scrollLeft >= max - 4 ? total - 1 : Math.round(el.scrollLeft / el.clientWidth));
+    setPages(max <= 4 ? 1 : Math.ceil((max - 4) / st) + 1);
+    setPage(max <= 4 ? 0 : el.scrollLeft >= max - 4 ? Math.ceil((max - 4) / st) : Math.round(el.scrollLeft / st));
   }, []);
 
   useEffect(() => {
@@ -42,7 +48,7 @@ export function ReviewsCarousel({
 
   const scrollToPage = (i: number) => {
     const el = track.current;
-    if (el) el.scrollTo({ left: i * el.clientWidth, behavior: "smooth" });
+    if (el) el.scrollTo({ left: Math.min(i * step(), el.scrollWidth - el.clientWidth), behavior: "smooth" });
   };
 
   const onPointerDown = (e: React.PointerEvent) => {
@@ -65,7 +71,7 @@ export function ReviewsCarousel({
     if (drag.current && el) {
       el.style.scrollSnapType = "";
       if (drag.current.moved) {
-        const w = el.clientWidth;
+        const w = step();
         el.scrollTo({ left: Math.round(el.scrollLeft / w) * w, behavior: "smooth" });
       }
     }
@@ -74,7 +80,7 @@ export function ReviewsCarousel({
 
   const multi = pages > 1;
   return (
-    <div role="region" aria-label={label} className="mt-10">
+    <div role="region" aria-label={label}>
       <ul
         ref={track}
         onScroll={measure}
@@ -88,7 +94,7 @@ export function ReviewsCarousel({
         {children.map((c, i) => (
           <li
             key={i}
-            className="flex min-w-0 shrink-0 basis-[84%] snap-start sm:basis-[calc((100%-1.5rem)/2)] lg:basis-[calc((100%-3rem)/3)]"
+            className="flex min-w-0 shrink-0 basis-[84%] snap-start sm:basis-[calc((100%-1.5rem)/1.6)] lg:basis-[calc((100%-3rem)/2.6)]"
           >
             {c}
           </li>

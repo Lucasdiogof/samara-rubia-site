@@ -146,7 +146,7 @@ test("avaliações: nota real, botão do Google, 5 avaliações reais e sem dado
   ] as const) {
     await page.goto(`${prefix}/`);
     const sec = page.locator("#avaliacoes-title").locator("xpath=ancestor::section[1]");
-    await expect(sec.getByText(summary)).toBeVisible();
+    await expect(sec.getByText(summary)).toHaveCount(0); // bloco de título, texto e nota removido a pedido
     await expect(sec.getByRole("link", { name: button })).toHaveAttribute("href", "https://www.google.com/maps?cid=2387843673426098565");
     const quotes = await sec.locator("blockquote").allTextContents();
     expect(quotes).toHaveLength(5); // mais recente primeiro, texto original
