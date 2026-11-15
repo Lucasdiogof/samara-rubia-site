@@ -100,11 +100,11 @@ export const en: Dict = {
     ],
     /** 0, 1, 2–3, 4–5, 6–8 selecionados. Mensagens educativas: nunca pontuação, risco ou gravidade. */
     states: [
-      { title: "Get to know the signs your body gives.", text: "Select the situations you relate to." },
-      { title: "Your body deserves attention.", text: "An individual assessment can help you understand this symptom." },
-      { title: "Every sign deserves to be understood.", text: "A professional assessment can help investigate your concerns." },
-      { title: "Your pelvic health deserves care.", text: "Knowing your body better is an important part of caring for it." },
-      { title: "Take the first step towards care.", text: "Talk to a professional to understand your needs in an individualised way." },
+      { title: "Is any of this part of your routine?", text: "Select the options you relate to." },
+      { title: "Has this ever happened to you?", text: "If this happens often or causes discomfort, it's worth looking into." },
+      { title: "Is this getting in the way of your day-to-day life?", text: "Understanding what is causing these symptoms is important to choose the right treatment." },
+      { title: "How long have you been living with these symptoms?", text: "A physiotherapy assessment can help understand your complaints and guide treatment." },
+      { title: "How about talking about what you're feeling?", text: "In the appointment, we can assess these complaints calmly and work out which care makes sense for your case." },
     ],
   },
 

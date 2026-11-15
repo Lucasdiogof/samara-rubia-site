@@ -100,11 +100,11 @@ export const es: Dict = {
     ],
     /** 0, 1, 2–3, 4–5, 6–8 selecionados. Mensagens educativas: nunca pontuação, risco ou gravidade. */
     states: [
-      { title: "Conoce mejor las señales de tu cuerpo.", text: "Marca las situaciones con las que te identificas." },
-      { title: "Tu cuerpo merece atención.", text: "Una evaluación individual puede ayudar a comprender este síntoma." },
-      { title: "Cada señal merece ser comprendida.", text: "Una evaluación profesional puede ayudar a investigar tus molestias." },
-      { title: "Tu salud pélvica merece cuidado.", text: "Conocer mejor tu cuerpo es parte importante del cuidado." },
-      { title: "Da el primer paso hacia el cuidado.", text: "Habla con una profesional para entender tus necesidades de forma individualizada." },
+      { title: "¿Alguna de estas situaciones forma parte de tu rutina?", text: "Selecciona las opciones con las que te identificas." },
+      { title: "¿Te ha pasado alguna vez?", text: "Si esta situación ocurre con frecuencia o te causa molestia, vale la pena investigarla." },
+      { title: "¿Esto ha afectado tu día a día?", text: "Entender qué causa estos síntomas es importante para definir el tratamiento adecuado." },
+      { title: "¿Hace cuánto tiempo convives con estos síntomas?", text: "Una evaluación fisioterapéutica puede ayudar a entender tus molestias y orientar el tratamiento." },
+      { title: "¿Qué tal si conversamos sobre lo que sientes?", text: "En la consulta, podemos evaluar estas molestias con calma y entender qué cuidados tienen sentido para tu caso." },
     ],
   },
 

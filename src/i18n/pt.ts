@@ -109,11 +109,11 @@ export const pt = {
     ],
     /** 0, 1, 2–3, 4–5, 6–8 selecionados. Mensagens educativas: nunca pontuação, risco ou gravidade. */
     states: [
-      { title: "Conheça melhor os sinais do seu corpo.", text: "Marque as situações com as quais você se identifica." },
-      { title: "Seu corpo merece atenção.", text: "Uma avaliação individual pode ajudar a compreender esse sintoma." },
-      { title: "Cada sinal merece ser compreendido.", text: "Uma avaliação profissional pode ajudar a investigar suas queixas." },
-      { title: "Sua saúde pélvica merece cuidado.", text: "Conhecer melhor o seu corpo é parte importante do cuidado." },
-      { title: "Dê o primeiro passo em direção ao cuidado.", text: "Converse com uma profissional para entender suas necessidades de forma individualizada." },
+      { title: "Alguma dessas situações faz parte da sua rotina?", text: "Selecione as opções com as quais você se identifica." },
+      { title: "Já passou por isso alguma vez?", text: "Se essa situação acontece com frequência ou causa desconforto, vale investigar." },
+      { title: "Isso tem interferido no seu dia a dia?", text: "Entender o que está causando esses sintomas é importante para definir o tratamento adequado." },
+      { title: "Há quanto tempo você convive com esses sintomas?", text: "Uma avaliação fisioterapêutica pode ajudar a entender suas queixas e orientar o tratamento." },
+      { title: "Que tal conversar sobre o que você está sentindo?", text: "Na consulta, podemos avaliar essas queixas com calma e entender quais cuidados fazem sentido para o seu caso." },
     ],
   },
 
