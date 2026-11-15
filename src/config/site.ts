@@ -23,7 +23,7 @@ export type PhotoConfig = {
 export const site = {
   /** Nome provisório até confirmação. */
   displayName: "Samara Rúbia",
-  professionalName: null as string | null,
+  professionalName: "Samara Rúbia Pires de Aquino" as string | null,
   crefito: "3383766-F" as string | null,
 
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",

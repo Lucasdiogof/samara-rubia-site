@@ -582,7 +582,7 @@ export const en: Dict = {
   reviews: {
     eyebrow: "Reviews",
     title: "What people say *about* the care.",
-    lead: "Selected 5-star Google reviews, published with the authors' permission. Original texts; not all reviews are shown.",
+    lead: "Reviews published on Google, transcribed with the authors' permission.",
     source: "Google review",
     demo: "TEST REVIEW — fictional, not from a real patient",
     seeAll: "See reviews on Google",

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { fullName } from "@/config/site";
+import { fullName, site } from "@/config/site";
 import { href, type Lang } from "@/i18n/config";
 
 /** Uma imagem por tema: `.logo-light` (cores originais) e `.logo-dark` (marrom vira creme), ver globals.css. */
@@ -57,7 +57,7 @@ export function Logo({
       <Themed name="mark" width={46} height={46} className="h-[2.9rem] w-[2.9rem] shrink-0" priority />
       <span className="leading-none">
         <span className="block font-display text-[1.45rem] font-medium tracking-tight">
-          {fullName}
+          {site.displayName}
         </span>
         <span className="mt-1 block whitespace-nowrap text-[0.62rem] font-semibold uppercase tracking-[0.22em] opacity-70">
           {specialty}

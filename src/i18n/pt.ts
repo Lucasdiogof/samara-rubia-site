@@ -592,7 +592,7 @@ export const pt = {
   reviews: {
     eyebrow: "Avaliações",
     title: "O que dizem *sobre* o atendimento.",
-    lead: "Avaliações selecionadas do Google, de 5 estrelas, publicadas com autorização de quem as escreveu. Textos originais; nem todas as avaliações são exibidas.",
+    lead: "Avaliações publicadas no Google, transcritas com autorização de quem as escreveu.",
     source: "Avaliação no Google",
     demo: "AVALIAÇÃO DE TESTE — fictícia, não é de uma paciente real",
     seeAll: "Ver avaliações no Google",

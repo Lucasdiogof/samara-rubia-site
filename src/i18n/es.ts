@@ -585,7 +585,7 @@ export const es: Dict = {
   reviews: {
     eyebrow: "Opiniones",
     title: "Lo que dicen *sobre* la atención.",
-    lead: "Reseñas seleccionadas de Google, de 5 estrellas, publicadas con autorización de sus autores. Textos originales; no se muestran todas las reseñas.",
+    lead: "Reseñas publicadas en Google, transcritas con autorización de sus autores.",
     source: "Opinión en Google",
     demo: "OPINIÓN DE PRUEBA — ficticia, no es de una paciente real",
     seeAll: "Ver opiniones en Google",

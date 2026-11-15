@@ -148,12 +148,13 @@ test("sem JavaScript: todo o conteúdo essencial está visível", async ({ brows
   await ctx.close();
 });
 
-test("revisão: noindex, canonical, robots e sitemap", async ({ page, request }) => {
+test("lançado: sem noindex, canonical, robots e sitemap", async ({ page, request }) => {
   await page.goto("/");
-  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+  await expect(page.locator('meta[name="robots"]')).not.toHaveAttribute("content", /noindex/);
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", /\/$/);
   const robots = await (await request.get("/robots.txt")).text();
-  expect(robots).toContain("Disallow: /");
+  expect(robots).not.toContain("Disallow: /");
+  expect(robots).toContain("Sitemap: https://samararubia.com/sitemap.xml");
   const sitemap = await (await request.get("/sitemap.xml")).text();
   expect(sitemap).toContain("/tratamentos/dor-pelvica/");
   expect((await request.get("/rota-inexistente/")).status()).toBe(404);
