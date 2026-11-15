@@ -4,7 +4,7 @@ import type { Dict } from "./pt";
 export const en: Dict = {
   specialty: "Pelvic Physiotherapy",
   siteDescription: (wa) =>
-    `Pelvic physiotherapist in Goiânia, Brazil (Setor Marista). Pelvic physiotherapy for women and men with individual assessment and a welcoming approach.${wa ? " Book via WhatsApp." : ""}`,
+    `Pelvic physiotherapist in Goiânia, Brazil (Setor Marista). Pelvic physiotherapy for women and men with individual assessment and follow-up.${wa ? " Book via WhatsApp." : ""}`,
 
   a11y: {
     skip: "Skip to content",
@@ -34,7 +34,7 @@ export const en: Dict = {
 
   footer: {
     blurb:
-      "Pelvic physiotherapy with attentive listening, privacy and individualised care, for men and women.",
+      "Pelvic physiotherapy for women and men, in Goiânia.",
     navigation: "Navigation",
     contact: "Contact",
     waSoon: "WhatsApp coming soon",
@@ -45,13 +45,13 @@ export const en: Dict = {
     eyebrow: "Pelvic Physiotherapy in Goiânia",
     about: "See my work",
     title: "*Samara Rúbia* Pelvic Physiotherapist",
-    lead: "Humanised care for women and men, focused on intimate health, function, well-being and quality of life.",
+    lead: "Assessment and treatment of urinary, bowel and sexual dysfunction and pelvic pain, in women and men.",
   },
 
   pelvic: {
     eyebrow: "Pelvic health",
     title: "What is Pelvic Physiotherapy and what does it *treat?*",
-    text: "Pelvic physiotherapy works in the prevention and treatment of pelvic floor disorders related to urinary, bowel and sexual function, promoting health and quality of life for men and women.",
+    text: "Pelvic physiotherapy works in the prevention and treatment of pelvic floor disorders related to urinary, bowel and sexual function, in men and women.",
     all: "Explore all treatments",
   },
 
@@ -60,8 +60,7 @@ export const en: Dict = {
     heading: "Specialised care for your *pelvic floor*",
     body: [
       "Graduated in Physiotherapy from the Pontifical Catholic University of Goiás, with specialised training in Pelvic Physiotherapy and five years of professional practice in Goiânia.",
-      "My work is dedicated to the pelvic health of women and men, aiming to promote comfort, autonomy and quality of life.",
-      "I believe in care that combines scientific knowledge, attentive listening and respect for the individuality of each patient.",
+      "I treat women and men with urinary, bowel and sexual complaints and pelvic pain, always starting from a detailed assessment.",
     ] as string[],
     title: "A space to talk about what is *delicate,* without rushing.",
     summary: (name) =>
@@ -138,10 +137,10 @@ export const en: Dict = {
 
   finalCta: {
     eyebrow: "Next step",
-    titleWa: "Your care starts with a *conversation.*",
+    titleWa: "Shall we book your *assessment?*",
     titleNoWa: "Soon, the first *contact.*",
     textWa:
-      "Send a message to book your assessment. No commitment, and no need to detail anything in writing.",
+      "Message me on WhatsApp to agree a day and time. You don't need to explain your symptoms in writing.",
     textNoWa:
       "Contact and booking channels are still being prepared and will be announced here as soon as they are confirmed.",
     buttonWa: "Book via WhatsApp",
@@ -170,7 +169,7 @@ export const en: Dict = {
 
   page: {
     breadcrumbHome: "Home",
-    ctaBandTitle: "Shall we talk about your care?",
+    ctaBandTitle: "Want to book your assessment?",
     ctaFaqTitle: "Still have questions?",
     ctaFaqLabel: "Frequently asked questions",
     ctaHowTitle: "Want to understand the care?",
@@ -188,7 +187,7 @@ export const en: Dict = {
       "From first contact on WhatsApp to follow-up: see what a pelvic physiotherapy assessment is like, with privacy and consent.",
     eyebrow: "How it works",
     title: "Care that is *clear* at every step.",
-    lead: "Knowing what will happen helps you arrive more at ease. See the journey and the safeguards that go with it.",
+    lead: "See what happens from the first message to follow-up.",
     crumb: "How it works",
     care: [
       [
@@ -235,8 +234,8 @@ export const en: Dict = {
     eyebrow: "FAQ",
     title: "Frequently asked *questions.*",
     leadWa:
-      "Educational answers, organised by topic. Still have a question? Just ask through the contact page.",
-    leadNoWa: "Educational answers, organised by topic.",
+      "Answers organised by topic. If your question isn't here, ask on WhatsApp.",
+    leadNoWa: "Answers organised by topic.",
     review: "Review version: the answers are still to be clinically validated by the professional.",
     crumb: "Frequently asked questions",
   },
@@ -263,11 +262,11 @@ export const en: Dict = {
       items: [
         {
           q: "What is the first appointment like?",
-          a: "The assessment starts with a conversation about your history and your symptoms. The assessment procedures suited to your case are explained before any step, and nothing is done without your understanding and consent.",
+          a: "It starts with a conversation about your history and your symptoms. The assessment procedures are explained before each step and only happen with your consent.",
         },
         {
           q: "Does the assessment cause pain or embarrassment?",
-          a: "The aim is for you to feel safe. Each step is explained before it happens and only carried out with your consent. If anything is uncomfortable, it can be adjusted or stopped.",
+          a: "The aim is for you to feel safe. If anything is uncomfortable, it can be adjusted or stopped at any time.",
         },
         {
           q: "Do I need a medical referral?",
@@ -288,7 +287,7 @@ export const en: Dict = {
         },
         {
           q: "Is care in person? What about fees and insurance?",
-          a: "Care is offered in person in Goiânia (address in the Location section) and also online, Monday to Friday. Please confirm fees and insurance directly via WhatsApp.",
+          a: "Appointments are in person in Goiânia (address in the Location section), Monday to Friday, 9am to 6pm. Please confirm fees and insurance on WhatsApp.",
         },
         {
           q: "Is my health information kept confidential?",
@@ -342,7 +341,7 @@ export const en: Dict = {
   about: {
     metaTitle: "About",
     metaDescription: (name) =>
-      `Meet ${name}, pelvic physiotherapist: approach to care, training and values.`,
+      `Meet ${name}, pelvic physiotherapist: training, experience and what care involves.`,
     eyebrow: "About me",
     title: (first) => `Nice to meet you, *${first}.*`,
     pageTitle: "My professional *journey.*",
@@ -358,13 +357,13 @@ export const en: Dict = {
     approach: "How I conduct my appointments",
     crumb: "About",
     story: [
-      "I graduated in Physiotherapy from the Pontifical Catholic University of Goiás (PUC Goiás) and have worked in Goiânia for five years, with specialised training in Pelvic Physiotherapy.",
-      "My clinical practice is dedicated to the pelvic health of women and men, focusing on the prevention and treatment of urinary, bowel and sexual dysfunctions.",
-      "I constantly work to improve my knowledge so that I can offer treatments grounded in scientific evidence and suited to each patient's needs.",
+      "I graduated in Physiotherapy from PUC Goiás and trained in Pelvic Physiotherapy. I have practised in Goiânia for five years.",
+      "I work on the prevention and treatment of urinary, bowel and sexual dysfunction, in women and men.",
+      "I keep studying so that my approach follows the scientific evidence and fits each patient.",
     ] as string[],
     approachItems: [
       { title: "Detailed assessment", text: "Investigation of symptoms, clinical history and lifestyle habits." },
-      { title: "Listening and respect", text: "Freedom to talk about intimate matters, without embarrassment or judgement." },
+      { title: "Talking without embarrassment", text: "Freedom to talk about intimate matters, without embarrassment or judgement." },
       { title: "Evidence-based practice", text: "Therapeutic approaches grounded in scientific knowledge." },
       { title: "Monitoring progress", text: "Reassessment and adjustment of treatment as the clinical picture evolves." },
     ],
@@ -403,7 +402,7 @@ export const en: Dict = {
       title: "Sexual dysfunctions",
       short: "A judgement-free space to talk about intimate pain and discomfort.",
       description:
-        "Pain or discomfort in sexual life can be related to the pelvic floor. The conversation is handled with respect, privacy and at your pace.",
+        "Pain or discomfort in sexual life can be related to the pelvic floor. The assessment is done in private and at your pace.",
       indications: [
         "Pain during penetration or after intercourse",
         "Involuntary muscle contraction that makes penetration difficult or impossible",
@@ -416,7 +415,7 @@ export const en: Dict = {
       title: "Pain during intercourse",
       short: "Assessment of pain or discomfort during or after sexual intercourse.",
       description:
-        "Pain during intercourse can be linked to tension or increased sensitivity of the pelvic floor muscles, among other factors. The assessment helps understand where the complaint comes from and define the treatment, through a calm conversation and at your own pace.",
+        "Pain during intercourse can be linked to tension or increased sensitivity of the pelvic floor muscles, among other factors. The assessment helps understand where the complaint comes from and define the treatment.",
       indications: [
         "Pain on penetration",
         "Pain during or after intercourse",
@@ -427,7 +426,7 @@ export const en: Dict = {
     {
       slug: "dor-pelvica",
       title: "Chronic pelvic pain",
-      short: "Listening and assessment for persistent pain in the pelvic area.",
+      short: "Assessment of persistent pain in the pelvic area.",
       description:
         "Chronic pelvic pain can have different origins and affect sleep, work and intimate life. The physiotherapy assessment considers your history and routine to guide the next steps.",
       indications: [
@@ -533,7 +532,7 @@ export const en: Dict = {
       title: "Pregnancy and postpartum",
       short: "Support for the body during and after pregnancy.",
       description:
-        "Pregnancy and childbirth bring important changes to the body. Pelvic physiotherapy can guide care of the pelvic floor before and after birth, respecting your moment.",
+        "Pregnancy and childbirth bring important changes to the body. Pelvic physiotherapy can guide care of the pelvic floor before and after birth.",
       indications: [
         "Questions about preparing the body for birth",
         "Urine leakage during or after pregnancy",
@@ -582,11 +581,15 @@ export const en: Dict = {
   reviews: {
     eyebrow: "Reviews",
     title: "What people say *about* the care.",
-    lead: "Reviews published on Google, transcribed with the authors' permission.",
+    lead: "Comments left on Google, reproduced with their authors' permission.",
     source: "Google review",
     demo: "TEST REVIEW — fictional, not from a real patient",
     seeAll: "See all reviews on Google",
     summary: (v: string, n: number) => `Rated ${v} out of 5 · ${n} reviews on Google`,
+    carousel: "Google reviews carousel",
+    prev: "Previous reviews",
+    next: "Next reviews",
+    goTo: (n) => `Go to review group ${n}`,
     stars: (n) => `${n} out of 5 stars`,
   },
 

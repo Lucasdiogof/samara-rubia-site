@@ -4,7 +4,7 @@ import type { Dict } from "./pt";
 export const es: Dict = {
   specialty: "Fisioterapia Pélvica",
   siteDescription: (wa) =>
-    `Fisioterapeuta pélvica en Goiânia, Brasil (Setor Marista). Fisioterapia pélvica femenina y masculina con evaluación individual y acogida.${wa ? " Reserva por WhatsApp." : ""}`,
+    `Fisioterapeuta pélvica en Goiânia, Brasil (Setor Marista). Fisioterapia pélvica femenina y masculina con evaluación individual y seguimiento.${wa ? " Reserva por WhatsApp." : ""}`,
 
   a11y: {
     skip: "Saltar al contenido",
@@ -34,7 +34,7 @@ export const es: Dict = {
 
   footer: {
     blurb:
-      "Fisioterapia pélvica con escucha, privacidad y cuidado individualizado, para hombres y mujeres.",
+      "Fisioterapia pélvica para mujeres y hombres, en Goiânia.",
     navigation: "Navegación",
     contact: "Contacto",
     waSoon: "WhatsApp próximamente",
@@ -45,13 +45,13 @@ export const es: Dict = {
     eyebrow: "Fisioterapia Pélvica en Goiânia",
     about: "Conoce mi trabajo",
     title: "*Samara Rúbia* Fisioterapeuta Pélvica",
-    lead: "Atención humanizada para mujeres y hombres, con foco en salud íntima, funcionalidad, bienestar y calidad de vida.",
+    lead: "Evaluación y tratamiento de disfunciones urinarias, intestinales y sexuales y del dolor pélvico, en mujeres y hombres.",
   },
 
   pelvic: {
     eyebrow: "Salud pélvica",
     title: "¿Qué es la Fisioterapia Pélvica y qué *trata?*",
-    text: "La fisioterapia pélvica actúa en la prevención y el tratamiento de alteraciones del suelo pélvico, relacionadas con las funciones urinaria, intestinal y sexual, promoviendo salud y calidad de vida para hombres y mujeres.",
+    text: "La fisioterapia pélvica actúa en la prevención y el tratamiento de alteraciones del suelo pélvico, relacionadas con las funciones urinaria, intestinal y sexual, en hombres y mujeres.",
     all: "Conoce todos los tratamientos",
   },
 
@@ -60,8 +60,7 @@ export const es: Dict = {
     heading: "Atención especializada para tu *suelo pélvico*",
     body: [
       "Graduada en Fisioterapia por la Pontificia Universidad Católica de Goiás, con formación en Fisioterapia Pélvica y cinco años de actuación profesional en Goiânia.",
-      "Mi trabajo está dedicado a la salud pélvica de mujeres y hombres, buscando promover comodidad, autonomía y calidad de vida.",
-      "Creo en un cuidado que une conocimiento científico, escucha atenta y respeto por la individualidad de cada paciente.",
+      "Atiendo a mujeres y hombres con molestias urinarias, intestinales y sexuales y con dolor pélvico, siempre a partir de una evaluación detallada.",
     ] as string[],
     title: "Un espacio para hablar de lo *delicado,* sin prisa.",
     summary: (name) =>
@@ -138,10 +137,10 @@ export const es: Dict = {
 
   finalCta: {
     eyebrow: "Próximo paso",
-    titleWa: "Tu cuidado empieza con una *conversación.*",
+    titleWa: "¿Reservamos tu *evaluación?*",
     titleNoWa: "Pronto, el primer *contacto.*",
     textWa:
-      "Envía un mensaje para reservar tu evaluación. Sin compromiso y sin tener que detallar nada por escrito.",
+      "Escríbeme por WhatsApp para acordar día y hora. No necesitas explicar tus síntomas por mensaje.",
     textNoWa:
       "Los canales de contacto y de reserva de citas aún están en preparación y se publicarán aquí en cuanto se confirmen.",
     buttonWa: "Reservar por WhatsApp",
@@ -170,7 +169,7 @@ export const es: Dict = {
 
   page: {
     breadcrumbHome: "Inicio",
-    ctaBandTitle: "¿Conversamos sobre tu cuidado?",
+    ctaBandTitle: "¿Quieres reservar tu evaluación?",
     ctaFaqTitle: "¿Te quedaron dudas?",
     ctaFaqLabel: "Preguntas frecuentes",
     ctaHowTitle: "¿Quieres entender la atención?",
@@ -188,7 +187,7 @@ export const es: Dict = {
       "Del primer contacto por WhatsApp al seguimiento: así es la evaluación en fisioterapia pélvica, con privacidad y consentimiento.",
     eyebrow: "Cómo funciona",
     title: "Una atención *clara* en cada etapa.",
-    lead: "Saber lo que va a pasar ayuda a llegar con más tranquilidad. Mira el recorrido y los cuidados que lo acompañan.",
+    lead: "Mira qué ocurre desde el primer mensaje hasta el seguimiento.",
     crumb: "Cómo funciona",
     care: [
       [
@@ -236,8 +235,8 @@ export const es: Dict = {
     eyebrow: "Dudas",
     title: "Preguntas *frecuentes.*",
     leadWa:
-      "Respuestas educativas, organizadas por tema. ¿Te quedó alguna duda? Solo pregunta en la página de contacto.",
-    leadNoWa: "Respuestas educativas, organizadas por tema.",
+      "Respuestas organizadas por tema. Si tu duda no está aquí, pregunta por WhatsApp.",
+    leadNoWa: "Respuestas organizadas por tema.",
     review:
       "Versión de revisión: las respuestas aún serán validadas clínicamente por la profesional.",
     crumb: "Preguntas frecuentes",
@@ -290,7 +289,7 @@ export const es: Dict = {
         },
         {
           q: "¿La atención es presencial? ¿Y los valores y seguros?",
-          a: "La atención es presencial, en Goiânia (dirección en la sección Ubicación), y también en línea, de lunes a viernes. Confirma los precios y los seguros directamente por WhatsApp.",
+          a: "La atención es presencial, en Goiânia (dirección en la sección Ubicación), de lunes a viernes, de 9:00 a 18:00. Confirma los precios y los seguros por WhatsApp.",
         },
         {
           q: "¿Mi información de salud se mantiene en secreto?",
@@ -360,13 +359,13 @@ export const es: Dict = {
     approach: "Cómo conduzco mis consultas",
     crumb: "Sobre mí",
     story: [
-      "Graduada en Fisioterapia por la Pontificia Universidad Católica de Goiás (PUC Goiás), ejerzo desde hace cinco años en Goiânia, con formación en Fisioterapia Pélvica.",
-      "Mi práctica clínica está dedicada a la salud pélvica de mujeres y hombres, con foco en la prevención y el tratamiento de disfunciones urinarias, intestinales y sexuales.",
-      "Busco perfeccionar constantemente mis conocimientos para ofrecer tratamientos basados en evidencia científica y adecuados a las necesidades de cada paciente.",
+      "Soy graduada en Fisioterapia por la PUC Goiás y tengo formación en Fisioterapia Pélvica. Ejerzo desde hace cinco años en Goiânia.",
+      "Trabajo en la prevención y el tratamiento de disfunciones urinarias, intestinales y sexuales, en mujeres y hombres.",
+      "Sigo estudiando para que las conductas sigan la evidencia científica y se ajusten a cada paciente.",
     ] as string[],
     approachItems: [
       { title: "Evaluación detallada", text: "Investigación de los síntomas, del historial clínico y de los hábitos de vida." },
-      { title: "Escucha y respeto", text: "Libertad para hablar de temas íntimos, sin vergüenza ni juicios." },
+      { title: "Hablar sin vergüenza", text: "Libertad para hablar de temas íntimos, sin vergüenza ni juicios." },
       { title: "Práctica basada en evidencia", text: "Conductas terapéuticas fundamentadas en el conocimiento científico." },
       { title: "Seguimiento de la evolución", text: "Reevaluación y adaptación del tratamiento según la evolución clínica." },
     ],
@@ -406,7 +405,7 @@ export const es: Dict = {
       title: "Disfunciones sexuales",
       short: "Un espacio sin juicios para hablar de dolor y molestias íntimas.",
       description:
-        "El dolor o la molestia en la vida sexual pueden estar relacionados con el suelo pélvico. La conversación se lleva con respeto, privacidad y a tu ritmo.",
+        "El dolor o la molestia en la vida sexual pueden estar relacionados con el suelo pélvico. La evaluación se hace con privacidad y a tu ritmo.",
       indications: [
         "Dolor durante la penetración o después de la relación",
         "Contracción involuntaria que dificulta o impide la penetración",
@@ -419,7 +418,7 @@ export const es: Dict = {
       title: "Dolor en la relación sexual",
       short: "Evaluación del dolor o la molestia durante o después de la relación sexual.",
       description:
-        "El dolor durante la relación sexual puede estar relacionado con la tensión o la mayor sensibilidad de los músculos del suelo pélvico, entre otros factores. La evaluación ayuda a entender el origen de la molestia y a definir el tratamiento, con una conversación tranquila y a tu ritmo.",
+        "El dolor durante la relación sexual puede estar relacionado con la tensión o la mayor sensibilidad de los músculos del suelo pélvico, entre otros factores. La evaluación ayuda a entender el origen de la molestia y a definir el tratamiento.",
       indications: [
         "Dolor en la penetración",
         "Dolor durante o después de la relación",
@@ -430,7 +429,7 @@ export const es: Dict = {
     {
       slug: "dor-pelvica",
       title: "Dolor pélvico crónico",
-      short: "Escucha y evaluación para dolores persistentes en la región de la pelvis.",
+      short: "Evaluación de dolores persistentes en la región de la pelvis.",
       description:
         "El dolor pélvico crónico puede tener distintos orígenes e impactar el sueño, el trabajo y la vida íntima. La evaluación fisioterapéutica considera tu historial y tu rutina para orientar los próximos pasos.",
       indications: [
@@ -536,7 +535,7 @@ export const es: Dict = {
       title: "Embarazo y posparto",
       short: "Acompañamiento del cuerpo durante y después del embarazo.",
       description:
-        "El embarazo y el parto traen cambios importantes para el cuerpo. La fisioterapia pélvica puede orientar el cuidado del suelo pélvico antes y después del nacimiento, respetando tu momento.",
+        "El embarazo y el parto traen cambios importantes para el cuerpo. La fisioterapia pélvica puede orientar el cuidado del suelo pélvico antes y después del nacimiento.",
       indications: [
         "Dudas sobre la preparación del cuerpo para el parto",
         "Pérdida de orina durante o después del embarazo",
@@ -585,11 +584,15 @@ export const es: Dict = {
   reviews: {
     eyebrow: "Opiniones",
     title: "Lo que dicen *sobre* la atención.",
-    lead: "Reseñas publicadas en Google, transcritas con autorización de sus autores.",
+    lead: "Comentarios dejados en Google, reproducidos con autorización de sus autores.",
     source: "Opinión en Google",
     demo: "OPINIÓN DE PRUEBA — ficticia, no es de una paciente real",
     seeAll: "Ver todas las opiniones en Google",
     summary: (v: string, n: number) => `Nota ${v} de 5 · ${n} opiniones en Google`,
+    carousel: "Carrusel de reseñas de Google",
+    prev: "Reseñas anteriores",
+    next: "Reseñas siguientes",
+    goTo: (n) => `Ir al grupo de reseñas ${n}`,
     stars: (n) => `${n} de 5 estrellas`,
   },
 

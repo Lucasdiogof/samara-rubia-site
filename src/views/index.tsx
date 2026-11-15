@@ -52,12 +52,12 @@ function Home({ lang }: { lang: Lang }) {
     <>
       <Hero lang={lang} />
       <PelvicHealth lang={lang} />
-      <AboutTeaser lang={lang} />
       <Signals lang={lang} />
-      <ContentSection lang={lang} />
-      <FaqSection lang={lang} />
+      <AboutTeaser lang={lang} />
       <ReviewsSection lang={lang} />
       <LocationSection lang={lang} />
+      <ContentSection lang={lang} />
+      <FaqSection lang={lang} />
       <FinalCta lang={lang} />
     </>
   );

@@ -35,6 +35,16 @@ export function businessLd(lang: Lang) {
     name: `${site.professionalName} — ${getDict(lang).specialty}`,
     url: site.url,
     sameAs,
+    ...(site.location.hours
+      ? {
+          openingHoursSpecification: {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: site.location.hours.open,
+            closes: site.location.hours.close,
+          },
+        }
+      : {}),
     address: {
       "@type": "PostalAddress",
       streetAddress: [address, site.location.district].filter(Boolean).join(", "),

@@ -16,7 +16,7 @@ Sem estes itens o site não deve ser divulgado como definitivo.
 - [x] Cidade e região (Goiânia, GO)
 - [x] Endereço (La Femme Consultórios, Rua 1123, nº 359, Quadra 220, Setor Marista, Goiânia – GO) e "Como chegar" no Google Maps. Faltam: sala, estacionamento, convênios
 - [x] Modalidades: presencial e online (`location.modalities`)
-- [x] Horários: 07:30–18:00, segunda a sexta (`location.hours` + texto `hoursNote`)
+- [x] Horários: 09:00–18:00, segunda a sexta (confirmado em 15/11) (`location.hours` + texto `hoursNote`)
 - [x] Biografia/apresentação (texto dela, 4 parágrafos)
 - [ ] Formação (`bio.education`), com instituição e ano, apenas o que for verificável
 

@@ -27,10 +27,10 @@ test("build público: 3 publicações reais, sem exemplos, avaliações nem dado
     const eager = await page.locator("iframe:not([loading=lazy])").count();
     expect(eager).toBe(0);
   }
-  // ordem na home: conteúdos < FAQ < localização (avaliações ocultas por ora)
+  // ordem na home: localização < conteúdos < FAQ
   await page.goto("/");
   const order = await page.evaluate(() =>
-    ["conteudos-title", "faq-title", "local-title"].map(
+    ["local-title", "conteudos-title", "faq-title"].map(
       (id) => document.getElementById(id)?.getBoundingClientRect().top ?? -1,
     ),
   );
@@ -77,9 +77,9 @@ test("build com exemplos: seções, avisos visíveis e embed só após o clique"
   await page.goto("/");
   const section = page.locator("#conteudos-title").locator("xpath=ancestor::section[1]");
   await expect(section.locator("article[data-demo]")).toHaveCount(6);
-  // ordem: conteúdos < FAQ < localização
+  // ordem: localização < conteúdos < FAQ
   const order = await page.evaluate(() =>
-    ["conteudos-title", "faq-title", "local-title"].map(
+    ["local-title", "conteudos-title", "faq-title"].map(
       (id) => document.getElementById(id)?.getBoundingClientRect().top ?? -1,
     ),
   );
@@ -143,7 +143,7 @@ test("avaliações: nota real, botão do Google, sem cards nem dados estruturado
     ["", "Nota 5,0 de 5 · 6 avaliações no Google", "Ver todas as avaliações no Google"],
     ["/en", "Rated 5.0 out of 5 · 6 reviews on Google", "See all reviews on Google"],
     ["/es", "Nota 5,0 de 5 · 6 opiniones en Google", "Ver todas las opiniones en Google"],
-  ]) {
+  ] as const) {
     await page.goto(`${prefix}/`);
     const sec = page.locator("#avaliacoes-title").locator("xpath=ancestor::section[1]");
     await expect(sec.getByText(summary)).toBeVisible();
@@ -153,4 +153,14 @@ test("avaliações: nota real, botão do Google, sem cards nem dados estruturado
     expect(ld).not.toMatch(/Review|AggregateRating/);
     expect(ld).toContain("share.google/0U02eVQQcknDOJqB7");
   }
+});
+
+test("home: ordem das seções e horário 09h–18h", async ({ page }) => {
+  await page.goto("/");
+  const ids = ["pelvic-title", "signals-title", "avaliacoes-title", "local-title", "conteudos-title", "faq-title"];
+  const tops = await page.evaluate((l) => l.map((id) => document.getElementById(id)?.getBoundingClientRect().top ?? -1), ids);
+  expect(tops.every((n) => n !== -1)).toBe(true);
+  expect(tops).toEqual([...tops].sort((a, b) => a - b));
+  await expect(page.getByText("Das 09h às 18h").first()).toBeVisible();
+  await expect(page.getByText("Segunda a sexta-feira").first()).toBeVisible();
 });

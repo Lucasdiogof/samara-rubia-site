@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
-import { RevealText, StaggerContainer, StaggerItem } from "@/components/animations/Reveal";
+import { RevealText } from "@/components/animations/Reveal";
 import { getDict, type Lang } from "@/i18n";
+import { ReviewsCarousel } from "@/components/ui/ReviewsCarousel";
 import { googleRating } from "@/config/content";
 import { allReviews, formatDate, googleProfileUrl } from "@/lib/content";
 
@@ -14,7 +15,7 @@ export function ReviewsSection({ lang }: { lang: Lang }) {
   const list = allReviews();
   const rating = googleRating && (
     <p className="flex items-center gap-2 text-cocoa-deep">
-      <Star size={18} fill="currentColor" aria-hidden="true" />
+      <Star size={18} fill="currentColor" aria-hidden="true" className="text-gold" />
       <span className="font-semibold">
         {t.summary(googleRating.value.toLocaleString(lang === "en" ? "en-GB" : lang === "es" ? "es-ES" : "pt-BR", { minimumFractionDigits: 1 }), googleRating.count)}
       </span>
@@ -52,51 +53,36 @@ export function ReviewsSection({ lang }: { lang: Lang }) {
         </RevealText>
         <p className="t-lead mt-6">{t.lead}</p>
         <div className="mt-4">{rating}</div>
-        <StaggerContainer as="ul" className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {list.slice(0, 6).map((r) => (
-            <StaggerItem
-              as="li"
-              key={r.id}
-              className="rounded-[1.5rem] bg-vanilla p-7 shadow-[var(--shadow-soft)]"
-            >
-              <div data-demo={r.demo || undefined} className="flex h-full flex-col">
-                {r.demo && (
-                  <p className="mb-4 w-fit rounded-xl bg-cocoa-deep px-3 py-1 text-xs font-semibold tracking-[0.06em] text-vanilla">
-                    {t.demo}
-                  </p>
-                )}
-                {r.rating && (
-                  <p
-                    className="mb-3 flex gap-0.5 text-cocoa"
-                    role="img"
-                    aria-label={t.stars(r.rating)}
-                  >
-                    {Array.from({ length: r.rating }, (_, i) => (
-                      <Star key={i} size={16} fill="currentColor" aria-hidden="true" />
-                    ))}
-                  </p>
-                )}
-                <blockquote lang={r.lang} className="flex-1 text-cocoa-deep">
-                  “{r.text}”
-                </blockquote>
-                <footer className="mt-6 border-t border-border pt-4 text-sm text-cocoa">
-                  <span className="font-semibold text-cocoa-deep">{r.author}</span>
-                  <span aria-hidden="true"> · </span>
-                  <time dateTime={r.date}>{formatDate(lang, r.date)}</time>
-                  <span className="block">
-                    {r.url && !r.demo ? (
-                      <a href={r.url} target="_blank" rel="noopener noreferrer" className="link-u">
-                        {t.source}
-                      </a>
-                    ) : (
-                      t.source
-                    )}
-                  </span>
-                </footer>
-              </div>
-            </StaggerItem>
+        <ReviewsCarousel label={t.carousel} prev={t.prev} next={t.next} goTo={list.map((_, i) => t.goTo(i + 1))}>
+          {list.map((r) => (
+            <figure key={r.id} className="flex w-full flex-col rounded-[1.5rem] bg-vanilla p-7 shadow-[var(--shadow-soft)]">
+              {r.rating && (
+                <p className="mb-3 flex gap-0.5 text-gold" role="img" aria-label={t.stars(r.rating)}>
+                  {Array.from({ length: r.rating }, (_, i) => (
+                    <Star key={i} size={18} fill="currentColor" aria-hidden="true" />
+                  ))}
+                </p>
+              )}
+              <blockquote lang={r.lang} className="flex-1 text-cocoa-deep">
+                “{r.text}”
+              </blockquote>
+              <figcaption className="mt-6 border-t border-border pt-4 text-sm text-cocoa">
+                <span className="font-semibold text-cocoa-deep">{r.author}</span>
+                <span aria-hidden="true"> · </span>
+                <time dateTime={r.date}>{formatDate(lang, r.date)}</time>
+                <span className="block">
+                  {r.url ? (
+                    <a href={r.url} target="_blank" rel="noopener noreferrer" className="link-u">
+                      {t.source}
+                    </a>
+                  ) : (
+                    t.source
+                  )}
+                </span>
+              </figcaption>
+            </figure>
           ))}
-        </StaggerContainer>
+        </ReviewsCarousel>
         {googleProfileUrl && (
           <a
             href={googleProfileUrl}

@@ -53,7 +53,7 @@ export const site = {
     /** presencial e/ou online; vazio = a confirmar */
     modalities: [] as ("presencial" | "online")[],
     /** Faixa confirmada; os dias da semana ainda não foram informados. */
-    hours: { open: "07:30", close: "18:00" } as { open: string; close: string } | null,
+    hours: { open: "09:00", close: "18:00" } as { open: string; close: string } | null,
   },
 
   /** Convênios aceitos. Vazio = a informação não é exibida. */

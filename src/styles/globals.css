@@ -27,9 +27,11 @@
   --text-secondary: var(--cocoa);
   --border: color-mix(in srgb, var(--cocoa) 22%, transparent);
   --focus-ring: var(--cocoa-deep);
+  --gold: #b07d12;
 }
 html[data-theme="dark"] {
   color-scheme: dark;
+  --gold: #e3b341;
   --vanilla: #1b1613;
   --cream: #261f1b;
   --sand: #4a3c32;
@@ -82,6 +84,7 @@ html[data-theme="dark"] .on-dark {
   --color-taupe: var(--taupe);
   --color-cocoa: var(--cocoa);
   --color-cocoa-deep: var(--cocoa-deep);
+  --color-gold: var(--gold);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);

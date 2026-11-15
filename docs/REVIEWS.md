@@ -35,3 +35,20 @@ e refresh token guardado como secret. Os Termos limitam armazenar e republicar o
 aprovado não há rotina automática possível; o único agendador viável seria Cloudflare Cron Trigger ou GitHub
 Actions (ambos gratuitos), rodando só para **avisar** (detectar avaliações novas/editadas/removidas) e não
 para publicar sozinho. Nada disso foi configurado: depende da Samara (acesso ao perfil) e da aprovação do Google.
+
+## Carrossel (15/11/2026)
+Todas as avaliações de `reviews` com `authorized: true` e 5 estrelas entram no carrossel (sem limite), com 3 cards no
+desktop, 2 no tablet e 1 + parte do próximo no celular. Setas, arrastar (toque e mouse), indicadores. Estrelas
+douradas, nome autorizado, texto original, data e "Avaliação no Google". Sem avaliações, a seção mostra só a nota,
+o total e o botão. O título e o texto não dizem "selecionadas".
+
+## API oficial: o que se sabe (pesquisa de 15/11/2026, confirmar na documentação do Google)
+- Acesso: formulário de solicitação da Business Profile API (análise do Google, prazo informado de ~14 dias),
+  concedido por projeto do Google Cloud; além disso a conta autenticada precisa ter acesso ao perfil da Samara.
+- Leitura de avaliações: endpoint `mybusiness.googleapis.com/v4/accounts/{a}/locations/{l}/reviews` (ainda v4).
+- Termos: valem os Termos Adicionais e as Políticas das APIs do Business Profile; o Google pode auditar o uso.
+  Não achei regra explícita sobre guardar avaliações, então a conduta segura é: só ler, não guardar o que não for
+  autorizado e exibir somente o que o autor autorizou.
+- Plano sem custo: Cloudflare Cron Trigger semanal no Worker (gratuito), com o refresh token como secret, que apenas
+  **compara** com `reviews` e avisa sobre novas, editadas e removidas. A publicação continua manual.
+- Bloqueio: precisa da Samara (dona do perfil) para autorizar o OAuth e para pedir/obter o acesso à API.
