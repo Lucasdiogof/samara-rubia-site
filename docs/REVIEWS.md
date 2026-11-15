@@ -58,3 +58,5 @@ Sem acesso à API, a rotina possível e gratuita é um **lembrete**: `.github/wo
 toda segunda uma issue neste repositório com o passo a passo manual. Não lê o Google nem guarda credenciais.
 Pendência: o perfil mostra 6 avaliações, mas só 5 aparecem sem login no Google; a 6ª precisa ser vista por quem
 tem login (a Samara) e, se for de 5 estrelas e autorizada, cadastrada em `reviews`.
+Teste em 15/11/2026: o GitHub Actions recusou iniciar o job por falha de cobrança da conta (mesmo bloqueio de outros
+repositórios). O lembrete só passa a funcionar quando isso for resolvido; até lá, conferir o perfil manualmente.
