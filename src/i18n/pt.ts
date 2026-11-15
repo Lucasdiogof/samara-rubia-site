@@ -595,7 +595,8 @@ export const pt = {
     lead: "Avaliações publicadas no Google, transcritas com autorização de quem as escreveu.",
     source: "Avaliação no Google",
     demo: "AVALIAÇÃO DE TESTE — fictícia, não é de uma paciente real",
-    seeAll: "Ver avaliações no Google",
+    seeAll: "Ver todas as avaliações no Google",
+    summary: (v: string, n: number) => `Nota ${v} de 5 · ${n} avaliações no Google`,
     stars: (n: number) => `${n} de 5 estrelas`,
   },
 

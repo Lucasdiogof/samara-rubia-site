@@ -25,8 +25,7 @@ import { Signals } from "@/components/sections/Signals";
 import { Journey } from "@/components/sections/Journey";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { ContentSection } from "@/components/sections/ContentSection";
-// Avaliações ocultas até haver casos reais e autorizados: reativar junto com o <ReviewsSection> mais abaixo.
-// import { ReviewsSection } from "@/components/sections/ReviewsSection";
+import { ReviewsSection } from "@/components/sections/ReviewsSection";
 import { ArticleGrid } from "@/components/ui/ArticleGrid";
 import { ReelGrid } from "@/components/ui/ReelGrid";
 import { PostGrid } from "@/components/ui/PostGrid";
@@ -57,7 +56,7 @@ function Home({ lang }: { lang: Lang }) {
       <Signals lang={lang} />
       <ContentSection lang={lang} />
       <FaqSection lang={lang} />
-      {/* <ReviewsSection lang={lang} /> */}
+      <ReviewsSection lang={lang} />
       <LocationSection lang={lang} />
       <FinalCta lang={lang} />
     </>

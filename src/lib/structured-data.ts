@@ -1,6 +1,9 @@
 import { fullName, site } from "@/config/site";
 import { getDict, langMeta, type Lang } from "@/i18n";
+import { googleProfileUrl, googleShareUrl } from "@/config/content";
 import { instagramUrl } from "./contact";
+
+const sameAs = [instagramUrl, googleProfileUrl, googleShareUrl].filter(Boolean) as string[];
 
 /** Só emite dados estruturados verdadeiros: Person/LocalBusiness exigem dados confirmados. */
 export const websiteLd = (lang: Lang) => ({
@@ -19,7 +22,7 @@ export function personLd(lang: Lang) {
     name: site.professionalName,
     jobTitle: getDict(lang).jobTitle,
     url: site.url,
-    ...(instagramUrl ? { sameAs: [instagramUrl] } : {}),
+    sameAs,
   };
 }
 
@@ -31,6 +34,7 @@ export function businessLd(lang: Lang) {
     "@type": "Physiotherapy",
     name: `${site.professionalName} — ${getDict(lang).specialty}`,
     url: site.url,
+    sameAs,
     address: {
       "@type": "PostalAddress",
       streetAddress: [address, site.location.district].filter(Boolean).join(", "),

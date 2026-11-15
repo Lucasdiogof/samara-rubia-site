@@ -588,7 +588,8 @@ export const es: Dict = {
     lead: "Reseñas publicadas en Google, transcritas con autorización de sus autores.",
     source: "Opinión en Google",
     demo: "OPINIÓN DE PRUEBA — ficticia, no es de una paciente real",
-    seeAll: "Ver opiniones en Google",
+    seeAll: "Ver todas las opiniones en Google",
+    summary: (v: string, n: number) => `Nota ${v} de 5 · ${n} opiniones en Google`,
     stars: (n) => `${n} de 5 estrellas`,
   },
 

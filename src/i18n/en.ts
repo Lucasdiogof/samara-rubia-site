@@ -585,7 +585,8 @@ export const en: Dict = {
     lead: "Reviews published on Google, transcribed with the authors' permission.",
     source: "Google review",
     demo: "TEST REVIEW — fictional, not from a real patient",
-    seeAll: "See reviews on Google",
+    seeAll: "See all reviews on Google",
+    summary: (v: string, n: number) => `Rated ${v} out of 5 · ${n} reviews on Google`,
     stars: (n) => `${n} out of 5 stars`,
   },
 

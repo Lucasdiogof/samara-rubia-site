@@ -137,11 +137,20 @@ test("publicações reais: legenda original, link do post e datas", async ({ pag
   expect(await page.locator('h3[lang="pt"]').count()).toBe(3); // legenda original marcada como pt
 });
 
-// Avaliações ocultas até haver casos reais e autorizados (ver <ReviewsSection> comentado em src/views/index.tsx).
-test("avaliações: seção oculta na home, sem avaliações nem dados estruturados", async ({ page }) => {
-  for (const prefix of ["", "/en", "/es"]) {
+// Sem avaliações cadastradas: só nota/contagem manuais e o botão para o Google; nada de dados estruturados de avaliação.
+test("avaliações: nota real, botão do Google, sem cards nem dados estruturados de avaliação", async ({ page }) => {
+  for (const [prefix, summary, button] of [
+    ["", "Nota 5,0 de 5 · 6 avaliações no Google", "Ver todas as avaliações no Google"],
+    ["/en", "Rated 5.0 out of 5 · 6 reviews on Google", "See all reviews on Google"],
+    ["/es", "Nota 5,0 de 5 · 6 opiniones en Google", "Ver todas las opiniones en Google"],
+  ]) {
     await page.goto(`${prefix}/`);
-    await expect(page.locator("#avaliacoes-title")).toHaveCount(0);
-    expect(await page.locator('script[type="application/ld+json"]').allTextContents().then((t) => t.join(""))).not.toContain("Review");
+    const sec = page.locator("#avaliacoes-title").locator("xpath=ancestor::section[1]");
+    await expect(sec.getByText(summary)).toBeVisible();
+    await expect(sec.getByRole("link", { name: button })).toHaveAttribute("href", "https://www.google.com/maps?cid=2387843673426098565");
+    await expect(sec.locator("blockquote")).toHaveCount(0);
+    const ld = await page.locator('script[type="application/ld+json"]').allTextContents().then((t) => t.join(""));
+    expect(ld).not.toMatch(/Review|AggregateRating/);
+    expect(ld).toContain("share.google/0U02eVQQcknDOJqB7");
   }
 });

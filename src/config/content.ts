@@ -117,4 +117,17 @@ export const articles: Article[] = [];
 export const reviews: Review[] = [];
 
 /** Link do perfil da Samara no Google (página de avaliações). Nulo = sem link. */
-export const googleProfileUrl: string | null = null;
+export const googleProfileUrl: string | null = "https://www.google.com/maps?cid=2387843673426098565";
+
+/** Link curto oficial do perfil (informado pela Samara), usado em dados estruturados. */
+export const googleShareUrl = "https://share.google/0U02eVQQcknDOJqB7";
+
+/**
+ * Nota geral e total de avaliações, conferidos manualmente no Perfil da Empresa. Atualizar com a data
+ * da conferência (docs/REVIEWS.md). Não vira dado estruturado (o Google não aceita nota própria).
+ */
+export const googleRating: { value: number; count: number; checkedAt: string } | null = {
+  value: 5,
+  count: 6,
+  checkedAt: "2026-11-15",
+};

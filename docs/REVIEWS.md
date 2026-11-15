@@ -4,7 +4,13 @@ Estado (15/11/2026): **nenhuma avaliação publicada**. As fictícias foram remo
 `.env.production`. A seção só aparece com avaliações reais em `reviews` (`src/config/content.ts`); sem elas e
 sem `googleProfileUrl`, some. Com o link do perfil, vira só o link "Ver avaliações no Google".
 
-## Perfil correto
+## Perfil (identificado em 15/11/2026)
+"Samara Rúbia - Fisioterapia Pélvica", Goiânia (kgmid /g/11nvh9twcg, CID 2387843673426098565), nota 5,0 e 6 avaliações.
+Link oficial da Samara: https://share.google/0U02eVQQcknDOJqB7. Configurados em `src/config/content.ts`
+(`googleProfileUrl`, `googleShareUrl`, `googleRating`) e em `sameAs` dos dados estruturados. A nota e a
+contagem são **manuais**: ao conferir o perfil, atualizar `googleRating` (valor, total, data).
+
+## Perfil correto (histórico)
 O perfil é o do **atendimento da Samara Rúbia** no Google Maps, não o da La Femme Consultórios (o local).
 Falta a Samara enviar o link do perfil (Google Maps → Compartilhar → link curto, ou o link "Ver todas as
 avaliações"). Colar em `googleProfileUrl`. Nunca usar scraping.

@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
 import { RevealText, StaggerContainer, StaggerItem } from "@/components/animations/Reveal";
 import { getDict, type Lang } from "@/i18n";
+import { googleRating } from "@/config/content";
 import { allReviews, formatDate, googleProfileUrl } from "@/lib/content";
 
 /**
@@ -11,14 +12,25 @@ import { allReviews, formatDate, googleProfileUrl } from "@/lib/content";
 export function ReviewsSection({ lang }: { lang: Lang }) {
   const t = getDict(lang).reviews;
   const list = allReviews();
+  const rating = googleRating && (
+    <p className="flex items-center gap-2 text-cocoa-deep">
+      <Star size={18} fill="currentColor" aria-hidden="true" />
+      <span className="font-semibold">
+        {t.summary(googleRating.value.toLocaleString(lang === "en" ? "en-GB" : lang === "es" ? "es-ES" : "pt-BR", { minimumFractionDigits: 1 }), googleRating.count)}
+      </span>
+    </p>
+  );
   if (list.length === 0) {
     if (!googleProfileUrl) return null;
     return (
       <section className="border-t border-border py-10" aria-labelledby="avaliacoes-title">
         <div className="wrap flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">
-          <h2 id="avaliacoes-title" className="font-display text-2xl text-cocoa-deep">
-            {t.eyebrow}
-          </h2>
+          <div className="flex flex-col gap-2">
+            <h2 id="avaliacoes-title" className="font-display text-2xl text-cocoa-deep">
+              {t.eyebrow}
+            </h2>
+            {rating}
+          </div>
           <a
             href={googleProfileUrl}
             target="_blank"
@@ -39,6 +51,7 @@ export function ReviewsSection({ lang }: { lang: Lang }) {
           {t.title}
         </RevealText>
         <p className="t-lead mt-6">{t.lead}</p>
+        <div className="mt-4">{rating}</div>
         <StaggerContainer as="ul" className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {list.slice(0, 6).map((r) => (
             <StaggerItem
