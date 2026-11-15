@@ -23,7 +23,6 @@ import { PelvicHealth } from "@/components/sections/PelvicHealth";
 import { AboutTeaser } from "@/components/sections/AboutTeaser";
 import { Signals } from "@/components/sections/Signals";
 import { Journey } from "@/components/sections/Journey";
-import { Differentials } from "@/components/sections/Differentials";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { ContentSection } from "@/components/sections/ContentSection";
 // Avaliações ocultas até haver casos reais e autorizados: reativar junto com o <ReviewsSection> mais abaixo.
@@ -56,7 +55,6 @@ function Home({ lang }: { lang: Lang }) {
       <PelvicHealth lang={lang} />
       <AboutTeaser lang={lang} />
       <Signals lang={lang} />
-      <Differentials lang={lang} />
       <ContentSection lang={lang} />
       <FaqSection lang={lang} />
       {/* <ReviewsSection lang={lang} /> */}
@@ -325,7 +323,6 @@ function Treatments({ lang }: { lang: Lang }) {
               </li>
             ))}
           </ul>
-          <p className="mt-6 max-w-2xl text-sm text-cocoa">{t.disclaimer}</p>
         </div>
       </section>
       <CtaBand lang={lang} />
@@ -373,7 +370,6 @@ function Treatment({ lang, slug }: { lang: Lang; slug: string }) {
             <FadeInSection className="rounded-3xl bg-cream p-8">
               <h2 className="t-h3">{t.followUpTitle}</h2>
               <p className="mt-4 text-cocoa">{t.followUp}</p>
-              <p className="mt-6 border-t border-border pt-5 text-sm text-cocoa">{t.disclaimer}</p>
             </FadeInSection>
           </div>
         </div>
@@ -444,7 +440,6 @@ function Conteudos({ lang }: { lang: Lang }) {
         lang={lang}
         eyebrow={t.pageEyebrow}
         title={t.pageTitle}
-        lead={t.pageLead}
         crumbs={[{ name: t.crumb, path: "/conteudos/" }]}
       />
       <section className="pb-14">
@@ -458,7 +453,6 @@ function Conteudos({ lang }: { lang: Lang }) {
           )}
           {posts.length > 0 && (
             <div>
-              <h2 className="t-h3 mb-8">{t.posts}</h2>
               <PostGrid posts={posts} lang={lang} />
             </div>
           )}
@@ -514,7 +508,6 @@ function ArticlePage({ lang, article }: { lang: Lang; article: Article }) {
               ),
             )}
           </div>
-          <p className="mt-12 border-t border-border pt-5 text-sm text-cocoa">{t.disclaimer}</p>
           <Link href={href(lang, "/conteudos/")} className="link-u mt-8 inline-block font-semibold text-cocoa-deep">
             {t.back}
           </Link>

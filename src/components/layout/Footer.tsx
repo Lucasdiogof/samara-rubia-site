@@ -89,9 +89,6 @@ export function Footer({ lang }: { lang: Lang }) {
           <p>
             © {new Date().getFullYear()} {fullName}. {t.footer.rights}
           </p>
-          <p>
-            {t.footer.disclaimer}
-          </p>
         </div>
       </div>
     </footer>

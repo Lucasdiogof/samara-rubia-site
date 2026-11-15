@@ -48,8 +48,6 @@ export const pt = {
     contact: "Contato",
     waSoon: "WhatsApp em breve",
     rights: "Todos os direitos reservados.",
-    disclaimer:
-      "O conteúdo deste site é educativo e não substitui a avaliação de um profissional de saúde.",
   },
 
   hero: {
@@ -132,29 +130,6 @@ export const pt = {
     },
   ],
 
-  differentialsSection: { eyebrow: "Diferenciais", title: "O que você pode esperar do *atendimento.*" },
-  differentials: [
-    {
-      title: "Atendimento individualizado",
-      text: "Cada pessoa tem uma história. O cuidado parte da sua.",
-    },
-    {
-      title: "Escuta e acolhimento",
-      text: "Espaço para falar de assuntos delicados, sem pressa e sem julgamento.",
-    },
-    {
-      title: "Respeito à privacidade",
-      text: "Sigilo profissional e cuidado com cada informação compartilhada.",
-    },
-    {
-      title: "Etapas explicadas",
-      text: "Você entende o que será feito e por quê, antes de qualquer procedimento.",
-    },
-    {
-      title: "Plano terapêutico individualizado",
-      text: "Condutas definidas a partir da avaliação e ajustadas ao longo do caminho.",
-    },
-  ],
 
   faqSection: {
     eyebrow: "Dúvidas frequentes",
@@ -235,7 +210,7 @@ export const pt = {
       ],
       [
         "Acompanhamento",
-        "O plano é individual e revisitado ao longo do caminho. Não há promessa de prazo ou de resultado.",
+        "O plano é revisitado ao longo do caminho.",
       ],
     ] as [string, string][],
   },
@@ -310,11 +285,7 @@ export const pt = {
         },
         {
           q: "Quantas sessões vou precisar?",
-          a: "Depende de cada pessoa e de cada objetivo. O plano é definido após a avaliação, sem promessas de prazo ou de resultado.",
-        },
-        {
-          q: "O conteúdo do site substitui uma consulta?",
-          a: "Não. As informações do site são educativas e não substituem a avaliação de um profissional de saúde.",
+          a: "Depende de cada pessoa e de cada objetivo. O plano é definido após a avaliação.",
         },
       ],
     },
@@ -423,9 +394,7 @@ export const pt = {
     whenIndicated: "Quando a avaliação pode ser indicada",
     followUpTitle: "Como funciona o acompanhamento",
     followUp:
-      "O acompanhamento é definido após a avaliação individual, de acordo com as suas queixas e objetivos. Frequência, duração e condutas são combinadas com você, sem promessa de prazo ou resultado.",
-    disclaimer:
-      "Este conteúdo é educativo e não substitui a avaliação de um profissional de saúde. Não há promessa de cura ou de resultado.",
+      "O acompanhamento é definido após a avaliação individual, de acordo com as suas queixas e objetivos. Frequência, duração e condutas são combinadas com você.",
   },
 
   notFound: {
@@ -441,7 +410,7 @@ export const pt = {
   services: [
     {
       slug: "disfuncoes-sexuais-femininas",
-      title: "Disfunções sexuais femininas",
+      title: "Disfunções sexuais",
       short: "Um espaço sem julgamento para falar de dor e desconforto íntimos.",
       description:
         "Dor ou desconforto na vida sexual podem estar relacionados ao assoalho pélvico. A conversa é conduzida com respeito, privacidade e no seu ritmo.",
@@ -450,6 +419,19 @@ export const pt = {
         "Contração involuntária que dificulta ou impede a penetração",
         "Sensação de tensão ou dificuldade de relaxamento da região pélvica",
         "Desconforto que interfere na vida íntima",
+      ],
+    },
+    {
+      slug: "dor-na-relacao",
+      title: "Dor na relação",
+      short: "Avaliação de dor ou desconforto durante ou após a relação sexual.",
+      description:
+        "A dor durante a relação sexual pode estar ligada à tensão ou à sensibilidade aumentada dos músculos do assoalho pélvico, entre outros fatores. A avaliação ajuda a entender a origem da queixa e a definir o tratamento, com conversa tranquila e no seu ritmo.",
+      indications: [
+        "Dor na penetração",
+        "Dor durante ou depois da relação",
+        "Ardência ou sensibilidade na entrada da vagina",
+        "Receio ou tensão antes da relação por causa da dor",
       ],
     },
     {
@@ -574,21 +556,17 @@ export const pt = {
   content: {
     eyebrow: "Conteúdos educativos",
     title: "Informação clara para *cuidar* de você.",
-    lead: "Vídeos, publicações e artigos informativos. Eles não substituem a avaliação individual.",
     videos: "Vídeos",
     articles: "Artigos",
     seeAll: "Ver todos os conteúdos",
     metaTitle: "Conteúdos educativos",
     metaDescription:
-      "Vídeos e artigos informativos sobre fisioterapia pélvica. O conteúdo é educativo e não substitui a avaliação individual.",
+      "Vídeos e artigos informativos sobre fisioterapia pélvica.",
     pageEyebrow: "Conteúdos",
     pageTitle: "Conteúdos *educativos.*",
-    pageLead:
-      "Vídeos, publicações e artigos sobre saúde pélvica. São informativos e não substituem a avaliação de um profissional de saúde.",
     crumb: "Conteúdos",
     empty: "Os conteúdos educativos serão publicados aqui após a revisão da profissional.",
     watch: "Assistir aqui",
-    posts: "Publicações",
     postTitle: (n: number) => `Publicação ${n}`,
     postHint: "Publicação original no Instagram.",
     playerPost: (n: number) => `Publicação do Instagram ${n}`,
@@ -603,8 +581,6 @@ export const pt = {
     demo: "EXEMPLO DE DESENVOLVIMENTO",
     read: "Ler artigo",
     back: "Todos os conteúdos",
-    disclaimer:
-      "Este conteúdo é educativo e não substitui a avaliação de um profissional de saúde. Não há promessa de cura ou de resultado.",
     categories: {
       geral: "Saúde pélvica",
       gestacao: "Gestação e pós-parto",

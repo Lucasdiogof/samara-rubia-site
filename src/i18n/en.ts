@@ -39,8 +39,6 @@ export const en: Dict = {
     contact: "Contact",
     waSoon: "WhatsApp coming soon",
     rights: "All rights reserved.",
-    disclaimer:
-      "The content of this website is educational and does not replace an assessment by a healthcare professional.",
   },
 
   hero: {
@@ -123,29 +121,6 @@ export const en: Dict = {
     },
   ],
 
-  differentialsSection: { eyebrow: "What sets it apart", title: "What you can expect from *the care.*" },
-  differentials: [
-    {
-      title: "Individualised care",
-      text: "Everyone has a story. Care starts from yours.",
-    },
-    {
-      title: "Listening and support",
-      text: "A space to talk about delicate subjects, without hurry and without judgement.",
-    },
-    {
-      title: "Respect for privacy",
-      text: "Professional confidentiality and care with every piece of information shared.",
-    },
-    {
-      title: "Steps explained",
-      text: "You understand what will be done and why, before any procedure.",
-    },
-    {
-      title: "Individual treatment plan",
-      text: "Approaches defined from the assessment and adjusted along the way.",
-    },
-  ],
 
   faqSection: {
     eyebrow: "Frequently asked",
@@ -226,7 +201,7 @@ export const en: Dict = {
       ],
       [
         "Follow-up",
-        "The plan is individual and revisited along the way. There is no promise of timeframe or outcome.",
+        "The plan is revisited along the way.",
       ],
     ],
   },
@@ -300,11 +275,7 @@ export const en: Dict = {
         },
         {
           q: "How many sessions will I need?",
-          a: "It depends on each person and each goal. The plan is defined after the assessment, with no promises of timeframe or outcome.",
-        },
-        {
-          q: "Does the website content replace an appointment?",
-          a: "No. The information on this website is educational and does not replace an assessment by a healthcare professional.",
+          a: "It depends on each person and each goal. The plan is defined after the assessment.",
         },
       ],
     },
@@ -413,9 +384,7 @@ export const en: Dict = {
     whenIndicated: "When an assessment may be advised",
     followUpTitle: "How follow-up works",
     followUp:
-      "Follow-up is defined after the individual assessment, according to your symptoms and goals. Frequency, duration and approaches are agreed with you, with no promise of timeframe or outcome.",
-    disclaimer:
-      "This content is educational and does not replace an assessment by a healthcare professional. There is no promise of cure or outcome.",
+      "Follow-up is defined after the individual assessment, according to your symptoms and goals. Frequency, duration and approaches are agreed with you.",
   },
 
   notFound: {
@@ -431,7 +400,7 @@ export const en: Dict = {
   services: [
     {
       slug: "disfuncoes-sexuais-femininas",
-      title: "Female sexual dysfunction",
+      title: "Sexual dysfunctions",
       short: "A judgement-free space to talk about intimate pain and discomfort.",
       description:
         "Pain or discomfort in sexual life can be related to the pelvic floor. The conversation is handled with respect, privacy and at your pace.",
@@ -440,6 +409,19 @@ export const en: Dict = {
         "Involuntary muscle contraction that makes penetration difficult or impossible",
         "Feeling of tension or difficulty relaxing the pelvic region",
         "Discomfort that interferes with intimate life",
+      ],
+    },
+    {
+      slug: "dor-na-relacao",
+      title: "Pain during intercourse",
+      short: "Assessment of pain or discomfort during or after sexual intercourse.",
+      description:
+        "Pain during intercourse can be linked to tension or increased sensitivity of the pelvic floor muscles, among other factors. The assessment helps understand where the complaint comes from and define the treatment, through a calm conversation and at your own pace.",
+      indications: [
+        "Pain on penetration",
+        "Pain during or after intercourse",
+        "Burning or sensitivity at the vaginal entrance",
+        "Apprehension or tension before intercourse because of pain",
       ],
     },
     {
@@ -564,21 +546,17 @@ export const en: Dict = {
   content: {
     eyebrow: "Educational content",
     title: "Clear information to *look after* yourself.",
-    lead: "Informative videos, posts and articles. They do not replace an individual assessment.",
     videos: "Videos",
     articles: "Articles",
     seeAll: "See all content",
     metaTitle: "Educational content",
     metaDescription:
-      "Informative videos and articles about pelvic physiotherapy. The content is educational and does not replace an individual assessment.",
+      "Informative videos and articles about pelvic physiotherapy.",
     pageEyebrow: "Content",
     pageTitle: "Educational *content.*",
-    pageLead:
-      "Videos, posts and articles about pelvic health. They are informative and do not replace an assessment by a healthcare professional.",
     crumb: "Content",
     empty: "Educational content will be published here once reviewed by the professional.",
     watch: "Watch here",
-    posts: "Posts",
     postTitle: (n) => `Post ${n}`,
     postHint: "Original post on Instagram.",
     playerPost: (n) => `Instagram post ${n}`,
@@ -593,8 +571,6 @@ export const en: Dict = {
     demo: "DEVELOPMENT SAMPLE",
     read: "Read article",
     back: "All content",
-    disclaimer:
-      "This content is educational and does not replace an assessment by a healthcare professional. There is no promise of cure or outcome.",
     categories: {
       geral: "Pelvic health",
       gestacao: "Pregnancy and postpartum",

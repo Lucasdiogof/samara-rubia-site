@@ -32,7 +32,7 @@ export function PelvicHealth({ lang }: { lang: Lang }) {
               <ServiceCard slug={s.slug} title={s.title} href={href(lang, `/tratamentos/${s.slug}/`)} />
             </StaggerItem>
           ))}
-          <StaggerItem className="sm:col-span-2">
+          <StaggerItem>
             <Link
               href={href(lang, "/tratamentos/")}
               className="link-u flex h-full items-center justify-center gap-2 rounded-2xl border border-dashed border-border px-4 py-3.5 font-semibold text-cocoa-deep transition-colors duration-300 hover:border-[var(--warm)]"

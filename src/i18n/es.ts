@@ -39,8 +39,6 @@ export const es: Dict = {
     contact: "Contacto",
     waSoon: "WhatsApp próximamente",
     rights: "Todos los derechos reservados.",
-    disclaimer:
-      "El contenido de este sitio es educativo y no sustituye la evaluación de un profesional de la salud.",
   },
 
   hero: {
@@ -123,29 +121,6 @@ export const es: Dict = {
     },
   ],
 
-  differentialsSection: { eyebrow: "Diferenciales", title: "Lo que puedes esperar de *la atención.*" },
-  differentials: [
-    {
-      title: "Atención individualizada",
-      text: "Cada persona tiene una historia. El cuidado parte de la tuya.",
-    },
-    {
-      title: "Escucha y acogida",
-      text: "Un espacio para hablar de temas delicados, sin prisa y sin juicios.",
-    },
-    {
-      title: "Respeto a la privacidad",
-      text: "Secreto profesional y cuidado con cada información compartida.",
-    },
-    {
-      title: "Etapas explicadas",
-      text: "Entiendes qué se hará y por qué, antes de cualquier procedimiento.",
-    },
-    {
-      title: "Plan terapéutico individualizado",
-      text: "Conductas definidas a partir de la evaluación y ajustadas a lo largo del camino.",
-    },
-  ],
 
   faqSection: {
     eyebrow: "Preguntas frecuentes",
@@ -226,7 +201,7 @@ export const es: Dict = {
       ],
       [
         "Seguimiento",
-        "El plan es individual y se revisa a lo largo del camino. No hay promesa de plazo ni de resultado.",
+        "El plan se revisa a lo largo del camino.",
       ],
     ],
   },
@@ -302,11 +277,7 @@ export const es: Dict = {
         },
         {
           q: "¿Cuántas sesiones voy a necesitar?",
-          a: "Depende de cada persona y de cada objetivo. El plan se define después de la evaluación, sin promesas de plazo ni de resultado.",
-        },
-        {
-          q: "¿El contenido del sitio sustituye una consulta?",
-          a: "No. La información del sitio es educativa y no sustituye la evaluación de un profesional de la salud.",
+          a: "Depende de cada persona y de cada objetivo. El plan se define después de la evaluación.",
         },
       ],
     },
@@ -416,9 +387,7 @@ export const es: Dict = {
     whenIndicated: "Cuándo puede estar indicada la evaluación",
     followUpTitle: "Cómo funciona el seguimiento",
     followUp:
-      "El seguimiento se define después de la evaluación individual, de acuerdo con tus molestias y objetivos. La frecuencia, la duración y las conductas se acuerdan contigo, sin promesa de plazo ni de resultado.",
-    disclaimer:
-      "Este contenido es educativo y no sustituye la evaluación de un profesional de la salud. No hay promesa de cura ni de resultado.",
+      "El seguimiento se define después de la evaluación individual, de acuerdo con tus molestias y objetivos. La frecuencia, la duración y las conductas se acuerdan contigo.",
   },
 
   notFound: {
@@ -434,7 +403,7 @@ export const es: Dict = {
   services: [
     {
       slug: "disfuncoes-sexuais-femininas",
-      title: "Disfunciones sexuales femeninas",
+      title: "Disfunciones sexuales",
       short: "Un espacio sin juicios para hablar de dolor y molestias íntimas.",
       description:
         "El dolor o la molestia en la vida sexual pueden estar relacionados con el suelo pélvico. La conversación se lleva con respeto, privacidad y a tu ritmo.",
@@ -443,6 +412,19 @@ export const es: Dict = {
         "Contracción involuntaria que dificulta o impide la penetración",
         "Sensación de tensión o dificultad para relajar la región pélvica",
         "Molestia que interfiere en la vida íntima",
+      ],
+    },
+    {
+      slug: "dor-na-relacao",
+      title: "Dolor en la relación sexual",
+      short: "Evaluación del dolor o la molestia durante o después de la relación sexual.",
+      description:
+        "El dolor durante la relación sexual puede estar relacionado con la tensión o la mayor sensibilidad de los músculos del suelo pélvico, entre otros factores. La evaluación ayuda a entender el origen de la molestia y a definir el tratamiento, con una conversación tranquila y a tu ritmo.",
+      indications: [
+        "Dolor en la penetración",
+        "Dolor durante o después de la relación",
+        "Ardor o sensibilidad en la entrada de la vagina",
+        "Temor o tensión antes de la relación por el dolor",
       ],
     },
     {
@@ -567,21 +549,17 @@ export const es: Dict = {
   content: {
     eyebrow: "Contenidos educativos",
     title: "Información clara para *cuidarte.*",
-    lead: "Videos, publicaciones y artículos informativos. No sustituyen la evaluación individual.",
     videos: "Videos",
     articles: "Artículos",
     seeAll: "Ver todos los contenidos",
     metaTitle: "Contenidos educativos",
     metaDescription:
-      "Videos y artículos informativos sobre fisioterapia pélvica. El contenido es educativo y no sustituye la evaluación individual.",
+      "Videos y artículos informativos sobre fisioterapia pélvica.",
     pageEyebrow: "Contenidos",
     pageTitle: "Contenidos *educativos.*",
-    pageLead:
-      "Videos, publicaciones y artículos sobre salud pélvica. Son informativos y no sustituyen la evaluación de un profesional de la salud.",
     crumb: "Contenidos",
     empty: "Los contenidos educativos se publicarán aquí tras la revisión de la profesional.",
     watch: "Ver aquí",
-    posts: "Publicaciones",
     postTitle: (n) => `Publicación ${n}`,
     postHint: "Publicación original en Instagram.",
     playerPost: (n) => `Publicación de Instagram ${n}`,
@@ -596,8 +574,6 @@ export const es: Dict = {
     demo: "EJEMPLO DE DESARROLLO",
     read: "Leer artículo",
     back: "Todos los contenidos",
-    disclaimer:
-      "Este contenido es educativo y no sustituye la evaluación de un profesional de la salud. No hay promesa de cura ni de resultado.",
     categories: {
       geral: "Salud pélvica",
       gestacao: "Embarazo y posparto",

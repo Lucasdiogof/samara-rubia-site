@@ -116,6 +116,7 @@ export const site = {
   /** Ative/desative áreas de atuação por slug (ver src/content/services.ts). */
   enabledServices: [
     "disfuncoes-sexuais-femininas",
+    "dor-na-relacao",
     "dor-pelvica",
     "endometriose",
     "incontinencia-urinaria",

@@ -8,6 +8,7 @@ import {
   Droplets,
   Flower2,
   Heart,
+  HeartCrack,
   Hourglass,
   ShieldPlus,
   Timer,
@@ -16,6 +17,7 @@ import {
 
 const icons: Record<string, LucideIcon> = {
   "disfuncoes-sexuais-femininas": Heart,
+  "dor-na-relacao": HeartCrack,
   "dor-pelvica": Activity,
   endometriose: Flower2,
   "incontinencia-urinaria": Droplets,

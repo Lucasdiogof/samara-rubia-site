@@ -26,7 +26,6 @@ export function ContentSection({ lang }: { lang: Lang }) {
         )}
         {posts.length > 0 && (
           <div className="mt-12">
-            <h3 className="mb-6 font-display text-3xl text-cocoa-deep">{t.posts}</h3>
             <PostGrid posts={posts} lang={lang} />
           </div>
         )}

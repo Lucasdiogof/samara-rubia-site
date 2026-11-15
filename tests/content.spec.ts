@@ -27,10 +27,10 @@ test("build público: 3 publicações reais, sem exemplos, avaliações nem dado
     const eager = await page.locator("iframe:not([loading=lazy])").count();
     expect(eager).toBe(0);
   }
-  // ordem na home: diferenciais < conteúdos < FAQ < localização (avaliações ocultas por ora)
+  // ordem na home: conteúdos < FAQ < localização (avaliações ocultas por ora)
   await page.goto("/");
   const order = await page.evaluate(() =>
-    ["dif-title", "conteudos-title", "faq-title", "local-title"].map(
+    ["conteudos-title", "faq-title", "local-title"].map(
       (id) => document.getElementById(id)?.getBoundingClientRect().top ?? -1,
     ),
   );
@@ -77,9 +77,9 @@ test("build com exemplos: seções, avisos visíveis e embed só após o clique"
   await page.goto("/");
   const section = page.locator("#conteudos-title").locator("xpath=ancestor::section[1]");
   await expect(section.locator("article[data-demo]")).toHaveCount(6);
-  // ordem: diferenciais < conteúdos < FAQ < localização
+  // ordem: conteúdos < FAQ < localização
   const order = await page.evaluate(() =>
-    ["dif-title", "conteudos-title", "faq-title", "local-title"].map(
+    ["conteudos-title", "faq-title", "local-title"].map(
       (id) => document.getElementById(id)?.getBoundingClientRect().top ?? -1,
     ),
   );
