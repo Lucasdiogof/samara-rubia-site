@@ -4,7 +4,7 @@ import type { Dict } from "./pt";
 export const es: Dict = {
   specialty: "Fisioterapia Pélvica",
   siteDescription: (wa) =>
-    `Fisioterapia pélvica para hombres y mujeres: evaluación individual, escucha y acogida.${wa ? " Reserva por WhatsApp." : ""}`,
+    `Fisioterapeuta pélvica en Goiânia, Brasil (Setor Marista). Fisioterapia pélvica femenina y masculina con evaluación individual y acogida.${wa ? " Reserva por WhatsApp." : ""}`,
 
   a11y: {
     skip: "Saltar al contenido",
@@ -179,7 +179,7 @@ export const es: Dict = {
   },
 
   home: {
-    title: (name, specialty) => `${name} | ${specialty}`,
+    title: (name, specialty) => `${name} | ${specialty} en Goiânia`,
   },
 
   how: {
@@ -585,7 +585,7 @@ export const es: Dict = {
   reviews: {
     eyebrow: "Opiniones",
     title: "Lo que dicen *sobre* la atención.",
-    lead: "Opiniones publicadas en Google, transcritas con la autorización de quienes las escribieron.",
+    lead: "Reseñas seleccionadas de Google, de 5 estrellas, publicadas con autorización de sus autores. Textos originales; no se muestran todas las reseñas.",
     source: "Opinión en Google",
     demo: "OPINIÓN DE PRUEBA — ficticia, no es de una paciente real",
     seeAll: "Ver opiniones en Google",

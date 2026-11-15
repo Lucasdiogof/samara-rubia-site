@@ -8,19 +8,12 @@ import {
   type Reel,
   type Review,
 } from "@/config/content";
-import { demoArticles, demoReels, demoReviews } from "@/content/demo";
+import { demoArticles, demoReels } from "@/content/demo";
 import { getDict, type Lang } from "@/i18n";
 
 /** Exemplos fictícios: somente em `next dev` ou com NEXT_PUBLIC_CONTENT_DEMO=true (nunca em produção). */
 export const showDemo =
   process.env.NODE_ENV === "development" || process.env.NEXT_PUBLIC_CONTENT_DEMO === "true";
-
-/**
- * Avaliações FICTÍCIAS de teste, com selo visível em cada card, para validar o layout na versão de
- * revisão. Ligadas por NEXT_PUBLIC_REVIEWS_TEST=true; o prelaunch:check barra a publicação aberta ao
- * Google com a flag ligada.
- */
-const showDemoReviews = showDemo || process.env.NEXT_PUBLIC_REVIEWS_TEST === "true";
 
 const byDateDesc = <T extends { date: string }>(l: T[]) =>
   [...l].sort((a, b) => b.date.localeCompare(a.date));
@@ -35,7 +28,7 @@ export const allArticles = (): Article[] =>
   byDateDesc([...realArticles, ...(showDemo ? demoArticles : [])].filter((a) => a.approved));
 
 export const allReviews = (): Review[] =>
-  byDateDesc([...realReviews, ...(showDemoReviews ? demoReviews : [])].filter((r) => r.authorized));
+  byDateDesc(realReviews.filter((r) => r.authorized && r.rating === 5));
 
 export const hasContent = () => allReels().length + allPosts().length + allArticles().length > 0;
 export { googleProfileUrl };

@@ -4,7 +4,7 @@ import type { Dict } from "./pt";
 export const en: Dict = {
   specialty: "Pelvic Physiotherapy",
   siteDescription: (wa) =>
-    `Pelvic physiotherapy for men and women: individual assessment, attentive listening and a welcoming approach.${wa ? " Book via WhatsApp." : ""}`,
+    `Pelvic physiotherapist in Goiânia, Brazil (Setor Marista). Pelvic physiotherapy for women and men with individual assessment and a welcoming approach.${wa ? " Book via WhatsApp." : ""}`,
 
   a11y: {
     skip: "Skip to content",
@@ -179,7 +179,7 @@ export const en: Dict = {
   },
 
   home: {
-    title: (name, specialty) => `${name} | ${specialty}`,
+    title: (name, specialty) => `${name} | ${specialty} in Goiânia`,
   },
 
   how: {
@@ -582,7 +582,7 @@ export const en: Dict = {
   reviews: {
     eyebrow: "Reviews",
     title: "What people say *about* the care.",
-    lead: "Reviews published on Google, transcribed with the permission of the people who wrote them.",
+    lead: "Selected 5-star Google reviews, published with the authors' permission. Original texts; not all reviews are shown.",
     source: "Google review",
     demo: "TEST REVIEW — fictional, not from a real patient",
     seeAll: "See reviews on Google",

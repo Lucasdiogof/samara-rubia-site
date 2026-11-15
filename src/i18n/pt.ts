@@ -13,7 +13,7 @@ export type FaqGroup = { topic: string; items: { q: string; a: string }[] };
 export const pt = {
   specialty: "Fisioterapia Pélvica",
   siteDescription: (wa: boolean) =>
-    `Fisioterapia Pélvica para homens e mulheres: avaliação individual, escuta e acolhimento.${wa ? " Agende pelo WhatsApp." : ""}`,
+    `Fisioterapeuta pélvica em Goiânia, no Setor Marista. Fisioterapia pélvica feminina e masculina com avaliação individual, escuta e acolhimento.${wa ? " Agende pelo WhatsApp." : ""}`,
 
   a11y: {
     skip: "Pular para o conteúdo",
@@ -188,7 +188,7 @@ export const pt = {
   },
 
   home: {
-    title: (name: string, specialty: string) => `${name} | ${specialty}`,
+    title: (name: string, specialty: string) => `${name} | ${specialty} em Goiânia`,
   },
 
   how: {
@@ -592,7 +592,7 @@ export const pt = {
   reviews: {
     eyebrow: "Avaliações",
     title: "O que dizem *sobre* o atendimento.",
-    lead: "Avaliações publicadas no Google, transcritas com autorização de quem as escreveu.",
+    lead: "Avaliações selecionadas do Google, de 5 estrelas, publicadas com autorização de quem as escreveu. Textos originais; nem todas as avaliações são exibidas.",
     source: "Avaliação no Google",
     demo: "AVALIAÇÃO DE TESTE — fictícia, não é de uma paciente real",
     seeAll: "Ver avaliações no Google",

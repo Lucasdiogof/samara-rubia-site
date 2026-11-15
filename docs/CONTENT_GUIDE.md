@@ -48,11 +48,8 @@ assumido). Cada item é só `{ id, url, cover }`: o site NÃO inventa título, l
 O embed (`/p/<código>/embed/`) só carrega após o clique, um card por vez. Para uma capa autorizada:
 `npm run images -- capa.jpg post-1 --alt="..."` e cole o bloco em `cover` (proporção 4:5).
 
-## Avaliações de TESTE (versão de revisão)
-Enquanto não há avaliações reais, `NEXT_PUBLIC_REVIEWS_TEST=true` (em `.env.production`) mostra 3 avaliações
-FICTÍCIAS (`src/content/demo.ts`), cada uma com o selo "AVALIAÇÃO DE TESTE — fictícia", sem estrelas e sem dados
-estruturados. **Antes de liberar o Google, remova a linha** (o `npm run prelaunch:check` aponta se esquecer) e
-cadastre avaliações reais em `src/config/content.ts`.
+## Avaliações do Google
+Ver `docs/REVIEWS.md` (fluxo manual, regras e API). As avaliações fictícias foram removidas em 15/11/2026.
 
 ## Cadastro único das 3 publicações (Apify)
 Os dados (legenda, data, tipo) e as capas das 3 publicações foram extraídos uma vez com o Apify (Instagram

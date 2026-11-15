@@ -2,7 +2,7 @@
  * EXEMPLOS FICTÍCIOS só para desenvolvimento e comparação visual (NEXT_PUBLIC_CONTENT_DEMO=true
  * ou `next dev`). Nunca entram no build público: ver `showDemo` em lib/content.ts.
  */
-import type { Article, Reel, Review } from "@/config/content";
+import type { Article, Reel } from "@/config/content";
 
 const lorem = (t: string) => ({
   title: `${t} (exemplo)`,
@@ -45,20 +45,4 @@ export const demoArticles: Article[] = (
     en: { ...lorem(`Article ${i + 1}`), title: `Sample article ${i + 1}` },
     es: { ...lorem(`Artículo ${i + 1}`), title: `Artículo de ejemplo ${i + 1}` },
   },
-}));
-
-const demoReviewTexts = [
-  "Avaliação fictícia de teste: atendimento acolhedor, com cada etapa explicada antes de acontecer. Texto escrito só para validar o layout.",
-  "Avaliação fictícia de teste: ambiente tranquilo e muito respeito à privacidade. Este texto não foi escrito por nenhuma paciente.",
-  "Avaliação fictícia de teste: me senti ouvida do início ao fim. Conteúdo de exemplo para conferir espaçamento e leitura.",
-];
-
-export const demoReviews: Review[] = demoReviewTexts.map((text, i) => ({
-  id: `demo-review-${i + 1}`,
-  author: `Nome de teste ${i + 1}`,
-  date: ["2026-10-20", "2026-10-12", "2026-10-03"][i]!,
-  text,
-  lang: "pt",
-  authorized: true,
-  demo: true,
 }));
