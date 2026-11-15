@@ -46,7 +46,8 @@ export const en: Dict = {
   hero: {
     eyebrow: "Pelvic Physiotherapy in Goiânia",
     about: "See my work",
-    points: ["Every step explained", "Professional confidentiality", "For men and women"],
+    title: "*Samara Rúbia* — Pelvic Physiotherapist",
+    lead: "Humanised care for women and men, focused on intimate health, function, well-being and quality of life.",
   },
 
   intro: {
@@ -70,11 +71,45 @@ export const en: Dict = {
 
   aboutTeaser: {
     eyebrow: "About me",
-    heading: "Specialised care for your *quality of life*",
+    heading: "Specialised care for your *pelvic floor*",
+    body: [
+      "Graduated in Physiotherapy from the Pontifical Catholic University of Goiás, with specialised training in Pelvic Physiotherapy and five years of professional practice in Goiânia.",
+      "My work is dedicated to the pelvic health of women and men, aiming to promote comfort, autonomy and quality of life.",
+      "I believe in care that combines scientific knowledge, attentive listening and respect for the individuality of each patient.",
+    ] as string[],
     title: "A space to talk about what is *delicate,* without rushing.",
     summary: (name) =>
       `I'm ${name}, a pelvic physiotherapist. I believe in care where each person is listened to attentively, understands every step and decides together the path of their care.`,
     button: "Get to know my story",
+  },
+
+  signals: {
+    eyebrow: "A moment for you",
+    title: "Do you relate to any of these *situations?*",
+    subtitle: "Select the situations that are part of your daily life.",
+    group: "Everyday situations",
+    of: "of",
+    selected: ["0 selected", "1 selected", "{n} selected"],
+    counter: "Situations selected",
+    disclaimer: "This questionnaire is educational and does not replace a professional assessment. The number of items selected does not indicate severity.",
+    items: [
+      { title: "Urinary leakage", text: "I leak urine when I laugh, cough, sneeze or exercise." },
+      { title: "Urinary urgency", text: "I feel a sudden urge to urinate and have to rush to the bathroom." },
+      { title: "Interrupted sleep", text: "I wake up at night to urinate and it disrupts my rest." },
+      { title: "Prevention", text: "I wear pads or liners for fear of leaking urine." },
+      { title: "Movement", text: "I avoid physical activity for fear of leaks or discomfort." },
+      { title: "Pelvic discomfort", text: "I feel pain, pressure or heaviness in the pelvic area." },
+      { title: "Intimate health", text: "I feel pain or discomfort during sexual intercourse." },
+      { title: "Bowel function", text: "I have difficulty passing stool or feel I haven't emptied completely." },
+    ],
+    /** 0, 1, 2–3, 4–5, 6–8 selecionados. Mensagens educativas: nunca pontuação, risco ou gravidade. */
+    states: [
+      { title: "Get to know the signs your body gives.", text: "Select the situations you relate to." },
+      { title: "Your body deserves attention.", text: "An individual assessment can help you understand this symptom." },
+      { title: "Every sign deserves to be understood.", text: "A professional assessment can help investigate your concerns." },
+      { title: "Your pelvic health deserves care.", text: "Knowing your body better is an important part of caring for it." },
+      { title: "Take the first step towards care.", text: "Talk to a professional to understand your needs in an individualised way." },
+    ],
   },
 
   journeySection: {

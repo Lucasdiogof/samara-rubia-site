@@ -46,7 +46,8 @@ export const es: Dict = {
   hero: {
     eyebrow: "Fisioterapia Pélvica en Goiânia",
     about: "Conoce mi trabajo",
-    points: ["Etapas explicadas", "Secreto profesional", "Para hombres y mujeres"],
+    title: "*Samara Rúbia* — Fisioterapeuta Pélvica",
+    lead: "Atención humanizada para mujeres y hombres, con foco en salud íntima, funcionalidad, bienestar y calidad de vida.",
   },
 
   intro: {
@@ -70,11 +71,45 @@ export const es: Dict = {
 
   aboutTeaser: {
     eyebrow: "Sobre mí",
-    heading: "Atención especializada para tu *calidad de vida*",
+    heading: "Atención especializada para tu *suelo pélvico*",
+    body: [
+      "Graduada en Fisioterapia por la Pontificia Universidad Católica de Goiás, con formación en Fisioterapia Pélvica y cinco años de actuación profesional en Goiânia.",
+      "Mi trabajo está dedicado a la salud pélvica de mujeres y hombres, buscando promover comodidad, autonomía y calidad de vida.",
+      "Creo en un cuidado que une conocimiento científico, escucha atenta y respeto por la individualidad de cada paciente.",
+    ] as string[],
     title: "Un espacio para hablar de lo *delicado,* sin prisa.",
     summary: (name) =>
       `Soy ${name}, fisioterapeuta pélvica. Creo en una atención en la que cada persona es escuchada con atención, entiende cada etapa y decide junto conmigo el camino de su cuidado.`,
     button: "Conocer mi historia",
+  },
+
+  signals: {
+    eyebrow: "Un momento para ti",
+    title: "¿Te identificas con alguna de estas *situaciones?*",
+    subtitle: "Selecciona las situaciones que forman parte de tu día a día.",
+    group: "Situaciones del día a día",
+    of: "de",
+    selected: ["0 seleccionadas", "1 seleccionada", "{n} seleccionadas"],
+    counter: "Situaciones seleccionadas",
+    disclaimer: "Este cuestionario es educativo y no sustituye una evaluación profesional. La cantidad de ítems seleccionados no indica gravedad.",
+    items: [
+      { title: "Pérdidas de orina", text: "Pierdo orina al reír, toser, estornudar o hacer ejercicio." },
+      { title: "Urgencia urinaria", text: "Siento ganas repentinas de orinar y tengo que correr al baño." },
+      { title: "Sueño interrumpido", text: "Me despierto de noche para orinar y eso afecta mi descanso." },
+      { title: "Prevención", text: "Uso toallas o protectores por miedo a perder orina." },
+      { title: "Movimiento", text: "Evito la actividad física por miedo a pérdidas o molestias." },
+      { title: "Molestia pélvica", text: "Siento dolor, presión o pesadez en la zona pélvica." },
+      { title: "Salud íntima", text: "Siento dolor o molestia durante las relaciones sexuales." },
+      { title: "Función intestinal", text: "Tengo dificultad para evacuar o siento que no vacío por completo." },
+    ],
+    /** 0, 1, 2–3, 4–5, 6–8 selecionados. Mensagens educativas: nunca pontuação, risco ou gravidade. */
+    states: [
+      { title: "Conoce mejor las señales de tu cuerpo.", text: "Marca las situaciones con las que te identificas." },
+      { title: "Tu cuerpo merece atención.", text: "Una evaluación individual puede ayudar a comprender este síntoma." },
+      { title: "Cada señal merece ser comprendida.", text: "Una evaluación profesional puede ayudar a investigar tus molestias." },
+      { title: "Tu salud pélvica merece cuidado.", text: "Conocer mejor tu cuerpo es parte importante del cuidado." },
+      { title: "Da el primer paso hacia el cuidado.", text: "Habla con una profesional para entender tus necesidades de forma individualizada." },
+    ],
   },
 
   journeySection: {

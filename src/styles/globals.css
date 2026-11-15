@@ -434,3 +434,26 @@ section:not(.lap-pad):has(+ .lap) {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* ───────── Questionário (home): número e texto do painel entram suavemente ───────── */
+@keyframes q-num {
+  from {
+    opacity: 0;
+    transform: translateY(0.35em);
+  }
+}
+@keyframes q-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .q-num {
+    display: inline-block;
+    animation: q-num 380ms var(--ease-out);
+  }
+  .q-fade {
+    animation: q-fade 460ms var(--ease-out);
+  }
+}

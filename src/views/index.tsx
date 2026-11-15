@@ -20,6 +20,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Intro } from "@/components/sections/Intro";
 import { Areas } from "@/components/sections/Areas";
 import { AboutTeaser } from "@/components/sections/AboutTeaser";
+import { Signals } from "@/components/sections/Signals";
 import { Journey } from "@/components/sections/Journey";
 import { Differentials } from "@/components/sections/Differentials";
 import { FaqSection } from "@/components/sections/FaqSection";
@@ -54,7 +55,7 @@ function Home({ lang }: { lang: Lang }) {
       <Intro lang={lang} />
       <Areas lang={lang} />
       <AboutTeaser lang={lang} />
-      <Journey lang={lang} compact />
+      <Signals lang={lang} />
       <Differentials lang={lang} />
       <ContentSection lang={lang} />
       <FaqSection lang={lang} />

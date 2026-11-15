@@ -18,12 +18,9 @@ function Curves({ className }: { className: string }) {
   );
 }
 
-/** Versão curta da bio para a home: apresentação, público e a primeira frase da abordagem (o texto completo fica em /sobre). */
-const short = (bio: string[]) => [bio[0], bio[1], bio[2]?.split(/(?<=\.)\s/)[0]].filter(Boolean);
-
 export function AboutTeaser({ lang }: { lang: Lang }) {
   const t = getDict(lang).aboutTeaser;
-  const [lead, ...rest] = short(getDict(lang).bio);
+  const [lead, ...rest] = t.body;
   return (
     <section
       className="on-dark grain lap relative overflow-hidden bg-[radial-gradient(60rem_40rem_at_22%_55%,rgba(181,96,63,0.16),transparent_70%),linear-gradient(150deg,#2f241f,#3d2d26_55%,#34281f)] py-[var(--space-section)] text-vanilla"

@@ -55,7 +55,8 @@ export const pt = {
   hero: {
     eyebrow: "Fisioterapia Pélvica em Goiânia",
     about: "Conheça meu trabalho",
-    points: ["Etapas explicadas", "Sigilo profissional", "Para homens e mulheres"],
+    title: "*Samara Rúbia* — Fisioterapeuta Pélvica",
+    lead: "Atendimento humanizado para mulheres e homens, com foco em saúde íntima, funcionalidade, bem-estar e qualidade de vida.",
   },
 
   intro: {
@@ -79,11 +80,45 @@ export const pt = {
 
   aboutTeaser: {
     eyebrow: "Sobre mim",
-    heading: "Cuidado especializado para a sua *qualidade de vida*",
+    heading: "Cuidado especializado para seu *assoalho pélvico*",
+    body: [
+      "Formada em Fisioterapia pela Pontifícia Universidade Católica de Goiás, com formação em Fisioterapia Pélvica e cinco anos de atuação profissional em Goiânia.",
+      "Minha atuação é dedicada à saúde pélvica de mulheres e homens, buscando promover conforto, autonomia e qualidade de vida.",
+      "Acredito em um cuidado que une conhecimento científico, escuta atenta e respeito à individualidade de cada paciente.",
+    ] as string[],
     title: "Um espaço para falar do que é *delicado,* sem pressa.",
     summary: (name: string) =>
       `Sou ${name}, fisioterapeuta pélvica. Acredito num atendimento em que cada pessoa é ouvida com atenção, entende cada etapa e decide junto o caminho do seu cuidado.`,
     button: "Conhecer minha história",
+  },
+
+  signals: {
+    eyebrow: "Um momento para você",
+    title: "Você se identifica com alguma destas *situações?*",
+    subtitle: "Selecione as situações que fazem parte do seu dia a dia.",
+    group: "Situações do dia a dia",
+    of: "de",
+    selected: ["0 selecionados", "1 selecionado", "{n} selecionados"],
+    counter: "Situações selecionadas",
+    disclaimer: "Este questionário é educativo e não substitui uma avaliação profissional. A quantidade de itens selecionados não indica gravidade.",
+    items: [
+      { title: "Escapes urinários", text: "Perco urina ao rir, tossir, espirrar ou praticar exercícios." },
+      { title: "Urgência urinária", text: "Sinto uma vontade repentina de urinar e preciso correr ao banheiro." },
+      { title: "Sono interrompido", text: "Acordo durante a noite para urinar e isso atrapalha meu descanso." },
+      { title: "Prevenção", text: "Uso absorventes ou protetores por receio de perder urina." },
+      { title: "Movimento", text: "Evito atividades físicas por medo de escapes ou desconfortos." },
+      { title: "Desconforto pélvico", text: "Sinto dor, pressão ou peso na região pélvica." },
+      { title: "Saúde íntima", text: "Sinto dor ou desconforto durante as relações sexuais." },
+      { title: "Função intestinal", text: "Tenho dificuldade para evacuar ou sinto um esvaziamento incompleto." },
+    ],
+    /** 0, 1, 2–3, 4–5, 6–8 selecionados. Mensagens educativas: nunca pontuação, risco ou gravidade. */
+    states: [
+      { title: "Conheça melhor os sinais do seu corpo.", text: "Marque as situações com as quais você se identifica." },
+      { title: "Seu corpo merece atenção.", text: "Uma avaliação individual pode ajudar a compreender esse sintoma." },
+      { title: "Cada sinal merece ser compreendido.", text: "Uma avaliação profissional pode ajudar a investigar suas queixas." },
+      { title: "Sua saúde pélvica merece cuidado.", text: "Conhecer melhor o seu corpo é parte importante do cuidado." },
+      { title: "Dê o primeiro passo em direção ao cuidado.", text: "Converse com uma profissional para entender suas necessidades de forma individualizada." },
+    ],
   },
 
   journeySection: {
