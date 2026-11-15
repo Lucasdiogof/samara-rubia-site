@@ -50,15 +50,11 @@ export const en: Dict = {
     lead: "Humanised care for women and men, focused on intimate health, function, well-being and quality of life.",
   },
 
-  intro: {
-    eyebrow: "What is pelvic physiotherapy",
-    text: "Many symptoms related to the intimate region may be associated with changes in how the pelvic floor muscles work, which take part in urinary and bowel control, sexual function and the support of the pelvic organs. Pelvic physiotherapy assesses these changes and directs treatment individually for *men and women* at any stage of life.",
-  },
-
-  areas: {
-    eyebrow: "Areas of practice",
-    title: "What Pelvic Physiotherapy *treats.*",
-    all: "See all treatments",
+  pelvic: {
+    eyebrow: "Pelvic health",
+    title: "What is Pelvic Physiotherapy and how can it *help?*",
+    text: "Pelvic physiotherapy works in the prevention and treatment of pelvic floor disorders related to urinary, bowel and sexual function, promoting health and quality of life for men and women.",
+    all: "Explore all treatments",
   },
 
   /** Apresentação profissional (texto da Samara), exibida em Sobre mim e na página Sobre. */

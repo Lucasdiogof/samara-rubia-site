@@ -50,15 +50,11 @@ export const es: Dict = {
     lead: "Atención humanizada para mujeres y hombres, con foco en salud íntima, funcionalidad, bienestar y calidad de vida.",
   },
 
-  intro: {
-    eyebrow: "Qué es la fisioterapia pélvica",
-    text: "Muchos síntomas relacionados con la región íntima pueden estar asociados a alteraciones en el funcionamiento de los músculos del suelo pélvico, que participan en el control urinario e intestinal, en la función sexual y en el sostén de los órganos pélvicos. La Fisioterapia Pélvica evalúa estas alteraciones y orienta el tratamiento de forma individualizada para *hombres y mujeres* en cualquier etapa de la vida.",
-  },
-
-  areas: {
-    eyebrow: "Áreas de actuación",
-    title: "Qué *trata* la Fisioterapia Pélvica.",
-    all: "Ver todos los tratamientos",
+  pelvic: {
+    eyebrow: "Salud pélvica",
+    title: "¿Qué es la Fisioterapia Pélvica y cómo puede *ayudar?*",
+    text: "La fisioterapia pélvica actúa en la prevención y el tratamiento de alteraciones del suelo pélvico, relacionadas con las funciones urinaria, intestinal y sexual, promoviendo salud y calidad de vida para hombres y mujeres.",
+    all: "Conoce todos los tratamientos",
   },
 
   /** Apresentação profissional (texto da Samara), exibida em Sobre mim e na página Sobre. */

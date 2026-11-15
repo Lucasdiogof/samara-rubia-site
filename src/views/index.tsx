@@ -17,8 +17,7 @@ import {
   StaggerItem,
 } from "@/components/animations/Reveal";
 import { Hero } from "@/components/sections/Hero";
-import { Intro } from "@/components/sections/Intro";
-import { Areas } from "@/components/sections/Areas";
+import { PelvicHealth } from "@/components/sections/PelvicHealth";
 import { AboutTeaser } from "@/components/sections/AboutTeaser";
 import { Signals } from "@/components/sections/Signals";
 import { Journey } from "@/components/sections/Journey";
@@ -52,8 +51,7 @@ function Home({ lang }: { lang: Lang }) {
   return (
     <>
       <Hero lang={lang} />
-      <Intro lang={lang} />
-      <Areas lang={lang} />
+      <PelvicHealth lang={lang} />
       <AboutTeaser lang={lang} />
       <Signals lang={lang} />
       <Differentials lang={lang} />
