@@ -89,12 +89,12 @@ export function ReviewsCarousel({
         onPointerUp={endDrag}
         onPointerLeave={endDrag}
         tabIndex={0}
-        className="reviews-track -mx-[var(--space-gutter)] flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-[var(--space-gutter)] pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:px-0 md:cursor-grab"
+        className="reviews-track -mx-[var(--space-gutter)] flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-[var(--space-gutter)] pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:px-0 md:cursor-grab lg:w-[calc(100%+7rem)] lg:pr-[7rem] lg:[mask-image:linear-gradient(to_right,#000_calc(100%-7rem),transparent)]"
       >
         {children.map((c, i) => (
           <li
             key={i}
-            className="flex min-w-0 shrink-0 basis-[84%] snap-start sm:basis-[calc((100%-1.5rem)/1.6)] lg:basis-[calc((100%-3rem)/2.6)]"
+            className="flex min-w-0 shrink-0 basis-[84%] snap-start sm:basis-[calc((100%-1.5rem)/1.6)] lg:basis-[calc((100%-3rem)/3)]"
           >
             {c}
           </li>

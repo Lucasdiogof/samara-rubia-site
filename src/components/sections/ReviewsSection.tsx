@@ -44,7 +44,7 @@ export function ReviewsSection({ lang }: { lang: Lang }) {
     );
   }
   return (
-    <section className="section lap bg-cream" aria-labelledby="avaliacoes-title">
+    <section className="section lap overflow-x-clip bg-cream" aria-labelledby="avaliacoes-title">
       <div className="wrap">
         <h2 id="avaliacoes-title" className="eyebrow mb-8">
           {t.eyebrow}
