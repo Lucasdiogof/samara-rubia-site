@@ -36,9 +36,9 @@ export { googleProfileUrl };
 export const categoryLabel = (lang: Lang, c: Article["category"]) =>
   getDict(lang).content.categories[c];
 
-export const formatDate = (lang: Lang, iso: string) =>
+export const formatDate = (lang: Lang, iso: string, monthOnly = false) =>
   new Intl.DateTimeFormat({ pt: "pt-BR", en: "en-GB", es: "es-ES" }[lang], {
-    dateStyle: "long",
+    ...(monthOnly ? { year: "numeric", month: "long" } : { dateStyle: "long" }),
     timeZone: "UTC",
   }).format(new Date(`${iso}T00:00:00Z`));
 

@@ -69,7 +69,7 @@ export function ReviewsSection({ lang }: { lang: Lang }) {
               <figcaption className="mt-6 border-t border-border pt-4 text-sm text-cocoa">
                 <span className="font-semibold text-cocoa-deep">{r.author}</span>
                 <span aria-hidden="true"> · </span>
-                <time dateTime={r.date}>{formatDate(lang, r.date)}</time>
+                <time dateTime={r.date}>{formatDate(lang, r.date, r.dateApprox)}</time>
                 <span className="block">
                   {r.url ? (
                     <a href={r.url} target="_blank" rel="noopener noreferrer" className="link-u">

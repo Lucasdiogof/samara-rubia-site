@@ -73,6 +73,8 @@ export type Review = {
   rating?: 1 | 2 | 3 | 4 | 5;
   /** link da avaliação no Google, se houver */
   url?: string;
+  /** o Google mostra só "há X dias": a data é aproximada e o site exibe apenas mês e ano */
+  dateApprox?: boolean;
   /** true somente com autorização documentada da pessoa para publicar */
   authorized: boolean;
   demo?: boolean;
@@ -114,7 +116,59 @@ export const posts: Post[] = [
   },
 ];
 export const articles: Article[] = [];
-export const reviews: Review[] = [];
+export const reviews: Review[] = [
+  // Transcritas em 15/11/2026 do perfil oficial (nota 5,0). Autorização: docs/AUTORIZACOES-AVALIACOES.md.
+  {
+    id: "g-crebilon",
+    author: "Crebilon De Araújo",
+    date: "2026-11-11",
+    dateApprox: true,
+    text: "Atendimento profissional com leveza e resultados concretos.",
+    lang: "pt",
+    rating: 5,
+    authorized: true,
+  },
+  {
+    id: "g-andreya",
+    author: "Andreya Martins",
+    date: "2026-11-08",
+    dateApprox: true,
+    text: "Sem palavras pra descrever ela😍 uma pessoa MARAVILHOSA 🩷 uma profissional sem igual , muito prestativa e presente do início ao fim das suas atividades com ela. Não tenho a reclamar ela me acompanhou durante minhas duas gestação e sempre quiz somente ela, por ser uma profissional exemplar e muito amável, ela ama oq faz , e sempre faz com carinho❣️🩷..",
+    lang: "pt",
+    rating: 5,
+    authorized: true,
+  },
+  {
+    id: "g-doraci",
+    author: "Doraci Alves",
+    date: "2026-11-08",
+    dateApprox: true,
+    text: "Samara é uma profissional excepcional porque tem compromisso com seu paciente é muito preocupada em ver o resultado realizado e o paciente satisfeito, eu como paciente dela senti segurança e tive um resultado muito positivo e vou continuar é super índico.",
+    lang: "pt",
+    rating: 5,
+    authorized: true,
+  },
+  {
+    id: "g-william",
+    author: "William Cordeiro",
+    date: "2026-11-08",
+    dateApprox: true,
+    text: "Atendido excelente! Precisei fazer fisioterapia após cirurgia de próstata devido a incontinência urinária. Hoje em dia não preciso não tenho mais problemas. Recomendo muito!",
+    lang: "pt",
+    rating: 5,
+    authorized: true,
+  },
+  {
+    id: "g-dezire",
+    author: "Dezirê Gomes",
+    date: "2026-11-08",
+    dateApprox: true,
+    text: "Após várias cirurgias na coluna, afetando a bexiga, conheci a Samara que me ajudou na minha recuperação.",
+    lang: "pt",
+    rating: 5,
+    authorized: true,
+  },
+];
 
 /** Link do perfil da Samara no Google (página de avaliações). Nulo = sem link. */
 export const googleProfileUrl: string | null = "https://www.google.com/maps?cid=2387843673426098565";
