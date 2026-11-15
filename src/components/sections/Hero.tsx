@@ -2,12 +2,10 @@ import { RevealText, RevealImage, FadeInSection } from "@/components/animations/
 import { AnimatedButton } from "@/components/ui/Button";
 import { Blob, Portrait } from "@/components/ui/Portrait";
 import { getDict, href, type Lang } from "@/i18n";
-import { fullName } from "@/config/site";
 import { primaryCta as getCta } from "@/lib/contact";
 
 export function Hero({ lang }: { lang: Lang }) {
   const t = getDict(lang).hero;
-  const about = getDict(lang).about;
   const primaryCta = getCta(lang);
   return (
     <section className="relative overflow-hidden pb-12 pt-28 sm:pt-32 lg:pb-16 lg:pt-36">
@@ -20,12 +18,12 @@ export function Hero({ lang }: { lang: Lang }) {
           <FadeInSection intro>
             <p className="eyebrow">{t.eyebrow}</p>
           </FadeInSection>
-          <RevealText as="h1" className="t-display mt-6" delay={0.1} intro>
-            {about.title(fullName.split(" ")[0]!)}
+          <RevealText as="h1" className="t-display mt-6 !text-[clamp(2.5rem,1.7rem+3.4vw,4.6rem)]" delay={0.1} intro>
+            {t.title}
           </RevealText>
           <FadeInSection delay={0.5} intro>
             <p className="t-lead mt-8">
-              {about.lead}
+              {t.lead}
             </p>
           </FadeInSection>
           <FadeInSection intro delay={0.65} className="mt-10 flex flex-wrap gap-4">
@@ -41,16 +39,6 @@ export function Hero({ lang }: { lang: Lang }) {
             >
               {t.about}
             </AnimatedButton>
-          </FadeInSection>
-          <FadeInSection intro delay={0.8}>
-            <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-2 text-sm text-cocoa">
-              {t.points.map((p) => (
-                <li key={p} className="flex items-center gap-2">
-                  <span aria-hidden="true" className="h-1 w-1 rounded-full bg-cocoa" />
-                  {p}
-                </li>
-              ))}
-            </ul>
           </FadeInSection>
         </div>
 
