@@ -296,8 +296,8 @@ export const pt = {
           a: "O agendamento é feito pelo WhatsApp profissional: você envia uma mensagem, combina o melhor horário e recebe as orientações para o dia.",
         },
         {
-          q: "O atendimento é presencial? E valores e convênios?",
-          a: "O atendimento é presencial, em Goiânia (endereço na seção Localização), de segunda a sexta-feira, das 9h às 18h. Valores e convênios devem ser confirmados pelo WhatsApp.",
+          q: "Onde e quando é o atendimento? E valores e convênios?",
+          a: "O atendimento é em Goiânia (endereço na seção Localização), de segunda a sexta-feira, das 9h às 18h. Valores e convênios devem ser confirmados pelo WhatsApp.",
         },
         {
           q: "Minhas informações de saúde ficam em sigilo?",

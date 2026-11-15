@@ -286,8 +286,8 @@ export const en: Dict = {
           a: "To book an assessment, message the professional WhatsApp number, agree on an appointment time and receive guidance for the day.",
         },
         {
-          q: "Is care in person? What about fees and insurance?",
-          a: "Appointments are in person in Goiânia (address in the Location section), Monday to Friday, 9am to 6pm. Please confirm fees and insurance on WhatsApp.",
+          q: "Where and when is care offered? What about fees and insurance?",
+          a: "Appointments are in Goiânia (address in the Location section), Monday to Friday, 9am to 6pm. Please confirm fees and insurance on WhatsApp.",
         },
         {
           q: "Is my health information kept confidential?",

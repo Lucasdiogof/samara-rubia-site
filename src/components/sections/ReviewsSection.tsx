@@ -46,7 +46,7 @@ export function ReviewsSection({ lang }: { lang: Lang }) {
   return (
     <section className="section lap bg-cream" aria-labelledby="avaliacoes-title">
       <div className="wrap">
-        <h2 id="avaliacoes-title" className="sr-only">
+        <h2 id="avaliacoes-title" className="eyebrow mb-8">
           {t.eyebrow}
         </h2>
         <ReviewsCarousel label={t.carousel} prev={t.prev} next={t.next} goTo={list.map((_, i) => t.goTo(i + 1))}>

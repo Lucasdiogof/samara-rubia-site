@@ -288,8 +288,8 @@ export const es: Dict = {
           a: "Para reservar una evaluación, escribe al WhatsApp profesional, acuerda el mejor horario y recibe las indicaciones para ese día.",
         },
         {
-          q: "¿La atención es presencial? ¿Y los valores y seguros?",
-          a: "La atención es presencial, en Goiânia (dirección en la sección Ubicación), de lunes a viernes, de 9:00 a 18:00. Confirma los precios y los seguros por WhatsApp.",
+          q: "¿Dónde y cuándo es la atención? ¿Y los valores y seguros?",
+          a: "La atención es en Goiânia (dirección en la sección Ubicación), de lunes a viernes, de 9:00 a 18:00. Confirma los precios y los seguros por WhatsApp.",
         },
         {
           q: "¿Mi información de salud se mantiene en secreto?",
