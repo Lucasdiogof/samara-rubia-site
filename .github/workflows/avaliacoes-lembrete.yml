@@ -1,0 +1,19 @@
+# Lembrete semanal (sem credenciais, sem scraping): abre uma issue para conferir o perfil do Google.
+# A automação real depende da Business Profile API (ver docs/REVIEWS.md).
+name: Lembrete de avaliações
+on:
+  schedule:
+    - cron: "0 12 * * 1" # segundas, 09h em Brasília
+  workflow_dispatch:
+permissions:
+  issues: write
+jobs:
+  lembrete:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "Conferir avaliações do Google ($(date +%d/%m/%Y))" \
+            --body "Abrir o perfil, ver se há avaliações novas de 5 estrelas, pedir autorização por escrito, cadastrar em src/config/content.ts, registrar em docs/AUTORIZACOES-AVALIACOES.md e atualizar googleRating (nota e total). Fluxo em docs/REVIEWS.md."
