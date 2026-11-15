@@ -77,3 +77,17 @@ test("sitemap lista os 3 idiomas e não expõe a rota interna do 404", async ({ 
   expect(xml).toContain("/es/tratamentos/dor-pelvica/");
   expect(xml).not.toContain("nao-encontrada");
 });
+
+test("tema escuro se mantém ao navegar pelo menu", async ({ browser }) => {
+  for (const colorScheme of ["dark", "light"] as const) {
+    const page = await (await browser.newContext({ colorScheme })).newPage();
+    await page.goto("/");
+    if (colorScheme === "light") await page.getByRole("button", { name: /escuro/i }).first().click();
+    await page.locator("header").getByRole("link", { name: "Dúvidas" }).first().click();
+    await expect(page).toHaveURL(/perguntas-frequentes/);
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+    await page.locator("header").getByRole("link", { name: "Início" }).first().click();
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+    await page.close();
+  }
+});

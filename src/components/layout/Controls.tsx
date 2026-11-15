@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useSyncExternalStore } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 import { Moon, Sun } from "lucide-react";
 import { href, langMeta, langs, splitPath } from "@/i18n/config";
@@ -21,6 +21,19 @@ export type ControlLabels = { language: string; toDark: string; toLight: string;
 export function Controls({ labels, className }: { labels: ControlLabels; className?: string }) {
   const { lang, path } = splitPath(usePathname());
   const dark = useSyncExternalStore(subscribe, () => root().dataset.theme === "dark", () => false);
+
+  // A navegação do Next reescreve o <html> e apaga o data-theme definido pelo script do <head>:
+  // guardamos o último valor e o devolvemos na hora (antes da pintura), para o tema não se perder entre páginas.
+  useEffect(() => {
+    let last = root().dataset.theme;
+    const mo = new MutationObserver(() => {
+      const cur = root().dataset.theme;
+      if (cur) last = cur;
+      else if (last) root().dataset.theme = last;
+    });
+    mo.observe(root(), { attributes: true, attributeFilter: ["data-theme"] });
+    return () => mo.disconnect();
+  }, []);
 
   const toggle = () => {
     const next = dark ? "light" : "dark";
