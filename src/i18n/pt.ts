@@ -55,13 +55,13 @@ export const pt = {
   hero: {
     eyebrow: "Fisioterapia Pélvica em Goiânia",
     about: "Conheça meu trabalho",
-    title: "*Samara Rúbia* — Fisioterapeuta Pélvica",
+    title: "*Samara Rúbia* Fisioterapeuta Pélvica",
     lead: "Atendimento humanizado para mulheres e homens, com foco em saúde íntima, funcionalidade, bem-estar e qualidade de vida.",
   },
 
   pelvic: {
     eyebrow: "Saúde pélvica",
-    title: "O que é a Fisioterapia Pélvica e como ela pode *ajudar?*",
+    title: "O que é a Fisioterapia Pélvica e o que ela *trata?*",
     text: "A fisioterapia pélvica atua na prevenção e no tratamento de alterações do assoalho pélvico, relacionadas às funções urinária, intestinal e sexual, promovendo saúde e qualidade de vida para homens e mulheres.",
     all: "Conheça todos os tratamentos",
   },
@@ -88,7 +88,6 @@ export const pt = {
     of: "de",
     selected: ["0 selecionados", "1 selecionado", "{n} selecionados"],
     counter: "Situações selecionadas",
-    disclaimer: "Este questionário é educativo e não substitui uma avaliação profissional. A quantidade de itens selecionados não indica gravidade.",
     items: [
       { title: "Escapes urinários", text: "Perco urina ao rir, tossir, espirrar ou praticar exercícios." },
       { title: "Urgência urinária", text: "Sinto uma vontade repentina de urinar e preciso correr ao banheiro." },
@@ -416,7 +415,7 @@ export const pt = {
       "Conheça os atendimentos de fisioterapia pélvica: incontinência urinária, bexiga hiperativa, endometriose, dor pélvica crônica, prolapso, gestação e pós-parto, entre outros.",
     eyebrow: "Tratamentos",
     title: "Áreas da *fisioterapia pélvica.*",
-    lead: "Temas em que a avaliação costuma ser buscada. O conteúdo é educativo e não substitui a avaliação individual.",
+    lead: "Conheça as áreas em que a fisioterapia pélvica atua e escolha um tema para saber mais.",
     review: "Versão de revisão: as áreas de atuação ainda serão confirmadas pela profissional.",
     crumb: "Tratamentos",
     reviewDetail:
@@ -481,7 +480,7 @@ export const pt = {
     },
     {
       slug: "incontinencia-urinaria",
-      title: "Incontinência urinária feminina e masculina",
+      title: "Incontinência urinária",
       short: "Avaliação de queixas de perda involuntária de urina, em mulheres e homens.",
       description:
         "A perda involuntária de urina é uma queixa comum, mas não precisa ser tratada como algo normal ou inevitável. A avaliação fisioterapêutica ajuda a entender o contexto de cada pessoa, seja mulher ou homem.",

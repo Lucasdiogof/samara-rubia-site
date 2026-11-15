@@ -46,13 +46,13 @@ export const en: Dict = {
   hero: {
     eyebrow: "Pelvic Physiotherapy in Goiânia",
     about: "See my work",
-    title: "*Samara Rúbia* — Pelvic Physiotherapist",
+    title: "*Samara Rúbia* Pelvic Physiotherapist",
     lead: "Humanised care for women and men, focused on intimate health, function, well-being and quality of life.",
   },
 
   pelvic: {
     eyebrow: "Pelvic health",
-    title: "What is Pelvic Physiotherapy and how can it *help?*",
+    title: "What is Pelvic Physiotherapy and what does it *treat?*",
     text: "Pelvic physiotherapy works in the prevention and treatment of pelvic floor disorders related to urinary, bowel and sexual function, promoting health and quality of life for men and women.",
     all: "Explore all treatments",
   },
@@ -79,7 +79,6 @@ export const en: Dict = {
     of: "of",
     selected: ["0 selected", "1 selected", "{n} selected"],
     counter: "Situations selected",
-    disclaimer: "This questionnaire is educational and does not replace a professional assessment. The number of items selected does not indicate severity.",
     items: [
       { title: "Urinary leakage", text: "I leak urine when I laugh, cough, sneeze or exercise." },
       { title: "Urinary urgency", text: "I feel a sudden urge to urinate and have to rush to the bathroom." },
@@ -406,7 +405,7 @@ export const en: Dict = {
       "Explore the pelvic physiotherapy services: urinary incontinence, overactive bladder, endometriosis, chronic pelvic pain, prolapse, pregnancy and postpartum, and more.",
     eyebrow: "Treatments",
     title: "Areas of *pelvic physiotherapy.*",
-    lead: "Topics for which an assessment is commonly sought. The content is educational and does not replace an individual assessment.",
+    lead: "Explore the areas where pelvic physiotherapy can help and choose a topic to learn more.",
     review: "Review version: the areas of practice are still to be confirmed by the professional.",
     crumb: "Treatments",
     reviewDetail:
@@ -471,7 +470,7 @@ export const en: Dict = {
     },
     {
       slug: "incontinencia-urinaria",
-      title: "Urinary incontinence in women and men",
+      title: "Urinary incontinence",
       short: "Assessment of involuntary urine leakage, in women and men.",
       description:
         "Involuntary urine leakage is a common concern, but it need not be treated as normal or inevitable. A physiotherapy assessment helps to understand each person's context, whether a woman or a man.",

@@ -18,7 +18,7 @@ export function SignalsQuiz({
   t,
   cta,
 }: {
-  t: Pick<Signals, "items" | "states" | "of" | "selected" | "counter" | "group" | "disclaimer">;
+  t: Pick<Signals, "items" | "states" | "of" | "selected" | "counter" | "group">;
   cta: { href: string; label: string };
 }) {
   const [picked, setPicked] = useState<ReadonlySet<number>>(new Set());
@@ -93,7 +93,6 @@ export function SignalsQuiz({
           </AnimatedButton>
         </div>
       </div>
-      <p className="mt-5 text-center text-[0.9rem] text-cocoa">{t.disclaimer}</p>
     </div>
   );
 }

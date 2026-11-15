@@ -7,7 +7,7 @@ const approachIcons = [ClipboardList, Ear, BookOpenCheck, TrendingUp];
 import { PageHero, ReviewNotice, CtaBand } from "@/components/ui/PageParts";
 import { AnimatedButton } from "@/components/ui/Button";
 import { Accordion } from "@/components/ui/Accordion";
-import { AreaRow } from "@/components/ui/AreaRow";
+import { ServiceCard } from "@/components/ui/ServiceCard";
 import { ContactRows } from "@/components/ui/ContactRows";
 import { WhatsAppIcon } from "@/components/ui/Icons";
 import { Portrait } from "@/components/ui/Portrait";
@@ -313,18 +313,19 @@ function Treatments({ lang }: { lang: Lang }) {
       </PageHero>
       <section className="pb-14">
         <div className="wrap">
-          <ul className="border-t border-border">
-            {enabledServices(lang).map((s, i) => (
-              <AreaRow
-                tint="onVanilla"
-                key={s.slug}
-                index={i}
-                title={s.title}
-                short={s.short}
-                href={href(lang, `/tratamentos/${s.slug}/`)}
-              />
+          <ul className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+            {enabledServices(lang).map((s) => (
+              <li key={s.slug}>
+                <ServiceCard
+                  slug={s.slug}
+                  title={s.title}
+                  short={s.short}
+                  href={href(lang, `/tratamentos/${s.slug}/`)}
+                />
+              </li>
             ))}
           </ul>
+          <p className="mt-6 max-w-2xl text-sm text-cocoa">{t.disclaimer}</p>
         </div>
       </section>
       <CtaBand lang={lang} />

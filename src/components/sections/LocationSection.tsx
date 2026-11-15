@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ChevronRight, MapPin } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { FadeInSection } from "@/components/animations/Reveal";
 import { AnimatedButton } from "@/components/ui/Button";
 import { ContactRows, nothingConfirmed } from "@/components/ui/ContactRows";
@@ -50,11 +50,6 @@ export function LocationSection({ lang }: { lang: Lang }) {
           <div className="relative overflow-hidden rounded-3xl border border-border bg-[linear-gradient(135deg,var(--vanilla),var(--cream))] shadow-[var(--shadow-soft)] lg:grid lg:grid-cols-[1fr_22rem]">
             <ContactRows lang={lang} only={[...only]} bare />
             <div className="relative flex flex-col items-start justify-center gap-5 border-t border-border p-8 lg:border-l lg:border-t-0">
-              <MapPin
-                aria-hidden="true"
-                strokeWidth={1}
-                className="pointer-events-none absolute -bottom-3 right-4 h-28 w-28 text-cocoa opacity-[0.09]"
-              />
               {site.location.mapsUrl && (
                 <AnimatedButton href={site.location.mapsUrl} className="relative w-full sm:w-auto">
                   {getDict(lang).contactRows.directions}

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { RevealText, FadeInSection } from "@/components/animations/Reveal";
 import { ArticleGrid } from "@/components/ui/ArticleGrid";
 import { PostGrid } from "@/components/ui/PostGrid";
 import { ReelGrid } from "@/components/ui/ReelGrid";
@@ -16,15 +15,11 @@ export function ContentSection({ lang }: { lang: Lang }) {
   return (
     <section className="section" aria-labelledby="conteudos-title">
       <div className="wrap">
-        <p className="eyebrow">{t.eyebrow}</p>
-        <RevealText as="h2" id="conteudos-title" className="t-h2 mt-5 max-w-3xl">
-          {t.title}
-        </RevealText>
-        <FadeInSection delay={0.2}>
-          <p className="t-lead mt-6">{t.lead}</p>
-        </FadeInSection>
+        <h2 id="conteudos-title" className="eyebrow">
+          {t.eyebrow}
+        </h2>
         {reels.length > 0 && (
-          <div className="mt-10">
+          <div className="mt-8">
             <h3 className="mb-6 font-display text-3xl text-cocoa-deep">{t.videos}</h3>
             <ReelGrid reels={reels} lang={lang} />
           </div>
