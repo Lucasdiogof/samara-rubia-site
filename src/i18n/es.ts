@@ -140,7 +140,7 @@ export const es: Dict = {
     titleWa: "¿Reservamos tu *evaluación?*",
     titleNoWa: "Pronto, el primer *contacto.*",
     textWa:
-      "Escríbeme por WhatsApp para acordar día y hora. No necesitas explicar tus síntomas por mensaje.",
+      "Escríbeme por WhatsApp para acordar día y hora.",
     textNoWa:
       "Los canales de contacto y de reserva de citas aún están en preparación y se publicarán aquí en cuanto se confirmen.",
     buttonWa: "Reservar por WhatsApp",

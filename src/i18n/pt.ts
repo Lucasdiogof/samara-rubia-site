@@ -149,7 +149,7 @@ export const pt = {
     titleWa: "Vamos agendar a sua *avaliação?*",
     titleNoWa: "Em breve, o primeiro *contato.*",
     textWa:
-      "Chame no WhatsApp para combinar dia e horário. Não precisa explicar seus sintomas por mensagem.",
+      "Chame no WhatsApp para combinar dia e horário.",
     textNoWa:
       "Os canais de contato e de agendamento ainda estão em preparação e serão divulgados aqui assim que forem confirmados.",
     buttonWa: "Agendar pelo WhatsApp",

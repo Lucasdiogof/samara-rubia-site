@@ -140,7 +140,7 @@ export const en: Dict = {
     titleWa: "Shall we book your *assessment?*",
     titleNoWa: "Soon, the first *contact.*",
     textWa:
-      "Message me on WhatsApp to agree a day and time. You don't need to explain your symptoms in writing.",
+      "Message me on WhatsApp to agree a day and time.",
     textNoWa:
       "Contact and booking channels are still being prepared and will be announced here as soon as they are confirmed.",
     buttonWa: "Book via WhatsApp",
