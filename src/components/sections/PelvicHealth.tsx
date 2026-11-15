@@ -40,7 +40,7 @@ export function PelvicHealth({ lang }: { lang: Lang }) {
   const t = getDict(lang).pelvic;
   const list = enabledServices(lang);
   return (
-    <section className="section lap bg-cream !py-[clamp(2.25rem,1.5rem+2.6vw,4rem)]" aria-labelledby="pelvic-title">
+    <section className="section lap bg-cream" aria-labelledby="pelvic-title">
       <div className="wrap">
         <div className="max-w-3xl">
           <p className="eyebrow">{t.eyebrow}</p>
