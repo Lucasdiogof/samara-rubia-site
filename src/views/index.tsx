@@ -538,7 +538,7 @@ const routes: Record<string, Route> = {
   "/": {
     meta: (lang) =>
       buildMetadata({
-        title: getDict(lang).home.title(fullName, getDict(lang).specialty),
+        title: getDict(lang).home.title(site.displayName, getDict(lang).specialty),
         description: siteDescription(lang),
         path: "/",
         lang,
