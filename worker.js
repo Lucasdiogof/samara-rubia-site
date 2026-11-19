@@ -1,4 +1,4 @@
-// Redireciona www para o domínio principal (301); todo o resto vem dos assets estáticos, com cabeçalhos de segurança.
+// Redireciona http e www para https://samararubia.com em um único 301, preservando caminho e query; todo o resto vem dos assets estáticos, com cabeçalhos de segurança.
 const APEX = "samararubia.com";
 
 // Sem CSP de propósito: o export do Next usa scripts inline que exigiriam hashes a cada build.
@@ -12,7 +12,9 @@ const SECURITY_HEADERS = {
 const worker = {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.hostname === `www.${APEX}`) {
+    const isWww = url.hostname === `www.${APEX}`;
+    if (isWww || (url.protocol === "http:" && url.hostname === APEX)) {
+      url.protocol = "https:";
       url.hostname = APEX;
       return Response.redirect(url.toString(), 301);
     }
